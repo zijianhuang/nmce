@@ -69,7 +69,7 @@ export class StringFunc {
 	 * @param s
 	 * @returns result. If input is empty, null, or undefined, return the same.
 	 */
-	static getHtmlPlainText(s: string): string {
+	static getHtmlPlainText(s: string): string | null  {
 		if (!s) {
 			return s;
 		}
@@ -97,7 +97,7 @@ export class StringFunc {
 	 * @param n
 	 * @returns validation error message
 	 */
-	static validateMedicare(n: string): { code: number, message: string } {
+	static validateMedicare(n: string): { code: number, message: string } | null {
 		if (!n) {
 			return null;
 		}
@@ -134,7 +134,7 @@ export class StringFunc {
 		return null;
 	}
 
-	static validateMedicareProviderNumber(providerNumber: string): { code: number, message: string } {
+	static validateMedicareProviderNumber(providerNumber: string): { code: number, message: string } | null {
 		if (!providerNumber) {
 			return null;
 		}
@@ -165,7 +165,7 @@ export class StringFunc {
 		return null;
 	}
 
-	static validateDVAFileNumber(dva: string): { code: number, message: string } {
+	static validateDVAFileNumber(dva: string): { code: number, message: string }  | null{
 		if (!dva) {
 			return null;
 		}
@@ -202,7 +202,7 @@ export class StringFunc {
 		return null;
 	}
 
-	static validateTFN(n: string): { code: number, message: string } {
+	static validateTFN(n: string): { code: number, message: string } | null {
 		if (!n) {
 			return null;
 		}
@@ -242,11 +242,11 @@ export class StringFunc {
 		return null;
 	}
 
-	private static addWeighted(p, v, i) {
+	private static addWeighted(p: number, v: number, i: number) {
 		return p + v * StringFunc.weights[i];
 	}
 
-	private static addAcnWeighted(p, v, i) {
+	private static addAcnWeighted(p: number, v: number, i: number) {
 		return p + v * StringFunc.acnWeights[i];
 	}
 
@@ -259,7 +259,7 @@ export class StringFunc {
 		return ns;
 	}
 
-	static validateABN(abn: string): { code: number, message: string } {
+	static validateABN(abn: string): { code: number, message: string } | null {
 		if (!abn) {
 			return null;
 		}
@@ -271,7 +271,7 @@ export class StringFunc {
 
 		digits[0] -= 1;
 
-		const sum = digits.reduce(StringFunc.addWeighted, 0);
+		const sum = digits.reduce(this.addWeighted, 0);
 
 		if (sum % 89 === 0) {
 			return null;
@@ -299,8 +299,11 @@ export class StringFunc {
 				}
 			}
 		}
+
+		return null
 	}
-	static validateACN(acn): { code: number, message: string } {
+
+	static validateACN(acn: string): { code: number, message: string } | null {
 		if (!acn) {
 			return null;
 		}

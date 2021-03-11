@@ -1,7 +1,5 @@
 export * from './dateFunc';
 export * from './currencyFunc';
-export * from './invoiceFunc';
-export * from './clInvoiceFunc';
 export * from './addressFunc';
 export * from './stringFunc';
 export * from './helperFunc';

@@ -12,10 +12,10 @@ export class HtmlFunc {
 </head><body onload="window.print()">${htmlTags}</body></html>`;
 
 			const popup = window.open('', '_blank', 'width=1024,height=768');
-			popup.document.open();
-			popup.document.write(htmlToPrint);
+			popup?.document.open();
+			popup?.document.write(htmlToPrint);
 
-			popup.document.close();
+			popup?.document.close();
 		}
 		return true;
 	}
@@ -31,10 +31,10 @@ export class HtmlFunc {
 </head><body onload="window.print()">${htmlTags}</body></html>`;
 
 			const popup = window.open('', '_blank', 'width=1024,height=768');
-			popup.document.open();
-			popup.document.write(htmlToPrint);
+			popup?.document.open();
+			popup?.document.write(htmlToPrint);
 
-			popup.document.close();
+			popup?.document.close();
 		}
 		return true;
 	}

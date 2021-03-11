@@ -1,4 +1,5 @@
-import * as moment from 'moment';
+import * as moment_ from 'moment';
+const moment = moment_;
 
 export class DateFunc {
 
@@ -41,7 +42,7 @@ export class DateFunc {
 	 * locate date ONLY (no time) to UTC date.
 	 * @param dt if dt contain time info, it will become dt.setHours(0, 0, 0, 0)
 	 */
-	static localDateToUtc(d: Date | number | string): Date {
+	static localDateToUtc(d: Date | number | string): Date | undefined {
 		if (!d) {
 			return undefined;
 		}
@@ -71,7 +72,7 @@ export class DateFunc {
 		return moment(stillUtc).local().toDate();
 	}
 
-	static dateTimeUtcToLocaMoment(dtUtc: Date): moment.Moment {
+	static dateTimeUtcToLocaMoment(dtUtc: Date): moment.Moment | null {
 		if (!dtUtc) {
 			return null;
 		}
