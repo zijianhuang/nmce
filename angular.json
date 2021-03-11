@@ -3,5 +3,46 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "nmce": {
+      "projectType": "library",
+      "root": "projects/nmce",
+      "sourceRoot": "projects/nmce/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/nmce/tsconfig.lib.json",
+            "project": "projects/nmce/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/nmce/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/nmce/src/test.ts",
+            "tsConfig": "projects/nmce/tsconfig.spec.json",
+            "karmaConfig": "projects/nmce/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/nmce/tsconfig.lib.json",
+              "projects/nmce/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "nmce"
 }

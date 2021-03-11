@@ -1,0 +1,137 @@
+import { StringFunc } from './stringFunc';
+
+class MyStatus {
+	static description = '12AB';
+	static integer = 8;
+	static something: string; //without instance, this does not count
+	static something2: string = undefined; //this count
+
+	private static _currentCalendarView = '';
+	static get currentCalendarView(): string {
+		const v = MyStatus._currentCalendarView;
+		return v ? v : 'month';
+	}
+	static set currentCalendarView(v: string) {
+		MyStatus._currentCalendarView = v;
+	}
+
+	static clear() {
+		for (const key in MyStatus) {
+			MyStatus[key] = undefined;
+		}
+	}
+}
+
+describe('1st tests', () => {
+	it('true is true', () => expect(true).toBe(true));
+
+	it('static variable', () => {
+		const staticKeys = Object.keys(MyStatus);
+		expect(staticKeys.length).toEqual(4); // something is not counted.
+		expect(MyStatus[staticKeys[0]]).toEqual('12AB');
+		expect(MyStatus.something).toBeUndefined();
+	});
+
+	it('static variable clear', () => {
+		const staticKeys = Object.keys(MyStatus);
+		MyStatus.currentCalendarView = 'kkkkk';
+
+		MyStatus.clear();
+
+		expect(MyStatus.description).toBeUndefined();
+		expect(staticKeys.length).toEqual(4); // something is not counted
+		expect(MyStatus[staticKeys[0]]).toBeUndefined();
+		expect(MyStatus.currentCalendarView).toEqual('month');
+
+		MyStatus.description = '12AB'; // sometimes this test runs first, causing the first test failed.
+	})
+});
+
+describe('stringFunc', () => {
+	it('getAbbr', () => {
+		expect(StringFunc.getAbbr('John Smith')).toEqual('JS');
+		expect(StringFunc.getAbbr('Huang, Zijian')).toEqual('ZH');
+		expect(StringFunc.getAbbr('')).toEqual('');
+		expect(StringFunc.getAbbr('John')).toEqual('J');
+	});
+
+	it('getOneLineDigest', () => {
+		expect(StringFunc.getOneLineDigest('', 32)).toEqual('');
+		expect(StringFunc.getOneLineDigest(undefined, 32)).toBe('');
+		expect(StringFunc.getOneLineDigest(null, 32)).toBe('');
+		expect(StringFunc.getOneLineDigest('Abcd efg', 32)).toEqual('Abcd efg');
+		expect(StringFunc.getOneLineDigest('Abcd\nefg', 32)).toEqual('Abcd efg');
+		expect(StringFunc.getOneLineDigest('123456789 123456789 123456789 123456789 ', 32)).toEqual('123456789 123456789 123456789 12...');
+		expect(StringFunc.getOneLineDigest('123456789\n123456789\n123456789\n123456789 ', 32)).toEqual('123456789 123456789 123456789 12...');
+	});
+
+	it('capitalize', () => {
+		expect(StringFunc.capitalizeWords('some thing')).toBe('Some Thing');
+		expect(StringFunc.capitalizeWords('3ome thing')).toBe('3ome Thing');
+		expect(StringFunc.capitalizeWords('località àtilacol')).toBe('Località Àtilacol');
+		expect(StringFunc.capitalizeWords('中文 好')).toBe('中文 好');
+		expect(StringFunc.capitalizeWords('')).toBe('');
+		expect(StringFunc.capitalizeWords(undefined)).toBeUndefined();
+		expect(StringFunc.capitalizeWords(null)).toBeNull();
+	});
+
+	it('validateMedicare', () => {
+		expect(StringFunc.validateMedicare('2950974202')).toBeNull();
+		expect(StringFunc.validateMedicare('3950386862')).toBeNull();
+		expect(StringFunc.validateMedicare('2950974392')).toBeNull();
+		expect(StringFunc.validateMedicare('3950386952')).toBeNull();
+
+		expect(StringFunc.validateMedicare('950386952').code).toBe(1);
+		expect(StringFunc.validateMedicare('33950386952').code).toBe(1);
+		expect(StringFunc.validateMedicare('aaaaaaaaaa').code).toBe(2);
+		expect(StringFunc.validateMedicare('3333333333').code).toBe(3);
+		expect(StringFunc.validateMedicare('3950386923').code).toBe(3);
+	});
+
+	it('validateProviderCode', () => {
+		expect(StringFunc.validateMedicareProviderNumber('2426591T')).toBeNull();
+		expect(StringFunc.validateMedicareProviderNumber('2426601H')).toBeNull();
+		expect(StringFunc.validateMedicareProviderNumber('2423391B')).toBeNull();
+		expect(StringFunc.validateMedicareProviderNumber('3323391B').code).toBe(2);
+		expect(StringFunc.validateMedicareProviderNumber('3391B').code).toBe(1);
+	});
+
+	it('validateTFN', () => {
+		expect(StringFunc.validateTFN('123456782')).toBeNull();
+		expect(StringFunc.validateTFN('123 456-782')).toBeNull();
+		expect(StringFunc.validateTFN('a3323391B').code).toBe(1);
+		expect(StringFunc.validateTFN('3391').code).toBe(2);
+		expect(StringFunc.validateTFN('123456783').code).toBe(3);
+	});
+
+	it('validateABN', () => {
+		expect(StringFunc.validateABN('51824753556')).toBeNull();
+		expect(StringFunc.validateABN('51 824 753 556')).toBeNull();
+		expect(StringFunc.validateABN('51-824 753 556')).toBeNull();
+		expect(StringFunc.validateABN('5182475355').code).toBe(1);
+		expect(StringFunc.validateABN('51824753557').code).toBe(2);
+	});
+
+	it('validateACN', () => {
+		expect(StringFunc.validateACN('003 249 992')).toBeNull();
+		expect(StringFunc.validateACN('005999977')).toBeNull();
+		expect(StringFunc.validateACN('010.499-966')).toBeNull();
+		expect(StringFunc.validateACN('00599997').code).toBe(1);
+		expect(StringFunc.validateACN('005999979').code).toBe(2);
+	});
+
+	it('validateDVAFileNumber', () => {
+		expect(StringFunc.validateDVAFileNumber('QX901533')).toBeNull();
+		expect(StringFunc.validateDVAFileNumber('W 1')).toBeNull();
+		expect(StringFunc.validateDVAFileNumber('SCGW1234')).toBeNull();
+		expect(StringFunc.validateDVAFileNumber('SCGW1234B')).toBeNull();
+		expect(StringFunc.validateDVAFileNumber('ZX901533').code).toBe(1);
+		expect(StringFunc.validateDVAFileNumber('QX90153C')).toBeNull();
+		expect(StringFunc.validateDVAFileNumber('NKKK1533').code).toBe(3);
+		expect(StringFunc.validateDVAFileNumber('WK153344').code).toBe(3);
+		expect(StringFunc.validateDVAFileNumber('TX1533444').code).toBe(4);
+		expect(StringFunc.validateDVAFileNumber('VXabcde').code).toBe(2);
+	});
+
+
+});
