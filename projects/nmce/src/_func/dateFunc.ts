@@ -72,9 +72,9 @@ export class DateFunc {
 		return moment(stillUtc).local().toDate();
 	}
 
-	static dateTimeUtcToLocaMoment(dtUtc: Date): moment.Moment | null {
+	static dateTimeUtcToLocaMoment(dtUtc: Date): moment.Moment {
 		if (!dtUtc) {
-			return null;
+			return dtUtc;
 		}
 
 		const stillUtc = moment.utc(dtUtc);
