@@ -4,7 +4,7 @@ class MyStatus {
 	static description = '12AB';
 	static integer = 8;
 	static something: string; //without instance, this does not count
-	static something2: string = undefined; //this count
+	static something2: string; //this count
 
 	private static _currentCalendarView = '';
 	static get currentCalendarView(): string {
@@ -17,7 +17,10 @@ class MyStatus {
 
 	static clear() {
 		for (const key in MyStatus) {
-			MyStatus[key] = undefined;
+			const p =key as keyof MyStatus;
+{/* 
+  // @ts-ignore */}
+  			MyStatus[p] = undefined;
 		}
 	}
 }
@@ -28,7 +31,8 @@ describe('1st tests', () => {
 	it('static variable', () => {
 		const staticKeys = Object.keys(MyStatus);
 		expect(staticKeys.length).toEqual(4); // something is not counted.
-		expect(MyStatus[staticKeys[0]]).toEqual('12AB');
+		const p = staticKeys[0] as keyof MyStatus;
+		expect(MyStatus[p]).toEqual('12AB');
 		expect(MyStatus.something).toBeUndefined();
 	});
 
@@ -40,7 +44,8 @@ describe('1st tests', () => {
 
 		expect(MyStatus.description).toBeUndefined();
 		expect(staticKeys.length).toEqual(4); // something is not counted
-		expect(MyStatus[staticKeys[0]]).toBeUndefined();
+		const p = staticKeys[0] as keyof MyStatus;
+		expect(MyStatus[p]).toBeUndefined();
 		expect(MyStatus.currentCalendarView).toEqual('month');
 
 		MyStatus.description = '12AB'; // sometimes this test runs first, causing the first test failed.

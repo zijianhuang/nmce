@@ -53,6 +53,7 @@ describe('DateFunc', () => {
 		expect(dt.getHours()).toBe(10); //somehow the Date function give it 10 hours in Brisbane
 
 		const dtUtc = DateFunc.localDateToUtc('2018-02-23');
+		expect(dtUtc).toBeDefined();
 		console.debug('dtUtc: ' + dtUtc.toString());
 		expect(dtUtc.getHours()).toBe(14);
 		expect(dtUtc.getDate()).toBe(22);
