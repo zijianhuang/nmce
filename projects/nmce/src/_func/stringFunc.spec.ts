@@ -4,7 +4,7 @@ class MyStatus {
 	static description = '12AB';
 	static integer = 8;
 	static something: string; //without instance, this does not count
-	static something2: string; //this count
+	static something2: string=undefined!; //this count
 
 	private static _currentCalendarView = '';
 	static get currentCalendarView(): string {
@@ -18,9 +18,9 @@ class MyStatus {
 	static clear() {
 		for (const key in MyStatus) {
 			const p =key as keyof MyStatus;
-{/* 
+ {/* 
   // @ts-ignore */}
-  			MyStatus[p] = undefined;
+   			MyStatus[p] = undefined;
 		}
 	}
 }
@@ -86,43 +86,43 @@ describe('stringFunc', () => {
 		expect(StringFunc.validateMedicare('2950974392')).toBeNull();
 		expect(StringFunc.validateMedicare('3950386952')).toBeNull();
 
-		expect(StringFunc.validateMedicare('950386952').code).toBe(1);
-		expect(StringFunc.validateMedicare('33950386952').code).toBe(1);
-		expect(StringFunc.validateMedicare('aaaaaaaaaa').code).toBe(2);
-		expect(StringFunc.validateMedicare('3333333333').code).toBe(3);
-		expect(StringFunc.validateMedicare('3950386923').code).toBe(3);
+		expect(StringFunc.validateMedicare('950386952')?.code).toBe(1);
+		expect(StringFunc.validateMedicare('33950386952')?.code).toBe(1);
+		expect(StringFunc.validateMedicare('aaaaaaaaaa')?.code).toBe(2);
+		expect(StringFunc.validateMedicare('3333333333')?.code).toBe(3);
+		expect(StringFunc.validateMedicare('3950386923')?.code).toBe(3);
 	});
 
 	it('validateProviderCode', () => {
 		expect(StringFunc.validateMedicareProviderNumber('2426591T')).toBeNull();
 		expect(StringFunc.validateMedicareProviderNumber('2426601H')).toBeNull();
 		expect(StringFunc.validateMedicareProviderNumber('2423391B')).toBeNull();
-		expect(StringFunc.validateMedicareProviderNumber('3323391B').code).toBe(2);
-		expect(StringFunc.validateMedicareProviderNumber('3391B').code).toBe(1);
+		expect(StringFunc.validateMedicareProviderNumber('3323391B')?.code).toBe(2);
+		expect(StringFunc.validateMedicareProviderNumber('3391B')?.code).toBe(1);
 	});
 
 	it('validateTFN', () => {
 		expect(StringFunc.validateTFN('123456782')).toBeNull();
 		expect(StringFunc.validateTFN('123 456-782')).toBeNull();
-		expect(StringFunc.validateTFN('a3323391B').code).toBe(1);
-		expect(StringFunc.validateTFN('3391').code).toBe(2);
-		expect(StringFunc.validateTFN('123456783').code).toBe(3);
+		expect(StringFunc.validateTFN('a3323391B')?.code).toBe(1);
+		expect(StringFunc.validateTFN('3391')?.code).toBe(2);
+		expect(StringFunc.validateTFN('123456783')?.code).toBe(3);
 	});
 
 	it('validateABN', () => {
 		expect(StringFunc.validateABN('51824753556')).toBeNull();
 		expect(StringFunc.validateABN('51 824 753 556')).toBeNull();
 		expect(StringFunc.validateABN('51-824 753 556')).toBeNull();
-		expect(StringFunc.validateABN('5182475355').code).toBe(1);
-		expect(StringFunc.validateABN('51824753557').code).toBe(2);
+		expect(StringFunc.validateABN('5182475355')?.code).toBe(1);
+		expect(StringFunc.validateABN('51824753557')?.code).toBe(2);
 	});
 
 	it('validateACN', () => {
 		expect(StringFunc.validateACN('003 249 992')).toBeNull();
 		expect(StringFunc.validateACN('005999977')).toBeNull();
 		expect(StringFunc.validateACN('010.499-966')).toBeNull();
-		expect(StringFunc.validateACN('00599997').code).toBe(1);
-		expect(StringFunc.validateACN('005999979').code).toBe(2);
+		expect(StringFunc.validateACN('00599997')?.code).toBe(1);
+		expect(StringFunc.validateACN('005999979')?.code).toBe(2);
 	});
 
 	it('validateDVAFileNumber', () => {
@@ -130,12 +130,12 @@ describe('stringFunc', () => {
 		expect(StringFunc.validateDVAFileNumber('W 1')).toBeNull();
 		expect(StringFunc.validateDVAFileNumber('SCGW1234')).toBeNull();
 		expect(StringFunc.validateDVAFileNumber('SCGW1234B')).toBeNull();
-		expect(StringFunc.validateDVAFileNumber('ZX901533').code).toBe(1);
+		expect(StringFunc.validateDVAFileNumber('ZX901533')?.code).toBe(1);
 		expect(StringFunc.validateDVAFileNumber('QX90153C')).toBeNull();
-		expect(StringFunc.validateDVAFileNumber('NKKK1533').code).toBe(3);
-		expect(StringFunc.validateDVAFileNumber('WK153344').code).toBe(3);
-		expect(StringFunc.validateDVAFileNumber('TX1533444').code).toBe(4);
-		expect(StringFunc.validateDVAFileNumber('VXabcde').code).toBe(2);
+		expect(StringFunc.validateDVAFileNumber('NKKK1533')?.code).toBe(3);
+		expect(StringFunc.validateDVAFileNumber('WK153344')?.code).toBe(3);
+		expect(StringFunc.validateDVAFileNumber('TX1533444')?.code).toBe(4);
+		expect(StringFunc.validateDVAFileNumber('VXabcde')?.code).toBe(2);
 	});
 
 

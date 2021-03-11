@@ -32,7 +32,7 @@ export class StringFunc {
 	 * @param length
 	 * @returns result, or empty string if the input is empty, null or undefined
 	 */
-	static getOneLineDigest(s: string, length: number) {
+	static getOneLineDigest(s: string | undefined | null, length: number) {
 		if (!s) {
 			return '';
 		}
@@ -84,7 +84,7 @@ export class StringFunc {
 	 * @param s
 	 * @returns result. If input is empty, null, or undefined, return the same.
 	 */
-	static capitalizeWords(s: string): string { // thanks to https://stackoverflow.com/questions/2332811/capitalize-words-in-string
+	static capitalizeWords(s: string | undefined | null): string | undefined | null { // thanks to https://stackoverflow.com/questions/2332811/capitalize-words-in-string
 		if (!s) {
 			return s;
 		}
@@ -97,7 +97,7 @@ export class StringFunc {
 	 * @param n
 	 * @returns validation error message
 	 */
-	static validateMedicare(n: string): { code: number, message: string } | null {
+	static validateMedicare(n: string | undefined | null): { code: number, message: string } | null {
 		if (!n) {
 			return null;
 		}
