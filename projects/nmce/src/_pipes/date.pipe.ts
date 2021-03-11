@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Pipe, PipeTransform } from '@angular/core';
-import * as moment from 'moment';
+import moment from 'moment';
 import { DateFunc } from '../_func';
 
 //date pipes of ng2 and 4 not working in Firefox on Android, also,

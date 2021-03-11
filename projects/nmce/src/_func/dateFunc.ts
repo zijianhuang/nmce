@@ -1,5 +1,4 @@
-import * as moment_ from 'moment';
-const moment = moment_;
+import moment from 'moment';
 
 export class DateFunc {
 

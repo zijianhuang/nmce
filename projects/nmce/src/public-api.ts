@@ -4,6 +4,6 @@
 
 export * from './lib/nmce.service';
 export * from './lib/nmce.component';
-export * from './lib/nmce.module';
 export * from './_func/index';
-export * from './_pipes/appPipes.module';
+export * from './_pipes/index';
+export * from './_directives/index';

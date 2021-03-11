@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import {
 	ShortTimePipe, FullDatePipe, MediumDatePipe, ShortDatePipe, LiteralDatePipe, ShortDateTimePipe,
 	Short24Pipe, ShortDate24Pipe,
-} from './date.pipe';
-import {  AudCurrencyPipe, InvoicePipe } from './number.pipe';
+	AudCurrencyPipe, InvoicePipe,
+} from './index';
 
 @NgModule({
 	declarations: [ShortTimePipe, FullDatePipe, MediumDatePipe, ShortDatePipe, ShortDateTimePipe,
