@@ -1,0 +1,14 @@
+<div mat-dialog-title>
+	<strong>{{ title }}</strong>
+</div>
+<mat-dialog-content>
+	<mat-selection-list [multiple]="false" (selectionChange)="itemSelectionChange($event)">
+		<mat-list-option *ngFor="let p of items" [value]="p">
+			{{toString(p)}}
+		</mat-list-option>
+
+	</mat-selection-list>
+</mat-dialog-content>
+<mat-dialog-actions fxlayout="row" fxLayoutGap="0.5em" fxLayoutAlign="center center">
+	<button type="button" mat-button mat-raised-button matDialogClose>Cancel</button>
+</mat-dialog-actions>

@@ -1,0 +1,42 @@
+<div mat-dialog-title fxLayout="row">
+	<strong mat-dialog-title fxFlex="90">Email</strong>
+	<button *ngIf="!ccEnabled && !emailMessage?.cc" mat-button mat-icon-button (click)="ccEnabled=true">CC</button>
+	<button *ngIf="!bccEnabled && !emailMessage?.bcc" mat-button mat-icon-button (click)="bccEnabled=true">BCC</button>
+</div>
+<mat-dialog-content>
+	<form fxLayout="column">
+		<mat-form-field fxFlexFill>
+			<mat-label>To</mat-label>probably need to change to formControl>
+			<input matInput [(ngModel)]="emailMessage.to" name="to" type="email" />
+			<button *ngIf="emailAddressesDialogService" mat-button mat-icon-button matPrefix (click)="pickToAddresses()">
+				<mat-icon>contact_mail</mat-icon>
+			</button>
+		</mat-form-field>
+		<mat-form-field *ngIf="ccEnabled || emailMessage.cc" fxFlexFill>
+			<input matInput placeholder="CC" [(ngModel)]="emailMessage.cc" name="cc" type="email" />
+			<button *ngIf="emailAddressesDialogService" mat-button mat-icon-button matPrefix (click)="pickCcAddresses()">
+				<mat-icon>contact_mail</mat-icon>
+			</button>
+		</mat-form-field>
+		<mat-form-field *ngIf="bccEnabled || emailMessage.bcc" fxFlexFill>
+			<input matInput placeholder="BCC" [(ngModel)]="emailMessage.bcc" name="bcc" type="email" />
+			<button *ngIf="emailAddressesDialogService" mat-button mat-icon-button matPrefix (click)="pickBccAddresses()">
+				<mat-icon>contact_mail</mat-icon>
+			</button>
+		</mat-form-field>
+		<mat-form-field fxFlexFill>
+			<input matInput placeholder="Subject" [(ngModel)]="emailMessage.subject" name="subject" type="text" />
+		</mat-form-field>
+		<mat-form-field *ngIf="!emailMessage?.isHtml" fxFlexFill>
+			<textarea matInput matTextareaAutosize placeholder="Message" [(ngModel)]="emailMessage.body" name="body" type="text" matAutosizeMinRows=2 matAutosizeMaxRows=6></textarea>
+		</mat-form-field>
+	</form>
+	<angular-editor *ngIf="emailMessage?.isHtml" name="body" [formControl]="noteControl" [config]="config"></angular-editor>
+</mat-dialog-content>
+<mat-dialog-actions fxLayoutGap="0.5em" fxlayout="row" fxLayoutAlign="center center">
+	<button type="submit" mat-button mat-raised-button (click)="confirm()" id="send" tabindex="1" [disabled]="!emailMessage?.to">
+		<mat-icon>send</mat-icon>
+		Send
+	</button>
+	<button type="button" mat-button mat-raised-button matDialogClose id="cancel">Cancel</button>
+</mat-dialog-actions>

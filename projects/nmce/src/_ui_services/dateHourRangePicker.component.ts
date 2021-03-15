@@ -1,0 +1,111 @@
+import { Component, Injectable, Inject } from '@angular/core';
+import { Observable } from 'rxjs';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DateFunc } from '../_func/dateFunc';
+import { StringFunc } from '../_func/stringFunc';
+
+/**
+ * Picke datetimes between.
+ * If start date is not defined, it will be today from now.
+ * If the end date is not defined, it will be 180 days from the start date.
+ */
+@Component({
+
+	selector: 'DateHourRangePicker',
+	templateUrl: 'DateHourRangePicker.component.html',
+})
+export class DateHourRangePickerComponent {
+	title = 'Date Range';
+
+	startDate: Date;
+	endDate: Date;
+
+	hourSlots = Array.from(Array(24).keys()); // thanks to https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n
+	minuteSlots = Array.from({ length: 12 }, (v, k) => k++).map(t => 5 * t);
+
+	selectedHourStart: number;
+	selectedMinuteStart: number;
+	selectedHourEnd: number;
+	selectedMinuteEnd: number;
+
+	constructor(public dialogRef: MatDialogRef<DateHourRangePickerComponent>, @Inject(MAT_DIALOG_DATA) public data: { start: Date, end: Date }) {
+		this.startDate = data.start ? data.start : DateFunc.now;
+		this.endDate = DateFunc.getEndOfDate(data.end ? data.end : DateFunc.addDays(this.startDate, 180));
+
+		this.selectedHourStart = DateFunc.getHour(this.startDate);
+		const mt = DateFunc.getMinute(this.startDate);
+		this.selectedMinuteStart = (mt % 5) ? (Math.floor(mt / 5) * 5 + 5) : mt;
+
+		this.selectedHourEnd = DateFunc.getHour(this.endDate);
+		const mt2 = DateFunc.getMinute(this.endDate);
+		this.selectedMinuteEnd = (mt2 % 5) ? (Math.floor(mt2 / 5) * 5 + 5) : mt2;
+		if (this.selectedMinuteEnd === 60) {
+			this.selectedMinuteEnd = 59;
+		}
+
+		this.minuteSlots.push(59);
+		console.debug('selectedMinuteEnd: ' + this.selectedMinuteEnd);
+	}
+
+	submit(): void {
+		this.dialogRef.close({
+			start: DateFunc.composeDateTime(this.startDate, this.selectedHourStart, this.selectedMinuteStart),
+			end: DateFunc.composeDateTime(this.endDate, this.selectedHourEnd, this.selectedMinuteEnd)
+		});
+	}
+
+	cancel(): void {
+		this.dialogRef.close(undefined);
+	}
+
+	clear(): void {
+		this.dialogRef.close(null);
+	}
+
+	pad0(n: number) {
+		return StringFunc.pad(n, 2);
+	}
+}
+
+/**
+ * Picke datetimes between.
+ */
+@Injectable()
+export class DateHourRangePickerService {
+	private isHandsetPortrait: boolean;
+	constructor(private dialog: MatDialog, breakpointObserver: BreakpointObserver) {
+		breakpointObserver.observe([Breakpoints.HandsetPortrait]).subscribe(
+			r => {
+				this.isHandsetPortrait = r.matches;
+			}
+		);
+	}
+
+	/**
+	 * Pick dates between through DateHourRangePickerComponent.
+	 * If start date is not defined, it will be today from now.
+	 * If the end date is not defined, it will be 180 days from the start date.
+	 */
+	open(start: Date, end: Date): Observable<{ start: Date, end: Date }> {
+		const modalRef = this.isHandsetPortrait ?
+			this.dialog.open(DateHourRangePickerComponent, {
+				disableClose: true,
+				minWidth: '98vw',
+				maxHeight: '95vh',
+				data: {
+					start: start,
+					end: end
+				}
+			})
+			: this.dialog.open(DateHourRangePickerComponent, {
+				disableClose: true,
+				data: {
+					start: start,
+					end: end
+				}
+			});
+		return modalRef.afterClosed();
+	}
+
+}

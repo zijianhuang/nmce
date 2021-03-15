@@ -1,0 +1,19 @@
+<div mat-dialog-title>{{ title }}</div>
+
+<mat-dialog-content fxLayout="row" fxLayoutGap="0.8em">
+	<mat-form-field fxFlex="3em">
+		<mat-select placeholder="Hour" [(ngModel)]="selectedHour" name="hour">
+			<mat-option *ngFor="let h of hourSlots" [value]="h">{{ pad0(h) }}</mat-option>
+		</mat-select>
+	</mat-form-field>
+	<mat-form-field fxFlex="3em">
+		<mat-select placeholder="Minute" [(ngModel)]="selectedMinute" name="minute">
+			<mat-option *ngFor="let m of minuteSlots" [value]="m">{{ pad0(m) }}</mat-option>
+		</mat-select>
+	</mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions fxlayout="row" fxLayoutGap="0.5em" fxLayoutAlign="center center">
+	<button type="button" mat-button mat-raised-button (click)="submit()" tabindex="1">Submit</button>
+	<button *ngIf="!noClear" type="button" mat-button mat-raised-button (click)="clear()" tabindex="2">Clear</button>
+	<button mat-button mat-raised-button (click)="cancel()">Cancel</button>
+</mat-dialog-actions>

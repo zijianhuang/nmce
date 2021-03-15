@@ -1,0 +1,12 @@
+<div mat-dialog-title>
+	<strong>{{ title }}</strong>
+</div>
+<mat-dialog-content>
+	<!-- div p is need to have line break from title -->
+	<div fxFlex="40em">
+		<p>{{ body }}</p>
+	</div>
+</mat-dialog-content>
+<mat-dialog-actions fxlayout="row" fxLayoutGap="0.5em" fxLayoutAlign="center center">
+	<button *ngFor="let op of options" type="button" mat-button mat-raised-button (click)="confirm(op)">{{ op }}</button>
+</mat-dialog-actions>

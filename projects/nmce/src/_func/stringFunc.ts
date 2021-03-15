@@ -48,7 +48,7 @@ export class StringFunc {
 	 * @param length
 	 * @returns result, or empty string if the input is empty, null or undefined
 	 */
-	static getOneLineDigestOfHtml(s: string, length: number) {
+	static getOneLineDigestOfHtml(s: string | null, length: number) {
 		if (!s) {
 			return '';
 		}
@@ -69,7 +69,7 @@ export class StringFunc {
 	 * @param s
 	 * @returns result. If input is empty, null, or undefined, return the same.
 	 */
-	static getHtmlPlainText(s: string): string | null  {
+	static getHtmlPlainText(s: string | null): string | null  {
 		if (!s) {
 			return s;
 		}

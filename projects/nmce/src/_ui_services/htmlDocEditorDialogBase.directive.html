@@ -1,0 +1,25 @@
+<div mat-dialog-title>
+	<mat-dialog-actions fxlayout="row" fxLayoutGap="1em" fxLayoutAlign="start">
+		<button mat-button mat-raised-button matTooltip="Back"
+				(click)="close()">
+			<mat-icon>arrow_back_ios</mat-icon>
+		</button>
+		<div *ngIf="!readonly">
+			<button type="submit" mat-icon-button mat-button mat-raised-button (click)="save()" [disabled]="!modified" matTooltip="Save changes">
+				<mat-icon>done</mat-icon>
+			</button>
+			<button mat-icon-button mat-button mat-raised-button (click)="reset()" [disabled]="!modified" matTooltip="Undo changes">
+				<mat-icon>undo</mat-icon>
+			</button>
+		</div>
+		<button mat-mini-fab (click)="print()">
+			<mat-icon>print</mat-icon>
+		</button>
+	</mat-dialog-actions>
+
+</div>
+<mat-dialog-content>
+	<!--<p *ngIf="contentCreatedUtc">Created: {{ contentCreatedUtc | shortDate24 }}  Modified:{{ contentModifiedUtc | shortDate24 }}</p>-->
+	<label>{{ noteLabel }}</label>
+	<angular-editor id="htmlEditor" [formControl]="noteControl" [config]="config"></angular-editor>
+</mat-dialog-content>

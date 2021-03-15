@@ -1,0 +1,22 @@
+<div mat-dialog-title>
+	<mat-dialog-actions fxlayout="row" fxLayoutGap="0.5em" fxLayoutAlign="start">
+		<button mat-button mat-raised-button matTooltip="Back"
+				(click)="close()">
+			<mat-icon>arrow_back_ios</mat-icon>
+		</button>
+		<div *ngIf="!readonly">
+			<button type="submit" mat-icon-button mat-button mat-raised-button (click)="save()" [disabled]="!modified" matTooltip="Save changes">
+				<mat-icon>done</mat-icon>
+			</button>
+			<button mat-icon-button mat-button mat-raised-button (click)="reset()" [disabled]="!modified" matTooltip="Undo changes">
+				<mat-icon>undo</mat-icon>
+			</button>
+		</div>
+	</mat-dialog-actions>
+</div>
+<mat-dialog-content>
+	<mat-form-field fxFlexFill>
+		<textarea matInput [placeholder]="noteLabel" #textDetail name="note" [formControl]="noteControl"
+				  matTextareaAutosize matAutosizeMinRows="2" [matAutosizeMaxRows]="maxRows" [readonly]="readonly"></textarea>
+	</mat-form-field>
+</mat-dialog-content>
