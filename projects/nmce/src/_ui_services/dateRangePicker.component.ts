@@ -57,7 +57,7 @@ export class DateRangePickerService {
 	 * If start date is not defined, it will be today from now.
 	 * If the end date is not defined, it will be 180 days from the start date.
 	 */
-	open(start: Date, end: Date): Observable<{ start: Date, end: Date }> {
+	open(start: Date | undefined, end: Date | undefined): Observable<{ start: Date, end: Date }> {
 		const modalRef = this.isHandsetPortrait ?
 			this.dialog.open(DateRangePickerComponent, {
 				disableClose: true,

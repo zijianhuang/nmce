@@ -1,0 +1,94 @@
+<fieldset>
+	<legend>AlertService</legend>
+	<div fxLayoutGap="1em">
+
+		<label>Text</label><button mat-mini-fab (click)="showDialog()"><mat-icon>play_arrow</mat-icon></button>
+		<mat-form-field>
+			<mat-select [formControl]="dialogSelectedControl">
+				<mat-option [value]="1" matTooltip="If snackBar is undefined, message will be displayed in snackbar if not longer than 50 bytes">Success</mat-option>
+				<mat-option [value]="2">Info</mat-option>
+				<mat-option [value]="3">Warn</mat-option>
+				<mat-option [value]="4">Error</mat-option>
+				<mat-option [value]="5" matTooltip="With subtitle">Warn Message</mat-option>
+				<mat-option [value]="6" matTooltip="With subtitle">Error Message</mat-option>
+				<mat-option [value]="7" matTooltip="If snackBar is undefined, message will be displayed in dialog if longer than 50 bytes">Success Long Message</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<mat-checkbox *ngIf="showSnackBarCheckbox" [(ngModel)]="snackBar" [indeterminate]="snackBar==undefined" matTooltip="Whether to display in snackBar">SnackBar</mat-checkbox>
+	</div>
+	<div fxLayoutGap="1em">
+		<label>HTML</label><button mat-mini-fab (click)="showDialogWithHtml()"><mat-icon>play_arrow</mat-icon></button>
+		<mat-form-field>
+			<mat-select [formControl]="dialogSelectedControlForHtml">
+				<mat-option [value]="1">Success</mat-option>
+				<mat-option [value]="2">Info</mat-option>
+				<mat-option [value]="3" matTooltip="With subtitle">Warn Message</mat-option>
+				<mat-option [value]="4" matTooltip="With subtitle">Error Message</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<div fxLayoutGap="1em">
+		<label>JSON</label><button mat-mini-fab (click)="showDialogWithJson()"><mat-icon>play_arrow</mat-icon></button>
+		<mat-form-field>
+			<mat-select [formControl]="dialogSelectedControlForJson">
+				<mat-option [value]="1">Success</mat-option>
+				<mat-option [value]="2">Info</mat-option>
+				<mat-option [value]="3" matTooltip="With subtitle">Warn Message</mat-option>
+				<mat-option [value]="4" matTooltip="With subtitle">Error Message</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+
+	<div fxLayoutGap="1em">
+		<label>HTTP Error Response</label><button mat-mini-fab (click)="showDialogWithError()"><mat-icon>play_arrow</mat-icon></button>
+		<mat-form-field>
+			<mat-select [formControl]="dialogSelectedControlForError">
+				<mat-option [value]="1">HTML</mat-option>
+				<mat-option [value]="2">Text</mat-option>
+				<mat-option [value]="3">JSON</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+</fieldset>
+
+<p></p>
+<fieldset>
+	<legend>Dialog Services</legend>
+	<div>
+		<mat-checkbox [(ngModel)]="useBackButton" [indeterminate]="useBackButton==undefined">Use Back Button</mat-checkbox>
+	</div>
+	<div>
+		<mat-form-field>
+			<mat-select [formControl]="sizeSelectedControl">
+				<mat-option [value]="0">Auto</mat-option>
+				<mat-option [value]="1">Large</mat-option>
+				<mat-option [value]="2">Medium</mat-option>
+				<mat-option [value]="3">Smart</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<p fxLayoutGap="1em">
+		<label>textDialogService</label><button mat-mini-fab (click)="showTextDialog()"><mat-icon>play_arrow</mat-icon></button>
+	</p>
+
+	<p fxLayoutGap="1em">
+		<label>textHReflDialogService</label><button mat-mini-fab (click)="showTextHRefDialog()"><mat-icon>play_arrow</mat-icon></button>
+	</p>
+
+	<p fxLayoutGap="1em">
+		<label>jsonDialogService</label><button mat-mini-fab (click)="showJsonDialog()"><mat-icon>play_arrow</mat-icon></button>
+	</p>
+
+	<p fxLayoutGap="1em">
+		<label>jsonDiffDialogService</label><button mat-mini-fab (click)="showJsonDiffDialog()"><mat-icon>play_arrow</mat-icon></button>
+	</p>
+
+	<p fxLayoutGap="1em">
+		<label>Show Any Component via DataComponentDialogService</label><button mat-mini-fab (click)="showAnyComponent()"><mat-icon>play_arrow</mat-icon></button>
+	</p>
+
+	<p fxLayoutGap="1em">
+		<label>Show and Print Any Component via DataComponentPrintDialogService</label><button mat-mini-fab (click)="printAnyComponent()"><mat-icon>play_arrow</mat-icon></button>
+	</p>
+
+</fieldset>

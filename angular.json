@@ -64,6 +64,8 @@
               "projects/demoapp/src/assets"
             ],
             "styles": [
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+							"node_modules/jsondiffpatch/dist/formatters-styles/html.css",
               "projects/demoapp/src/styles.css"
             ],
             "scripts": []

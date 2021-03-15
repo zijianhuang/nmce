@@ -14,7 +14,7 @@ import { AlertService } from '../_ui_services/index';
 })
 export class LocalDocHtmlEditorDialogComponent extends HtmlDocEditorDialogBaseComponent<{ [k: string]: string }> implements OnInit {
 	constructor(
-		@Inject(MAT_DIALOG_DATA) public data: { [k: string]: string },
+		@Inject(MAT_DIALOG_DATA) public data: { [k: string]: any },
 		public dialogRef: MatDialogRef<LocalDocHtmlEditorDialogComponent>,
 		@Inject('htmlEditor.uploadUrl') protected uploadUrl: string,
 		protected alertService: AlertService,
@@ -80,7 +80,7 @@ export class LocalDocEditorDialogService {
 	 * Display HTML document or create new HTML document with a template
 	 * @param data
 	 */
-	open(data: { [k: string]: string }): Observable<{ [k: string]: string }> {
+	open(data: { [k: string]: any }): Observable<{ [k: string]: string }> {
 		const modalRef = this.dialog.open(LocalDocHtmlEditorDialogComponent, {
 			disableClose: true,
 			autoFocus: false,

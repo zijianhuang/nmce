@@ -1,0 +1,81 @@
+<fieldset>
+	<legend>ConfirmService</legend>
+	<p fxLayoutGap="1em">Opened: {{confirmDialogOpened}}, Response: {{confirmDialogConfirmed}}</p>
+
+	<p fxLayoutGap="1em">
+		<label>Open</label><button mat-mini-fab (click)="confirmOpen()"><mat-icon>play_arrow</mat-icon></button>
+	</p>
+
+	<p fxLayoutGap="1em">
+		<label>OpenDefault</label><button mat-mini-fab (click)="confirmAreYouSure()"><mat-icon>play_arrow</mat-icon></button>
+	</p>
+	<p fxLayoutGap="1em">
+		<label>Close in 3 seconds</label><button mat-mini-fab (click)="confirmAndCloseIn3Seconds()"><mat-icon>play_arrow</mat-icon></button>
+	</p>
+</fieldset>
+<p></p>
+<fieldset>
+	<legend>Date Time Services</legend>
+	<p fxLayoutGap="1em">
+		<label>DateRangePickerService.open</label><button mat-mini-fab (click)="openDateRangePickerService()"><mat-icon>play_arrow</mat-icon></button>
+	</p>
+	<p fxLayoutGap="1em">
+		<label>DateHourRangePickerService.open</label><button mat-mini-fab (click)="openDateHourRangePickerService()"><mat-icon>play_arrow</mat-icon></button>
+	</p>
+	<p fxLayoutGap="1em">
+		<label>TimeService.open</label><button mat-mini-fab (click)="showTimeInput()"><mat-icon>play_arrow</mat-icon></button>
+		<mat-checkbox [(ngModel)]="noClear">No Clear Button</mat-checkbox>
+	</p>
+</fieldset>
+
+<p></p>
+<fieldset>
+	<legend>Editors</legend>
+	<mat-checkbox [(ngModel)]="useUploadUrl">UseUploadUrl</mat-checkbox>
+
+	<p fxLayoutGap="1em">
+		<label>LocalDocHtmlEditor.open New</label><button mat-mini-fab (click)="openLocalDocEditor()"><mat-icon>play_arrow</mat-icon></button>
+		<label></label><button *ngIf="htmlFileId" mat-icon-button mat-button (click)="editHtml()" matTooltip="Edit">
+			<mat-icon>edit</mat-icon>
+		</button>
+		<span class="href" (click)="viewHtml()">{{ htmlFileId }}</span>
+
+	</p>
+
+	<p fxLayoutGap="1em">
+		<label>LocalTextEditor.open New</label><button mat-mini-fab (click)="openLocalTextEditor()"><mat-icon>play_arrow</mat-icon></button>
+		<label></label><button *ngIf="textFileId" mat-icon-button mat-button (click)="editText()" matTooltip="Edit">
+			<mat-icon>edit</mat-icon>
+		</button>
+		<span class="href" (click)="viewText()">{{ textFileId }}</span>
+
+	</p>
+	<p fxLayoutGap="1em">
+		<label>ConfirmEmail</label><button mat-mini-fab (click)="confirmEmail()"><mat-icon>play_arrow</mat-icon></button>
+		<mat-checkbox [(ngModel)]="isHtml">IsHtml</mat-checkbox>
+	</p>
+</fieldset>
+
+<p></p>
+<fieldset>
+	<legend>Options Service</legend>
+	<p fxLayoutGap="1em">
+		<label>OptionsService.open</label><button mat-mini-fab (click)="showOptions()"><mat-icon>play_arrow</mat-icon></button>
+	</p>
+
+	<p fxLayoutGap="1em">
+		<label>OptionListService.open</label><button mat-mini-fab (click)="showOptionList()"><mat-icon>play_arrow</mat-icon></button>
+	</p>
+
+</fieldset>
+<p></p>
+<p fxLayoutGap="1em">
+	<label>textInputService.open</label><button mat-mini-fab (click)="showInputDialog()"><mat-icon>play_arrow</mat-icon></button>
+	<mat-checkbox [(ngModel)]="inputDialogSmall">Small</mat-checkbox>
+</p>
+
+<p fxLayoutGap="1em">
+	<label>Define Password</label><button mat-mini-fab (click)="showPasswordInput()"><mat-icon>play_arrow</mat-icon></button>
+</p>
+
+

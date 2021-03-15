@@ -3,7 +3,7 @@ export * from './localAlert.service';
 export * from './confirm.service';
 export * from './options.service';
 export * from './wait.service';
-
+export * from './types';
 export * from './confirm.component';
 export * from './emailConfirm.component';
 export * from './logSnack.component';

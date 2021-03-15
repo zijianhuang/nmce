@@ -1,0 +1,26 @@
+<div fxLayout="row" fxLayoutGap="0.5em" class="fixed-top-2 indent-1 semi-transparent">
+	<nav mat-tab-nav-bar>
+		<a mat-tab-link
+		   routerLink="/demo/dialogs"
+		   routerLinkActive #rlaDialogs="routerLinkActive"
+		   [active]="rlaDialogs.isActive">
+			Dialogs
+		</a>
+		<a mat-tab-link
+		   routerLink="/demo/htmlDialogs"
+		   routerLinkActive #rlaHtmlDialogs="routerLinkActive"
+		   [active]="rlaHtmlDialogs.isActive">
+			Html Dialogs
+		</a>
+		<a mat-tab-link
+		   routerLink="/demo/inputDialogs"
+		   routerLinkActive #rlaInputDialogs="routerLinkActive"
+		   [active]="rlaInputDialogs.isActive || defaultActive">
+			Input Services
+		</a>
+	</nav>
+</div>
+
+<div class="content-top-padding-relative">
+	<router-outlet></router-outlet>
+</div>
