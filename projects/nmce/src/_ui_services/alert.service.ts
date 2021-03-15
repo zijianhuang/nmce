@@ -8,13 +8,16 @@ import { LogSnackComponent } from './logSnack.component';
 import { AlertSubjectMessage } from './types';
 
 /**
- * Similar to JavaScript's alert() function, to display message in a dialog with LogDialogComponent or optionally a snackbar if message content type is text. The mesage could be of type info, error, warn and success.
- * Browser console also has a copy of the message. The snackBar parameter is effective only when contentType is text.
- * When contentType is html, you MUST make sure the HTML content won't be harming the health of DOM managed by Angular. For example, a href link without _blank, and malicious codes.
+ * Similar to JavaScript's alert() function, to display message in a dialog with LogDialogComponent or optionally a snackbar if message content type is text. 
+ * The mesage could be of type info, error, warn and success.
+ * Browser console also wirte a copy of the message. The snackBar parameter is effective only when contentType is text.
+ * When contentType is html, you MUST make sure the HTML content won't be harming the health of DOM managed by Angular. 
+ * For example, a href link without _blank, and malicious codes may damange Angular rendering.
  */
 @Injectable()
 export class AlertService {
 	private subject = new Subject<AlertSubjectMessage>();
+
 	constructor(private snackBarService: MatSnackBar,
 		private dialog: MatDialog,
 	) {
@@ -135,11 +138,11 @@ export class AlertService {
 			console.debug('now content Type: ' + contentType);
 
 			if (error.status === 0) {
-				if (error.url){
+				if (error.url) {
 					const host = new URL(error.url).host;
-					errMsg = `No response from backend ${host}. Connection is unavailable.`;	
-				}else{
-					errMsg = `No response from backend. Connection is unavailable.`;	
+					errMsg = `No response from backend ${host}. Connection is unavailable.`;
+				} else {
+					errMsg = `No response from backend. Connection is unavailable.`;
 				}
 			} else {
 				if (error.error) {

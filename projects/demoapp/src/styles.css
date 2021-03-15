@@ -1,1 +1,729 @@
-/* You can add global styles to this file, and also import other style files */
+/* #region sticky things */
+
+div.table-sticky {
+	display: inline-block;
+	height: calc(100vh - 11.2em );
+	width: 95vw;
+	overflow: auto
+}
+
+table.sticky thead th {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0px;
+	background-color: lightcyan;
+	z-index: 20;
+}
+
+table.sticky-footer tfoot,
+table.sticky-footer tfoot th {
+	position: -webkit-sticky;
+	position: sticky;
+	bottom: 0px;
+	background-color: lightyellow;
+	z-index: 10;
+}
+
+/*Overwrite Bootstrap classes to live well with Material Design css which as the max z-index:1000, while the bootstrap one is 1030. */
+.fixed-top {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 990;
+}
+
+.fixed-top-above {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 995;
+}
+
+/*For 2nd fixed top. 980 to ensure the popover or menu from fixed-top won't hide behind the 2nd fixed top*/
+.fixed-top-2 {
+	position: fixed;
+	top: 4.6em;
+	right: 0;
+	left: 0;
+	z-index: 980;
+}
+
+.fixed-bottom {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 990;
+}
+
+.fixed-bottom-narrow {
+	position: fixed;
+	bottom: 0;
+	z-index: 990;
+}
+
+
+/* #endregion */
+
+/* #region Bootstrap 4 Alpha 6 good stuffs. Ready to get rid of Bootstrap*/
+
+.container-fluid {
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.alert-success {
+	background-color: #dff0d8;
+	border-color: #d0e9c6;
+	color: #3c763d;
+}
+
+
+.alert-info {
+	background-color: #d9edf7;
+	border-color: #bcdff1;
+	color: #31708f;
+}
+
+
+.alert-warning {
+	background-color: #fcf8e3;
+	border-color: #faf2cc;
+	color: #8a6d3b;
+}
+
+.alert-danger {
+	background-color: #f2dede;
+	border-color: #ebcccc;
+	color: #a94442;
+}
+
+
+.bg-info {
+	background-color: #5bc0de !important;
+}
+
+
+.bg-warning {
+	background-color: #f0ad4e !important;
+}
+
+.bg-danger {
+	background-color: #d9534f !important;
+}
+
+.bg-inverse {
+	background-color: #292b2c !important;
+}
+
+
+.text-uppercase {
+	text-transform: uppercase !important;
+}
+
+.font-weight-bold {
+	font-weight: bold;
+}
+
+.font-italic {
+	font-style: italic;
+}
+
+.text-left {
+	text-align: left !important;
+}
+
+.text-right {
+	text-align: right !important;
+}
+
+.text-center {
+	text-align: center !important;
+}
+
+
+/* #endregion */
+
+
+
+/* #region app color and dynamic*/
+
+.event-bg-tentative {
+	background-color: antiquewhite;
+}
+
+.event-bg-confirmed {
+	background-color: lightgreen;
+}
+
+.event-bg-completed {
+	color: darkblue;
+	background-color: lightblue;
+}
+
+.event-bg-cancelled {
+	color: darkgray;
+	background-color: lightgray;
+}
+
+.event-bg-inprogress {
+	background-color: lightcoral;
+}
+
+.event-confirmed {
+	color: darkgreen;
+	background-color: lightgreen;
+}
+
+.event-tentative {
+	color: #00BCD4;
+}
+
+.event-inprogress {
+	color: #4CAF50;
+}
+
+.event-completed {
+	color: darkblue;
+	background-color: lightblue;
+}
+
+.doc-display {
+	background-color: lightyellow;
+}
+
+.high-priority {
+	color: red;
+}
+
+a.btn:hover {
+	cursor: default;
+}
+
+input:read-only {
+	background-color: #d3ebf3;
+}
+
+input:-moz-read-only {
+	background-color: #d3ebf3;
+}
+
+.error {
+	color: red;
+}
+
+.badge {
+	display: inline-block;
+	padding: 0.25em 0.4em;
+	font-size: 75%;
+	font-weight: 700;
+	line-height: 1;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: 0.25rem;
+}
+
+.badge-primary {
+	color: #fff;
+	background-color: #007bff;
+}
+
+.badge-secondary {
+	color: #fff;
+	background-color: #6c757d;
+}
+
+.badge-success {
+	color: #fff;
+	background-color: #28a745;
+}
+
+.badge-info {
+	color: #fff;
+	background-color: #17a2b8;
+}
+
+.badge-warning {
+	color: #212529;
+	background-color: #ffc107;
+}
+
+	.badge-warning[href]:hover, .badge-warning[href]:focus {
+		color: #212529;
+		text-decoration: none;
+		background-color: #d39e00;
+	}
+
+.badge-danger {
+	color: #fff;
+	background-color: #dc3545;
+}
+
+	.badge-danger[href]:hover, .badge-danger[href]:focus {
+		color: #fff;
+		text-decoration: none;
+		background-color: #bd2130;
+	}
+
+.badge-light {
+	color: #212529;
+	background-color: #f8f9fa;
+}
+
+.badge-dark {
+	color: #fff;
+	background-color: #343a40;
+}
+
+.semi-transparent {
+	background: hsla(0, 100%, 100%, 0.75);
+}
+
+.empty-avatar {
+	flex-shrink: 0;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+	line-height: 40px;
+	background-color: lightblue;
+	text-align: center;
+}
+
+.avatar {
+	vertical-align: middle;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+
+.new-item {
+	background-color: lightyellow;
+}
+
+.time {
+	color: darkblue;
+}
+
+.interval {
+	color: darksalmon;
+}
+
+.prac-location {
+	color: darkgoldenrod;
+}
+
+.cal-disabled {
+	background-color: #ccc;
+	pointer-events: none;
+}
+
+	.cal-disabled .cal-day-number {
+		opacity: 0.3;
+	}
+
+
+.external-link {
+	color: darkblue;
+}
+
+.internal-dialog-link {
+	color: darkgreen;
+}
+
+.doc-type {
+	background-color: lightgreen;
+	font-style: italic;
+}
+
+div.doc-highlight, span.doc-highlight {
+	background-color: lightyellow;
+}
+
+.titlebar {
+	background-color: lightgrey;
+}
+
+.person-name {
+	background-color: lightpink;
+}
+
+.invoice {
+	color: black;
+}
+
+.invoice-paid {
+	color: darkblue;
+}
+
+.invoice-partially-paid {
+	color: orange;
+}
+
+.invoice-outstanding {
+	color: red;
+}
+
+.invoice-deleted {
+	color: yellow;
+}
+
+.invoice-voided {
+	color: gray;
+}
+
+.invoice-adjusted {
+	color: brown;
+}
+
+.credit {
+	color: darkviolet;
+}
+
+.person-color {
+	color: darkgreen;
+}
+
+.biz-color {
+	color: darkblue;
+}
+
+.red-secondary {
+	background-color: #FAE3E3;
+}
+
+.yellow-secondary {
+	background-color: #FDF1BA;
+}
+
+.green-secondary {
+	background-color: lightgreen;
+}
+
+.grouped-date {
+	background-color: lightgray;
+}
+
+/* #endregion */
+
+
+
+/* #region app layout */
+
+body {
+	overscroll-behavior-y: contain;
+}
+
+/* Used by panelClass of matDialog to define the mat dialog content height. */
+.dialog-full-content-height .mat-dialog-content {
+	max-height: calc(95vh - 5em);
+}
+
+/* for dialog with 2 row on the top */
+.dialog-full-content-height2 .mat-dialog-content {
+	max-height: calc(95vh - 7em);
+}
+
+.dialog-full-content-height-wait {
+	max-height: calc(95vh - 7em);
+	height: calc(95vh - 7em);
+	max-width: calc(95vw);
+	width: calc(95vw);
+}
+
+.frame-dialog-content {
+	height: calc(95vh - 7em);
+	width: calc(98vw - 3em);
+}
+
+/* for calendar event title in line with the X icon. Good for 15 minutes event */
+.cal-event-title, .cal-event {
+	vertical-align: top;
+}
+
+.cdk-overlay-pane .wide-menu {
+	max-width: none;
+	width: 30em;
+}
+
+/* #endregion*/
+
+
+/* #region layout shared with print */
+
+.doc-small {
+	font-size: small;
+}
+
+
+div.func-title {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.indent-1 {
+	margin-left: 1em;
+}
+
+.indent-2 {
+	margin-left: 2em;
+}
+
+.rotate-90 {
+	transform: rotate(90deg);
+}
+
+.rotate-180 {
+	transform: rotate(180deg);
+}
+
+.rotate-270 {
+	transform: rotate(270deg);
+}
+
+.row-selection {
+	background-color: lightyellow;
+}
+
+.flip-mirror {
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+}
+
+
+.full-width {
+	width: 100%;
+}
+
+.strike {
+	text-decoration: line-through;
+}
+
+.deleted {
+	text-decoration: line-through dashed;
+}
+
+.table {
+	border-collapse: collapse;
+}
+
+
+.table-striped tbody tr:nth-of-type(odd) {
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+.full-width .mat-dialog-container {
+	max-width: none;
+	width: 100vw;
+}
+
+
+.app-container {
+	padding-top: 4.5em;
+	padding-bottom: 0.5em;
+}
+
+.content-top-padding-relative {
+	position: relative;
+	margin-top: 4.5em;
+}
+
+.content-left-padding-relative {
+	margin-left: 1.5em;
+}
+
+.flex-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.basic-width {
+	width: 25em;
+}
+
+.date-width {
+	width: 5em;
+}
+
+
+.ellipsis-line {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	box-sizing: border-box;
+}
+
+.inline {
+	display: inline-block;
+}
+
+.block {
+	display: block;
+}
+
+
+.mat-raised-button {
+	text-transform: uppercase;
+	background-color: #e5eff2;
+}
+
+.readonly-area {
+	background-color: #d1f5d1;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+
+.sidenav-container {
+	flex: 1;
+	top: 0.3em;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.sidenav {
+	display: flex;
+}
+
+.sidenav-container-container {
+	display: flex;
+	flex-direction: column;
+	bottom: 0;
+}
+
+.href {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/*growing list in the tab client area of a dialog with 95vh */
+.dialog-content-list-in-tab {
+	max-height: 50vh;
+	overflow: auto;
+}
+
+
+.two-line {
+	height: 2em;
+}
+
+.three-line {
+	height: 3em;
+}
+
+
+#tyro-logo-horizontal-svg {
+	width: 79px;
+	max-width: 100%;
+	height: 37px;
+	margin-top: 11px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+/* Add this to img, so the following text could be aligned together at the middle. https://stackoverflow.com/questions/25414091/how-to-center-the-image-both-horizontally-and-vertically-in-span-tag*/
+.v-middle {
+	vertical-align: middle;
+}
+
+.input-hint {
+	font-style: italic;
+}
+
+
+.small-rounded {
+	border-radius: 5px;
+}
+
+
+button.margin-top-small, div.margin-top-small {
+	margin-top: 0.5em;
+}
+
+.align-items-horizontal {
+	display: flex;
+	align-content: center;
+	align-items: center;
+}
+
+
+.total-line {
+	border-top: 2px solid;
+	border-top-color: black;
+	border-bottom: 2px solid;
+	border-bottom-color: black;
+}
+
+.header {
+	background-color: lightcyan;
+	font-weight: bold;
+}
+
+.footer {
+	background-color: lightyellow;
+	font-weight: bold;
+}
+
+td {
+	vertical-align: middle;
+}
+
+table.for-print tbody td {
+	vertical-align: top;
+}
+
+img.max-width-auto-height {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+img.original-size {
+	-webkit-user-select: none;
+	margin: auto;
+}
+
+/* #endregion */
+
+/* #region report */
+
+/* Also goes to printYYmmdd.css */
+.report-title {
+	font-size: 1.3em;
+	font-weight: bold;
+	text-transform: uppercase !important;
+	text-align: center
+}
+
+.report-sub-title {
+	font-size: 1.2em;
+	font-weight: bold;
+	text-align: center
+}
+
+ul.list-style-none {
+	margin: 0;
+	list-style: none;
+	float: left;
+}
+
+ul.list-style-alpha {
+	list-style: lower-alpha;
+}
+
+
+/* #endregion */
