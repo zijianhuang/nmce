@@ -37,6 +37,10 @@
       "nmce-html-editor": [
         "dist/nmce-html-editor/nmce-html-editor",
         "dist/nmce-html-editor"
+      ],
+      "nmce-pipes": [
+        "dist/nmce-pipes/nmce-pipes",
+        "dist/nmce-pipes"
       ]
     }
   },

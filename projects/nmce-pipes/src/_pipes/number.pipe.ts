@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { StringFunc } from 'nmce-func';
-import { formatCurrency, CurrencyPipe } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 
 /*
  * Currency pipe for display with $ sign. currency pipes of ng2 and 4 not working in iPad
