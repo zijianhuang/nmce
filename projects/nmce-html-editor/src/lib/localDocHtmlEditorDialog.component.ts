@@ -1,16 +1,15 @@
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { HtmlDocEditorDialogBaseComponent } from '../_ui_services/htmlDocEditorDialogBase.directive';
-import { AlertService, HTML_EDITOR_UPLOADURL } from '../_ui_services/index';
-
+import { AlertService } from 'nmce';
+import {HTML_EDITOR_UPLOADURL, HtmlDocEditorDialogBaseComponent} from './htmlDocEditorDialogBase.directive';
 /**
  * Display text area for text of consultation to be saved in Azure Blob Storage.
  * Different fields will trigger different events which will be further handled.
  * This component is used by multiple functions via different routes, or by HTML tempalte so noteLabel and modelChanged will be used.
  */
 @Component({
-	templateUrl: '../_ui_services/htmlDocEditorDialogBase.directive.html',
+	templateUrl: './htmlDocEditorDialogBase.directive.html',
 })
 export class LocalDocHtmlEditorDialogComponent extends HtmlDocEditorDialogBaseComponent<{ [k: string]: string }> implements OnInit {
 	constructor(

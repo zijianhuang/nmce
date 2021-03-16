@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { UI_ServicesModule, LOG_DIALOG_OPTIONS } from 'nmce';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { NmceHtmlEditorModule } from 'nmce-html-editor';
 @NgModule({
   declarations: [
     AppComponent
@@ -17,22 +17,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     HttpClientModule,
     NGMDModule,
-    UI_ServicesModule
+    UI_ServicesModule,
+    NmceHtmlEditorModule,
   ],
   providers: [
     {
-			provide: LOG_DIALOG_OPTIONS, useFactory: () => {
-				return {
-					useIcon: true,
-					useTitle: true,
-				};
-			}
-		},
+      provide: LOG_DIALOG_OPTIONS, useFactory: () => {
+        return {
+          useIcon: true,
+          useTitle: true,
+        };
+      }
+    },
 
     // {
-		// 	provide: 'htmlEditor.uploadUrl',
-		// 	useValue: undefined
-		// },
+    // 	provide: 'htmlEditor.uploadUrl',
+    // 	useValue: undefined
+    // },
   ],
   bootstrap: [AppComponent]
 })

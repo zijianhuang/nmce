@@ -55,7 +55,3 @@ export interface AlertSubjectMessage {
 
 	statusText?: string;
 }
-
-export interface EmailListDialog {
-	open(data?: any): Observable<string[]>;
-}

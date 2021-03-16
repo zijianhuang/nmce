@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NGMDModule } from '../ngmd.module';
 import { DirectivesModule } from 'nmce-directives';
 import {
@@ -14,14 +13,12 @@ import {
 	DateHourRangePickerComponent,
 	DateHourRangePickerService, DateRangePickerComponent,
 	DateRangePickerService, 
-	EmailConfirmComponent,
-	EmailConfirmService,
 	HtmlDialogComponent,
 	HtmlDialogService, HtmlFrameDialogComponent,
 	HtmlFrameDialogService, HtmlHRefDialogComponent,
 	HtmlHRefDialogService, HtmlHRefFrameDialogComponent, HtmlImgDialogComponent, HtmlImgDialogService,
 	HtmlHRefFrameDialogService,
-	LocalDocEditorDialogService, LocalDocHtmlEditorDialogComponent,
+	
 	LocalAlertService, LogDialogComponent, LogSnackComponent,
 	NotificationsComponent,
 	NotificationsService, OptionsComponent,
@@ -50,7 +47,6 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 		FlexLayoutModule,
 		ReactiveFormsModule,
 		DirectivesModule,
-		AngularEditorModule,
 	],
 
 	declarations: [
@@ -64,7 +60,6 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 
 		ConfirmComponent,
 		OptionsComponent,
-		EmailConfirmComponent,
 		TextInputComponent,
 		PasswordsInputComponent,
 
@@ -79,7 +74,6 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 		DateHourRangePickerComponent,
 
 		ItemListDialogComponent,
-		LocalDocHtmlEditorDialogComponent,
 		LocalTextEditorDialogComponent,
 	],
 
@@ -96,7 +90,6 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 		ConfirmComponent,
 		OptionsComponent,
 
-		EmailConfirmComponent,
 		TextInputComponent,
 		PasswordsInputComponent,
 
@@ -110,7 +103,6 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 		DateHourRangePickerComponent,
 
 		//ItemListDialogComponent,
-		LocalDocHtmlEditorDialogComponent,
 		LocalTextEditorDialogComponent,
 	],
 	providers: [
@@ -130,8 +122,6 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 		WaitProgressService,
 		ConfirmService,
 		OptionsService,
-		EmailConfirmService,
-
 		HtmlFrameDialogService,
 		HtmlHRefFrameDialogService,
 		HtmlHRefDialogService,
@@ -146,7 +136,7 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 		DateRangePickerService,
 		DateHourRangePickerService,
 
-		LocalDocEditorDialogService,
+
 		LocalTextEditorDialogService,
 		OptionListDialogService,
 	],

@@ -1,12 +1,21 @@
 import { NgModule } from '@angular/core';
-import { NmceHtmlEditorComponent } from './nmce-html-editor.component';
-
-
+import {
+  LocalDocEditorDialogService, LocalDocHtmlEditorDialogComponent, EmailConfirmComponent,
+  EmailConfirmService
+} from './index';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UI_ServicesModule } from 'nmce';
+import { NGMDModule } from '../ngmd.module';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
-  declarations: [NmceHtmlEditorComponent],
+  declarations: [LocalDocHtmlEditorDialogComponent,
+    EmailConfirmComponent],
   imports: [
+    FormsModule, ReactiveFormsModule, NGMDModule, UI_ServicesModule, AngularEditorModule
   ],
-  exports: [NmceHtmlEditorComponent]
+  exports: [LocalDocHtmlEditorDialogComponent, EmailConfirmComponent],
+  providers: [LocalDocEditorDialogService,
+    EmailConfirmService]
 })
 export class NmceHtmlEditorModule { }

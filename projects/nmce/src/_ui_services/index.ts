@@ -5,7 +5,6 @@ export * from './options.service';
 export * from './wait.service';
 export * from './types';
 export * from './confirm.component';
-export * from './emailConfirm.component';
 export * from './logSnack.component';
 export * from './logDialog.component';
 export * from './options.component';
@@ -23,7 +22,5 @@ export * from './textDialog.component';
 export * from './dateRangePicker.component';
 export * from './dateHourRangePicker.component';
 
-export * from './htmlDocEditorDialogBase.directive';
-export * from './localDocHtmlEditorDialog.component';
 export * from './localTextEditorDialog.component';
 export * from './optionListDialog.service';

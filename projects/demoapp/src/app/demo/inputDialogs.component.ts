@@ -1,19 +1,16 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import {
-	AlertService, WaitService,
-	ConfirmService, DateRangePickerService, DateHourRangePickerService,
-	LocalDocEditorDialogService,
-	EmailConfirmService, OptionsService, OptionListDialogService, TextDialogService, TextHReflDialogService, TextInputService,
-	LocalTextEditorDialogService, PasswordsInputService,
-	TimeService,
-} from 'nmce';
+	AlertService,
+	ConfirmService, DateHourRangePickerService, DateRangePickerService, DialogSize, HtmlFramePrintDialogService, LocalTextEditorDialogService, OptionListDialogService, OptionsService,
+	PasswordsInputService, TextDialogService, TextInputService,
 
-import { HtmlFramePrintDialogService, HtmlImgPrintDialogService } from 'nmce';
-import { DialogSize } from 'nmce';
+	TimeService
+} from 'nmce';
+import { LocalDocEditorDialogService, EmailConfirmService } from 'nmce-html-editor';
+
+
 
 /**
  * Fill up the user registration form and register. Then roles checkboxes will appear.

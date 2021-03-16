@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { HelperFunc, StringFunc, HtmlFunc } from 'nmce-func';
-import { AlertService } from './alert.service';
+import { AlertService } from 'nmce';
 
 export const HTML_EDITOR_UPLOADURL = new InjectionToken<string|undefined>('htmlEditor.uploadUrl', {
 	providedIn: 'root',

@@ -4,7 +4,6 @@
   "lib": {
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
-      "@kolkov/angular-editor": "i9",
       "moment": "moment",
       "jsondiffpatch": "jsondiffpatch",
       "json-formatter-js": "JSONFormatter",

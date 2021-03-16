@@ -3,7 +3,10 @@ import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { EmailListDialog } from './types';
+
+export interface EmailListDialog {
+	open(data?: any): Observable<string[]>;
+}
 
 export interface EmailMessage {
 	to?: string;
