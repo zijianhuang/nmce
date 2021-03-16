@@ -5,7 +5,6 @@
 export * from './lib/nmce.service';
 export * from './lib/nmce.component';
 export * from './_types/DataComponent';
-export * from './_func/index';
 export * from './_pipes/index';
 export * from './_directives/index';
 export * from './_ui_services/index';

@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { HtmlFunc } from '../_func/htmlFunc';
+import { HtmlFunc } from 'nmce-func';
 import { DataComponent } from '../_types/DataComponent';
 import { LazyDataComponentDialog } from '../_ui_services_lazy/lazy-component-dialog.service';
 

@@ -2,7 +2,7 @@ import { Component, Injectable, OnDestroy, Inject } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { StringFunc } from '../_func/stringFunc';
+import { StringFunc } from 'nmce-func';
 
 /**
  * Input Hour and Minute.

@@ -1,5 +1,5 @@
 import { Directive, HostListener, ElementRef, OnInit } from '@angular/core';
-import { CurrencyFunc } from '../_func/currencyFunc';
+import { CurrencyFunc } from 'nmce-func';
 
 /**
  *

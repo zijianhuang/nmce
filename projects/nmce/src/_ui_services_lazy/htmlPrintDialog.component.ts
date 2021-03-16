@@ -6,7 +6,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { DialogSize } from '../_ui_services/types';
 import { HtmlBaseDialogService } from '../_ui_services/htmlBaseDialogService';
 import { HtmlDialogComponent, HtmlHRefDialogComponent, HtmlImgDialogComponent } from '../_ui_services/htmlDialog.component';
-import { HtmlFunc } from '../_func/htmlFunc';
+import { HtmlFunc } from 'nmce-func';
 /**
  * Contain HTML content, used in HtmlDialogService.
  */

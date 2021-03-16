@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { StringFunc } from '../_func/stringFunc';
+import { StringFunc } from 'nmce-func';
 import { formatCurrency, CurrencyPipe } from '@angular/common';
 
 /*

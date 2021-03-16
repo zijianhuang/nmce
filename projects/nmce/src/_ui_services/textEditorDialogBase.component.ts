@@ -1,7 +1,7 @@
 import { AfterViewInit, Directive, ElementRef, EventEmitter, Inject, Input, Output, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { HelperFunc } from '../_func/index';
+import { HelperFunc } from 'nmce-func';
 import { AlertService } from './index';
 
 /**

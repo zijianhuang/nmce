@@ -2,7 +2,7 @@ import { Component, Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DateFunc } from '../_func/dateFunc';
+import { DateFunc } from 'nmce-func';
 
 /**
  * Pick dates between.

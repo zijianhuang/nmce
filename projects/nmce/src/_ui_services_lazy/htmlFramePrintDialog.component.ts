@@ -6,7 +6,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { DialogSize } from '../_ui_services/types';
 import { HtmlBaseDialogService } from '../_ui_services/htmlBaseDialogService';
 import { HtmlFrameDialogComponent, HtmlHRefFrameDialogComponent } from '../_ui_services/htmlFrameDialog.component';
-import { HtmlFunc } from '../_func/htmlFunc';
+import { HtmlFunc } from 'nmce-func';
 /**
  * Contain HTML content in iframe, used in HtmlFrameDialogService.
  */

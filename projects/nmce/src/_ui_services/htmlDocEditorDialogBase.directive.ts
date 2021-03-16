@@ -2,8 +2,7 @@ import { Directive, EventEmitter, Inject, Input, Output, InjectionToken } from '
 import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import { HtmlFunc } from '../_func/htmlFunc';
-import { HelperFunc, StringFunc } from '../_func/index';
+import { HelperFunc, StringFunc, HtmlFunc } from 'nmce-func';
 import { AlertService } from './alert.service';
 
 export const HTML_EDITOR_UPLOADURL = new InjectionToken<string|undefined>('htmlEditor.uploadUrl', {

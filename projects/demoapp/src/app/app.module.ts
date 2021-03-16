@@ -4,7 +4,7 @@ import { NGMDModule } from './ngmd.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { UI_ServicesModule, LOG_DIALOG_OPTIONS } from '../../../../dist/nmce';
+import { UI_ServicesModule, LOG_DIALOG_OPTIONS } from 'nmce';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({

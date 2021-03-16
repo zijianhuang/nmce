@@ -203,6 +203,46 @@
           }
         }
       }
+    },
+    "nmce-func": {
+      "projectType": "library",
+      "root": "projects/nmce-func",
+      "sourceRoot": "projects/nmce-func/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/nmce-func/tsconfig.lib.json",
+            "project": "projects/nmce-func/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/nmce-func/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/nmce-func/src/test.ts",
+            "tsConfig": "projects/nmce-func/tsconfig.spec.json",
+            "karmaConfig": "projects/nmce-func/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/nmce-func/tsconfig.lib.json",
+              "projects/nmce-func/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "nmce"

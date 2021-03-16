@@ -26,6 +26,10 @@
         "dist/nmce/nmce",
         "dist/nmce"
       ],
+      "nmce-func": [
+        "dist/nmce-func/nmce-func",
+        "dist/nmce-func"
+      ],
       "nmce-html-editor": [
         "dist/nmce-html-editor/nmce-html-editor",
         "dist/nmce-html-editor"
