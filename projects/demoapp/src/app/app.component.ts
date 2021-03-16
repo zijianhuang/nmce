@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertService } from '../../../../dist/nmce';
+import { AlertService } from 'nmce';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

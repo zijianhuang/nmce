@@ -10,10 +10,10 @@ import {
 	EmailConfirmService, OptionsService, OptionListDialogService, TextDialogService, TextHReflDialogService, TextInputService,
 	LocalTextEditorDialogService, PasswordsInputService,
 	TimeService,
-} from '../../../../../dist/nmce';
+} from 'nmce';
 
-import { HtmlFramePrintDialogService, HtmlImgPrintDialogService } from '../../../../../dist/nmce';
-import { DialogSize } from '../../../../../dist/nmce';
+import { HtmlFramePrintDialogService, HtmlImgPrintDialogService } from 'nmce';
+import { DialogSize } from 'nmce';
 
 /**
  * Fill up the user registration form and register. Then roles checkboxes will appear.

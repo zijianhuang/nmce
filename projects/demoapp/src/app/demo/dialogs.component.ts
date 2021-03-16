@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
 	AlertService, TextDialogService, TextHReflDialogService, TextInputService,
-} from '../../../../../dist/nmce';
-import { JsonDialogService, JsonDiffDialogService, DataComponentPrintDialogService, LazyComponentDialogService } from '../../../../../dist/nmce';
+} from 'nmce';
+import { JsonDialogService, JsonDiffDialogService, DataComponentPrintDialogService, LazyComponentDialogService } from 'nmce';
 import { HtmlDialogsComponent } from './htmlDialogs.component';
 
 /**

@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { DataComponent } from '../../../../../dist/nmce';
-import { HtmlDialogService, HtmlFrameDialogService, HtmlHRefDialogService, HtmlHRefFrameDialogService, HtmlImgDialogService } from '../../../../../dist/nmce';
-import { HtmlFramePrintDialogService, HtmlHRefPrintDialogService, HtmlHRefFramePrintDialogService, HtmlImgPrintDialogService, HtmlPrintDialogService } from '../../../../../dist/nmce';
+import { DataComponent } from 'nmce';
+import { HtmlDialogService, HtmlFrameDialogService, HtmlHRefDialogService, HtmlHRefFrameDialogService, HtmlImgDialogService } from 'nmce';
+import { HtmlFramePrintDialogService, HtmlHRefPrintDialogService, HtmlHRefFramePrintDialogService, HtmlImgPrintDialogService, HtmlPrintDialogService } from 'nmce';
 /**
  * Users search and list
  */
