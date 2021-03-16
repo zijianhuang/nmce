@@ -8,7 +8,10 @@
       "moment": "moment",
       "jsondiffpatch": "jsondiffpatch",
       "json-formatter-js": "JSONFormatter",
-      "uuid": "uuid"
+      "uuid": "uuid",
+      "nmce-func": "nmce-func",
+      "nmce-directives": "nmce-directives"
+
     }  
   }
 }

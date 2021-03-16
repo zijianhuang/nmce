@@ -2,7 +2,7 @@ import { Component, Input, Injectable, AfterViewInit, ViewChild, ComponentFactor
 import { Observable } from 'rxjs';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DataComponent } from '../_types/DataComponent';
-import { DataComponentDirective } from '../_directives/index';
+import { DataComponentDirective } from 'nmce-directives';
 
 /**
  * This is to host another component which has implemented interfact DataComponent. And another component is to be displayed in a dialog but not need to answer but to close.

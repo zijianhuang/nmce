@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NGMDModule } from '../ngmd.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { DirectivesModule } from '../_directives/directives.module';
+import { DirectivesModule } from 'nmce-directives';
 
 import {
 	JsonComponent,

@@ -4,7 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NGMDModule } from '../ngmd.module';
-import { DirectivesModule } from '../_directives/directives.module';
+import { DirectivesModule } from 'nmce-directives';
 import {
 	AlertService,
 	ConfirmComponent,

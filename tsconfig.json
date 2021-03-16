@@ -26,6 +26,10 @@
         "dist/nmce/nmce",
         "dist/nmce"
       ],
+      "nmce-directives": [
+        "dist/nmce-directives/nmce-directives",
+        "dist/nmce-directives"
+      ],
       "nmce-func": [
         "dist/nmce-func/nmce-func",
         "dist/nmce-func"
