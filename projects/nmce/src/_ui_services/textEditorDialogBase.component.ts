@@ -2,7 +2,7 @@ import { AfterViewInit, Directive, ElementRef, EventEmitter, Inject, Input, Outp
 import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HelperFunc } from 'nmce-func';
-import { AlertService } from './index';
+import { AlertService } from './alert.service';
 
 /**
  * Display text area for text to be saved in Azure Blob Storage.
