@@ -4,8 +4,9 @@ import { FormControl } from '@angular/forms';
 import {
 	AlertService, TextDialogService, TextHReflDialogService, TextInputService,
 } from 'nmce';
-import { JsonDialogService, JsonDiffDialogService, DataComponentPrintDialogService, LazyComponentDialogService } from 'nmce';
+import { JsonDialogService, DataComponentPrintDialogService, LazyComponentDialogService } from 'nmce';
 import { HtmlDialogsComponent } from './htmlDialogs.component';
+import {JsonDiffDialogService} from 'nmce-json-diff';
 
 /**
  * Fill up the user registration form and register. Then roles checkboxes will appear.

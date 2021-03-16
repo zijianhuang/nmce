@@ -7,7 +7,6 @@ import { DirectivesModule } from 'nmce-directives';
 
 import {
 	JsonComponent,
-	JsonDiffComponent,
 	HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent,
 	DataComponentPrintDialog,
 	LazyDataComponentDialog,
@@ -16,7 +15,6 @@ import {
 	DataComponentPrintDialogService,
 
 	JsonDialogService,
-	JsonDiffDialogService,
 	LazyComponentPrintDialogService,
 
 	LazyComponentDialogService,
@@ -43,20 +41,17 @@ import {
 
 		HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent, DataComponentPrintDialog, HtmlPrintDialogComponent, HtmlHRefPrintDialogComponent, HtmlImgPrintDialogComponent,
 		JsonComponent,
-		JsonDiffComponent,
 		LazyDataComponentDialog,
 	],
 
 	exports: [
 		HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent, DataComponentPrintDialog, HtmlPrintDialogComponent, HtmlHRefPrintDialogComponent,
 		JsonComponent,
-		JsonDiffComponent,
 		LazyDataComponentDialog,
 	],
 	providers: [
 		HtmlFramePrintDialogService, HtmlHRefFramePrintDialogService, DataComponentPrintDialogService, HtmlHRefPrintDialogService, HtmlPrintDialogService, HtmlImgPrintDialogService,
 		JsonDialogService,
-		JsonDiffDialogService,
 		LazyComponentPrintDialogService,
 		LazyComponentDialogService,
 	],

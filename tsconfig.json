@@ -38,6 +38,10 @@
         "dist/nmce-html-editor/nmce-html-editor",
         "dist/nmce-html-editor"
       ],
+      "nmce-json-diff": [
+        "dist/nmce-json-diff/nmce-json-diff",
+        "dist/nmce-json-diff"
+      ],
       "nmce-pipes": [
         "dist/nmce-pipes/nmce-pipes",
         "dist/nmce-pipes"

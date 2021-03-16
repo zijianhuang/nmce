@@ -1,8 +1,8 @@
 import { Component, OnInit, Injectable, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DataComponent } from '../_types/DataComponent';
-import { LazyComponentDialogService } from '../_ui_services_lazy/lazy-component-dialog.service';
+import { LazyComponentDialogService, DataComponent } from 'nmce';
 import { diff, formatters } from 'jsondiffpatch';
+
 @Component({
 	selector: 'json-diff-page',
 	templateUrl: 'jsonDiffPage.component.html',
@@ -24,9 +24,7 @@ export class JsonDiffComponent implements DataComponent, OnInit, AfterViewInit {
 			this.jsonPlace.nativeElement.innerHTML = formatters.html.format(delta, this.data.json1);
 		}
 	}
-
 }
-
 
 @Injectable()
 export class JsonDiffDialogService {

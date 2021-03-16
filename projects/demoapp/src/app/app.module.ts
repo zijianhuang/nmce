@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { UI_ServicesModule, LOG_DIALOG_OPTIONS } from 'nmce';
+import { NmceJsonDiffModule } from 'nmce-json-diff';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NmceHtmlEditorModule } from 'nmce-html-editor';
 @NgModule({
@@ -19,6 +20,7 @@ import { NmceHtmlEditorModule } from 'nmce-html-editor';
     NGMDModule,
     UI_ServicesModule,
     NmceHtmlEditorModule,
+    NmceJsonDiffModule,
   ],
   providers: [
     {

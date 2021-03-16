@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/nmce-json-diff",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "nmce": "nmce",
+      "jsondiffpatch": "jsondiffpatch"
+    }  
+  }
+}

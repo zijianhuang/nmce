@@ -1,6 +1,4 @@
 export * from './jsonPage.component';
-export * from './jsonDiffPage.component';
-
 export * from './htmlFramePrintDialog.component';
 export * from './htmlPrintDialog.component';
 export * from './dataComponentPrintDialog.component';
