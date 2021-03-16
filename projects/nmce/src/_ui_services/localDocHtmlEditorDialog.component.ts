@@ -2,7 +2,7 @@ import { Component, Inject, Injectable, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { HtmlDocEditorDialogBaseComponent } from '../_ui_services/htmlDocEditorDialogBase.directive';
-import { AlertService } from '../_ui_services/index';
+import { AlertService, HTML_EDITOR_UPLOADURL } from '../_ui_services/index';
 
 /**
  * Display text area for text of consultation to be saved in Azure Blob Storage.
@@ -16,7 +16,7 @@ export class LocalDocHtmlEditorDialogComponent extends HtmlDocEditorDialogBaseCo
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { [k: string]: any },
 		public dialogRef: MatDialogRef<LocalDocHtmlEditorDialogComponent>,
-		@Inject('htmlEditor.uploadUrl') protected uploadUrl: string,
+		@Inject(HTML_EDITOR_UPLOADURL) protected uploadUrl: string | undefined = undefined,
 		protected alertService: AlertService,
 	) {
 		super(data, dialogRef, data.useUploadUrl ? uploadUrl : undefined, alertService);

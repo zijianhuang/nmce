@@ -1,10 +1,17 @@
-import { Directive, EventEmitter, Inject, Input, Output } from '@angular/core';
+import { Directive, EventEmitter, Inject, Input, Output, InjectionToken } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { HtmlFunc } from '../_func/htmlFunc';
 import { HelperFunc, StringFunc } from '../_func/index';
 import { AlertService } from './alert.service';
+
+export const HTML_EDITOR_UPLOADURL = new InjectionToken<string|undefined>('htmlEditor.uploadUrl', {
+	providedIn: 'root',
+	factory: () => {
+		return undefined;
+	}
+});
 
 /**
  * Display text area for HTML text to be saved in Azure Blob Storage.

@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ElementRef, Inject, ViewChild, InjectionToken, Optional } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AfterViewInit, Component, ElementRef, Inject, InjectionToken, ViewChild } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AlertSubjectMessage } from './types';
 
 export interface MessageDialogOptions {
@@ -7,7 +7,7 @@ export interface MessageDialogOptions {
 	useTitle?: boolean;
 }
 
-export const MY_DIALOG_OPTIONS = new InjectionToken<MessageDialogOptions>('Dialog Options', {
+export const LOG_DIALOG_OPTIONS = new InjectionToken<MessageDialogOptions>('Dialog Options', {
 	providedIn: 'root',
 	factory: () => {
 		return { useIcon: false, useTitle: true };
@@ -48,7 +48,7 @@ export class LogDialogComponent implements AfterViewInit {
 	 * @param dialogOptions if not defined, both useTitle and useIcon are false, then useTitle is true.
 	 */
 	constructor(
-		@Inject(MY_DIALOG_OPTIONS) public dialogOptions: MessageDialogOptions,
+		@Inject(LOG_DIALOG_OPTIONS) public dialogOptions: MessageDialogOptions,
 		@Inject(MAT_DIALOG_DATA) data: { message: AlertSubjectMessage },
 	) {
 		this.message = data.message;

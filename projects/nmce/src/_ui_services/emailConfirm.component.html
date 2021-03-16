@@ -6,7 +6,7 @@
 <mat-dialog-content>
 	<form fxLayout="column">
 		<mat-form-field fxFlexFill>
-			<mat-label>To</mat-label>probably need to change to formControl>
+			<mat-label>To</mat-label>
 			<input matInput [(ngModel)]="emailMessage.to" name="to" type="email" />
 			<button *ngIf="emailAddressesDialogService" mat-button mat-icon-button matPrefix (click)="pickToAddresses()">
 				<mat-icon>contact_mail</mat-icon>

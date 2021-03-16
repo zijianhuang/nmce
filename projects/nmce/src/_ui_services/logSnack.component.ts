@@ -7,6 +7,7 @@ import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
  */
 @Component({
 	templateUrl: 'logSnack.component.html',
+	styleUrls: ['../styles.css']
 })
 export class LogSnackComponent {
 	message: AlertSubjectMessage;
