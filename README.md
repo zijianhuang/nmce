@@ -1,6 +1,6 @@
-# Amcesource
+# NMCE Projects
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+The projects are to deliverable a set of reusable Angular codes and Angular Material Component Extensions. And the targeted applications are complex business applications that can be accomodated in tablet and desktop monitors.
 
 ## Development server
 

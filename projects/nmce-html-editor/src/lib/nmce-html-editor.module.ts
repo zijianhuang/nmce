@@ -10,12 +10,13 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
   declarations: [LocalDocHtmlEditorDialogComponent,
-    EmailConfirmComponent],
+    EmailConfirmComponent], 
   imports: [
     FormsModule, ReactiveFormsModule, NGMDModule, UI_ServicesModule, AngularEditorModule
   ],
   exports: [LocalDocHtmlEditorDialogComponent, EmailConfirmComponent],
-  providers: [LocalDocEditorDialogService,
+  providers: [
+    LocalDocEditorDialogService,
     EmailConfirmService]
 })
 export class NmceHtmlEditorModule { }
