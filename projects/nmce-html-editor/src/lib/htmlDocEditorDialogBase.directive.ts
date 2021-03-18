@@ -19,7 +19,7 @@ export const HTML_EDITOR_UPLOADURL = new InjectionToken<string|undefined>('htmlE
  * This component is used by multiple functions via different routes, or by HTML tempalte so noteLabel and modelChanged will be used.
  */
 @Directive()
-export abstract class HtmlDocEditorDialogBaseComponent<T> {
+export abstract class HtmlDocEditorDialogBaseComponent {
 	get note(): string {
 		if (!this.noteControl) {
 			return '';
@@ -67,8 +67,8 @@ export abstract class HtmlDocEditorDialogBaseComponent<T> {
 	 * @param dialogRef
 	 * @param alertService
 	 */
-	constructor(@Inject(MAT_DIALOG_DATA) public data: T,
-		public dialogRef: MatDialogRef<HtmlDocEditorDialogBaseComponent<T>>,
+	constructor(@Inject(MAT_DIALOG_DATA) public data: { [k: string]: any },
+		public dialogRef: MatDialogRef<HtmlDocEditorDialogBaseComponent>,
 		protected uploadUrl: string | undefined,
 		protected alertService: AlertService,
 	) {

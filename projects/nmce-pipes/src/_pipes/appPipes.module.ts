@@ -16,4 +16,4 @@ import {
 
 	],
 })
-export class AppPipesModule {}
+export class NmcePipesModule {}

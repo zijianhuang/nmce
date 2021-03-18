@@ -11,7 +11,7 @@ import {HTML_EDITOR_UPLOADURL, HtmlDocEditorDialogBaseComponent} from './htmlDoc
 @Component({
 	templateUrl: './htmlDocEditorDialogBase.directive.html',
 })
-export class LocalDocHtmlEditorDialogComponent extends HtmlDocEditorDialogBaseComponent<{ [k: string]: string }> implements OnInit {
+export class LocalDocHtmlEditorDialogComponent extends HtmlDocEditorDialogBaseComponent implements OnInit {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { [k: string]: any },
 		public dialogRef: MatDialogRef<LocalDocHtmlEditorDialogComponent>,

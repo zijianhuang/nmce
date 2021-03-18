@@ -12,7 +12,7 @@ import { AlertService } from '../_ui_services/alert.service';
 @Component({
 	templateUrl: '../_ui_services/textEditorDialogBase.component.html',
 })
-export class LocalTextEditorDialogComponent extends TextEditorDialogComponentBase<{ [k: string]: string }> implements OnInit {
+export class LocalTextEditorDialogComponent extends TextEditorDialogComponentBase implements OnInit {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { [k: string]: string },
 		public dialogRef: MatDialogRef<LocalTextEditorDialogComponent>,

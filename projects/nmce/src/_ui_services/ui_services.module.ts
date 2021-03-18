@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NGMDModule } from '../ngmd.module';
-import { DirectivesModule } from 'nmce-directives';
+import { NmceDirectivesModule } from 'nmce-directives';
 import {
 	AlertService,
 	ConfirmComponent,
@@ -46,7 +46,7 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 		NGMDModule,
 		FlexLayoutModule,
 		ReactiveFormsModule,
-		DirectivesModule,
+		NmceDirectivesModule,
 	],
 
 	declarations: [
@@ -142,4 +142,4 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 	],
 
 })
-export class UI_ServicesModule { }
+export class Nmce_UI_ServicesModule { }

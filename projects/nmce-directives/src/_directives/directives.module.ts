@@ -36,4 +36,4 @@ import {
 		DataComponentDirective,
 	]
 })
-export class DirectivesModule { }
+export class NmceDirectivesModule { }

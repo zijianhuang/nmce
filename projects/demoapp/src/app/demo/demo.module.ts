@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NGMDModule } from '../ngmd.module';
-import { UI_Lazy_ServicesModule } from 'nmce';
-import { DirectivesModule } from 'nmce-directives';
-import { AppPipesModule } from 'nmce-pipes';
+import { Nmce_UI_Lazy_ServicesModule } from 'nmce';
+import { NmceDirectivesModule } from 'nmce-directives';
+import { NmcePipesModule } from 'nmce-pipes';
 import { DemoIndexComponent } from './demo-index.component';
 import { DemoRoutingModule } from './demo-routing.module';
 import { DialogsComponent } from './dialogs.component';
@@ -20,10 +20,10 @@ import { InputDialogsComponent } from './inputDialogs.component';
 		NGMDModule,
 		FlexLayoutModule,
 
-		AppPipesModule,
-		DirectivesModule,
+		NmcePipesModule,
+		NmceDirectivesModule,
 		DemoRoutingModule,
-		UI_Lazy_ServicesModule,
+		Nmce_UI_Lazy_ServicesModule,
 	],
 	declarations: [
 		DemoIndexComponent,

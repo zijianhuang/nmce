@@ -12,7 +12,7 @@ import { AlertSubjectMessage } from './types';
  * The mesage could be of type info, error, warn and success.
  * Browser console also wirte a copy of the message. The snackBar parameter is effective only when contentType is text.
  * When contentType is html, you MUST make sure the HTML content won't be harming the health of DOM managed by Angular. 
- * For example, a href link without _blank, and malicious codes may damange Angular rendering.
+ * For example, a href link without _blank, and malicious codes may damage Angular rendering.
  */
 @Injectable()
 export class AlertService {

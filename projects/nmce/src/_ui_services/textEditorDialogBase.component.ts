@@ -10,7 +10,7 @@ import { AlertService } from './alert.service';
  * This component is used by multiple functions via different routes, or by HTML tempalte so noteLabel and modelChanged will be used.
  */
 @Directive()
-export abstract class TextEditorDialogComponentBase<T> implements AfterViewInit {
+export abstract class TextEditorDialogComponentBase implements AfterViewInit {
 	get note(): string {
 		if (!this.noteControl) {
 			return '';
@@ -52,8 +52,8 @@ export abstract class TextEditorDialogComponentBase<T> implements AfterViewInit 
 	maxRows = (this.viewPortHeight * .90 - 150) / 16;
 
 	constructor(
-		@Inject(MAT_DIALOG_DATA) public data: T,
-		public dialogRef: MatDialogRef<TextEditorDialogComponentBase<T>>,
+		@Inject(MAT_DIALOG_DATA) public data: { [k: string]: any },
+		public dialogRef: MatDialogRef<TextEditorDialogComponentBase>,
 		protected alertService: AlertService,
 	) {
 	}

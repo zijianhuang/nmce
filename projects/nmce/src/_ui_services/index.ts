@@ -21,6 +21,7 @@ export * from './dataComponentDialog.component';
 export * from './textDialog.component';
 export * from './dateRangePicker.component';
 export * from './dateHourRangePicker.component';
-
+export * from './textEditorDialogBase.component';
 export * from './localTextEditorDialog.component';
 export * from './optionListDialog.service';
+export * from './itemListDialog.component';

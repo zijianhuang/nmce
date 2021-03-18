@@ -48,7 +48,7 @@ export class ItemListDialogComponent {
 /**
  * Show a list of object items and select one. T could be a string type, or any object type that could be presented as a literal description.
  */
-export abstract class ItemListDialogServiceBase<T> {
+export abstract class ItemListDialogServiceBase {
 	constructor(protected dialog: MatDialog) { }
 
 	/**
@@ -57,7 +57,7 @@ export abstract class ItemListDialogServiceBase<T> {
 	 * @param items
 	 * @returns object item selected.
 	 */
-	open(title: string, items: T[]): Observable<T> {
+	open(title: string, items: { [k: string]: any }[] | string[]): Observable<{ [k: string]: any }> {
 		const modalRef = this.dialog.open(ItemListDialogComponent, { disableClose: true, autoFocus: false, data: { title: title, items: items, toStringCallback: this.toString } });
 		return modalRef.afterClosed();
 	}
@@ -66,7 +66,7 @@ export abstract class ItemListDialogServiceBase<T> {
 	 * Translate item into a string printed in the dialog.
 	 * @param item
 	 */
-	abstract toString(item: T): string;
+	abstract toString(item: { [k: string]: any } | string): string;
 
 }
 
