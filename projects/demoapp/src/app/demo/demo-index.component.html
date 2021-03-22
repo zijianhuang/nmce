@@ -18,6 +18,12 @@
 		   [active]="rlaInputDialogs.isActive || defaultActive">
 			Input Services
 		</a>
+		<a mat-tab-link
+		   routerLink="/demo/components"
+		   routerLinkActive #rlaComponents="routerLinkActive"
+		   [active]="rlaComponents.isActive">
+			Components
+		</a>
 	</nav>
 </div>
 

@@ -5,6 +5,7 @@ import { DialogsComponent } from './dialogs.component';
 import { HtmlDialogsComponent } from './htmlDialogs.component';
 import { DemoIndexComponent } from './demo-index.component';
 import { InputDialogsComponent } from './inputDialogs.component';
+import { ComponentsComponent} from './components.component';
 
 const featureRoutes: Routes = [
 	{
@@ -15,6 +16,7 @@ const featureRoutes: Routes = [
 			{ path: 'dialogs', component: DialogsComponent },
 			{ path: 'htmlDialogs', component: HtmlDialogsComponent },
 			{ path: 'inputDialogs', component: InputDialogsComponent },
+			{ path: 'components', component: ComponentsComponent },
 		]
 	}
 ];

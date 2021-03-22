@@ -1,0 +1,44 @@
+import {
+	Component,
+	Input, Output, OnChanges, ElementRef, OnInit,
+	EventEmitter
+} from '@angular/core';
+import { Location } from '@angular/common';
+import { HtmlFunc } from 'nmce-func'
+
+/**
+ * To be embedded in any view to print a section of the view marked by element id.
+ */
+@Component({
+	selector: 'print-page',
+	template: `
+	 <button (click)="printDiv()" mat-raised-button mdTooltip="Print content">Print</button>
+	`,
+})
+export class PrintComponent implements OnInit {//inspired by https://www.linkedin.com/pulse/create-print-component-angular2-which-user-defined-html-rajesh-g
+
+	@Input() section: string;
+	@Output() sectionChange = new EventEmitter<any>();
+
+	constructor(private ele: ElementRef, private location: Location) {
+		if (this.section === undefined) {
+			this.section = '';
+		}
+	}
+
+	ngOnInit(): void {
+		console.debug('ready to print ' + this.section);
+	}
+
+	printDiv() {
+
+		if (this.section) {
+			const element = document.getElementById(this.section);
+			if (element) {
+				const printContents = element.innerHTML;
+				HtmlFunc.printWithCSS(printContents, this.location.prepareExternalUrl(''));
+			}
+		}
+	}
+
+}

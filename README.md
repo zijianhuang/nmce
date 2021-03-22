@@ -1,10 +1,16 @@
 # NMCE Projects
 
-The projects are to deliverable a set of reusable Angular codes and Angular Material Component Extensions. And the targeted applications are complex business applications that can be accomodated in tablet and desktop monitors.
+The projects are to deliver a set of reusable Angular codes and Angular Material Component Extensions, targeting complex business applications with rich data structures and complex workflows.
+
+## Projects
+* Func: Common functions used in business applications and the components and services in this NMCE project.
+* Nmce
+* Nmce-html-editor: Based on @kolkov/angular-editor, present a HTML editor in a dialog.
+* Nmce-json-diff: based on 
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve demoapp` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
