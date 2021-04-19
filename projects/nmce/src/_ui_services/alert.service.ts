@@ -8,7 +8,8 @@ import { LogSnackComponent } from './logSnack.component';
 import { AlertSubjectMessage } from './types';
 
 /**
- * Similar to JavaScript's alert() function, to display message in a dialog with LogDialogComponent or optionally a snackbar if message content type is text. 
+ * Similar to JavaScript's alert() function, to display message in a dialog with LogDialogComponent,
+ * or optionally a snackbar if message content type is text. 
  * The mesage could be of type info, error, warn and success.
  * Browser console also wirte a copy of the message. The snackBar parameter is effective only when contentType is text.
  * When contentType is html, you MUST make sure the HTML content won't be harming the health of DOM managed by Angular. 
@@ -25,7 +26,8 @@ export class AlertService {
 	}
 
 	/**
-	 * Initiate the listening of SubjectMessage. Then redirect the message to either snackbar or dialog. This should be called only once in the startup component like the app component.
+	 * Initiate the listening of SubjectMessage. Then redirect the message to either snackbar or dialog. 
+	 * This should be called only once in the startup component like the app component.
 	 */
 	initOnce() {
 		this.getMessage().subscribe(message => {
@@ -53,6 +55,8 @@ export class AlertService {
 
 			}
 		});
+
+		console.debug('AlertService.initOnce(), and listen now.');
 	}
 
 	/**

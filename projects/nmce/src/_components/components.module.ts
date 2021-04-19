@@ -46,8 +46,13 @@ import {
 		AlertComponent, //need to export the entry component
 		PrintComponent,
 	],
+
+	entryComponents:[
+		AlertComponent,
+	],
+
 	providers: [
 	],
 
 })
-export class ComponentsModule { }
+export class NmceComponentsModule { }

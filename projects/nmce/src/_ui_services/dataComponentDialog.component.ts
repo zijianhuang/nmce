@@ -5,7 +5,8 @@ import { DataComponent } from '../_types/DataComponent';
 import { DataComponentDirective } from 'nmce-directives';
 
 /**
- * This is to host another component which has implemented interfact DataComponent. And another component is to be displayed in a dialog but not need to answer but to close.
+ * This is to host another component which has implemented interfact DataComponent. 
+ * And another component is to be displayed in a dialog but not need to answer but to close.
  * The Close button may vary depending on the screen size.
  */
 @Component({
