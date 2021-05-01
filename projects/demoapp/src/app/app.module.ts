@@ -4,11 +4,11 @@ import { NGMDModule } from './ngmd.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { Nmce_UI_ServicesModule, LOG_DIALOG_OPTIONS, ComponentsModule } from 'nmce';
+import { Nmce_UI_ServicesModule, LOG_DIALOG_OPTIONS, NmceComponentsModule } from 'nmce';
 import { NmceJsonDiffModule } from 'nmce-json-diff';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NmceHtmlEditorModule } from 'nmce-html-editor';
-
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent
@@ -16,10 +16,11 @@ import { NmceHtmlEditorModule } from 'nmce-html-editor';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     BrowserAnimationsModule,
     HttpClientModule,
     NGMDModule,
-    ComponentsModule,
+    NmceComponentsModule,
     Nmce_UI_ServicesModule,
     NmceHtmlEditorModule,
     NmceJsonDiffModule,

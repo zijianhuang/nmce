@@ -102,7 +102,7 @@ export class AlertService {
 	}
 
 	/**
-	 * Display HttpErrorResponse, text, or object as error.
+	 * Display HttpErrorResponse, text, or object as error. For object, the display will be JSON with indent.
 	 * @param error
 	 * @param snackBar
 	 * @param subtitle
@@ -160,9 +160,6 @@ export class AlertService {
 			}
 		} else if (typeof error === 'string') { //not likely need to check instanceof String
 			errMsg = error;
-			contentType = 'text';
-		} else if (error.message) {
-			errMsg = error.message;
 			contentType = 'text';
 		} else {
 			errMsg = JSON.stringify(error, null, '\t');

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NGMDModule } from '../ngmd.module';
-import { Nmce_UI_Lazy_ServicesModule, ComponentsModule } from 'nmce';
+import { Nmce_UI_Lazy_ServicesModule, NmceComponentsModule } from 'nmce';
 import { NmceDirectivesModule } from 'nmce-directives';
 import { NmcePipesModule } from 'nmce-pipes';
 import { DemoIndexComponent } from './demo-index.component';
@@ -21,7 +21,7 @@ import { ComponentsComponent} from './components.component';
 		NGMDModule,
 		FlexLayoutModule,
 
-		ComponentsModule,
+		NmceComponentsModule,
 		NmcePipesModule,
 		NmceDirectivesModule,
 		DemoRoutingModule,
