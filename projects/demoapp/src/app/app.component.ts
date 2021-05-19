@@ -1,68 +1,77 @@
 import { state, style, transition, trigger, useAnimation } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { bounceInDown, flash } from 'ng-animate';
-import { AlertService, NotificationsCache, NotificationsService } from 'nmce';
+import { AlertService, NotificationsService } from 'nmce';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
-		trigger('newNotificationComing', [
-			state('zero', style({})),
+    trigger('newNotificationComing', [
+      state('zero', style({})),
 
-			state('more', style({})),
+      state('more', style({})),
 
-			state('one', style({})),
+      state('one', style({})),
 
-			transition('zero => *', useAnimation(bounceInDown, { delay: 500 })),
+      transition('zero => *', useAnimation(bounceInDown, { delay: 500 })),
 
-			transition('* => *', useAnimation(flash, { delay: 200 })),
-		])
+      transition('* => *', useAnimation(flash, { delay: 200 })),
+    ])
 
-	]
+  ]
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   title = 'demoapp';
 
   notificationsState = 'zero';
+	private unsubscribe: Subject<void> = new Subject();
 
   get notificationsCount() {
-    if (NotificationsCache.notificationsQueue.length === 0) { //this count is associated to ngIf in html, so called frequently by NG runtime.
+    if (this.notificationsService.items.length === 0) { //this count is associated to ngIf in html, so called frequently by NG runtime.
       this.notificationsState = 'zero';
     }
 
-    return NotificationsCache.notificationsQueue.length;
+    return this.notificationsService.items.length;
   }
 
   constructor(private alertService: AlertService,
     private notificationsService: NotificationsService,
+    //private actionSheetItemSubjectService: ActionSheetItemSubjectService,
   ) {
     this.alertService.initOnce();
+    // this.actionSheetItemSubjectService.getMessage().pipe(takeUntil(this.unsubscribe)).subscribe(
+    //   d => this.showNotifications()
+    // );
   }
 
   /**
+   * Only app.component should call notificationsService.open(). All other parts of the SPA should use event handling to call showNotifications().
    * This is also hooked to <button *ngIf="notificationsCount>0" [@newNotificationComing]="notificationsState" type="button" mat-button mat-raised-button (click)="showNotifications()"
    */
   showNotifications() {
-    this.notificationsService.open({ items: NotificationsCache.notificationsQueue, clearCallback: this.clearNotifications }).subscribe(actionItem => {
+    console.debug('bbbbbbbbbbbbbbbbbbb');
+    this.notificationsService.open().subscribe(actionItem => {
       if (actionItem) {
         switch (actionItem.actionType) {
-          case 'task':
-            this.alertService.info('task ok');
+          case 'test':
+            this.alertService.info('test ok' + actionItem.actionId);
             break;
           default:
             break;
         }
 
-        NotificationsCache.removeNotificationItem(actionItem);
+        console.debug('gggggggggggggggggggg');
+        this.notificationsService.remove(actionItem);
       }
     });
 
   }
 
-	private clearNotifications() {
-		NotificationsCache.clearNotificationQueue();
+  ngOnDestroy() {
+		this.unsubscribe.next();
+		this.unsubscribe.complete();
 	}
-
 }

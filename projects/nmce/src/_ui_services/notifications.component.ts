@@ -1,8 +1,37 @@
-import { Component, Inject, Injectable } from '@angular/core';
-import { MatBottomSheet, MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
-import { Observable } from 'rxjs';
-import { NotificationsCache } from './notificationsCache';
+import { Component, Injectable } from '@angular/core';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { Observable, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { ActionSheetItemSubjectService } from './baseTypes';
 import { ActionSheetItem } from './types';
+
+class NotificationsCache { //not exported intentionally
+	private static notifications: ActionSheetItem[] = [];
+
+	/**
+	 * All items as array in the queue
+	 */
+	static get notificationsQueue(): ActionSheetItem[] {
+		return this.notifications;
+	}
+
+	static pushNotificationQueue(n: ActionSheetItem) {
+		this.notifications.push(n);
+		if (this.notifications.length > 20) {
+			this.notifications.shift();
+		}
+	}
+
+	static clearNotificationQueue() {
+		this.notifications = [];
+	}
+
+	static removeNotificationItem(n: ActionSheetItem) {
+		const idx = this.notifications.indexOf(n);
+		this.notifications.splice(idx, 1);
+	}
+
+}
 
 /**
  * Display ActionSheet to simulate the notification feature of Windows and other OSs.
@@ -11,23 +40,17 @@ import { ActionSheetItem } from './types';
 	templateUrl: 'notifications.component.html',
 })
 export class NotificationsComponent {
-	items: ActionSheetItem[] = [];
 
-	constructor(@Inject(MAT_BOTTOM_SHEET_DATA) public data: { items: ActionSheetItem[], clearCallback: () => void }, public sheetRef: MatBottomSheetRef<NotificationsComponent>) {
-		this.items = data.items;
+	get items(): ActionSheetItem[] {
+		return NotificationsCache.notificationsQueue;
+	}
+
+	constructor(public sheetRef: MatBottomSheetRef<NotificationsComponent>
+	) {
 	}
 
 	handleAction(item: ActionSheetItem) {
 		this.sheetRef.dismiss(item);
-	}
-
-	remove(item: ActionSheetItem) {
-		NotificationsCache.removeNotificationItem(item);
-	}
-
-	clear() {
-		this.data.clearCallback();
-		this.sheetRef.dismiss();
 	}
 
 	getDigest(s: string) {
@@ -46,6 +69,15 @@ export class NotificationsComponent {
 			return ss;
 		}
 	}
+
+	remove(item: ActionSheetItem) {
+		NotificationsCache.removeNotificationItem(item);
+	}
+
+	clearAndClose() {
+		NotificationsCache.clearNotificationQueue();
+		this.sheetRef.dismiss();
+	}
 }
 
 /**
@@ -53,18 +85,44 @@ export class NotificationsComponent {
  * Intended to be used in push from the backend, while local background tasks may surely send notification too.
  * When being used with SignalR, be aware that SignalR is not working with IIS Express, but IIS.
  */
-@Injectable()
+ @Injectable({
+	providedIn: 'root',
+})
 export class NotificationsService {
-	constructor(private bottomSheet: MatBottomSheet) { }
+	private unsubscribe: Subject<void> = new Subject();
+	constructor(private bottomSheet: MatBottomSheet,
+		private actionSheetItemSubjectService: ActionSheetItemSubjectService) {
+		console.debug('NotificationsService created.');
+		this.actionSheetItemSubjectService.getMessage().pipe(takeUntil(this.unsubscribe)).subscribe(
+			item => {
+				console.debug('item pushed.');
+				NotificationsCache.pushNotificationQueue(item);
+			}
+		)
+	}
 
-	bottomSheetRef: MatBottomSheetRef<NotificationsComponent>;
+	private bottomSheetRef: MatBottomSheetRef<NotificationsComponent>;
 
-	open(data: { items: ActionSheetItem[], clearCallback: () => void}, disableClose = false): Observable<ActionSheetItem> {
+	/**
+	 * 
+	 * @param disableClose 
+	 * @returns clicked item
+	 */
+	open(disableClose = false): Observable<ActionSheetItem> {
 		this.bottomSheetRef = this.bottomSheet.open(NotificationsComponent, {
 			disableClose: disableClose,
-			data: data
 		});
 
 		return this.bottomSheetRef.afterDismissed();
 	}
+
+	get items(): ActionSheetItem[] {
+		return NotificationsCache.notificationsQueue;
+	}
+
+	remove(item: ActionSheetItem) {
+		NotificationsCache.removeNotificationItem(item);
+	}
+
+
 }

@@ -22,7 +22,7 @@ import {
 	LocalAlertService,
 	LocalTextEditorDialogComponent, LocalTextEditorDialogService, LogDialogComponent, LogSnackComponent,
 	NotificationsComponent,
-	NotificationsService,
+
 
 	OptionListDialogService, OptionsComponent,
 	OptionsService, PasswordsInputComponent,
@@ -111,7 +111,6 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 		//},
 
 		NotificationsComponent,
-		NotificationsService,
 		TextInputService,
 		PasswordsInputService,
 		TimeService,
@@ -139,6 +138,8 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 
 		LocalTextEditorDialogService,
 		OptionListDialogService,
+		//NotificationsService,
+		//ActionSheetItemSubjectService,
 	],
 
 })

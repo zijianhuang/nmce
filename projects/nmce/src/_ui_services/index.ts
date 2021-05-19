@@ -1,4 +1,5 @@
 export * from './alert.service';
+export * from './baseTypes';
 export * from './confirm.component';
 export * from './confirm.service';
 export * from './dataComponentDialog.component';
@@ -12,7 +13,6 @@ export * from './localTextEditorDialog.component';
 export * from './logDialog.component';
 export * from './logSnack.component';
 export * from './notifications.component';
-export * from './notificationsCache';
 export * from './optionListDialog.service';
 export * from './options.component';
 export * from './options.service';
@@ -23,3 +23,4 @@ export * from './textInput.component';
 export * from './timePicker.component';
 export * from './types';
 export * from './wait.service';
+

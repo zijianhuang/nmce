@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import {
-	LocalAlertService, NotificationsCache, NotificationsService, WaitService
-} from 'nmce';
+import { ActionSheetItemSubjectService, LocalAlertService, WaitService } from 'nmce';
 
 
 /**
@@ -28,9 +26,9 @@ export class ComponentsComponent implements OnInit {
 
 	constructor(
 		private localAlertService: LocalAlertService,
-		private notificationsService: NotificationsService,
 		private waitService: WaitService,
 		//private localWaitService: LocalWaitService,
+		private actionSheetItemSubjectService: ActionSheetItemSubjectService
 	) {
 
 	}
@@ -66,18 +64,13 @@ export class ComponentsComponent implements OnInit {
 
 	addNotification() {
 		const id = Date.now().toString();
-		NotificationsCache.pushNotificationQueue({
+		console.debug('aaaaaaaaaaaaaaaa');
+		this.actionSheetItemSubjectService.emit({
 			actionType: 'test',
 			actionId: id,
 			actionLabel: 'Hey do something ' + id,
 			message: 'Find out more details' + id,
 		});
-
-		this.notificationsService.open({items: NotificationsCache.notificationsQueue, clearCallback: ()=>NotificationsCache.clearNotificationQueue()}).subscribe(
-			action=>{
-				this.localAlertService.info('Action clicked: ' + action.actionId);
-			}
-		);
 	}
 }
 
