@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Router, NavigationStart } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Subject } from 'rxjs';
+import { NavigationStart, Router } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
 
 /**
  * Waiting for progress, showing spinner
@@ -42,12 +41,19 @@ export abstract class WaitServiceBase {
 
 }
 
+/**
+ * Used togehter with <wait> element, generally for handling observable. Start wait before calling an observable, stop wait in subscribe.
+ * The mechanism is sending and receiving WaitMessage.
+ */
 @Injectable()
 export class WaitService extends WaitServiceBase {
 	constructor(router: Router) { super(router); }
 }
 
-export class LocalWaitService { //intentionally not injectable
+/**
+ * This service is intentionally not injectable, and should be created inside the constructor of a component.
+ */
+export class LocalWaitService { 
 	loading = false;
 	constructor(private waitService: WaitService) {
 

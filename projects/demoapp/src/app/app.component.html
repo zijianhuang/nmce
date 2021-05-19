@@ -4,3 +4,11 @@
 <div class="container-fluid app-container">
 	<router-outlet></router-outlet>
 </div>
+
+<div class="fixed-bottom">
+	<div fxLayoutAlign="end end" fxLayoutGap="0.5em">
+		<button *ngIf="notificationsCount>0" [@newNotificationComing]="notificationsState" type="button" mat-button mat-raised-button (click)="showNotifications()" matTooltip="Show notifications">
+			Notifications ({{notificationsCount}})
+		</button>
+	</div>
+</div>

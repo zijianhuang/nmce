@@ -1,11 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
-	LocalAlertService,
+	LocalAlertService, NotificationsCache, NotificationsService, WaitService
 } from 'nmce';
-import { LocalDocEditorDialogService, EmailConfirmService } from 'nmce-html-editor';
-
 
 
 /**
@@ -23,8 +20,17 @@ export class ComponentsComponent implements OnInit {
 	inputDialogSmall = false;
 	noClear = false;
 
+	dialogSelectedControl: FormControl = new FormControl(1);
+
+	get waitServiceIsWaiting() {
+		return this.waitService.loading;
+	}
+
 	constructor(
-		private localAlertService: LocalAlertService
+		private localAlertService: LocalAlertService,
+		private notificationsService: NotificationsService,
+		private waitService: WaitService,
+		//private localWaitService: LocalWaitService,
 	) {
 
 	}
@@ -33,8 +39,45 @@ export class ComponentsComponent implements OnInit {
 	}
 
 
-	localAlert(){
+	localAlert() {
 		this.localAlertService.info('Some part of the app is telling something.');
+		switch (this.dialogSelectedControl.value) {
+			case 1: this.localAlertService.success('Some part of the app is telling success.');
+				break;
+			case 2: this.localAlertService.info('Some part of the app is telling info.');
+				break;
+			case 3: this.localAlertService.warn('Some part of the app is telling warning.');
+				break;
+			case 4: this.localAlertService.error('Some part of the app is telling error.');
+				break;
+			default:
+				this.localAlertService.warn('Hey, fix this.');
+				break;
+		}
+	}
+
+	toggleWait() {
+		this.waitService.setWait({ loading: !this.waitService.loading });
+	}
+
+	endWait() {
+
+	}
+
+	addNotification() {
+		const id = Date.now().toString();
+		NotificationsCache.pushNotificationQueue({
+			actionType: 'test',
+			actionId: id,
+			actionLabel: 'Hey do something ' + id,
+			message: 'Find out more details' + id,
+		});
+
+		this.notificationsService.open({items: NotificationsCache.notificationsQueue, clearCallback: ()=>NotificationsCache.clearNotificationQueue()}).subscribe(
+			action=>{
+				this.localAlertService.info('Action clicked: ' + action.actionId);
+			}
+		);
 	}
 }
 

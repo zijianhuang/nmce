@@ -1,18 +1,19 @@
-import { Component, OnInit, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { LocalAlertService, AlertSubjectMessage } from '../_ui_services/index';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { takeWhile } from 'rxjs/operators';
+import { AlertSubjectMessage, LocalAlertService } from '../_ui_services/index';
 
 /**
- * Alert to render element alert in a component.
+ * Alert to render element alert in a component through LocalAlertService.
  * And alert message is also written into console with respective alert type.
  */
 @Component({
 	selector: 'alert',
-	templateUrl: 'alert.component.html'
+	templateUrl: 'alert.component.html',
+	styleUrls: ['../styles.css'],
 })
 export class AlertComponent implements OnInit, OnDestroy {
 	private alive = true;
-	message: AlertSubjectMessage;
+	message: AlertSubjectMessage={};
 
 	get hasContent(): boolean {
 		if (this.message && this.message.text) {
@@ -23,7 +24,11 @@ export class AlertComponent implements OnInit, OnDestroy {
 
 	}
 
-	constructor(private alertService: LocalAlertService, private ref: ChangeDetectorRef) { }
+	constructor(
+		private alertService: LocalAlertService,
+		private ref: ChangeDetectorRef) {
+
+	}
 
 	ngOnInit() {
 		this.alertService.getMessage().pipe(takeWhile(() => this.alive)).subscribe(msg => {

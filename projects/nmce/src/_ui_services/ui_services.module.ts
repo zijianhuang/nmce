@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NGMDModule } from '../ngmd.module';
 import { NmceDirectivesModule } from 'nmce-directives';
+import { NGMDModule } from '../ngmd.module';
 import {
 	AlertService,
 	ConfirmComponent,
@@ -12,26 +12,26 @@ import {
 	DataComponentDialogService,
 	DateHourRangePickerComponent,
 	DateHourRangePickerService, DateRangePickerComponent,
-	DateRangePickerService, 
+	DateRangePickerService,
 	HtmlDialogComponent,
 	HtmlDialogService, HtmlFrameDialogComponent,
 	HtmlFrameDialogService, HtmlHRefDialogComponent,
-	HtmlHRefDialogService, HtmlHRefFrameDialogComponent, HtmlImgDialogComponent, HtmlImgDialogService,
-	HtmlHRefFrameDialogService,
-	
-	LocalAlertService, LogDialogComponent, LogSnackComponent,
+	HtmlHRefDialogService, HtmlHRefFrameDialogComponent,
+	HtmlHRefFrameDialogService, HtmlImgDialogComponent, HtmlImgDialogService,
+
+	LocalAlertService,
+	LocalTextEditorDialogComponent, LocalTextEditorDialogService, LogDialogComponent, LogSnackComponent,
 	NotificationsComponent,
-	NotificationsService, OptionsComponent,
+	NotificationsService,
+
+	OptionListDialogService, OptionsComponent,
 	OptionsService, PasswordsInputComponent,
 	PasswordsInputService, TextDialogComponent,
 	TextDialogService, TextHRefDialogComponent,
 	TextHReflDialogService, TextInputComponent,
 	TextInputService, TimePickerComponent,
 	TimeService,
-	WaitProgressService, WaitService,
-	OptionListDialogService,
-	LocalTextEditorDialogComponent, LocalTextEditorDialogService,
-
+	WaitProgressService, WaitService
 } from './index';
 import { ItemListDialogComponent } from './itemListDialog.component';
 

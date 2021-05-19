@@ -1,7 +1,6 @@
+import { ActionSheetItem } from './types';
 
-import { ActionSheetItem } from './_ui_services/types';
-
-export class AppCache {
+export class NotificationsCache {
 	private static notifications: ActionSheetItem[] = [];
 
 	/**

@@ -1,12 +1,11 @@
 import { Component, Inject, Injectable } from '@angular/core';
 import { MatBottomSheet, MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
-import { ActionSheetItem } from './types';
 import { Observable } from 'rxjs';
-import { AppCache } from '../appCache';
+import { NotificationsCache } from './notificationsCache';
+import { ActionSheetItem } from './types';
 
 /**
- * Confirmation to say Yes or No. When saying Yes, return result true, otherwise, return activeModal.dismiss().
- * This component is used by ConfirmService
+ * Display ActionSheet to simulate the notification feature of Windows and other OSs.
  */
 @Component({
 	templateUrl: 'notifications.component.html',
@@ -23,7 +22,7 @@ export class NotificationsComponent {
 	}
 
 	remove(item: ActionSheetItem) {
-		AppCache.removeNotificationItem(item);
+		NotificationsCache.removeNotificationItem(item);
 	}
 
 	clear() {
@@ -49,12 +48,16 @@ export class NotificationsComponent {
 	}
 }
 
-
+/**
+ * To be injected in app.component. Upon receiving notification messages, display ActionSheet.
+ * Intended to be used in push from the backend, while local background tasks may surely send notification too.
+ * When being used with SignalR, be aware that SignalR is not working with IIS Express, but IIS.
+ */
 @Injectable()
 export class NotificationsService {
 	constructor(private bottomSheet: MatBottomSheet) { }
 
-	bottomSheetRef?: MatBottomSheetRef<NotificationsComponent>;
+	bottomSheetRef: MatBottomSheetRef<NotificationsComponent>;
 
 	open(data: { items: ActionSheetItem[], clearCallback: () => void}, disableClose = false): Observable<ActionSheetItem> {
 		this.bottomSheetRef = this.bottomSheet.open(NotificationsComponent, {

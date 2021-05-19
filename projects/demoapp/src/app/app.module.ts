@@ -1,14 +1,13 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NGMDModule } from './ngmd.module';
-import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
-import { AppComponent } from './app.component';
-import { Nmce_UI_ServicesModule, LOG_DIALOG_OPTIONS, NmceComponentsModule } from 'nmce';
-import { NmceJsonDiffModule } from 'nmce-json-diff';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NmceHtmlEditorModule } from 'nmce-html-editor';
 import { RouterModule } from '@angular/router';
+import { LOG_DIALOG_OPTIONS, Nmce_UI_ServicesModule } from 'nmce';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { NGMDModule } from './ngmd.module';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -20,10 +19,7 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     HttpClientModule,
     NGMDModule,
-    NmceComponentsModule,
     Nmce_UI_ServicesModule,
-    NmceHtmlEditorModule,
-    NmceJsonDiffModule,
   ],
   providers: [
     {

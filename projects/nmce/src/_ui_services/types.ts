@@ -1,4 +1,3 @@
-import { Observable } from "rxjs";
 
 export enum DialogSize { Auto, Large, Medium, Smart }
 
@@ -29,12 +28,12 @@ export interface ActionSheetItem {
 }
 
 export interface AlertSubjectMessage {
-	text: string | undefined;
+	text?: string;
 
 	/**
 	 * success, info, error, warning
 	 */
-	type: 'success' | 'info' | 'error' | 'warning' | undefined;
+	type?: 'success' | 'info' | 'error' | 'warning';
 
 	/**
 	 * Optionally describe title which is translated from type. Such as explaning the source of the message.

@@ -27,6 +27,7 @@
     "json-formatter-js": "2.3.4",
     "jsondiffpatch": "0.4.1",
     "moment": "2.29.1",
+    "ng-animate": "^1.0.0",
     "rxjs": "~6.6.6",
     "tslib": "^2.0.0",
     "uuid": "8.3.2",
