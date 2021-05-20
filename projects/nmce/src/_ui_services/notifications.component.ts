@@ -92,7 +92,6 @@ export class NotificationsService extends RootInjectorGuard {
 	constructor(private bottomSheet: MatBottomSheet,
 		private actionSheetItemSubjectService: ActionSheetItemSubjectService) {
 		super(NotificationsService);
-		console.debug('NotificationsService created.');
 		this.actionSheetItemSubjectService.getMessage().subscribe(
 			item => {
 				console.debug('item pushed.');

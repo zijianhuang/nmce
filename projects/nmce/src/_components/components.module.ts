@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NGMDModule } from '../ngmd.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
-
 import {
-	NotFoundComponent, WIPComponent,
-	WaitComponent, WaitProgressComponent,
-	MonthYearComponent, MYExpiryComponent, MonthYearExpiryComponent,
-	AlertComponent, 
-	PrintComponent,
+	AlertComponent, MonthYearExpiryComponent, NotFoundComponent,
+
+
+
+	PrintComponent, WaitComponent, WaitProgressComponent, WIPComponent
 } from './index';
+
 
 /**
  * Contain components. Other feature modules that need to access custom html element of components like my-datetimepicker still need to import this module explicitly.
@@ -30,8 +30,6 @@ import {
 		NotFoundComponent, WIPComponent,
 		WaitComponent,
 		WaitProgressComponent,
-		MonthYearComponent,
-		MYExpiryComponent,
 		MonthYearExpiryComponent,
 		PrintComponent,
 	],
@@ -40,8 +38,6 @@ import {
 		NotFoundComponent, WIPComponent,
 		WaitComponent,
 		WaitProgressComponent,
-		MonthYearComponent,
-		MYExpiryComponent,
 		MonthYearExpiryComponent,
 		AlertComponent, //need to export the entry component
 		PrintComponent,

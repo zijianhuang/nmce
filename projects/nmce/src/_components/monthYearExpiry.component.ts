@@ -87,7 +87,7 @@ export class MonthYearExpiryComponent implements OnInit {
 		console.debug(`selected: ${e.value} m: ${this.selectedMonth}  y: ${this.selectedYear} `);
 		this.change.emit(this.value);
 		this.yearMonthExpiry.setValue(this.value);
-		this.yearMonthExpiry.markAsDirty();
+		this.yearMonthExpiry.markAsDirty(); //need to explicitly set it if the FormCotrol is not with FormGroup
 	}
 }
 

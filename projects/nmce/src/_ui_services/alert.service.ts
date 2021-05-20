@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable, Subject } from 'rxjs';
+import { RootInjectorGuard } from './baseTypes';
 import { LogDialogComponent } from './logDialog.component';
 import { LogSnackComponent } from './logSnack.component';
 import { AlertSubjectMessage } from './types';
-
 /**
  * Similar to JavaScript's alert() function, to display message in a dialog with LogDialogComponent,
  * or optionally a snackbar if message content type is text. 
@@ -18,13 +18,13 @@ import { AlertSubjectMessage } from './types';
 @Injectable({
 	providedIn: 'root',
 })
-export class AlertService {
+export class AlertService extends RootInjectorGuard {
 	private subject = new Subject<AlertSubjectMessage>();
 
 	constructor(private snackBarService: MatSnackBar,
 		private dialog: MatDialog,
 	) {
-		console.debug('AlertService created.');
+		super(AlertService);
 	}
 
 	/**

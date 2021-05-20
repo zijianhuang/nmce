@@ -24,6 +24,10 @@ export class ComponentsComponent implements OnInit {
 		return this.waitService.loading;
 	}
 
+	yearMonthExpiryControl: FormControl= new FormControl(undefined);
+
+	yearMonthControl: FormControl;
+
 	constructor(
 		private localAlertService: LocalAlertService,
 		private waitService: WaitService,
@@ -64,7 +68,6 @@ export class ComponentsComponent implements OnInit {
 
 	addNotification() {
 		const id = Date.now().toString();
-		console.debug('aaaaaaaaaaaaaaaa');
 		this.actionSheetItemSubjectService.emit({
 			actionType: 'test',
 			actionId: id,

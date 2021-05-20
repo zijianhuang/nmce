@@ -8,17 +8,21 @@
 			<mat-option [value]="4">Error</mat-option>
 		</mat-select>
 	</mat-form-field>
-	Alert:
+	LocalAlertService:
 	<p><alert></alert></p>
 </div>
 
 <div fxLayoutGap="1em">
 	<button mat-mini-fab (click)="toggleWait()"><mat-icon>{{waitServiceIsWaiting?'stop':'play_arrow'}}</mat-icon></button>
-	Wait:
+	WaitService:
 	<wait></wait>
 </div>
 
 <div>
 	<button mat-mini-fab (click)="addNotification()"><mat-icon>play_arrow</mat-icon></button>
-	Add Notification
+	ActionSheetItemSubjectService Add Notification to NotificationsService
+</div>
+
+<div>
+	<month-year-expiry [yearMonthExpiry]="yearMonthExpiryControl"></month-year-expiry> <span *ngIf=yearMonthExpiryControl.dirty>*</span>
 </div>
