@@ -15,14 +15,16 @@ import { AlertSubjectMessage } from './types';
  * When contentType is html, you MUST make sure the HTML content won't be harming the health of DOM managed by Angular. 
  * For example, a href link without _blank, and malicious codes may damage Angular rendering.
  */
-@Injectable()
+@Injectable({
+	providedIn: 'root',
+})
 export class AlertService {
 	private subject = new Subject<AlertSubjectMessage>();
 
 	constructor(private snackBarService: MatSnackBar,
 		private dialog: MatDialog,
 	) {
-
+		console.debug('AlertService created.');
 	}
 
 	/**

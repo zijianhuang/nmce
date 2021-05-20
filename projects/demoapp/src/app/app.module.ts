@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { ActionSheetItemSubjectService, LOG_DIALOG_OPTIONS, Nmce_UI_ServicesModule, NotificationsService } from 'nmce';
+import { ActionSheetItemSubjectService, AlertService, LOG_DIALOG_OPTIONS, Nmce_UI_ServicesModule, NotificationsService } from 'nmce';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NGMDModule } from './ngmd.module';
@@ -33,6 +33,7 @@ import { NGMDModule } from './ngmd.module';
 
     		NotificationsService,
 		ActionSheetItemSubjectService,
+    AlertService,
     // {
     // 	provide: 'htmlEditor.uploadUrl',
     // 	useValue: undefined

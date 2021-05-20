@@ -1,7 +1,7 @@
 import { state, style, transition, trigger, useAnimation } from '@angular/animations';
 import { Component, OnDestroy } from '@angular/core';
 import { bounceInDown, flash } from 'ng-animate';
-import { AlertService, NotificationsService } from 'nmce';
+import { ActionSheetItemSubjectService, AlertService, NotificationsService } from 'nmce';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -39,12 +39,12 @@ export class AppComponent implements OnDestroy {
 
   constructor(private alertService: AlertService,
     private notificationsService: NotificationsService,
-    //private actionSheetItemSubjectService: ActionSheetItemSubjectService,
+    private actionSheetItemSubjectService: ActionSheetItemSubjectService,
   ) {
     this.alertService.initOnce();
-    // this.actionSheetItemSubjectService.getMessage().pipe(takeUntil(this.unsubscribe)).subscribe(
-    //   d => this.showNotifications()
-    // );
+    this.actionSheetItemSubjectService.getMessage().subscribe(
+      d => this.showNotifications()
+    );
   }
 
   /**
@@ -52,7 +52,6 @@ export class AppComponent implements OnDestroy {
    * This is also hooked to <button *ngIf="notificationsCount>0" [@newNotificationComing]="notificationsState" type="button" mat-button mat-raised-button (click)="showNotifications()"
    */
   showNotifications() {
-    console.debug('bbbbbbbbbbbbbbbbbbb');
     this.notificationsService.open().subscribe(actionItem => {
       if (actionItem) {
         switch (actionItem.actionType) {
@@ -63,7 +62,6 @@ export class AppComponent implements OnDestroy {
             break;
         }
 
-        console.debug('gggggggggggggggggggg');
         this.notificationsService.remove(actionItem);
       }
     });

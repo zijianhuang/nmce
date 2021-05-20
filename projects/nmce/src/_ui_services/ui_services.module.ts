@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NmceDirectivesModule } from 'nmce-directives';
 import { NGMDModule } from '../ngmd.module';
 import {
-	AlertService,
 	ConfirmComponent,
 	ConfirmService,
 	DataComponentDialog,
@@ -115,7 +114,6 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 		PasswordsInputService,
 		TimeService,
 
-		AlertService,
 		LocalAlertService,
 		WaitService,
 		WaitProgressService,

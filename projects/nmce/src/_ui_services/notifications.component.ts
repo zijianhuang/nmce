@@ -1,8 +1,7 @@
 import { Component, Injectable } from '@angular/core';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
-import { Observable, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { ActionSheetItemSubjectService } from './baseTypes';
+import { Observable } from 'rxjs';
+import { ActionSheetItemSubjectService, RootInjectorGuard } from './baseTypes';
 import { ActionSheetItem } from './types';
 
 class NotificationsCache { //not exported intentionally
@@ -81,19 +80,20 @@ export class NotificationsComponent {
 }
 
 /**
- * To be injected in app.component. Upon receiving notification messages, display ActionSheet.
+ * Upon receiving notification messages, display ActionSheet.
  * Intended to be used in push from the backend, while local background tasks may surely send notification too.
  * When being used with SignalR, be aware that SignalR is not working with IIS Express, but IIS.
+ * This service is to be used across modules, lazy or eager. To be provided in root module. To be used in app.component.
  */
- @Injectable({
+@Injectable({
 	providedIn: 'root',
 })
-export class NotificationsService {
-	private unsubscribe: Subject<void> = new Subject();
+export class NotificationsService extends RootInjectorGuard {
 	constructor(private bottomSheet: MatBottomSheet,
 		private actionSheetItemSubjectService: ActionSheetItemSubjectService) {
+		super(NotificationsService);
 		console.debug('NotificationsService created.');
-		this.actionSheetItemSubjectService.getMessage().pipe(takeUntil(this.unsubscribe)).subscribe(
+		this.actionSheetItemSubjectService.getMessage().subscribe(
 			item => {
 				console.debug('item pushed.');
 				NotificationsCache.pushNotificationQueue(item);
