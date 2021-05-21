@@ -1,6 +1,6 @@
 {
   "name": "nmce",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "peerDependencies": {
     "@angular/cdk": "11.2.4",
     "@angular/common": "11.2.5",

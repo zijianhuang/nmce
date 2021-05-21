@@ -1,7 +1,9 @@
-export * from './dateFunc';
-export * from './currencyFunc';
 export * from './addressFunc';
-export * from './stringFunc';
+export * from './authentication.service';
+export * from './currencyFunc';
+export * from './dateFunc';
 export * from './helperFunc';
-export * from './jsFunc';
 export * from './htmlFunc';
+export * from './jsFunc';
+export * from './stringFunc';
+
