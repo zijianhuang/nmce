@@ -1,9 +1,18 @@
 {
   "name": "nmce-json-diff",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "author": {"name": "Z"},
+  "description": "Angular Mateiral extended components based on jsondiffpatch.",
+  "license": "MIT",
+  "repository": {"url": "https://github.com/zijianhuang/nmce"},
   "peerDependencies": {
+    "@angular/cdk": "^12.0.1",
     "@angular/common": "^12.0.1",
-    "@angular/core": "^12.0.1"
+    "@angular/compiler": "^12.0.1",
+    "@angular/core": "^12.0.1",
+    "@angular/forms": "^12.0.1",
+    "@angular/material": "^12.0.1",
+    "jsondiffpatch": "^0.4.1"
   },
   "dependencies": {
     "tslib": "^2.2.0"

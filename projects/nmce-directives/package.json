@@ -1,6 +1,10 @@
 {
   "name": "nmce-directives",
-  "version": "0.0.3",
+  "version": "0.0.5",
+  "author": {"name": "Z"},
+  "description": "Common simple Angular directives used in business applications.",
+  "license": "MIT",
+  "repository": {"url": "https://github.com/zijianhuang/nmce"},
   "peerDependencies": {
     "@angular/common": "^12.0.1",
     "@angular/core": "^12.0.1"
