@@ -25,6 +25,7 @@ export class AlertService extends RootInjectorGuard {
 		private dialog: MatDialog,
 	) {
 		super(AlertService);
+		console.debug('AlertService Created.')
 	}
 
 	/**

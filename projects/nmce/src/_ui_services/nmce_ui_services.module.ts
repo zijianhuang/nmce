@@ -29,8 +29,7 @@ import {
 	TextDialogService, TextHRefDialogComponent,
 	TextHReflDialogService, TextInputComponent,
 	TextInputService, TimePickerComponent,
-	TimeService,
-	WaitProgressService, WaitService
+	TimeService
 } from './index';
 import { ItemListDialogComponent } from './itemListDialog.component';
 
@@ -115,8 +114,6 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 		TimeService,
 
 		LocalAlertService,
-		WaitService,
-		WaitProgressService,
 		ConfirmService,
 		OptionsService,
 		HtmlFrameDialogService,

@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Type } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { RootInjectorGuard } from './baseTypes';
 
 /**
  * Waiting for progress, showing spinner
  */
-export abstract class WaitServiceBase {
+export abstract class WaitServiceBase extends RootInjectorGuard {
 	private subject = new Subject<WaitMessage>();
 	private keepAfterNavigationChange = false;
 
@@ -14,7 +15,8 @@ export abstract class WaitServiceBase {
 	 */
 	loading = false;
 
-	constructor(router: Router) {
+	constructor(router: Router, type: Type<any>) {
+		super(type);
 		// clear alert message on route change
 		router.events.subscribe(event => {
 			if (event instanceof NavigationStart) {
@@ -48,7 +50,7 @@ export abstract class WaitServiceBase {
 })
 export class WaitService extends WaitServiceBase {
 	constructor(router: Router) {
-		super(router);
+		super(router, WaitService);
 		console.debug('WaitService created.');
 	}
 }
@@ -78,7 +80,8 @@ export class LocalWaitService {
 })
 export class WaitProgressService extends WaitServiceBase {
 	constructor(router: Router) {
-		super(router); console.debug('WaitProgressService created.');
+		super(router, WaitProgressService);
+		console.debug('WaitProgressService created.');
 	}
 }
 
