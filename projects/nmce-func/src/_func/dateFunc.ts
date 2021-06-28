@@ -7,7 +7,7 @@ export class DateFunc {
 	 * @param dtUtc
 	 * @param offsetMinutes if not defined, it will be new Date().getTimezoneOffset(). //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset
 	 */
-	static dateTimeUtcToLocalDateNumber(dtUtc: Date): number {
+	static dateTimeUtcToLocalDateNumber(dtUtc: Date | null | undefined): number {
 		if (!dtUtc) {
 			return 0; //0 is better for calculation by the clients.
 		}
@@ -22,17 +22,13 @@ export class DateFunc {
 	 * Date only. However, the date may still be in UTC.
 	 * @param dtUtc
 	 */
-	static dateTimeUtcToLocalDate(dtUtc: Date): Date {
-		if (!dtUtc) {
-			return dtUtc;
-		}
-
+	static dateTimeUtcToLocalDate(dtUtc: Date | null | undefined): Date {
 		const localDt = DateFunc.dateTimeUtcToLocalDateTime(dtUtc);
 		const localD = localDt.setHours(0, 0, 0, 0);
 		return new Date(localD);
 	}
 
-	static localISODateString(dtUtc: Date): string {
+	static localISODateString(dtUtc: Date | null | undefined): string {
 		const dt = moment(dtUtc).local();
 		return dt.format('YYYY-MM-DD');
 	}
@@ -41,11 +37,7 @@ export class DateFunc {
 	 * locate date ONLY (no time) to UTC date.
 	 * @param dt if dt contain time info, it will become dt.setHours(0, 0, 0, 0)
 	 */
-	static localDateToUtc(d: Date | number | string): Date | undefined {
-		if (!d) {
-			return undefined;
-		}
-
+	static localDateToUtc(d: Date | number | null | undefined | string): Date {
 		const dt = moment(d).toDate();
 		const n = dt.setHours(0, 0, 0, 0);
 		const offset = dt.getTimezoneOffset() * 60000;
@@ -62,53 +54,43 @@ export class DateFunc {
 	 * @param dtUtc
 	 * @param offsetMinutes if not defined, it will be new Date().getTimezoneOffset(). //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset
 	 */
-	static dateTimeUtcToLocalDateTime(dtUtc: Date): Date {
-		if (!dtUtc) {
-			return dtUtc;
-		}
-
+	static dateTimeUtcToLocalDateTime(dtUtc: Date | null | undefined): Date {
 		const stillUtc = moment.utc(dtUtc).toDate();
 		return moment(stillUtc).local().toDate();
 	}
 
-	static dateTimeUtcToLocaMoment(dtUtc: Date): moment.Moment {
-		if (!dtUtc) {
-			return dtUtc;
-		}
-
+	static dateTimeUtcToLocaMoment(dtUtc: Date | null | undefined): moment.Moment {
 		const stillUtc = moment.utc(dtUtc);
 		return stillUtc.local();
 	}
 
-	static getEndOfWeek(dt: Date | number) {
-		//  return new Date(dt.getFullYear(), dt.getMonth(), dt.getDate() + 6 - dt.getDay(), 23, 59, 59, 999);
+	static getEndOfWeek(dt: Date | null | undefined | number) {
 		return moment(dt).endOf('isoWeek').toDate();
 	}
 
-	static getStartOfWeek(dt: Date | number) {
+	static getStartOfWeek(dt: Date | null | undefined | number) {
 		return moment(dt).startOf('isoWeek').toDate();
 	}
 
-	static getEndOfMonth(dt: Date | number) {
+	static getEndOfMonth(dt: Date | null | undefined | number) {
 		//  return new Date(dt.getFullYear(), dt.getMonth() + 1, 0, 23, 59, 59, 999);
 		return moment(dt).endOf('month').toDate();
 	}
 
-	static getStartOfMonth(dt: Date | number) {
+	static getStartOfMonth(dt: Date | null | undefined | number) {
 		return moment(dt).startOf('month').toDate();
 	}
 
-	static getDaysBetweenDates(dt1: Date, dt2: Date) {
-		//const timeDiff = Math.abs(dt2.getTime() - dt1.getTime());
-		//return Math.trunc(timeDiff / (1000 * 3600 * 24));
+	static getDaysBetweenDates(dt1: Date | null | undefined, dt2: Date | null | undefined) {
 		return this.getDaysBetween(dt1, dt2);
 	}
 
-	static getEndOfDate(dt: Date): Date {
-		return new Date(dt.setHours(23, 59, 59, 999));
+	static getEndOfDate(dt: Date | null | undefined): Date {
+		return dt ? new Date(dt.setHours(23, 59, 59, 999)) :
+			new Date(this.now.setHours(23, 59, 59, 999));
 	}
 
-	static getStartOfDate(dt: Date): Date {
+	static getStartOfDate(dt: Date | null | undefined): Date {
 		return moment(dt).startOf('day').toDate();
 	}
 
@@ -124,13 +106,13 @@ export class DateFunc {
 	}
 
 	//inspired https://stackoverflow.com/questions/563406/add-days-to-javascript-date
-	static addDays(dt: Date, days: number) {
+	static addDays(dt: Date | null | undefined, days: number = 0) {
 		const dat = moment(dt);
 		dat.add(days, 'days');
 		return dat.toDate();
 	}
 
-	static subtractDays(dt: Date, days: number) {
+	static subtractDays(dt: Date | null | undefined, days: number = 0) {
 		const dat = moment(dt);
 		dat.subtract(days, 'days');
 		return dat.toDate();
@@ -171,7 +153,7 @@ export class DateFunc {
 		return moment(d).format('DD/MM/YYYY HH:mm');
 	}
 
-	static getMcpTime(dt: Date) {
+	static getMcpTime(dt: Date | null | undefined) {
 		return moment(dt).format('HH:mm:ss.SSSZ');
 	}
 
@@ -179,7 +161,7 @@ export class DateFunc {
 	 * In 24 hour format
 	 * @param dtUtc
 	 */
-	static getLocalDMYHmWithSlash(dtUtc: Date) {
+	static getLocalDMYHmWithSlash(dtUtc: Date | null | undefined) {
 		const d = DateFunc.dateTimeUtcToLocalDateTime(dtUtc);
 		return moment(d).format('DD/MM/YYYY HH:mm');
 	}
@@ -187,13 +169,13 @@ export class DateFunc {
 	/**
 	 * Offset minutes comparing with today
 	 */
-	static getOffsetMinutes(dtUtc: Date | number): number {
+	static getOffsetMinutes(dtUtc: Date | null | undefined | number): number {
 		const dm1 = moment(dtUtc);
 		const dm2 = moment(new Date().setHours(0, 0, 0, 0));
 		return dm1.diff(dm2, 'minutes');
 	}
 
-	static getDaysBetween(d1: Date | number, d2: Date | number): number {
+	static getDaysBetween(d1?: Date | number | null | undefined, d2?: Date | number | null | undefined): number {
 		const dm1 = moment(d1);
 		const dm2 = moment(d2);
 		return dm2.diff(dm1, 'days');
@@ -203,21 +185,17 @@ export class DateFunc {
 	 * Get hour of the date. If Date is not defined, the hour will be current hour.
 	 * @param dtUtc
 	 */
-	static getHour(dtUtc: Date | number): number {
+	static getHour(dtUtc: Date | null | undefined | number): number {
 		const m = moment(dtUtc);
 		return m.hours();
 	}
 
-	static getMinute(dtUtc: Date | number): number {
+	static getMinute(dtUtc: Date | null | undefined | number): number {
 		const m = moment(dtUtc);
 		return m.minutes();
 	}
 
-	static composeDateTime(dt: Date, h: number, minute?: number): Date {
-		if (!dt) {
-			return dt;
-		}
-
+	static composeDateTime(dt: Date | null | undefined, h: number = 0, minute: number = 0): Date {
 		const mt = moment(dt);
 		return new Date(mt.toDate().setHours(h, minute, 0, 0));
 	}
@@ -227,7 +205,7 @@ export class DateFunc {
 		return moment().diff(m, 'hours') >= 24;
 	}
 
-	static olderThan24HoursUtc(dtUtc: Date): boolean {
+	static olderThan24HoursUtc(dtUtc: Date | null | undefined): boolean {
 		return DateFunc.getHourAgeUtc(dtUtc) >= 24;
 	}
 
@@ -236,7 +214,7 @@ export class DateFunc {
 		return moment().diff(m, 'hours') >= hours;
 	}
 
-	static olderThanHoursUtc(dtUtc: Date, hours: number): boolean {
+	static olderThanHoursUtc(dtUtc: Date | null | undefined, hours: number): boolean {
 		return DateFunc.getHourAgeUtc(dtUtc) >= hours;
 	}
 
@@ -248,7 +226,7 @@ export class DateFunc {
 	/**
 	 * It could be 11PM yesterday, and 1 AM today. Actually based on local today.
 	 */
-	static olderThan1Day(dtUtc: Date): boolean {
+	static olderThan1Day(dtUtc: Date | null | undefined): boolean {
 		return DateFunc.getDayAgeUtc(dtUtc) > 0;
 	}
 
@@ -257,7 +235,7 @@ export class DateFunc {
 		return moment().diff(m, 'hours');
 	}
 
-	static getHourAgeUtc(dtUtc: Date) {
+	static getHourAgeUtc(dtUtc: Date | null | undefined) {
 		const m = moment.utc(dtUtc);
 		return moment.utc().diff(m, 'hours');
 	}
@@ -266,7 +244,7 @@ export class DateFunc {
 	 * Compare utc date with utc now.
 	 * @param dtUtc
 	 */
-	static getDayAgeUtc(dtUtc: Date) {
+	static getDayAgeUtc(dtUtc: Date | null | undefined) {
 		const m = moment.utc(dtUtc);
 		return moment.utc().diff(m, 'days');
 	}
@@ -314,13 +292,13 @@ export class DateFunc {
 		return moment.utc().hours(h).minutes(m).format('HH:mm');
 	}
 
-	static getMinutesSinceMidnight(d: Date) {
+	static getMinutesSinceMidnight(d: Date | null | undefined) {
 		const m = moment(d);
 		const midnight = moment(d).startOf('day'); //Mutates the original moment by setting it to the start of a unit of time. So I have better not to use m which wil be changed by calling this function
 		return m.diff(midnight, 'minutes');
 	}
 
-	static getMinutesBetween(start: Date, end: Date) {
+	static getMinutesBetween(start: Date | null | undefined, end: Date | null | undefined) {
 		const m = moment(start);
 		const m2 = moment(end);
 		return m2.diff(m, 'minutes');
@@ -376,7 +354,19 @@ export class DateFunc {
 	 * @param d1
 	 * @param d2
 	 */
-	static compare(d1: Date, d2: Date): number {
+	static compare(d1: Date | undefined, d2: Date | undefined): number {
+		if (!d1 && !d2) {
+			return 0;
+		}
+
+		if (!d1) {
+			return -NaN
+		}
+
+		if (!d2) {
+			return NaN;
+		}
+
 		const dd1 = (new Date(d1)).valueOf();
 		const dd2 = (new Date(d2)).valueOf();
 		return dd1 - dd2;

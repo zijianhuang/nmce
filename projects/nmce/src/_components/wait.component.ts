@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { WaitMessage, WaitService } from '../_ui_services/index';
 
@@ -19,15 +19,18 @@ export class WaitComponent implements OnInit, OnDestroy {
 	loading = false;
 
 	ngOnInit() {
+		console.debug('WaitComponent init.');
 		this.bs = this.waitService.getMessage().subscribe(message => {
 			this.message = message;
 			if (message) {
 				this.loading = this.message.loading;
+				console.debug('WaitComponent: ' + this.loading + ' ' + message.text);
 			}
 		});
 	}
 
 	ngOnDestroy(): void {
+		console.debug('WaitComponent ngOnDestroy');
 		this.bs.unsubscribe();
 	}
 

@@ -11,7 +11,7 @@ export class StringFunc {
 	 * Up to 2 letters. For John Smith, returns JS, for Huang, Zijian, returns ZH
 	 * @param s
 	 */
-	static getAbbr(s: string) {
+	static getAbbr(s: string | null | undefined) {
 		if (!s) {
 			return '';
 		}
@@ -32,7 +32,7 @@ export class StringFunc {
 	 * @param length
 	 * @returns result, or empty string if the input is empty, null or undefined
 	 */
-	static getOneLineDigest(s: string | undefined | null, length: number) {
+	static getOneLineDigest(s: string | null | undefined, length: number) {
 		if (!s) {
 			return '';
 		}
@@ -48,7 +48,7 @@ export class StringFunc {
 	 * @param length
 	 * @returns result, or empty string if the input is empty, null or undefined
 	 */
-	static getOneLineDigestOfHtml(s: string | null, length: number) {
+	static getOneLineDigestOfHtml(s: string | null | undefined, length: number) {
 		if (!s) {
 			return '';
 		}
@@ -58,7 +58,11 @@ export class StringFunc {
 		return encodeURI(st.trim()); //need to encode in order to save as meta in Azure.
 	}
 
-	static pad(num: number, size: number): string {
+	static pad(num: number | undefined, size: number): string {
+		if (num == null) {
+			return '';
+		}
+
 		let s = num + '';
 		while (s.length < size) { s = '0' + s; }
 		return s;
@@ -69,9 +73,9 @@ export class StringFunc {
 	 * @param s
 	 * @returns result. If input is empty, null, or undefined, return the same.
 	 */
-	static getHtmlPlainText(s: string | null): string | null  {
+	static getHtmlPlainText(s: string | null | undefined): string | null {
 		if (!s) {
-			return s;
+			return null;
 		}
 
 		const parser = new DOMParser();
@@ -84,7 +88,7 @@ export class StringFunc {
 	 * @param s
 	 * @returns result. If input is empty, null, or undefined, return the same.
 	 */
-	static capitalizeWords(s: string | undefined | null): string | undefined | null { // thanks to https://stackoverflow.com/questions/2332811/capitalize-words-in-string
+	static capitalizeWords(s: string | null | undefined): string | null | undefined { // thanks to https://stackoverflow.com/questions/2332811/capitalize-words-in-string
 		if (!s) {
 			return s;
 		}
@@ -97,7 +101,7 @@ export class StringFunc {
 	 * @param n
 	 * @returns validation error message
 	 */
-	static validateMedicare(n: string | undefined | null): { code: number, message: string } | null {
+	static validateMedicare(n: string | null | undefined): { code: number, message: string } | null {
 		if (!n) {
 			return null;
 		}
@@ -134,7 +138,7 @@ export class StringFunc {
 		return null;
 	}
 
-	static validateMedicareProviderNumber(providerNumber: string): { code: number, message: string } | null {
+	static validateMedicareProviderNumber(providerNumber: string | null | undefined): { code: number, message: string } | null {
 		if (!providerNumber) {
 			return null;
 		}
@@ -165,7 +169,7 @@ export class StringFunc {
 		return null;
 	}
 
-	static validateDVAFileNumber(dva: string): { code: number, message: string }  | null{
+	static validateDVAFileNumber(dva: string | null | undefined): { code: number, message: string } | null {
 		if (!dva) {
 			return null;
 		}
@@ -202,7 +206,7 @@ export class StringFunc {
 		return null;
 	}
 
-	static validateTFN(n: string): { code: number, message: string } | null {
+	static validateTFN(n: string | null | undefined): { code: number, message: string } | null {
 		if (!n) {
 			return null;
 		}
@@ -259,7 +263,7 @@ export class StringFunc {
 		return ns;
 	}
 
-	static validateABN(abn: string): { code: number, message: string } | null {
+	static validateABN(abn: string | null | undefined): { code: number, message: string } | null {
 		if (!abn) {
 			return null;
 		}
@@ -303,7 +307,7 @@ export class StringFunc {
 		return null
 	}
 
-	static validateACN(acn: string): { code: number, message: string } | null {
+	static validateACN(acn: string | null | undefined): { code: number, message: string } | null {
 		if (!acn) {
 			return null;
 		}
@@ -327,7 +331,7 @@ export class StringFunc {
 		};
 	}
 
-	validateEmail(email: string) : boolean {
+	validateEmail(email: string | null | undefined): boolean {
 		if (!email) {
 			return true;
 		}

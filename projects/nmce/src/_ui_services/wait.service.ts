@@ -37,23 +37,26 @@ export abstract class WaitServiceBase {
 	getMessage(): Observable<WaitMessage> {
 		return this.subject.asObservable();
 	}
-
-
 }
 
 /**
  * Used togehter with <wait> element, generally for handling observable. Start wait before calling an observable, stop wait in subscribe.
  * The mechanism is sending and receiving WaitMessage.
  */
-@Injectable()
+@Injectable({
+	providedIn: 'root',
+})
 export class WaitService extends WaitServiceBase {
-	constructor(router: Router) { super(router); }
+	constructor(router: Router) {
+		super(router);
+		console.debug('WaitService created.');
+	}
 }
 
 /**
  * This service is intentionally not injectable, and should be created inside the constructor of a component.
  */
-export class LocalWaitService { 
+export class LocalWaitService {
 	loading = false;
 	constructor(private waitService: WaitService) {
 
@@ -70,9 +73,13 @@ export class LocalWaitService {
 	}
 }
 
-@Injectable()
+@Injectable({
+	providedIn: 'root',
+})
 export class WaitProgressService extends WaitServiceBase {
-	constructor(router: Router) { super(router); }
+	constructor(router: Router) {
+		super(router); console.debug('WaitProgressService created.');
+	}
 }
 
 

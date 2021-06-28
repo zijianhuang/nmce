@@ -1,16 +1,26 @@
 # NMCE Projects
 
-The projects are to deliver a set of reusable Angular codes and Angular Material Component Extensions, targeting complex business applications with rich data structures and complex workflows.
+The projects are to deliver a set of reusable Angular codes and Angular Material Component Extensions, targeting complex business applications with rich data structures and complex workflows. 
 
 ## Projects
-* Func: Common functions used in business applications and the components and services in this NMCE project.
-* Nmce
-* Nmce-html-editor: Based on @kolkov/angular-editor, present a HTML editor in a dialog.
-* Nmce-json-diff: based on 
+* nmce-func: Common functions used in business applications and the components and services in this NMCE project.
+* nmce: A few sets of components and services based on [Angular Material Components](https://material.angular.io/components/categories).
+* nmce-html-editor: A few dialog services based on [@kolkov/angular-editor](https://github.com/kolkov/angular-editor), present a HTML editor in a dialog.
+* Nmce-json-diff: A simple dialog service based on [jsondiffpatch](https://github.com/benjamine/jsondiffpatch).
+* nmce-pipes: Common simple Angular pipes used in business applications.
+* nmce-directives: Common simple Angular directives used in business applications.
+* demoapp: A demo application demostrating features of all above.
+
+## Design Approaches
+
+* The UI design is optimized for desktop PC and tablet devices.
+* Components are based on [Angular Material Components](https://material.angular.io/components/categories).
+* Layout design is based on [Angular flex-layout](https://github.com/angular/flex-layout).
+* Minimum CSS crafting is used.
 
 ## Development server
 
-Run `ng serve demoapp` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve demoapp` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files in demoapp.
 
 ## Code scaffolding
 
@@ -34,15 +44,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 Follow https://jasonwatmore.com/post/2020/06/16/angular-npm-how-to-publish-an-angular-component-to-npm
 
-Particularly, run:
-`ng build myProject --prod`
+Particularly, after increasing the version number in each package.json, run:
+`ng build myProject --configuration production`
 
 then `cd dist/myProject`, and
 
 `npm publish`
 
-
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+And in the root, a few bp_nmce*.bat files make it easier to publish.
