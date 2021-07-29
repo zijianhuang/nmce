@@ -1,4 +1,4 @@
-import { DateFunc} from './dateFunc';
+import { DateFunc } from './dateFunc';
 
 export class JSFunc {
 	static groupBy<T>(array: Array<T>, propertyName: string) {
@@ -29,10 +29,17 @@ export class JSFunc {
 		}, {});
 	}
 
+	/**
+	 * Remove null or empty fields including those in nested objects.
+	 * @param obj 
+	 */
 	static removeNullOrEmptyFields(obj: any) {
 		for (const f in obj) {
-			if (obj[f] === null || obj[f]==='') {
+			let p = obj[f];
+			if (p === null || p === '') {
 				delete obj[f];
+			} else if (typeof p === 'object' && p !== null) {
+				this.removeNullOrEmptyFields(p);
 			}
 		}
 	}
