@@ -26,6 +26,7 @@
     "@kolkov/angular-editor": "^1.1.5",
     "json-formatter-js": "2.3.4",
     "jsondiffpatch": "0.4.1",
+    "karma-coverage": "^2.1.0",
     "moment": "2.29.1",
     "ng-animate": "^1.0.0",
     "rxjs": "~6.6.7",

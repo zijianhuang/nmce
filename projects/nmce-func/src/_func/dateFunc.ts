@@ -200,7 +200,7 @@ export class DateFunc {
 		return new Date(mt.toDate().setHours(h, minute, 0, 0));
 	}
 
-	static olderThan24Hours(d: Date): boolean {
+	static olderThan24Hours(d: Date | null | undefined): boolean {
 		const m = moment(d);
 		return moment().diff(m, 'hours') >= 24;
 	}
@@ -249,11 +249,21 @@ export class DateFunc {
 		return moment.utc().diff(m, 'days');
 	}
 
+	/**
+	 * How many years from now.
+	 * @param d 
+	 * @returns 
+	 */
 	static getAge(d: Date) {
 		const m = moment(d);
 		return moment().diff(m, 'years');
 	}
 
+	/**
+	 * Year of date.
+	 * @param d 
+	 * @returns 
+	 */
 	static getYear(d: Date) {
 		const m = moment(d);
 		return m.year();

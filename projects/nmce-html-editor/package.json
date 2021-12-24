@@ -1,6 +1,6 @@
 {
   "name": "nmce-html-editor",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": {"name": "Z"},
   "description": "Angular Material extended components based on @kolkov@angular-editor.",
   "license": "MIT",

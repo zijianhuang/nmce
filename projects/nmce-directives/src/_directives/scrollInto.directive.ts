@@ -1,4 +1,8 @@
 import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
+
+/**
+ * Scroll to element attached.
+ */
 @Directive({
 	selector: '[scrollInto]'
 })

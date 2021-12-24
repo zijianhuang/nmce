@@ -1,6 +1,15 @@
 import { DateFunc } from './dateFunc';
 
-export class JSFunc {
+/**
+ * Basic JSON functions
+ */
+export class JsonFunc {
+	/**
+	 * 
+	 * @param array Group by a property of array element.
+	 * @param propertyName 
+	 * @returns 
+	 */
 	static groupBy<T>(array: Array<T>, propertyName: string) {
 		return array.reduce(function(acc: any, obj: any) {
 			const key = obj[propertyName];
@@ -13,7 +22,8 @@ export class JSFunc {
 	}
 
 	/**
-	 * Group by a date property. The key is always of string type and representing milliseconds. The client should convert the string to number.
+	 * Group by a date property. The key is always of string type and representing milliseconds. 
+	 * The client should convert the string to number.
 	 * Angular date pipe could actually consume such string without explicitly converting to number.
 	 * @param array
 	 * @param propertyName
@@ -31,6 +41,7 @@ export class JSFunc {
 
 	/**
 	 * Remove null or empty fields including those in nested objects.
+	 * This is useful for reducing payload of AJAX serialization.
 	 * @param obj 
 	 */
 	static removeNullOrEmptyFields(obj: any) {
@@ -44,6 +55,10 @@ export class JSFunc {
 		}
 	}
 
+	/**
+	 * 
+	 * @param obj Remove null fields of object at only the 1st level.
+	 */
 	static removeNullFields(obj: any) {
 		for (const f in obj) {
 			if (obj[f] === null) {

@@ -1,4 +1,8 @@
 ﻿import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+
+/**
+ * Mouse over to highlight. This is more like a demo directive.
+ */
 @Directive({
 	selector: '[myHighlight]'
 })

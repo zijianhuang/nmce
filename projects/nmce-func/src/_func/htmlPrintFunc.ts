@@ -1,14 +1,14 @@
-export class HtmlFunc {
+export class HtmlPrintFunc {
 	/**
-	 * Print with buillt-in CSS for internal reports
+	 * Print with CSS for internal reports
 	 * @param htmlTags
-	 * @param baseRef
+	 * @param cssUrl
 	 */
-	static printWithCSS(htmlTags: string, baseRef: string) {
+	static printWithCSS(htmlTags: string, cssUrl: string) {
 		if (window) {
 			const htmlToPrint = `<html><head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-<link rel="stylesheet" type="text/css" href="${baseRef}scripts/print190826.css" media="screen,print"/>
+<link rel="stylesheet" type="text/css" href="${cssUrl}" media="screen,print"/>
 </head><body onload="window.print()">${htmlTags}</body></html>`;
 
 			const popup = window.open('', '_blank', 'width=1024,height=768');
@@ -39,8 +39,12 @@ export class HtmlFunc {
 		return true;
 	}
 
+	/**
+	 * Print image url through html img.
+	 * @param url 
+	 */
 	static printImage(url: string) {
 		const imageTags = `<img src="${url}" alt="Image from URL"/>`;
-		HtmlFunc.print(imageTags);
+		HtmlPrintFunc.print(imageTags);
 	}
 }
