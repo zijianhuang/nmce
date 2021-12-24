@@ -1,12 +1,12 @@
-import { Component, Injectable, ViewChild, AfterViewInit, ElementRef, Inject } from '@angular/core';
 import { Location } from '@angular/common';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Component, Inject, Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogSize } from '../_ui_services/types';
+import { HtmlPrintFunc } from 'nmce-func';
+import { Observable } from 'rxjs';
 import { HtmlBaseDialogService } from '../_ui_services/htmlBaseDialogService';
 import { HtmlDialogComponent, HtmlHRefDialogComponent, HtmlImgDialogComponent } from '../_ui_services/htmlDialog.component';
-import { HtmlFunc } from 'nmce-func';
+import { DialogSize } from '../_ui_services/types';
 /**
  * Contain HTML content, used in HtmlDialogService.
  */
@@ -22,7 +22,7 @@ export class HtmlPrintDialogComponent extends HtmlDialogComponent {
 
 	print() {
 		if (this.htmlContentElement) {
-			HtmlFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(''));
+			HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(''));
 		} else {
 			console.error('this.htmlContentElement does not exist.');
 		}
@@ -50,7 +50,7 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 
 	print() {
 		if (this.htmlContentElement) {
-			HtmlFunc.print(this.htmlContentElement.nativeElement.innerHTML);
+			HtmlPrintFunc.print(this.htmlContentElement.nativeElement.innerHTML);
 		} else {
 			console.error('this.htmlContentElement does not exist.');
 		}
@@ -70,7 +70,7 @@ export class HtmlImgPrintDialogComponent extends HtmlImgDialogComponent {
 
 	print() {
 		if (this.htmlContentElement) {
-			HtmlFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(''));
+			HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(''));
 		} else {
 			console.error('this.htmlContentElement does not exist.');
 		}

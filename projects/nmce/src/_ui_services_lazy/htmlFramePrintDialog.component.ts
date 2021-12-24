@@ -1,12 +1,12 @@
-import { Component, Injectable, ViewChild, AfterViewInit, ElementRef, Inject } from '@angular/core';
 import { Location } from '@angular/common';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Component, Inject, Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogSize } from '../_ui_services/types';
+import { HtmlPrintFunc } from 'nmce-func';
+import { Observable } from 'rxjs';
 import { HtmlBaseDialogService } from '../_ui_services/htmlBaseDialogService';
 import { HtmlFrameDialogComponent, HtmlHRefFrameDialogComponent } from '../_ui_services/htmlFrameDialog.component';
-import { HtmlFunc } from 'nmce-func';
+import { DialogSize } from '../_ui_services/types';
 /**
  * Contain HTML content in iframe, used in HtmlFrameDialogService.
  */
@@ -22,7 +22,7 @@ export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
 
 	print() {
 		if (this.htmlContentElement) {
-			HtmlFunc.print(this.htmlContentElement.nativeElement.srcdoc);
+			HtmlPrintFunc.print(this.htmlContentElement.nativeElement.srcdoc);
 		} else {
 			console.error('this.htmlContentElement does not exist.')
 		}
@@ -49,7 +49,7 @@ export class HtmlHRefFramePrintDialogComponent extends HtmlHRefFrameDialogCompon
 
 	print() {
 		if (this.htmlContentElement) {
-			HtmlFunc.print(this.htmlContentElement.nativeElement.srcdoc);
+			HtmlPrintFunc.print(this.htmlContentElement.nativeElement.srcdoc);
 		} else {
 			console.error('this.htmlContentElement does not exist.')
 		}

@@ -5,8 +5,8 @@ import {
 	Type, ViewChild
 } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { HtmlPrintFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
-import { HtmlFunc } from 'nmce-func';
 import { DataComponent } from '../_types/DataComponent';
 import { LazyDataComponentDialog } from '../_ui_services_lazy/lazy-component-dialog.service';
 
@@ -27,7 +27,7 @@ export class DataComponentPrintDialog extends LazyDataComponentDialog {
 	}
 
 	print() {
-		HtmlFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(''));
+		HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(''));
 	}
 
 }

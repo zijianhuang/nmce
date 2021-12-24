@@ -1,7 +1,7 @@
 import { AfterViewInit, Directive, ElementRef, EventEmitter, Inject, Input, Output, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { HelperFunc } from 'nmce-func';
+import { UuidFunc } from 'nmce-func';
 import { AlertService } from './alert.service';
 
 /**
@@ -76,7 +76,7 @@ export abstract class TextEditorDialogComponentBase implements AfterViewInit {
 		}
 
 		if (!this.fileId) {
-			this.fileId = HelperFunc.newUUID();
+			this.fileId = UuidFunc.newUUID();
 		}
 
 		this.saveToBlobStorage(() => {

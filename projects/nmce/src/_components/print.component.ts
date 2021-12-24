@@ -1,10 +1,8 @@
-import {
-	Component,
-	Input, Output, OnChanges, ElementRef, OnInit,
-	EventEmitter
-} from '@angular/core';
 import { Location } from '@angular/common';
-import { HtmlFunc } from 'nmce-func'
+import {
+	Component, ElementRef, EventEmitter, Input, OnInit, Output
+} from '@angular/core';
+import { HtmlPrintFunc } from 'nmce-func';
 
 /**
  * To be embedded in any view to print a section of the view marked by element id.
@@ -36,7 +34,7 @@ export class PrintComponent implements OnInit {//inspired by https://www.linkedi
 			const element = document.getElementById(this.section);
 			if (element) {
 				const printContents = element.innerHTML;
-				HtmlFunc.printWithCSS(printContents, this.location.prepareExternalUrl(''));
+				HtmlPrintFunc.printWithCSS(printContents, this.location.prepareExternalUrl(''));
 			}
 		}
 	}

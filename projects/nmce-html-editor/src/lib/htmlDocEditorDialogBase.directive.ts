@@ -1,9 +1,9 @@
-import { Directive, EventEmitter, Inject, Input, Output, InjectionToken } from '@angular/core';
+import { Directive, EventEmitter, Inject, InjectionToken, Input, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import { HelperFunc, StringFunc, HtmlFunc } from 'nmce-func';
 import { AlertService } from 'nmce';
+import { HtmlPrintFunc, StringFunc, UuidFunc } from 'nmce-func';
 
 export const HTML_EDITOR_UPLOADURL = new InjectionToken<string|undefined>('htmlEditor.uploadUrl', {
 	providedIn: 'root',
@@ -118,7 +118,7 @@ export abstract class HtmlDocEditorDialogBaseComponent {
 
 
 		if (!this.fileId) {
-			this.fileId = HelperFunc.newUUID();
+			this.fileId = UuidFunc.newUUID();
 		}
 
 		this.saveAndClose();
@@ -160,7 +160,7 @@ export abstract class HtmlDocEditorDialogBaseComponent {
 			return;
 		}
 
-		HtmlFunc.print(this.noteControl.value);
+		HtmlPrintFunc.print(this.noteControl.value);
 	}
 }
 
