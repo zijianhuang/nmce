@@ -109,7 +109,6 @@ export class DataComponentDialogService {
 			});
 
 		return this.modalRef.afterClosed();
-
 	}
 
 }

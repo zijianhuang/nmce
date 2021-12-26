@@ -1,27 +1,14 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NGMDModule } from '../ngmd.module';
+import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NmceDirectivesModule } from 'nmce-directives';
-
+import { NGMDModule } from '../ngmd.module';
 import {
-	JsonComponent,
-	HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent,
-	DataComponentPrintDialog,
-	LazyDataComponentDialog,
-
-	HtmlFramePrintDialogService, HtmlHRefFramePrintDialogService, HtmlHRefPrintDialogComponent, HtmlPrintDialogComponent, HtmlImgPrintDialogComponent,
-	DataComponentPrintDialogService,
-
-	JsonDialogService,
-	LazyComponentPrintDialogService,
-
-	LazyComponentDialogService,
-	HtmlHRefPrintDialogService,
-	HtmlPrintDialogService,
-	HtmlImgPrintDialogService,
+	DataComponentPrintDialog, DataComponentPrintDialogService, HtmlFramePrintDialogComponent,
+	HtmlFramePrintDialogService, HtmlHRefFramePrintDialogComponent, HtmlHRefFramePrintDialogService, HtmlHRefPrintDialogComponent, HtmlHRefPrintDialogService, HtmlImgPrintDialogComponent, HtmlImgPrintDialogService, HtmlPrintDialogComponent, HtmlPrintDialogService, JsonComponent, JsonDialogService, LazyComponentDialogService, LazyComponentPrintDialogService
 } from './index';
+
 
 /**
  * Contain components. Other feature modules that need to access custom html element of components like my-datetimepicker still need to import this module explicitly.
@@ -41,13 +28,11 @@ import {
 
 		HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent, DataComponentPrintDialog, HtmlPrintDialogComponent, HtmlHRefPrintDialogComponent, HtmlImgPrintDialogComponent,
 		JsonComponent,
-		LazyDataComponentDialog,
 	],
 
 	exports: [
 		HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent, DataComponentPrintDialog, HtmlPrintDialogComponent, HtmlHRefPrintDialogComponent,
 		JsonComponent,
-		LazyDataComponentDialog,
 	],
 	providers: [
 		HtmlFramePrintDialogService, HtmlHRefFramePrintDialogService, DataComponentPrintDialogService, HtmlHRefPrintDialogService, HtmlPrintDialogService, HtmlImgPrintDialogService,

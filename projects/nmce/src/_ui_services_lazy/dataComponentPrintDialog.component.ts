@@ -8,7 +8,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { HtmlPrintFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
 import { DataComponent } from '../_types/DataComponent';
-import { LazyDataComponentDialog } from '../_ui_services_lazy/lazy-component-dialog.service';
+//import { LazyDataComponentDialog } from '../_ui_services_lazy/lazy-component-dialog.service';
+import { DataComponentDialog } from '../_ui_services/dataComponentDialog.component';
 
 /**
  * This is to host another component which has implemented interface DataComponent. And another component is to be displayed in a dialog but not need to answer but to close.
@@ -17,7 +18,7 @@ import { LazyDataComponentDialog } from '../_ui_services_lazy/lazy-component-dia
 @Component({
 	templateUrl: 'dataComponentPrintDialog.component.html',
 })
-export class DataComponentPrintDialog extends LazyDataComponentDialog {
+export class DataComponentPrintDialog extends DataComponentDialog {
 	@ViewChild('htmlPrintContent', { static: false }) htmlContentElement: ElementRef;
 
 	constructor(
@@ -27,7 +28,7 @@ export class DataComponentPrintDialog extends LazyDataComponentDialog {
 			isSmallScreen: boolean,
 			fullScreen: boolean
 		},
-		public dialogRef: MatDialogRef<LazyDataComponentDialog>,
+		public dialogRef: MatDialogRef<DataComponentDialog>,
 		protected componentFactoryResolver: ComponentFactoryResolver,
 		private location: Location
 	) {

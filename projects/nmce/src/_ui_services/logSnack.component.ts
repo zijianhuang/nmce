@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import { AlertSubjectMessage } from './types';
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
+import { AlertSubjectMessage } from './types';
 
 /**
  * Display AlertSubjectMessage through rendering MatSnackBar. Generally this is called by alert service.

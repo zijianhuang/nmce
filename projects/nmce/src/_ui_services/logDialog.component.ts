@@ -82,7 +82,8 @@ export class LogDialogComponent implements AfterViewInit {
 				'info': 'info',
 				'success': 'star',
 				'warning': 'warning',
-				'error': 'error'
+				'error': 'error',
+				'response': 'chat'
 			}
 
 			return this.message.type ? iconMapping[this.message.type] : undefined;
@@ -97,7 +98,8 @@ export class LogDialogComponent implements AfterViewInit {
 				'info': 'primary',
 				'success': 'primary',
 				'warning': 'accent',
-				'error': 'warn'
+				'error': 'warn',
+				'response': 'primary'
 			}
 
 			return this.message.type ? colorMapping[this.message.type] : undefined;

@@ -31,9 +31,9 @@ export interface AlertSubjectMessage {
 	text?: string;
 
 	/**
-	 * success, info, error, warning
+	 * success, info, error, warning, response
 	 */
-	type?: 'success' | 'info' | 'error' | 'warning';
+	type?: 'success' | 'info' | 'error' | 'warning' | 'response';
 
 	/**
 	 * Optionally describe title which is translated from type. Such as explaning the source of the message.

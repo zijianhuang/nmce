@@ -22,14 +22,18 @@ export class LocalAlertService {
 	}
 
 	error(error: HttpErrorResponse | any) {
-		this.errorOrWarning(error, 'error');
+		this.handleResponse(error, 'error');
 	}
 
 	warn(error: HttpErrorResponse | any) {
-		this.errorOrWarning(error, 'warning');
+		this.handleResponse(error, 'warning');
 	}
 
-	private errorOrWarning(error: HttpErrorResponse | any, t: 'success' | 'info' | 'error' | 'warning') {
+	response(r: HttpErrorResponse){
+		this.handleResponse(r, 'response');
+	}
+
+	private handleResponse(error: HttpErrorResponse | any, type: 'success' | 'info' | 'error' | 'warning' | 'response') {
 		// In a real world app, we might use a remote logging infrastructure
 		let errMsg: string;
 		let contentType: 'text' | 'html' | 'json' = 'text';
@@ -64,7 +68,7 @@ export class LocalAlertService {
 		}
 
 		console.debug('contentType: ' + contentType);
-		this.subject.next({ type: t, text: errMsg, contentType: contentType });
+		this.subject.next({ type: type, text: errMsg, contentType: contentType });
 
 	}
 

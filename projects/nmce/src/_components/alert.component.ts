@@ -26,7 +26,8 @@ export class AlertComponent implements OnInit, OnDestroy {
 
 	constructor(
 		private alertService: LocalAlertService,
-		private ref: ChangeDetectorRef) {
+		private ref: ChangeDetectorRef
+		) {
 
 	}
 
