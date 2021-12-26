@@ -20,16 +20,23 @@ import { LazyDataComponentDialog } from '../_ui_services_lazy/lazy-component-dia
 export class DataComponentPrintDialog extends LazyDataComponentDialog {
 	@ViewChild('htmlPrintContent', { static: false }) htmlContentElement: ElementRef;
 
-
-	constructor(@Inject(MAT_DIALOG_DATA) protected dialogData: { title: string, externalComponentType: Type<DataComponent>, componentData: any, isSmallScreen: boolean, fullScreen: boolean },
-		public dialogRef: MatDialogRef<LazyDataComponentDialog>, protected componentFactoryResolver: ComponentFactoryResolver, private location: Location) {
+	constructor(
+		@Inject(MAT_DIALOG_DATA) protected dialogData: {
+			title: string, externalComponentType: Type<DataComponent>,
+			componentData: any,
+			isSmallScreen: boolean,
+			fullScreen: boolean
+		},
+		public dialogRef: MatDialogRef<LazyDataComponentDialog>,
+		protected componentFactoryResolver: ComponentFactoryResolver,
+		private location: Location
+	) {
 		super(dialogData, dialogRef, componentFactoryResolver);
 	}
 
 	print() {
 		HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(''));
 	}
-
 }
 
 /**
@@ -61,5 +68,4 @@ export class DataComponentPrintDialogService {
 		return this.modalRef.afterClosed();
 
 	}
-
 }

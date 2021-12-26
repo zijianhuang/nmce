@@ -7,8 +7,16 @@ import { DataComponentDialog, DataComponentDialogService } from '../_ui_services
 	templateUrl: '../_ui_services/dataComponentDialog.component.html',
 })
 export class LazyDataComponentDialog extends DataComponentDialog {
-	constructor(@Inject(MAT_DIALOG_DATA) protected dialogData: { title: string, externalComponentType: Type<DataComponent>, componentData: any, isSmallScreen: boolean, fullScreen: boolean },
-		public dialogRef: MatDialogRef<LazyDataComponentDialog>, protected componentFactoryResolver: ComponentFactoryResolver) {
+	constructor(
+		@Inject(MAT_DIALOG_DATA) protected dialogData: {
+			title: string, externalComponentType: Type<DataComponent>,
+			componentData: any,
+			isSmallScreen: boolean,
+			fullScreen: boolean
+		},
+		public dialogRef: MatDialogRef<LazyDataComponentDialog>,
+		protected componentFactoryResolver: ComponentFactoryResolver
+	) {
 		super(dialogData, dialogRef, componentFactoryResolver);
 	}
 

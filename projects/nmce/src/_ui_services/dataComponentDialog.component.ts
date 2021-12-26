@@ -1,13 +1,15 @@
-import { Component, Input, Injectable, AfterViewInit, ViewChild, ComponentFactoryResolver, OnDestroy, Type, Inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { AfterViewInit, Component, ComponentFactoryResolver, Inject, Injectable, Input, OnDestroy, Type, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DataComponent } from '../_types/DataComponent';
 import { DataComponentDirective } from 'nmce-directives';
+import { Observable } from 'rxjs';
+import { DataComponent } from '../_types/DataComponent';
 
 /**
  * This is to host another component which has implemented interfact DataComponent. 
  * And another component is to be displayed in a dialog but not need to answer but to close.
  * The Close button may vary depending on the screen size.
+ * This component is primarily used in DataComponentDialogService.
+ * This is based on the concept in https://angular.io/guide/dynamic-component-loader
  */
 @Component({
 	templateUrl: 'dataComponentDialog.component.html',
@@ -19,6 +21,9 @@ export class DataComponentDialog implements AfterViewInit, OnDestroy {
 	@Input()
 	data: any;
 
+	/**
+	 * Reference to dataComponentHost with ng-container
+	 */
 	@ViewChild(DataComponentDirective, { static: false }) componentHost: DataComponentDirective;
 
 	externalComponentType: Type<DataComponent>;
@@ -30,8 +35,17 @@ export class DataComponentDialog implements AfterViewInit, OnDestroy {
 	 */
 	isSmallScreen: boolean;
 
-	constructor(@Inject(MAT_DIALOG_DATA) protected dialogData: { title: string, externalComponentType: Type<DataComponent>, componentData: any, isSmallScreen: boolean, fullScreen: boolean },
-		public dialogRef: MatDialogRef<DataComponentDialog>, protected componentFactoryResolver: ComponentFactoryResolver) {
+	constructor(
+		@Inject(MAT_DIALOG_DATA) protected dialogData: {
+			title: string,
+			externalComponentType: Type<DataComponent>,
+			componentData: any,
+			isSmallScreen: boolean,
+			fullScreen: boolean
+		},
+		public dialogRef: MatDialogRef<DataComponentDialog>,
+		protected componentFactoryResolver: ComponentFactoryResolver
+	) {
 		this.isSmallScreen = dialogData.isSmallScreen;
 		this.title = dialogData.title;
 		this.externalComponentType = dialogData.externalComponentType;
@@ -53,14 +67,15 @@ export class DataComponentDialog implements AfterViewInit, OnDestroy {
 		const viewContainerRef = this.componentHost.viewContainerRef;
 		viewContainerRef.clear();
 
-		const componentRef = viewContainerRef.createComponent(componentFactory);
-		componentRef.instance.data = this.data;
+		const componentRef = viewContainerRef.createComponent(componentFactory); // now ng-container  has the component
+		componentRef.instance.data = this.data; //This is currently the way of injecting data to the dynamically created instance
 	}
 
 }
 
 /**
- * Display an NG component in a dialog, and this dialog has not need to answer but close. For a component defined in a lazy module, use LazyComponentDialogService.
+ * Display an NG component in a dialog, and this dialog has not need to answer but close. 
+ * For a component defined in a lazy module, use LazyComponentDialogService.
  */
 @Injectable()
 export class DataComponentDialogService {
@@ -68,6 +83,14 @@ export class DataComponentDialogService {
 
 	constructor(private dialog: MatDialog) { }
 
+	/**
+	 * 
+	 * @param title Dialog title
+	 * @param externalComponentType 
+	 * @param componentData pass data to the instance of externalComponentType
+	 * @param config autofocus or fullScreen
+	 * @returns anything
+	 */
 	open(title: string, externalComponentType: Type<DataComponent>, componentData: any, config?: { autofocus?: boolean, fullScreen?: boolean }): Observable<any> {
 		const isSmallScreen = window.innerWidth < 640 || window.innerHeight < 640;
 		this.modalRef = this.dialog.open(DataComponentDialog,
