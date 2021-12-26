@@ -24,6 +24,18 @@
 		   [active]="rlaComponents.isActive">
 			Components/Services
 		</a>
+		<a mat-tab-link
+		   routerLink="/demo/directives"
+		   routerLinkActive #rlaDirectives="routerLinkActive"
+		   [active]="rlaDirectives.isActive">
+			Directives
+		</a>
+		<a mat-tab-link
+		   routerLink="/demo/pipes"
+		   routerLinkActive #rlaPipes="routerLinkActive"
+		   [active]="rlaPipes.isActive">
+			Pipes
+		</a>
 	</nav>
 </div>
 

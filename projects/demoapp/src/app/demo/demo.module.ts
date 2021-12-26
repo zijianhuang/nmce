@@ -11,9 +11,12 @@ import { NGMDModule } from '../ngmd.module';
 import { ComponentsComponent } from './components.component';
 import { DemoIndexComponent } from './demo-index.component';
 import { DemoRoutingModule } from './demo-routing.module';
+import { DemoInputComponent, DemoInputDialogService } from './demoInput.dialog';
 import { DialogsComponent } from './dialogs.component';
+import { DirectivesComponent } from './directives.component';
 import { HtmlDialogsComponent } from './htmlDialogs.component';
 import { InputDialogsComponent } from './inputDialogs.component';
+import { PipesComponent } from './pipes.component';
 
 @NgModule({
 	imports: [
@@ -38,9 +41,12 @@ import { InputDialogsComponent } from './inputDialogs.component';
 		HtmlDialogsComponent,
 		InputDialogsComponent,
 		ComponentsComponent,
+		DirectivesComponent,
+		DemoInputComponent,
+		PipesComponent,
 	],
 	providers: [
-
+		DemoInputDialogService,
 	]
 })
 export class DemoModule { }

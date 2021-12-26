@@ -1,16 +1,20 @@
-﻿import { Directive, AfterViewInit, ElementRef, DoCheck, Input } from '@angular/core';
+﻿import { AfterViewInit, Directive, DoCheck, ElementRef, Input } from '@angular/core';
 
-
-// Simple example directive that fixes autofocus problem with multiple views, source: https://www.picnet.com.au/blogs/guido/post/2016/09/20/angular2-ng2-focus-directive/
+/**
+ * Use as a parametered input parameter in html element.
+ * When used inside a material dialog, this directive may be at odd against the autofocus config parameter of MatDialogConfig, 
+ * if the autofocus config is not false. Generally speaking, no need to use this directive in a component presented in a mateiral dialog.
+ */
 @Directive({
-	selector: '[autofocus]' // using [ ] means selecting attributes
+	selector: '[autofocus]'
 })
-
 export class AutofocusDirective implements AfterViewInit, DoCheck {
-	private lastVisible = false;
+	private toFocus = false;
+	private focused = false;
 	private initialised = false;
+	private everFocused = false;
 	constructor(private el: ElementRef) {
-		console.debug('autofocusDirective created.');
+		//console.debug('autofocusDirective created.');
 	}
 
 	ngAfterViewInit() {
@@ -20,14 +24,15 @@ export class AutofocusDirective implements AfterViewInit, DoCheck {
 
 	ngDoCheck() {
 		if (!this.initialised) { return; }
-		const visible = !!this.el.nativeElement.offsetParent;
-		if (visible && !this.lastVisible) {
-			setTimeout(() => { this.el.nativeElement.focus(); }, 2); //no need to clearTimeout
+		if (this.toFocus && !this.everFocused && !this.focused) {
+			this.el.nativeElement.focus();
+			this.focused = true;
+			this.everFocused = true;
+			console.debug('focused now.');
 		}
-		this.lastVisible = visible;
 	}
 
 	@Input() set autofocus(condition: boolean) {
-		this.lastVisible = condition !== false;
+		this.toFocus = condition !== false;
 	}
 }

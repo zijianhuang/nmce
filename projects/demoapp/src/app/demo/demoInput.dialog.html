@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Hi with some inputs</h1>
+<div mat-dialog-content>
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="First" type="text" id="inputa"/>
+        </mat-form-field>
+    </div>
+    
+    <p>
+        <mat-form-field>
+            <input matInput placeholder="Second" id="inputb" type="text" [autofocus]="true"/>
+        </mat-form-field>
+    
+    </p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Close</button>
+
+</div>

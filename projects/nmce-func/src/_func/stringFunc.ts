@@ -51,6 +51,12 @@ export class StringFunc {
 		return encodeURI(st.trim()); //need to encode in order to save as meta in Azure.
 	}
 
+	/**
+	 * Pad number with zero
+	 * @param num 
+	 * @param size 
+	 * @returns 
+	 */
 	static pad(num: number | undefined, size: number): string {
 		if (num == null) {
 			return '';

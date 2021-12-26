@@ -29,9 +29,12 @@ export class CentToDollarPipe extends CurrencyPipe {
 	}
 }
 
-@Pipe({ name: 'invoice' })
-export class InvoicePipe implements PipeTransform {
-	transform(n: number): string {
-		return StringFunc.pad(n, 6);
+/**
+ * Pad number with zero
+ */
+@Pipe({ name: 'pad' })
+export class PadPipe implements PipeTransform {
+	transform(n: number, length: number): string {
+		return StringFunc.pad(n, length);
 	}
 }

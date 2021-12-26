@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { DialogsComponent } from './dialogs.component';
-import { HtmlDialogsComponent } from './htmlDialogs.component';
+import { ComponentsComponent } from './components.component';
 import { DemoIndexComponent } from './demo-index.component';
+import { DialogsComponent } from './dialogs.component';
+import { DirectivesComponent } from './directives.component';
+import { HtmlDialogsComponent } from './htmlDialogs.component';
 import { InputDialogsComponent } from './inputDialogs.component';
-import { ComponentsComponent} from './components.component';
+import { PipesComponent } from './pipes.component';
 
 const featureRoutes: Routes = [
 	{
@@ -17,6 +18,8 @@ const featureRoutes: Routes = [
 			{ path: 'htmlDialogs', component: HtmlDialogsComponent },
 			{ path: 'inputDialogs', component: InputDialogsComponent },
 			{ path: 'components', component: ComponentsComponent },
+			{ path: 'directives', component: DirectivesComponent },
+			{ path: 'pipes', component: PipesComponent },
 		]
 	}
 ];
