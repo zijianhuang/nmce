@@ -25,7 +25,9 @@ export abstract class WaitServiceBase extends RootInjectorGuard {
 					this.keepAfterNavigationChange = false;
 				} else {
 					// clear alert
-					this.subject.next();
+					this.subject.next({
+						loading: false
+					});
 				}
 			}
 		});

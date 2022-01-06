@@ -36,13 +36,6 @@ import { NGMDModule } from './ngmd.module';
 
     		NotificationsService,
 		ActionSheetItemSubjectService,
-    //AlertService,
-    //WaitService,
-    //WaitProgressService,
-    // {
-    // 	provide: 'htmlEditor.uploadUrl',
-    // 	useValue: undefined
-    // },
   ],
   bootstrap: [AppComponent]
 })

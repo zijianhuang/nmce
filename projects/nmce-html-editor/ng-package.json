@@ -2,13 +2,6 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/nmce-html-editor",
   "lib": {
-    "entryFile": "src/public-api.ts",
-    "umdModuleIds": {
-      "moment": "moment",
-      "nmce": "nmce",
-      "nmce-func": "nmce-func",
-      "@kolkov/angular-editor": "@kolkov/angular-editor"
-
-    }  
+    "entryFile": "src/public-api.ts"
   }
 }
