@@ -1,6 +1,6 @@
 {
   "name": "nmce-html-editor",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "author": {"name": "Z"},
   "description": "Angular Material extended components based on @kolkov@angular-editor.",
   "license": "MIT",
@@ -12,7 +12,7 @@
     "@angular/core": "^13.1.1",
     "@angular/forms": "^13.1.1",
     "@angular/material": "^13.1.1",
-    "@kolkov/angular-editor": "1.2.0"
+    "@kolkov/angular-editor": "^2.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.1"
