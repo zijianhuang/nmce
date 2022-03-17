@@ -16,13 +16,13 @@ import { DialogSize } from '../_ui_services/types';
 export class HtmlPrintDialogComponent extends HtmlDialogComponent {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean },
-		public dialogRef: MatDialogRef<HtmlDialogComponent>, private location: Location) {
+		public dialogRef: MatDialogRef<HtmlDialogComponent>, private location: Location, @Inject('print.cssUrl') private cssUrl: string) {
 		super(data, dialogRef);
 	}
 
 	print() {
 		if (this.htmlContentElement) {
-			HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(''));
+			HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(this.cssUrl));
 		} else {
 			console.error('this.htmlContentElement does not exist.');
 		}
@@ -64,13 +64,13 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 export class HtmlImgPrintDialogComponent extends HtmlImgDialogComponent {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, imageUrl: string, useBackButton: boolean },
-		public dialogRef: MatDialogRef<HtmlImgDialogComponent>, private location: Location) {
+		public dialogRef: MatDialogRef<HtmlImgDialogComponent>, private location: Location, @Inject('print.cssUrl') private cssUrl: string) {
 		super(data, dialogRef);
 	}
 
 	print() {
 		if (this.htmlContentElement) {
-			HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(''));
+			HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(this.cssUrl));
 		} else {
 			console.error('this.htmlContentElement does not exist.');
 		}

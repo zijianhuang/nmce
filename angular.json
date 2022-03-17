@@ -21,7 +21,7 @@
             }
           },
           "styles": [
-            "projects/nmce/src/styles.css"
+            "projects/nmce/src/styles.css"          
           ]
         },
         "test": {
@@ -67,7 +67,9 @@
             ],
             "assets": [
               "projects/demoapp/src/favicon.ico",
-              "projects/demoapp/src/assets"
+              "projects/demoapp/src/assets",
+              "projects/demoapp/src/print190826.css"
+
             ],
             "styles": [
               "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",

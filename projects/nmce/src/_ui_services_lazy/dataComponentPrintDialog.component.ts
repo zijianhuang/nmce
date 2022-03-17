@@ -30,13 +30,13 @@ export class DataComponentPrintDialog extends DataComponentDialog {
 		},
 		public dialogRef: MatDialogRef<DataComponentDialog>,
 		protected componentFactoryResolver: ComponentFactoryResolver,
-		private location: Location
+		private location: Location, @Inject('print.cssUrl') private cssUrl: string
 	) {
 		super(dialogData, dialogRef, componentFactoryResolver);
 	}
 
 	print() {
-		HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(''));
+		HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(this.cssUrl));
 	}
 }
 

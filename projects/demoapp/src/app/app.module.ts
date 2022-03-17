@@ -34,8 +34,13 @@ import { NGMDModule } from './ngmd.module';
       }
     },
 
-    		NotificationsService,
-		ActionSheetItemSubjectService,
+    {
+      provide: 'print.cssUrl',
+      useValue: 'print190826.css'
+    },
+
+    NotificationsService,
+    ActionSheetItemSubjectService,
   ],
   bootstrap: [AppComponent]
 })

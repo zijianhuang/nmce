@@ -1,7 +1,5 @@
 import { Location } from '@angular/common';
-import {
-	Component, ElementRef, EventEmitter, Input, OnInit, Output
-} from '@angular/core';
+import { Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { HtmlPrintFunc } from 'nmce-func';
 
 /**
@@ -18,7 +16,7 @@ export class PrintComponent implements OnInit {//inspired by https://www.linkedi
 	@Input() section: string;
 	@Output() sectionChange = new EventEmitter<any>();
 
-	constructor(private ele: ElementRef, private location: Location) {
+	constructor(private ele: ElementRef, private location: Location, @Inject('print.cssUrl') private cssUrl: string) {
 		if (this.section === undefined) {
 			this.section = '';
 		}
@@ -34,7 +32,7 @@ export class PrintComponent implements OnInit {//inspired by https://www.linkedi
 			const element = document.getElementById(this.section);
 			if (element) {
 				const printContents = element.innerHTML;
-				HtmlPrintFunc.printWithCSS(printContents, this.location.prepareExternalUrl(''));
+				HtmlPrintFunc.printWithCSS(printContents, this.location.prepareExternalUrl(this.cssUrl));
 			}
 		}
 	}
