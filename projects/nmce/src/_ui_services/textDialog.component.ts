@@ -1,7 +1,7 @@
-import { Component, Injectable, ViewChild, AfterViewInit, ElementRef, Inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { AfterViewInit, Component, ElementRef, Inject, Injectable, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
 import { DialogSize, DialogSizeToSize } from '../_ui_services/types';
 
 /**
@@ -114,7 +114,7 @@ export class TextDialogService {
 	* @param title title of the dialog
 	* @param lines html content to be rendered in the dialog body
 	*/
-	open(data: { title: string, lines: string, size: DialogSize, useBackButton?: boolean }): Observable<any> {
+	open(data: { title?: string, lines?: string, size?: DialogSize, useBackButton?: boolean }): Observable<any> {
 		const isSmallScreen = window.innerWidth < 800 || window.innerHeight < 800;
 		if (data.useBackButton == null) {
 			if (data.size === DialogSize.Large) {
@@ -152,7 +152,7 @@ export class TextHReflDialogService {
 	 * @param title
 	 * @param url to be rendered in the dialog body
 	 */
-	open(data: { title: string, url: string, size: DialogSize, useBackButton?: boolean }): Observable<any> {
+	open(data: { title?: string, url?: string, size?: DialogSize, useBackButton?: boolean }): Observable<any> {
 		const isSmallScreen = window.innerWidth < 800 || window.innerHeight < 800;
 		if (data.useBackButton == null) {
 			if (data.size === DialogSize.Large) {

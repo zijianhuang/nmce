@@ -1,6 +1,6 @@
-import { Observable } from 'rxjs';
 import { ComponentType } from '@angular/cdk/portal';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
 import { DialogSize, DialogSizeToSize } from './types';
 
 /**
@@ -17,7 +17,7 @@ export class HtmlBaseDialogService<T> {
 	 * Display ComponentType<T> in dialog.
 	 * @param data title, size, useBackButton. For small screen, useBackButton is regarded always as true.
 	 */
-	protected displayComponent(component: ComponentType<T>, data: { title: string, size: DialogSize, useBackButton?: boolean }): Observable<any> {
+	protected displayComponent(component: ComponentType<T>, data: { title?: string, size?: DialogSize, useBackButton?: boolean }): Observable<any> {
 		const isSmallScreen = window.innerWidth < 800 || window.innerHeight < 800;
 
 		if (data.useBackButton == null) {

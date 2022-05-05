@@ -1,6 +1,6 @@
-import { Component, Input, Injectable, Inject} from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, Inject, Injectable, Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
 
 /**
  * Input one line text.
@@ -49,7 +49,7 @@ export class TextInputService {
 	 * @param text
 	 * @param small default size. True to have 98vw.
 	 */
-	open(title: string, label: string, text: string, small = false): Observable<string> {
+	open(title?: string, label?: string, text?: string, small = false): Observable<string> {
 		const modalRef = this.dialog.open(TextInputComponent, {
 			disableClose: true,
 			autoFocus: true,

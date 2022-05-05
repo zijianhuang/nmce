@@ -1,9 +1,9 @@
-import { Component, Injectable, ViewChild, AfterViewInit, ElementRef, Inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { AfterViewInit, Component, ElementRef, Inject, Injectable, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogSize } from './types';
+import { Observable } from 'rxjs';
 import { HtmlBaseDialogService } from './htmlBaseDialogService';
+import { DialogSize } from './types';
 
 /**
  * Contain HTML content in iframe, used in HtmlFrameDialogService.
@@ -133,7 +133,7 @@ export class HtmlFrameDialogService extends HtmlBaseDialogService<HtmlFrameDialo
 	* @param title title of the dialog
 	* @param htmlContent html content to be rendered in the dialog body
 	*/
-	open(data: { title: string, htmlContent: string, size: DialogSize, useBackButton?: boolean }): Observable<any> {
+	open(data: { title?: string, htmlContent?: string, size?: DialogSize, useBackButton?: boolean }): Observable<any> {
 		return super.displayComponent(HtmlFrameDialogComponent, data);
 	}
 }
@@ -152,7 +152,7 @@ export class HtmlHRefFrameDialogService extends HtmlBaseDialogService<HtmlHRefFr
 	 * @param title
 	 * @param url to be rendered in the dialog body
 	 */
-	open(data: { title: string, url: string, size: DialogSize, useBackButton?: boolean }): Observable<any> {
+	open(data: { title?: string, url?: string, size?: DialogSize, useBackButton?: boolean }): Observable<any> {
 		return super.displayComponent(HtmlHRefFrameDialogComponent, data);
 	}
 

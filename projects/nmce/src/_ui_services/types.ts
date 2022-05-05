@@ -7,7 +7,7 @@ export enum DialogSize { Auto, Large, Medium, Smart }
  * @param useBackButton
  * @param vwvh vw or vh
  */
-export const DialogSizeToSize = (size: DialogSize, useBackButton: boolean, vwvh: string) => {
+export const DialogSizeToSize = (size?: DialogSize, useBackButton?: boolean, vwvh?: string) => {
 	switch (size) {
 		case DialogSize.Auto: return undefined;
 		case DialogSize.Large: return '98' + vwvh;
