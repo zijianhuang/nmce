@@ -13,7 +13,7 @@ export const HTML_EDITOR_UPLOADURL = new InjectionToken<string|undefined>('htmlE
 });
 
 /**
- * Display text area for HTML text to be saved in Azure Blob Storage.
+ * Display text area for HTML text.
  * Different fields will trigger different events which will be further handled.
  * if fieldId is defined, load existing doc; if letterTemplateId is defined, create a new doc through mustaches.
  * This component is used by multiple functions via different routes, or by HTML tempalte so noteLabel and modelChanged will be used.
@@ -82,6 +82,7 @@ export abstract class HtmlDocEditorDialogBaseComponent {
 			minHeight: '10em',
 			placeholder: 'Enter text here...',
 			translate: 'no',
+			sanitize: true,
 			uploadUrl: uploadUrl,
 			customClasses: [
 				{

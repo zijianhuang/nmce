@@ -12,7 +12,9 @@
 	</mat-form-field>
 </div>
 
-<p fxLayoutGap="1em">
+{{data}}
+
+<p *ngIf="data" fxLayoutGap="1em">
 	<label>Html Dialog</label><button mat-mini-fab (click)="showHtmlDialog()"><mat-icon>play_arrow</mat-icon></button>
 	<mat-checkbox [(ngModel)]="useLargeHtml">Load Large HTML</mat-checkbox>
 </p>

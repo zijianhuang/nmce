@@ -2,11 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
-	AlertService, TextDialogService, TextHReflDialogService, TextInputService,
+	AlertService, DataComponentPrintDialogService, JsonDialogService, LazyComponentDialogService, TextDialogService, TextHReflDialogService
 } from 'nmce';
-import { JsonDialogService, DataComponentPrintDialogService, LazyComponentDialogService } from 'nmce';
+import { JsonDiffDialogService } from 'nmce-json-diff';
 import { HtmlDialogsComponent } from './htmlDialogs.component';
-import {JsonDiffDialogService} from 'nmce-json-diff';
 
 /**
  * Fill up the user registration form and register. Then roles checkboxes will appear.
@@ -205,10 +204,10 @@ DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ddddddddddddddddddddddddddddddddd
 	}
 
 	showAnyComponent() {
-		this.lazyComponentDialogService.open('Any NG component', HtmlDialogsComponent, undefined).subscribe();
+		this.lazyComponentDialogService.open('Any NG component', HtmlDialogsComponent, 'ABCDEFG').subscribe();
 	}
 
 	printAnyComponent() {
-		this.dataComponentPrintDialogService.open('Print NG component', HtmlDialogsComponent, undefined).subscribe();
+		this.dataComponentPrintDialogService.open('Print NG component', HtmlDialogsComponent, '1234567').subscribe();
 	}
 }

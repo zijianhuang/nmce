@@ -62,12 +62,10 @@ export class DataComponentDialog implements AfterViewInit, OnDestroy {
 	}
 
 	loadComponent() {
-		const componentFactory = this.componentFactoryResolver.resolveComponentFactory<DataComponent>(this.externalComponentType);
-
 		const viewContainerRef = this.componentHost.viewContainerRef;
 		viewContainerRef.clear();
 
-		const componentRef = viewContainerRef.createComponent(componentFactory); // now ng-container  has the component
+		const componentRef = viewContainerRef.createComponent(this.externalComponentType); // now ng-container  has the component
 		componentRef.instance.data = this.data; //This is currently the way of injecting data to the dynamically created instance
 	}
 

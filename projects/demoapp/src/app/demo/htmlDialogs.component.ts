@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { DataComponent } from 'nmce';
-import { HtmlDialogService, HtmlFrameDialogService, HtmlHRefDialogService, HtmlHRefFrameDialogService, HtmlImgDialogService } from 'nmce';
-import { HtmlFramePrintDialogService, HtmlHRefPrintDialogService, HtmlHRefFramePrintDialogService, HtmlImgPrintDialogService, HtmlPrintDialogService } from 'nmce';
+import { DataComponent, HtmlDialogService, HtmlFrameDialogService, HtmlFramePrintDialogService, HtmlHRefDialogService, HtmlHRefFrameDialogService, HtmlHRefFramePrintDialogService, HtmlHRefPrintDialogService, HtmlImgDialogService, HtmlImgPrintDialogService, HtmlPrintDialogService } from 'nmce';
 /**
  * Users search and list
  */
@@ -17,6 +15,8 @@ export class HtmlDialogsComponent implements DataComponent {
 	sizeSelectedControl: FormControl = new FormControl(1);
 
 	data: any;
+
+	showLarge=false;
 
 	constructor(
 		private http: HttpClient,
@@ -33,6 +33,7 @@ export class HtmlDialogsComponent implements DataComponent {
 		private htmlFramePrintDialogService: HtmlFramePrintDialogService,
 
 	) {
+		this.showLarge=true;
 	}
 
 	showHtmlDialog() {

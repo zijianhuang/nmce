@@ -22,11 +22,11 @@ export class AuthenticationService {
 		const body = 'username=' + username + '&password=' + password + '&grant_type=password';
 		const options = { headers: { 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8' } };
 		return this.http.post<{
-			access_token?: string;
-			expires?: string;
-			expires_in?: number;
-			issued?: string;
-			token_type?: string;
+			access_token: string;
+			expires: string;
+			expires_in: number;
+			issued: string;
+			token_type: string;
 			username: string;
 		}>(this.authUri, body, options)
 			.pipe(map(
