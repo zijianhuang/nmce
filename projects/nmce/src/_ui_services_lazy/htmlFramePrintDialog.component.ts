@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, Inject, Injectable } from '@angular/core';
+import { Component, Inject, Injectable, Renderer2 } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HtmlPrintFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
@@ -43,8 +43,9 @@ export class HtmlHRefFramePrintDialogComponent extends HtmlHRefFrameDialogCompon
 	 */
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, url: string, useBackButton: boolean },
-		public dialogRef: MatDialogRef<HtmlHRefFrameDialogComponent>, protected httpClient: HttpClient, private location: Location) {
-		super(data, dialogRef, httpClient);
+		public dialogRef: MatDialogRef<HtmlHRefFrameDialogComponent>, protected httpClient: HttpClient, private location: Location,
+		protected renderer: Renderer2) {
+		super(data, dialogRef, httpClient, renderer);
 	}
 
 	print() {

@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { AfterViewInit, Component, ElementRef, Inject, Injectable, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, Injectable, Renderer2, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { HtmlBaseDialogService } from './htmlBaseDialogService';
@@ -68,7 +68,8 @@ export class HtmlHRefFrameDialogComponent implements AfterViewInit {
 	 */
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, url: string, useBackButton: boolean },
-		public dialogRef: MatDialogRef<HtmlHRefFrameDialogComponent>, protected httpClient: HttpClient) {
+		public dialogRef: MatDialogRef<HtmlHRefFrameDialogComponent>, protected httpClient: HttpClient,
+		protected renderer: Renderer2) {
 		this.title = data.title;
 		this.url = data.url;
 		this.useBackButton = this.data.useBackButton;
@@ -84,9 +85,9 @@ export class HtmlHRefFrameDialogComponent implements AfterViewInit {
 			response => {
 				if (this.htmlContentElement) {
 					this.htmlContentElement.nativeElement.srcdoc = response;
-					setTimeout(() => {
-						this.htmlContentElement?.nativeElement.contentDocument.head.insertAdjacentHTML('beforeend', '<base target="_blank" />');
-					}, 300); // Hopefully 300ms is long enough for srcdoc done.
+					// setTimeout(() => {
+					// 	this.htmlContentElement?.nativeElement.contentDocument.head.insertAdjacentHTML('beforeend', '<base target="_blank" />');
+					// }, 300); // Hopefully 300ms is long enough for srcdoc done.
 				}
 			},
 			(error: HttpErrorResponse | any) => {
@@ -114,7 +115,7 @@ export class HtmlHRefFrameDialogComponent implements AfterViewInit {
 					errMsg = error.message ? error.message : error.toString();
 				}
 
-				this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', errMsg);
+				this.renderer.setProperty(this.htmlContentElement?.nativeElement, 'innerHTML', errMsg);
 			});
 
 	}

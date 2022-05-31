@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { AfterViewInit, Component, ElementRef, Inject, Injectable, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, Injectable, Renderer2, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { HtmlBaseDialogService } from './htmlBaseDialogService';
@@ -22,7 +22,8 @@ export class HtmlDialogComponent implements AfterViewInit {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean },
-		public dialogRef: MatDialogRef<HtmlDialogComponent>) {
+		public dialogRef: MatDialogRef<HtmlDialogComponent>,
+		protected renderer: Renderer2) {
 		this.title = data.title;
 		this.htmlContent = data.htmlContent;
 		this.useBackButton = data.useBackButton;
@@ -31,7 +32,8 @@ export class HtmlDialogComponent implements AfterViewInit {
 	@ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
 
 	ngAfterViewInit() {
-		this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', this.htmlContent);
+		this.renderer.setProperty(this.htmlContentElement?.nativeElement, 'innerHTML', this.htmlContent);
+		//this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', this.htmlContent);
 	}
 
 }
@@ -55,7 +57,8 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) protected data: { title: string, url: string, useBackButton: boolean },
-		public dialogRef: MatDialogRef<HtmlHRefDialogComponent>, protected httpClient: HttpClient) {
+		public dialogRef: MatDialogRef<HtmlHRefDialogComponent>, protected httpClient: HttpClient,
+		protected renderer: Renderer2) {
 		this.title = data.title;
 		this.url = data.url;
 		this.useBackButton = data.useBackButton;
@@ -69,7 +72,7 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 	ngAfterViewInit() {
 		this.httpClient.get(this.url, { responseType: 'text' }).subscribe(
 			response => {
-				this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', response);
+				this.renderer.setProperty(this.htmlContentElement?.nativeElement, 'innerHTML', response);
 			},
 			(error: HttpErrorResponse | any) => {
 				this.title = 'Cannot retrieve ' + this.title;
@@ -96,7 +99,7 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 					errMsg = error.message ? error.message : error.toString();
 				}
 
-				this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', errMsg);
+				this.renderer.setProperty(this.htmlContentElement?.nativeElement, 'innerHTML', errMsg);
 			});
 
 	}

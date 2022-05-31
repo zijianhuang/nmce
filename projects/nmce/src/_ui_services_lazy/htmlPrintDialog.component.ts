@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, Inject, Injectable } from '@angular/core';
+import { Component, Inject, Injectable, Renderer2 } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HtmlPrintFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
@@ -16,8 +16,9 @@ import { DialogSize } from '../_ui_services/types';
 export class HtmlPrintDialogComponent extends HtmlDialogComponent {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean },
-		public dialogRef: MatDialogRef<HtmlDialogComponent>, private location: Location, @Inject('print.cssUrl') private cssUrl: string) {
-		super(data, dialogRef);
+		public dialogRef: MatDialogRef<HtmlDialogComponent>, private location: Location, @Inject('print.cssUrl') private cssUrl: string,
+		protected renderer: Renderer2) {
+		super(data, dialogRef, renderer);
 	}
 
 	print() {
@@ -44,8 +45,9 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 	 */
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, url: string, useBackButton: boolean },
-		public dialogRef: MatDialogRef<HtmlHRefDialogComponent>, protected httpClient: HttpClient, private location: Location) {
-		super(data, dialogRef, httpClient);
+		public dialogRef: MatDialogRef<HtmlHRefDialogComponent>, protected httpClient: HttpClient, private location: Location,
+		protected renderer: Renderer2) {
+		super(data, dialogRef, httpClient, renderer);
 	}
 
 	print() {
