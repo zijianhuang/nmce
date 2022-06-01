@@ -29,11 +29,11 @@ export class HtmlDialogComponent implements AfterViewInit {
 		this.useBackButton = data.useBackButton;
 	}
 
-	@ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
+	// @ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
 
 	ngAfterViewInit() {
-		this.renderer.setProperty(this.htmlContentElement?.nativeElement, 'innerHTML', this.htmlContent);
-		//this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', this.htmlContent);
+		//this.renderer.setProperty(this.htmlContentElement?.nativeElement, 'innerHTML', this.htmlContent);working
+		//this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', this.htmlContent);working
 	}
 
 }
@@ -42,7 +42,6 @@ export class HtmlDialogComponent implements AfterViewInit {
  * Contain HTML content loaded from a url, used in HtmlHReflDialogService. If there's an error during loading, the error will be displayed n the dialog body.
  */
 @Component({
-
 	templateUrl: 'htmlDialog.component.html',
 })
 export class HtmlHRefDialogComponent implements AfterViewInit {
@@ -55,6 +54,8 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 
 	useBackButton: boolean;
 
+	htmlContent: string;
+
 	constructor(
 		@Inject(MAT_DIALOG_DATA) protected data: { title: string, url: string, useBackButton: boolean },
 		public dialogRef: MatDialogRef<HtmlHRefDialogComponent>, protected httpClient: HttpClient,
@@ -64,15 +65,16 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 		this.useBackButton = data.useBackButton;
 	}
 
-	/**
-	 * HTML placeholder
-	 */
-	@ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
+	// /**
+	//  * HTML placeholder
+	//  */
+	// @ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
 
 	ngAfterViewInit() {
 		this.httpClient.get(this.url, { responseType: 'text' }).subscribe(
 			response => {
-				this.renderer.setProperty(this.htmlContentElement?.nativeElement, 'innerHTML', response);
+				this.htmlContent = response;
+				//this.renderer.setProperty(this.htmlContentElement?.nativeElement, 'innerHTML', response);
 			},
 			(error: HttpErrorResponse | any) => {
 				this.title = 'Cannot retrieve ' + this.title;
@@ -99,7 +101,8 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 					errMsg = error.message ? error.message : error.toString();
 				}
 
-				this.renderer.setProperty(this.htmlContentElement?.nativeElement, 'innerHTML', errMsg);
+				this.htmlContent=errMsg;
+				// this.renderer.setProperty(this.htmlContentElement?.nativeElement, 'innerHTML', errMsg);
 			});
 
 	}

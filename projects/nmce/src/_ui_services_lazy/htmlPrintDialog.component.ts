@@ -22,8 +22,9 @@ export class HtmlPrintDialogComponent extends HtmlDialogComponent {
 	}
 
 	print() {
-		if (this.htmlContentElement) {
-			HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(this.cssUrl));
+		if (this.htmlContent) {
+			//HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(this.cssUrl));
+			HtmlPrintFunc.printWithCSS(this.htmlContent, this.location.prepareExternalUrl(this.cssUrl));
 		} else {
 			console.error('this.htmlContentElement does not exist.');
 		}
@@ -51,8 +52,8 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 	}
 
 	print() {
-		if (this.htmlContentElement) {
-			HtmlPrintFunc.print(this.htmlContentElement.nativeElement.innerHTML);
+		if (this.htmlContent) {
+			HtmlPrintFunc.print(this.htmlContent);
 		} else {
 			console.error('this.htmlContentElement does not exist.');
 		}

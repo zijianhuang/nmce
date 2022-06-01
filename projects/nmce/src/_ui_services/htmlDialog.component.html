@@ -10,8 +10,7 @@
 		<base target="_blank" />
 		<!-- Ensure all href are opened in new tab, as described in https://stackoverflow.com/questions/17281486/use-target-blank-in-css -->
 	</head>
-	<body>
-		<object #htmlContent></object>
+	<body [innerHTML]="htmlContent">
 	</body>
 </html>
 </mat-dialog-content>
