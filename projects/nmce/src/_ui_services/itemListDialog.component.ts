@@ -41,7 +41,7 @@ export class ItemListDialogComponent {
 	}
 
 	itemSelectionChange(e: MatSelectionListChange) {
-		this.dialogRef.close(e.option.value);
+		this.dialogRef.close(e.options[0].value);
 	}
 }
 
