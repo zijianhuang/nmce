@@ -1,8 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
+import { ReturnStatement } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, Subscription } from 'rxjs';
 import { RootInjectorGuard } from './baseTypes';
 import { LogDialogComponent } from './logDialog.component';
 import { LogSnackComponent } from './logSnack.component';
@@ -21,6 +22,8 @@ import { AlertSubjectMessage } from './types';
 export class AlertService extends RootInjectorGuard {
 	private subject = new Subject<AlertSubjectMessage>();
 
+	private initOnceSubscription: Subscription;
+
 	constructor(private snackBarService: MatSnackBar,
 		private dialog: MatDialog,
 	) {
@@ -33,7 +36,12 @@ export class AlertService extends RootInjectorGuard {
 	 * This should be called only once in the startup component like the app component.
 	 */
 	initOnce() {
-		this.getMessage().subscribe(message => {
+		if (this.initOnceSubscription){
+			console.error('initOnce is called more than once. Please fix the program.');
+			ReturnStatement;
+		}
+
+		this.initOnceSubscription = this.getMessage().subscribe(message => {
 			if (message && message.text) {
 				switch (message.type) {
 					case 'success': console.info(message.text); break;

@@ -6,7 +6,7 @@ import { NmceDirectivesModule } from 'nmce-directives';
 import { NGMDModule } from '../ngmd.module';
 import {
 	DataComponentPrintDialog, DataComponentPrintDialogService, HtmlFramePrintDialogComponent,
-	HtmlFramePrintDialogService, HtmlHRefFramePrintDialogComponent, HtmlHRefFramePrintDialogService, HtmlHRefPrintDialogComponent, HtmlHRefPrintDialogService, HtmlImgPrintDialogComponent, HtmlImgPrintDialogService, HtmlPrintDialogComponent, HtmlPrintDialogService, JsonComponent, JsonDialogService, LazyComponentDialogService, LazyComponentPrintDialogService
+	HtmlFramePrintDialogService, HtmlHRefFramePrintDialogComponent, HtmlHRefFramePrintDialogService, HtmlHRefPrintDialogComponent, HtmlHRefPrintDialogService, HtmlImgPrintDialogComponent, HtmlImgPrintDialogService, HtmlPrintDialogComponent, HtmlPrintDialogService, LazyComponentDialogService, LazyComponentPrintDialogService
 } from './index';
 
 
@@ -27,16 +27,16 @@ import {
 	declarations: [
 
 		HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent, DataComponentPrintDialog, HtmlPrintDialogComponent, HtmlHRefPrintDialogComponent, HtmlImgPrintDialogComponent,
-		JsonComponent,
+		//JsonComponent,
 	],
 
 	exports: [
 		HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent, DataComponentPrintDialog, HtmlPrintDialogComponent, HtmlHRefPrintDialogComponent,
-		JsonComponent,
+		//JsonComponent,
 	],
 	providers: [
 		HtmlFramePrintDialogService, HtmlHRefFramePrintDialogService, DataComponentPrintDialogService, HtmlHRefPrintDialogService, HtmlPrintDialogService, HtmlImgPrintDialogService,
-		JsonDialogService,
+		//JsonDialogService,
 		LazyComponentPrintDialogService,
 		LazyComponentDialogService,
 	],
