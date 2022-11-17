@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
-	AlertService, DataComponentPrintDialogService, JsonDialogService, LazyComponentDialogService, TextDialogService, TextHReflDialogService
+	AlertService, DataComponentPrintDialogService, LazyComponentDialogService, TextDialogService, TextHReflDialogService
 } from 'nmce';
 import { JsonDiffDialogService } from 'nmce-json-diff';
 import { HtmlDialogsComponent } from './htmlDialogs.component';
@@ -36,7 +36,6 @@ export class DialogsComponent implements OnInit {
 		private alertService: AlertService,
 		private textDialogService: TextDialogService,
 		private textHReflDialogService: TextHReflDialogService,
-		private jsonDialogService: JsonDialogService,
 		private jsonDiffDialogService: JsonDiffDialogService,
 		private dataComponentPrintDialogService: DataComponentPrintDialogService,
 		private lazyComponentDialogService: LazyComponentDialogService,
@@ -171,14 +170,7 @@ DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ddddddddddddddddddddddddddddddddd
 	}
 
 	showJsonDialog() {
-		this.jsonDialogService.open('JSON', {
-			surname: 'Smith',
-			givenName: 'John',
-			spouse: {
-				surname: 'Smith',
-				givenName: 'Alice'
-			}
-		}).subscribe();
+		this.alertService.warn('Not supported anymore.');
 	}
 
 	showJsonDiffDialog() {
