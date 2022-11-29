@@ -1,12 +1,12 @@
-<div mat-dialog-title>{{ title }}</div>
+<h1 mat-dialog-title>{{ title }}</h1>
 
 <mat-dialog-content fxLayout="row" fxLayoutGap="0.8em">
-	<mat-form-field fxFlex="3em">
+	<mat-form-field fxFlex="5em">
 		<mat-select placeholder="Hour" [(ngModel)]="selectedHour" name="hour">
 			<mat-option *ngFor="let h of hourSlots" [value]="h">{{ pad0(h) }}</mat-option>
 		</mat-select>
 	</mat-form-field>
-	<mat-form-field fxFlex="3em">
+	<mat-form-field fxFlex="5em">
 		<mat-select placeholder="Minute" [(ngModel)]="selectedMinute" name="minute">
 			<mat-option *ngFor="let m of minuteSlots" [value]="m">{{ pad0(m) }}</mat-option>
 		</mat-select>

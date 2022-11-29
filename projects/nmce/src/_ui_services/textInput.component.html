@@ -1,11 +1,10 @@
-<div mat-dialog-title fxLayout="row">
-    <strong mat-dialog-title>{{ title }}</strong>
-</div>
+<h1 mat-dialog-title>
+    {{ title }}
+</h1>
 <mat-dialog-content>
     <form fxLayout="column">
         <mat-form-field *ngIf="label">
-            <mat-placeholder>{{ label }}</mat-placeholder>
-            <input matInput [(ngModel)]="text" name="text" type="text" />
+            <input matInput [(ngModel)]="text" placeholder="{{label}}" name="text" type="text" />
         </mat-form-field>
         <mat-form-field *ngIf="!label" fxFlexFill>
             <textarea matInput matTextareaAutosize [(ngModel)]="text" name="text" type="text" matAutosizeMinRows="2" matAutosizeMaxRows="5" autofocus></textarea>

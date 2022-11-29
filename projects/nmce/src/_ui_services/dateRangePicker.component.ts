@@ -1,8 +1,8 @@
-import { Component, Injectable, Inject } from '@angular/core';
-import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { MatLegacyDialog as MatDialog, MatLegacyDialogRef as MatDialogRef, MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA } from '@angular/material/legacy-dialog';
+import { Component, Inject, Injectable } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DateFunc } from 'nmce-func';
+import { Observable } from 'rxjs';
 
 /**
  * Pick dates between.
@@ -57,7 +57,7 @@ export class DateRangePickerService {
 	 * If start date is not defined, it will be today from now.
 	 * If the end date is not defined, it will be 180 days from the start date.
 	 */
-	open(start: Date | undefined, end: Date | undefined): Observable<{ start: Date, end: Date }> {
+	open(start: Date | undefined, end: Date | undefined): Observable<{ start: Date, end: Date } | undefined | null> {
 		const modalRef = this.isHandsetPortrait ?
 			this.dialog.open(DateRangePickerComponent, {
 				disableClose: true,

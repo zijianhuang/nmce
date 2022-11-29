@@ -1,10 +1,10 @@
-<div mat-dialog-title>
+<h1 mat-dialog-title>
 	<label class="titlebar">For actionable items, please save current works before action</label>
 
 	<button mat-button mat-icon-button (click)="clearAndClose()" matTooltip="Clear notifications" class="float-right">
 		<mat-icon>clear_all</mat-icon>
 	</button>
-</div>
+</h1>
 <mat-action-list>
 	<mat-list-item *ngFor="let item of items" (click)="handleAction(item)">
 		<button mat-button mat-icon-button (click)="remove(item)" matTooltip="Remove item">

@@ -149,7 +149,7 @@ div.func-title {
 	background-color: rgba(0, 0, 0, 0.05);
 }
 
-.full-width .mat-dialog-container {
+.full-width .mat-mdc-dialog-container {
 	max-width: none;
 	width: 100vw;
 }
@@ -200,7 +200,7 @@ div.func-title {
 }
 
 
-.mat-raised-button {
+.mat-mdc-raised-button {
 	text-transform: uppercase;
 	background-color: #e5eff2;
 }

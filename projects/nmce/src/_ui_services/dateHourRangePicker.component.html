@@ -1,4 +1,4 @@
-<div mat-dialog-title>{{ title }}</div>
+<h1 mat-dialog-title>{{ title }}</h1>
 
 <mat-dialog-content fxLayout="row" fxLayoutGap="0.8em">
 	<mat-form-field fxFlex="10em">
@@ -7,12 +7,12 @@
 		<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 		<mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
 	</mat-form-field>
-	<mat-form-field fxFlex="3em">
+	<mat-form-field fxFlex="5em">
 		<mat-select placeholder="Hour" [(ngModel)]="selectedHourStart" name="hour">
 			<mat-option *ngFor="let h of hourSlots" [value]="h">{{ pad0(h) }}</mat-option>
 		</mat-select>
 	</mat-form-field>
-	<mat-form-field fxFlex="3em">
+	<mat-form-field fxFlex="5em">
 		<mat-select placeholder="Minute" [(ngModel)]="selectedMinuteStart" name="minute">
 			<mat-option *ngFor="let m of minuteSlots" [value]="m">{{ pad0(m) }}</mat-option>
 		</mat-select>
@@ -23,12 +23,12 @@
 		<mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
 		<mat-datepicker #picker2 [startAt]="endDate"></mat-datepicker>
 	</mat-form-field>
-	<mat-form-field fxFlex="3em">
+	<mat-form-field fxFlex="5em">
 		<mat-select placeholder="Hour" [(ngModel)]="selectedHourEnd" name="hour2">
 			<mat-option *ngFor="let h of hourSlots" [value]="h">{{ pad0(h) }}</mat-option>
 		</mat-select>
 	</mat-form-field>
-	<mat-form-field fxFlex="3em">
+	<mat-form-field fxFlex="5em">
 		<mat-select placeholder="Minute" [(ngModel)]="selectedMinuteEnd" name="minute2">
 			<mat-option *ngFor="let m of minuteSlots" [value]="m">{{ pad0(m) }}</mat-option>
 		</mat-select>

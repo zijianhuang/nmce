@@ -1,8 +1,8 @@
-<div mat-dialog-title fxLayout="row">
-	<strong mat-dialog-title fxFlex="90">Email</strong>
+<h1 mat-dialog-title>
+	<strong fxFlex="90">Email</strong>
 	<button *ngIf="!ccEnabled && !emailMessage?.cc" mat-button mat-icon-button (click)="ccEnabled=true">CC</button>
 	<button *ngIf="!bccEnabled && !emailMessage?.bcc" mat-button mat-icon-button (click)="bccEnabled=true">BCC</button>
-</div>
+</h1>
 <mat-dialog-content>
 	<form fxLayout="column">
 		<mat-form-field fxFlexFill>

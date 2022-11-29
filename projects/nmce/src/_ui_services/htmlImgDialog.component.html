@@ -1,11 +1,11 @@
-<div mat-dialog-title>
+<h1 mat-dialog-title>
 	<button *ngIf="useBackButton" type="button" mat-button mat-icon-button matDialogClose aria-label="Close" class="float-left">
 		<mat-icon>arrow_back</mat-icon>
 	</button>
 	<strong fxFlexAlign="start">{{title}}</strong>
 	&nbsp;&nbsp;
 	<mat-checkbox [(ngModel)]="scaleToWidth" matTooltip="Original resolution or scale to fit width">Scale to fit width</mat-checkbox>
-</div>
+</h1>
 <mat-dialog-content>
 	<html>
 	<head>

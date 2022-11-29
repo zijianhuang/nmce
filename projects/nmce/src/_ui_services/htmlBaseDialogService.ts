@@ -1,5 +1,5 @@
 import { ComponentType } from '@angular/cdk/portal';
-import { MatLegacyDialog as MatDialog, MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DialogSize, DialogSizeToSize } from './types';
 

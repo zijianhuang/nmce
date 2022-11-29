@@ -8,7 +8,7 @@ import {
 
 	TimeService
 } from 'nmce';
-import { LocalDocEditorDialogService, EmailConfirmService } from 'nmce-html-editor';
+import { EmailConfirmService, LocalDocEditorDialogService } from 'nmce-html-editor';
 
 
 
@@ -105,13 +105,21 @@ export class InputDialogsComponent implements OnInit {
 
 	openDateRangePickerService() {
 		this.dateRangePickerService.open(new Date(Date.now()), undefined).subscribe(
-			r => { this.startDate = r.start; this.endDate = r.end }
+			r => {
+				if (r) {
+					this.startDate = r.start; this.endDate = r.end;
+				}
+			}
 		);
 	}
 
 	openDateHourRangePickerService() {
 		this.dateHourRangePickerService.open(new Date(Date.now()), undefined).subscribe(
-			r => { this.startDate = r.start; this.endDate = r.end }
+			r => {
+				if (r) {
+					this.startDate = r.start; this.endDate = r.end;
+				}
+			}
 		);
 	}
 	openLocalDocEditor() {
@@ -134,9 +142,10 @@ export class InputDialogsComponent implements OnInit {
 
 	viewHtml() {
 		const s = localStorage.getItem(this.htmlFileId);
-		if (s){
-		this.htmlFramePrintDialogService.open({ title: 'My Html', htmlContent: s, size: DialogSize.Large });}
-		else{
+		if (s) {
+			this.htmlFramePrintDialogService.open({ title: 'My Html', htmlContent: s, size: DialogSize.Large });
+		}
+		else {
 			this.alertService.error(`this.htmlFileId ${this.htmlFileId} not found.`);
 		}
 	}
@@ -161,9 +170,9 @@ export class InputDialogsComponent implements OnInit {
 
 	viewText() {
 		const s = localStorage.getItem(this.textFileId);
-		if (s){
-		this.textDialogService.open({ title: 'My text', lines: s, size: DialogSize.Large });
-		}else{
+		if (s) {
+			this.textDialogService.open({ title: 'My text', lines: s, size: DialogSize.Large });
+		} else {
 			this.alertService.error(`this.textFileId ${this.textFileId} not exist.`)
 		}
 	}

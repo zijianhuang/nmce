@@ -1,11 +1,11 @@
-<div mat-dialog-title fxLayout="row">
+<h1 mat-dialog-title>
 	<mat-icon *ngIf="useIcon" [color]="iconColor">{{titleIcon}}</mat-icon>
 	<label *ngIf="useTitle" fxFlexAlign="start">{{ title }}</label>
 	&nbsp;&nbsp;&nbsp;&nbsp;
 	<label>
 		{{ subtitle }}
 	</label>
-</div>
+</h1>
 <mat-dialog-content>
 	<div [ngClass]="{ 'alert': message, 'alert-success': messageType === 'success', 'alert-danger': messageType === 'error', 'alert-info':messageType==='info', 'alert-warning':messageType==='warning'}" role="alert">{{ messageText }}</div>
 	<div #htmlContent></div>

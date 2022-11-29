@@ -1,6 +1,6 @@
-<div mat-dialog-title>
+<h1 mat-dialog-title>
 	<strong>{{ title }}</strong>
-</div>
+</h1>
 <mat-dialog-content>
 	<mat-selection-list [multiple]="false" (selectionChange)="itemSelectionChange($event)">
 		<mat-list-option *ngFor="let p of items" [value]="p">

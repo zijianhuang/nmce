@@ -1,4 +1,4 @@
-<div mat-dialog-title>
+<h1 mat-dialog-title>
 	<mat-dialog-actions fxlayout="row" fxLayoutGap="0.5em" fxLayoutAlign="start">
 		<button mat-button mat-raised-button matTooltip="Back"
 				(click)="close()">
@@ -13,7 +13,7 @@
 			</button>
 		</div>
 	</mat-dialog-actions>
-</div>
+</h1>
 <mat-dialog-content>
 	<mat-form-field fxFlexFill>
 		<textarea matInput [placeholder]="noteLabel" #textDetail name="note" [formControl]="noteControl"

@@ -392,12 +392,12 @@ body {
 }
 
 /* Used by panelClass of matDialog to define the mat dialog content height. */
-.dialog-full-content-height .mat-dialog-content {
+.dialog-full-content-height .mat-mdc-dialog-content {
 	max-height: calc(95vh - 5em);
 }
 
 /* for dialog with 2 row on the top */
-.dialog-full-content-height2 .mat-dialog-content {
+.dialog-full-content-height2 .mat-mdc-dialog-content {
 	max-height: calc(95vh - 7em);
 }
 
@@ -492,7 +492,7 @@ div.func-title {
 	background-color: rgba(0, 0, 0, 0.05);
 }
 
-.full-width .mat-dialog-container {
+.full-width .mat-mdc-dialog-container {
 	max-width: none;
 	width: 100vw;
 }
@@ -543,7 +543,7 @@ div.func-title {
 }
 
 
-.mat-raised-button {
+.mat-mdc-raised-button {
 	text-transform: uppercase;
 	background-color: #e5eff2;
 }

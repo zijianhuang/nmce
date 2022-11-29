@@ -1,9 +1,10 @@
-<strong mat-dialog-title>
-	<button *ngIf="useBackButton" type="button" mat-button mat-icon-button matDialogClose aria-label="Close" class="float-left">
+<h1 mat-dialog-title>
+	<button *ngIf="useBackButton" type="button" mat-button mat-icon-button matDialogClose aria-label="Close"
+		class="float-left">
 		<mat-icon>arrow_back</mat-icon>
 	</button>
 	<span fxFlexAlign="start">{{title}}</span>
-</strong>
+</h1>
 <mat-dialog-content>
 	<html>
 	<head>
@@ -13,7 +14,7 @@
 	<body>
 		<iframe #htmlContent style="position: absolute;	height: calc(100% - 8em); width: calc(100% - 4em);"></iframe>
 	</body>
-</html>
+	</html>
 </mat-dialog-content>
 <mat-dialog-actions *ngIf="!useBackButton" fxLayoutAlign="center center">
 	<button type="button" mat-button mat-raised-button matDialogClose>Close</button>

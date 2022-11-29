@@ -1,9 +1,9 @@
-<div mat-dialog-title>
+<h1 mat-dialog-title>
 	<span fxFlexAlign="start">{{ title }}</span>
 	<button *ngIf="isSmallScreen||fullScreen" type="button" mat-icon-button matDialogClose aria-label="Close" class="float-left">
 		<mat-icon>arrow_back</mat-icon>
 	</button>
-</div>
+</h1>
 <mat-dialog-content>
 	<ng-container dataComponentHost></ng-container>
 </mat-dialog-content>
