@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 
 import { DataComponentPrintDialogService } from '../_ui_services_lazy/dataComponentPrintDialog.component';
 
