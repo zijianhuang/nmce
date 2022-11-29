@@ -1,21 +1,21 @@
 {
   "name": "nmce",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "author": {"name": "Z"},
   "description": "Common Angular Material extended components and services used in business applications.",
   "license": "MIT",
   "repository": {"url": "https://github.com/zijianhuang/nmce"},
   "peerDependencies": {
-    "@angular/cdk": "^14.0.0",
-    "@angular/common": "^14.0.0",
-    "@angular/compiler": "^14.0.0",
-    "@angular/core": "^14.0.0",
-    "@angular/forms": "^14.0.0",
-    "@angular/material": "^14.0.0",
-    "@angular/material-moment-adapter": "^14.0.0",
-    "@angular/platform-browser": "^14.0.0"
+    "@angular/cdk": "^15.0.0",
+    "@angular/common": "^15.0.1",
+    "@angular/compiler": "^15.0.1",
+    "@angular/core": "^15.0.1",
+    "@angular/forms": "^15.0.1",
+    "@angular/material": "^15.0.0",
+    "@angular/material-moment-adapter": "^15.0.0",
+    "@angular/platform-browser": "^15.0.1"
   },
   "dependencies": {
-    "tslib": "^2.4.0"
+    "tslib": "^2.4.1"
   }
 }

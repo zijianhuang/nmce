@@ -1,26 +1,26 @@
 <h1 mat-dialog-title>
 	<strong fxFlex="90">Email</strong>
-	<button *ngIf="!ccEnabled && !emailMessage?.cc" mat-button mat-icon-button (click)="ccEnabled=true">CC</button>
-	<button *ngIf="!bccEnabled && !emailMessage?.bcc" mat-button mat-icon-button (click)="bccEnabled=true">BCC</button>
+	<button *ngIf="!ccEnabled && !emailMessage?.cc" mat-icon-button (click)="ccEnabled=true">CC</button>
+	<button *ngIf="!bccEnabled && !emailMessage?.bcc" mat-icon-button (click)="bccEnabled=true">BCC</button>
 </h1>
 <mat-dialog-content>
 	<form fxLayout="column">
 		<mat-form-field fxFlexFill>
 			<mat-label>To</mat-label>
 			<input matInput [(ngModel)]="emailMessage.to" name="to" type="email" />
-			<button *ngIf="emailAddressesDialogService" mat-button mat-icon-button matPrefix (click)="pickToAddresses()">
+			<button *ngIf="emailAddressesDialogService" mat-icon-button matPrefix (click)="pickToAddresses()">
 				<mat-icon>contact_mail</mat-icon>
 			</button>
 		</mat-form-field>
 		<mat-form-field *ngIf="ccEnabled || emailMessage.cc" fxFlexFill>
 			<input matInput placeholder="CC" [(ngModel)]="emailMessage.cc" name="cc" type="email" />
-			<button *ngIf="emailAddressesDialogService" mat-button mat-icon-button matPrefix (click)="pickCcAddresses()">
+			<button *ngIf="emailAddressesDialogService" mat-icon-button matPrefix (click)="pickCcAddresses()">
 				<mat-icon>contact_mail</mat-icon>
 			</button>
 		</mat-form-field>
 		<mat-form-field *ngIf="bccEnabled || emailMessage.bcc" fxFlexFill>
 			<input matInput placeholder="BCC" [(ngModel)]="emailMessage.bcc" name="bcc" type="email" />
-			<button *ngIf="emailAddressesDialogService" mat-button mat-icon-button matPrefix (click)="pickBccAddresses()">
+			<button *ngIf="emailAddressesDialogService" mat-icon-button matPrefix (click)="pickBccAddresses()">
 				<mat-icon>contact_mail</mat-icon>
 			</button>
 		</mat-form-field>

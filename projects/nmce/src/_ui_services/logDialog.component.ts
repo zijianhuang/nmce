@@ -56,9 +56,19 @@ export class LogDialogComponent implements AfterViewInit {
 
 	ngAfterViewInit() {
 		if (this._message?.contentType === 'html') {
-			this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', this._message?.text);
+			this.assignContentToFrame(this._message?.text);
 		} else if (this._message?.contentType === 'json') {
-			this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', '<pre>' + this._message?.text + '</pre>');
+			this.assignContentToFrame('<pre>' + this._message?.text + '</pre>')
+		} //no need for other contentType
+	}
+
+	private assignContentToFrame(s?: string) {
+		if (this.htmlContentElement) {
+			this.htmlContentElement.nativeElement.srcdoc = s; //this is an async operation, which will override head and body.
+
+			setTimeout(() => {
+				this.htmlContentElement?.nativeElement.contentDocument.head.insertAdjacentHTML('beforeend', '<base target="_blank" />');
+			}, 300); // Hopefully 300ms is long enough for srcdoc done.
 		}
 	}
 
