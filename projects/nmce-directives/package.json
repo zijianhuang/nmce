@@ -1,6 +1,6 @@
 {
   "name": "nmce-directives",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {"name": "Z"},
   "description": "Common simple Angular directives used in business applications.",
   "license": "MIT",
@@ -8,8 +8,5 @@
   "peerDependencies": {
     "@angular/common": "^15.0.1",
     "@angular/core": "^15.0.1"
-  },
-  "dependencies": {
-    "tslib": "^2.4.1"
   }
 }
