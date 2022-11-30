@@ -4,7 +4,8 @@
 <mat-dialog-content>
     <form fxLayout="column">
         <mat-form-field *ngIf="label">
-            <input matInput [(ngModel)]="text" placeholder="{{label}}" name="text" type="text" />
+            <mat-label>{{label}}</mat-label>
+            <input matInput [(ngModel)]="text" name="text" type="text" />
         </mat-form-field>
         <mat-form-field *ngIf="!label" fxFlexFill>
             <textarea matInput matTextareaAutosize [(ngModel)]="text" name="text" type="text" matAutosizeMinRows="2" matAutosizeMaxRows="5" autofocus></textarea>
@@ -12,6 +13,6 @@
     </form>
 </mat-dialog-content>
 <mat-dialog-actions fxLayoutGap="0.5em" fxlayout="row" fxLayoutAlign="center center">
-    <button type="submit" mat-button mat-raised-button (click)="confirm()" id="submit">Submit</button>
-    <button type="button" mat-button mat-raised-button (click)="cancel()" id="cancel">Cancel</button>
+    <button type="submit" mat-raised-button (click)="confirm()" id="submit">Submit</button>
+    <button type="button" mat-raised-button (click)="cancel()" id="cancel">Cancel</button>
 </mat-dialog-actions>

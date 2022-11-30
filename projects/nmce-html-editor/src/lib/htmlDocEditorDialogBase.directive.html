@@ -1,14 +1,14 @@
 <h1 mat-dialog-title>
 	<mat-dialog-actions fxlayout="row" fxLayoutGap="1em" fxLayoutAlign="start">
-		<button mat-button mat-raised-button matTooltip="Back"
+		<button mat-raised-button matTooltip="Back"
 				(click)="close()">
 			<mat-icon>arrow_back_ios</mat-icon>
 		</button>
 		<div *ngIf="!readonly">
-			<button type="submit" mat-icon-button mat-button mat-raised-button (click)="save()" [disabled]="!modified" matTooltip="Save changes">
+			<button type="submit" mat-mini-fab color="any" (click)="save()" [disabled]="!modified" matTooltip="Save changes">
 				<mat-icon>done</mat-icon>
 			</button>
-			<button mat-icon-button mat-button mat-raised-button (click)="reset()" [disabled]="!modified" matTooltip="Undo changes">
+			<button mat-mini-fab color="any" (click)="reset()" [disabled]="!modified" matTooltip="Undo changes">
 				<mat-icon>undo</mat-icon>
 			</button>
 		</div>

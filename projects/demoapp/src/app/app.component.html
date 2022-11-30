@@ -1,4 +1,4 @@
-<button routerLink="/demo" value="demo" mat-button mat-raise-button>
+<button routerLink="/demo" value="demo"  mat-raised-button>
   Demo
 </button>
 <div class="container-fluid app-container">
@@ -7,10 +7,10 @@
 
 <div class="fixed-bottom">
 	<div fxLayoutAlign="end end" fxLayoutGap="0.5em">
-		<!-- <button *ngIf="notificationsCount>0" [@newNotificationComing]="notificationsState" type="button" mat-button mat-raised-button (click)="showNotifications()" matTooltip="Show notifications">
+		<!-- <button *ngIf="notificationsCount>0" [@newNotificationComing]="notificationsState" type="button" mat-raised-button (click)="showNotifications()" matTooltip="Show notifications">
 			Notifications ({{notificationsCount}})
 		</button>		 -->
-		<button [@newNotificationComing]="notificationsState" type="button" mat-button mat-raised-button (click)="showNotifications()" matTooltip="Show notifications">
+		<button [@newNotificationComing]="notificationsState" type="button" mat-raised-button (click)="showNotifications()" matTooltip="Show notifications">
 			Notifications ({{notificationsCount}})
 		</button>
 	</div>

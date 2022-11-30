@@ -3,19 +3,21 @@
 <mat-dialog-content fxLayout="row" fxLayoutGap="0.8em">
 		<mat-form-field fxFlex="10em">
 			<!--todo: seting width of input is not working. I guess the datepicker dictates the width? -->
-			<input matInput [matDatepicker]="picker" placeholder="Start Date" [(ngModel)]="startDate" class="date-width" readonly />
+			<mat-label>Start Date</mat-label>
+			<input matInput [matDatepicker]="picker" [(ngModel)]="startDate" class="date-width" readonly />
 			<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 			<mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
 		</mat-form-field>
 
 		<mat-form-field fxFlex="10em">
-			<input matInput [matDatepicker]="picker2" placeholder="End Date" [(ngModel)]="endDate" class="date-width" readonly />
+			<mat-label>End Date</mat-label>
+			<input matInput [matDatepicker]="picker2" [(ngModel)]="endDate" class="date-width" readonly />
 			<mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
 			<mat-datepicker #picker2 [startAt]="endDate"></mat-datepicker>
 		</mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions fxlayout="row" fxLayoutGap="0.5em" fxLayoutAlign="center center">
-	<button type="button" mat-button mat-raised-button (click)="submit()" tabindex="1">Submit</button>
-	<button type="button" mat-button mat-raised-button (click)="clear()" tabindex="2">Clear</button>
-	<button mat-button mat-raised-button (click)="cancel()">Cancel</button>
+	<button type="button" mat-raised-button (click)="submit()" tabindex="1">Submit</button>
+	<button type="button" mat-raised-button (click)="clear()" tabindex="2">Clear</button>
+	<button mat-raised-button (click)="cancel()">Cancel</button>
 </mat-dialog-actions>

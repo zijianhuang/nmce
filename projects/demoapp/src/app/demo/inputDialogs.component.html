@@ -35,7 +35,7 @@
 
 	<p fxLayoutGap="1em">
 		<label>LocalDocHtmlEditor.open New</label><button mat-mini-fab (click)="openLocalDocEditor()"><mat-icon>play_arrow</mat-icon></button>
-		<label></label><button *ngIf="htmlFileId" mat-icon-button mat-button (click)="editHtml()" matTooltip="Edit">
+		<label></label><button *ngIf="htmlFileId" mat-icon-button (click)="editHtml()" matTooltip="Edit">
 			<mat-icon>edit</mat-icon>
 		</button>
 		<span class="href" (click)="viewHtml()">{{ htmlFileId }}</span>
@@ -44,7 +44,7 @@
 
 	<p fxLayoutGap="1em">
 		<label>LocalTextEditor.open New</label><button mat-mini-fab (click)="openLocalTextEditor()"><mat-icon>play_arrow</mat-icon></button>
-		<label></label><button *ngIf="textFileId" mat-icon-button mat-button (click)="editText()" matTooltip="Edit">
+		<label></label><button *ngIf="textFileId" mat-icon-button (click)="editText()" matTooltip="Edit">
 			<mat-icon>edit</mat-icon>
 		</button>
 		<span class="href" (click)="viewText()">{{ textFileId }}</span>

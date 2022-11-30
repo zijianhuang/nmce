@@ -49,7 +49,7 @@ export class AppComponent implements OnDestroy {
 
   /**
    * Only app.component should call notificationsService.open(). All other parts of the SPA should use event handling to call showNotifications().
-   * This is also hooked to <button *ngIf="notificationsCount>0" [@newNotificationComing]="notificationsState" type="button" mat-button mat-raised-button (click)="showNotifications()"
+   * This is also hooked to <button *ngIf="notificationsCount>0" [@newNotificationComing]="notificationsState" type="button" mat-raised-button (click)="showNotifications()"
    */
   showNotifications() {
     this.notificationsService.open().subscribe(actionItem => {

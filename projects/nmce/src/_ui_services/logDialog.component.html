@@ -8,7 +8,7 @@
 </h1>
 <mat-dialog-content>
 	<div [ngClass]="{ 'alert': message, 'alert-success': messageType === 'success', 'alert-danger': messageType === 'error', 'alert-info':messageType==='info', 'alert-warning':messageType==='warning'}" role="alert">{{ messageText }}</div>
-	<html>
+	<html *ngIf="message?.text && (message?.contentType === 'html' || message?.contentType === 'json')">
 	<head>
 		<base target="_blank" />
 		<!-- Ensure all href are opened in new tab, as described in https://stackoverflow.com/questions/17281486/use-target-blank-in-css -->
@@ -19,5 +19,5 @@
 	</html>
 </mat-dialog-content>
 <mat-dialog-actions fxLayoutGap="0.5em" fxLayoutAlign="center center">
-	<button type="button" mat-button mat-raised-button matDialogClose>Close</button>
+	<button type="button" mat-raised-button matDialogClose>Close</button>
 </mat-dialog-actions>
