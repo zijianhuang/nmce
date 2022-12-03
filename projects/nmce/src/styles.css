@@ -25,3 +25,7 @@
 	color: #a94442;
 }
 
+iframe.frame-dialog-content {
+	width: 75vw;
+	height: 45vh;
+}

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Inject, InjectionToken, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, InjectionToken, Renderer2, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AlertSubjectMessage } from './types';
 
@@ -38,40 +38,6 @@ export class LogDialogComponent implements AfterViewInit {
 
 	@ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
 
-	// /**
-	//  * Mostly message.text. But for HTTP response, it is status text
-	//  */
-	// get messageText(): string | undefined {
-	// 	if (!this.message) {
-	// 		return undefined;
-	// 	}
-
-	// 	if (this.message.status) {
-	// 		return `HTTP Status: ${this.message.status} ${this.message.statusText}`; //then the UI has extra place for http response body.
-	// 	} else {
-	// 		return this.message.text;
-	// 	}
-	// }
-
-	// /**
-	// * For HTTP response body
-	// */
-	// get bodyContent(): string | undefined {
-	// 	if (!this.message) {
-	// 		return undefined;
-	// 	}
-
-	// 	if (this.message.status) {
-	// 		return this.message.text;
-	// 	}
-
-	// 	if (this.message.text) {
-	// 		console.warn('What happend: ' + this.message.text);
-	// 	}
-
-	// 	return undefined;
-	// }
-
 	/**
 	 * @param data
 	 * @param dialogRef
@@ -80,27 +46,35 @@ export class LogDialogComponent implements AfterViewInit {
 	constructor(
 		@Inject(LOG_DIALOG_OPTIONS) public dialogOptions: MessageDialogOptions,
 		@Inject(MAT_DIALOG_DATA) data: { message: AlertSubjectMessage },
+		private renderer: Renderer2,
 	) {
 		this.message = data.message;
 	}
 
 	ngAfterViewInit() {
 		if (this.message) {
-			if (this._message?.contentType === 'html') {
-				this.assignContentToFrame(this.message.text);
-			} else {
-				this.assignContentToFrame('<pre>' + this.message.text + '</pre>');
+			console.debug('message text: ' + this.message.text);
+			if (this.htmlContentElement) {
+				if (this.message.contentType === 'html') {
+					if (this.message.status || this.message.status === 0) {
+						this.htmlContentElement.nativeElement.srcdoc = this.message.text; //good for iframe
+					} else {
+						this.renderer.setProperty(this.htmlContentElement.nativeElement, 'innerHTML', this.message.text);
+					}
+
+					//this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', this.message.text);//good for normal insert
+				} else if (this.message.contentType === 'json') {
+					if (this.message.status || this.message.status === 0) {
+						this.renderer.setProperty(this.htmlContentElement.nativeElement, 'innerHTML', '<pre>' + this.message.text + '</pre>');
+					} else {
+						this.htmlContentElement.nativeElement.srcdoc = '<pre>' + this.message.text + '</pre>';
+					}
+					//this.htmlContentElement.nativeElement.srcdoc = '<pre>' + this.message.text + '</pre>';
+					//this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', '<pre>' + this.message.text + '</pre>');
+				}
 			}
-		}
-	}
-
-	private assignContentToFrame(s?: string) {
-		if (this.htmlContentElement) {
-			this.htmlContentElement.nativeElement.srcdoc = s; //this is an async operation, which will override head and body.
-
-			setTimeout(() => {
-				this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', '<base target="_blank" />');
-			}, 300); // Hopefully 300ms is long enough for srcdoc done.
+		} else {
+			console.error('this.message is not yet available');
 		}
 	}
 

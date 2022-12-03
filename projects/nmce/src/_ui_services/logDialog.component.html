@@ -11,7 +11,7 @@
 		[ngClass]="{ 'alert': message, 'alert-success': messageType === 'success', 'alert-danger': messageType === 'error', 'alert-info':messageType==='info', 'alert-warning':messageType==='warning'}"
 		role="alert">{{ message?.text }}
 	</div>
-	<div *ngIf="message?.status"
+	<div *ngIf="message?.status! >= 0"
 		[ngClass]="{ 'alert': message, 'alert-success': messageType === 'success', 'alert-danger': messageType === 'error', 'alert-info':messageType==='info', 'alert-warning':messageType==='warning'}"
 		role="alert">HTTP Status: {{message?.status}} {{message?.statusText}}
 	</div>
@@ -25,8 +25,8 @@
 		</head>
 
 		<body>
-			<iframe *ngIf="message?.status" #htmlContent class="frame-dialog-content"></iframe>
-			<div *ngIf="!message?.status" #htmlContent></div>
+			<iframe *ngIf="message?.status || message?.status ===0" #htmlContent class="frame-dialog-content"></iframe>
+			<div *ngIf="!message?.status &&  message?.status !==0" #htmlContent></div>
 		</body>
 
 		</html>
