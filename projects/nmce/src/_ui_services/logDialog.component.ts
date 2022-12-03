@@ -63,12 +63,8 @@ export class LogDialogComponent implements AfterViewInit {
 					}
 
 					//this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', this.message.text);//good for normal insert
-				} else if (this.message.contentType === 'json') {
-					if (this.message.status || this.message.status === 0) {
-						this.renderer.setProperty(this.htmlContentElement.nativeElement, 'innerHTML', '<pre>' + this.message.text + '</pre>');
-					} else {
-						this.htmlContentElement.nativeElement.srcdoc = '<pre>' + this.message.text + '</pre>';
-					}
+				} else if (this.message.contentType === 'json' || this.message.status! >= 0) {
+					this.renderer.setProperty(this.htmlContentElement.nativeElement, 'innerHTML', '<pre>' + this.message.text + '</pre>');
 					//this.htmlContentElement.nativeElement.srcdoc = '<pre>' + this.message.text + '</pre>';
 					//this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', '<pre>' + this.message.text + '</pre>');
 				}
