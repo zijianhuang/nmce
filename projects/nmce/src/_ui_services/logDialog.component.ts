@@ -17,6 +17,10 @@ export const LOG_DIALOG_OPTIONS = new InjectionToken<MessageDialogOptions>('Dial
 /**
  * Display AlertSubjectMessage. Generally this is called by alert service.
  * Whether to show message type icon is determined by MY_DIALOG_OPTIONS generally declared in app.module.ts.
+ * Text message
+ * HTML message from app, displayed in HTML container
+ * JSON message from app, displayed in HTML container
+ * Message from HTTP response, displayed in iFrame, regardless of content Type
  */
 @Component({
 	templateUrl: 'logDialog.component.html',
@@ -34,12 +38,38 @@ export class LogDialogComponent implements AfterViewInit {
 
 	@ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
 
-	// get isHtmlOrJson(): boolean {
-	// 	if (this.message) {
-	// 		return this.message && (this.message.contentType === 'html' || this.message.contentType === 'json');
+	// /**
+	//  * Mostly message.text. But for HTTP response, it is status text
+	//  */
+	// get messageText(): string | undefined {
+	// 	if (!this.message) {
+	// 		return undefined;
 	// 	}
 
-	// 	return false;
+	// 	if (this.message.status) {
+	// 		return `HTTP Status: ${this.message.status} ${this.message.statusText}`; //then the UI has extra place for http response body.
+	// 	} else {
+	// 		return this.message.text;
+	// 	}
+	// }
+
+	// /**
+	// * For HTTP response body
+	// */
+	// get bodyContent(): string | undefined {
+	// 	if (!this.message) {
+	// 		return undefined;
+	// 	}
+
+	// 	if (this.message.status) {
+	// 		return this.message.text;
+	// 	}
+
+	// 	if (this.message.text) {
+	// 		console.warn('What happend: ' + this.message.text);
+	// 	}
+
+	// 	return undefined;
 	// }
 
 	/**
@@ -55,12 +85,13 @@ export class LogDialogComponent implements AfterViewInit {
 	}
 
 	ngAfterViewInit() {
-		if (this.message?.status) {
-			this.assignContentToFrame(this._message?.text);
-		} else //if (this._message?.contentType === 'json') 
-		{
-			//this.assignContentToFrame('<pre>' + this._message?.text + '</pre>')
-		} //no need for other contentType
+		if (this.message) {
+			if (this._message?.contentType === 'html') {
+				this.assignContentToFrame(this.message.text);
+			} else {
+				this.assignContentToFrame('<pre>' + this.message.text + '</pre>');
+			}
+		}
 	}
 
 	private assignContentToFrame(s?: string) {
@@ -137,37 +168,6 @@ export class LogDialogComponent implements AfterViewInit {
 		}
 
 		return this.message.type ?? '';
-	}
-
-	get messageText(): string | undefined {
-		if (!this.message) {
-			return undefined;
-		}
-
-		if (this.message.status) {
-			return `HTTP Status: ${this.message.status} ${this.message.statusText}`; //then the UI has extra place for http response body.
-		} else {
-			return this.message.text;
-		}
-	}
-
-	/**
-	 * For HTTP response body
-	 */
-	get responseBody(): string | undefined{
-		if (!this.message) {
-			return undefined;
-		}
-
-		if (this.message.status){
-			return this.message.text;
-		}
-
-		if (this.message.text){
-			console.warn('What happend: ' + this.message.text);
-		}
-
-		return undefined;
 	}
 
 }

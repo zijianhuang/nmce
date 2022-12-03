@@ -7,10 +7,16 @@
 	</label>
 </h1>
 <mat-dialog-content>
-	<div [ngClass]="{ 'alert': message, 'alert-success': messageType === 'success', 'alert-danger': messageType === 'error', 'alert-info':messageType==='info', 'alert-warning':messageType==='warning'}"
-		role="alert">{{ messageText }}
+	<div *ngIf="!message?.status && message?.contentType==='text'"
+		[ngClass]="{ 'alert': message, 'alert-success': messageType === 'success', 'alert-danger': messageType === 'error', 'alert-info':messageType==='info', 'alert-warning':messageType==='warning'}"
+		role="alert">{{ message?.text }}
 	</div>
-	<ng-template [ngIf]="message?.status && message?.text && message?.contentType === 'html'">
+	<div *ngIf="message?.status"
+		[ngClass]="{ 'alert': message, 'alert-success': messageType === 'success', 'alert-danger': messageType === 'error', 'alert-info':messageType==='info', 'alert-warning':messageType==='warning'}"
+		role="alert">HTTP Status: {{message?.status}} {{message?.statusText}}
+	</div>
+
+	<ng-template [ngIf]="message?.contentType !== 'text'">
 		<html>
 
 		<head>
@@ -19,13 +25,11 @@
 		</head>
 
 		<body>
-			<iframe #htmlContent class="frame-dialog-content"></iframe>
+			<iframe *ngIf="message?.status" #htmlContent class="frame-dialog-content"></iframe>
+			<div *ngIf="!message?.status" #htmlContent></div>
 		</body>
 
 		</html>
-	</ng-template>
-	<ng-template [ngIf]="message?.status && message?.text && message?.contentType !== 'html'">
-		<div #htmlContent></div>
 	</ng-template>
 </mat-dialog-content>
 <mat-dialog-actions fxLayoutGap="0.5em" fxLayoutAlign="center center">
