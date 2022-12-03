@@ -34,13 +34,13 @@ export class LogDialogComponent implements AfterViewInit {
 
 	@ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
 
-	get isHtmlOrJson(): boolean {
-		if (this.message) {
-			return this.message && (this.message.contentType === 'html' || this.message.contentType === 'json');
-		}
+	// get isHtmlOrJson(): boolean {
+	// 	if (this.message) {
+	// 		return this.message && (this.message.contentType === 'html' || this.message.contentType === 'json');
+	// 	}
 
-		return false;
-	}
+	// 	return false;
+	// }
 
 	/**
 	 * @param data
@@ -55,10 +55,11 @@ export class LogDialogComponent implements AfterViewInit {
 	}
 
 	ngAfterViewInit() {
-		if (this._message?.contentType === 'html') {
+		if (this.message?.status) {
 			this.assignContentToFrame(this._message?.text);
-		} else if (this._message?.contentType === 'json') {
-			this.assignContentToFrame('<pre>' + this._message?.text + '</pre>')
+		} else //if (this._message?.contentType === 'json') 
+		{
+			//this.assignContentToFrame('<pre>' + this._message?.text + '</pre>')
 		} //no need for other contentType
 	}
 
@@ -143,11 +144,30 @@ export class LogDialogComponent implements AfterViewInit {
 			return undefined;
 		}
 
-		if ((this.message.type === 'error' || this.message.type === 'warning') && this.message.status) {
-			return this.isHtmlOrJson ? `HTTP Status: ${this.message.status} ${this.message.statusText}` : this.message.text;
+		if (this.message.status) {
+			return `HTTP Status: ${this.message.status} ${this.message.statusText}`; //then the UI has extra place for http response body.
 		} else {
-			return this.isHtmlOrJson ? '' : this.message.text;
+			return this.message.text;
 		}
+	}
+
+	/**
+	 * For HTTP response body
+	 */
+	get responseBody(): string | undefined{
+		if (!this.message) {
+			return undefined;
+		}
+
+		if (this.message.status){
+			return this.message.text;
+		}
+
+		if (this.message.text){
+			console.warn('What happend: ' + this.message.text);
+		}
+
+		return undefined;
 	}
 
 }

@@ -37,7 +37,7 @@ export class AlertService extends RootInjectorGuard {
 	 * This should be called only once in the startup component like the app component.
 	 */
 	initOnce() {
-		if (this.initOnceSubscription){
+		if (this.initOnceSubscription) {
 			console.error('initOnce is called more than once. Please fix the program.');
 			return;
 		}
@@ -91,26 +91,6 @@ export class AlertService extends RootInjectorGuard {
 	 */
 	info(message: string, snackBar = false, subtitle?: string, contentType: MessageContentType = 'text') {
 		this.subject.next({ type: 'info', text: message, snackBar: snackBar, subtitle: subtitle, contentType: contentType });
-	}
-
-	/**
-	 * Error message always is displayed in dialog.
-	 * @param message
-	 * @param subtitle
-	 * @param contentType
-	 */
-	errorMessage(message: string, subtitle?: string, contentType: MessageContentType = 'text') {
-		this.subject.next({ type: 'error', text: message, snackBar: false, subtitle: subtitle, contentType: contentType });
-	}
-
-	/**
-	 * Warn message always is displayed in dialog.
-	 * @param message
-	 * @param subtitle
-	 * @param contentType
-	 */
-	warnMessage(message: string, subtitle?: string, contentType: MessageContentType = 'text') {
-		this.subject.next({ type: 'warning', text: message, snackBar: false, subtitle: subtitle, contentType: contentType });
 	}
 
 	/**
@@ -180,6 +160,26 @@ export class AlertService extends RootInjectorGuard {
 
 		this.subject.next({ type: traceLevel, text: errMsg, snackBar: snackBar, contentType: contentType, status: error.status, statusText: error.statusText, subtitle: subtitle });
 
+	}
+
+	/**
+	 * Warn message always is displayed in dialog content.
+	 * @param message
+	 * @param subtitle
+	 * @param contentType
+	 */
+	warnMessage(message: string, subtitle?: string, contentType: MessageContentType = 'text') {
+		this.subject.next({ type: 'warning', text: message, snackBar: false, subtitle: subtitle, contentType: contentType });
+	}
+
+	/**
+	 * Error message always is displayed in dialog content.
+	 * @param message
+	 * @param subtitle
+	 * @param contentType
+	 */
+	errorMessage(message: string, subtitle?: string, contentType: MessageContentType = 'text') {
+		this.subject.next({ type: 'error', text: message, snackBar: false, subtitle: subtitle, contentType: contentType });
 	}
 
 	private getMessage(): Observable<AlertSubjectMessage> {
