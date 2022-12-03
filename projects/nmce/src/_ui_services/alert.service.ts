@@ -1,5 +1,4 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { ReturnStatement } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -7,11 +6,13 @@ import { Observable, Subject, Subscription } from 'rxjs';
 import { RootInjectorGuard } from './baseTypes';
 import { LogDialogComponent } from './logDialog.component';
 import { LogSnackComponent } from './logSnack.component';
-import { AlertSubjectMessage } from './types';
+import { AlertSubjectMessage, MessageContentType, MessageType } from './types';
+
+
 /**
  * Similar to JavaScript's alert() function, to display message in a dialog with LogDialogComponent,
  * or optionally a snackbar if message content type is text. 
- * The mesage could be of type info, error, warn and success.
+ * The mesage could be of type info, error, warn and success and response.
  * Browser console also wirte a copy of the message. The snackBar parameter is effective only when contentType is text.
  * When contentType is html, you MUST make sure the HTML content won't be harming the health of DOM managed by Angular. 
  * For example, a href link without _blank, and malicious codes may damage Angular rendering.
@@ -38,7 +39,7 @@ export class AlertService extends RootInjectorGuard {
 	initOnce() {
 		if (this.initOnceSubscription){
 			console.error('initOnce is called more than once. Please fix the program.');
-			ReturnStatement;
+			return;
 		}
 
 		this.initOnceSubscription = this.getMessage().subscribe(message => {
@@ -77,7 +78,7 @@ export class AlertService extends RootInjectorGuard {
 	 * @param subtitle
 	 * @param contentType
 	 */
-	success(message: string, snackBar?: boolean, subtitle?: string, contentType: 'text' | 'html' | 'json' = 'text') {
+	success(message: string, snackBar?: boolean, subtitle?: string, contentType: MessageContentType = 'text') {
 		this.subject.next({ type: 'success', text: message, snackBar: snackBar, subtitle: subtitle, contentType: contentType });
 	}
 
@@ -88,7 +89,7 @@ export class AlertService extends RootInjectorGuard {
 	 * @param subtitle
 	 * @param contentType
 	 */
-	info(message: string, snackBar = false, subtitle?: string, contentType: 'text' | 'html' | 'json' = 'text') {
+	info(message: string, snackBar = false, subtitle?: string, contentType: MessageContentType = 'text') {
 		this.subject.next({ type: 'info', text: message, snackBar: snackBar, subtitle: subtitle, contentType: contentType });
 	}
 
@@ -98,7 +99,7 @@ export class AlertService extends RootInjectorGuard {
 	 * @param subtitle
 	 * @param contentType
 	 */
-	errorMessage(message: string, subtitle?: string, contentType: 'text' | 'html' | 'json' = 'text') {
+	errorMessage(message: string, subtitle?: string, contentType: MessageContentType = 'text') {
 		this.subject.next({ type: 'error', text: message, snackBar: false, subtitle: subtitle, contentType: contentType });
 	}
 
@@ -108,7 +109,7 @@ export class AlertService extends RootInjectorGuard {
 	 * @param subtitle
 	 * @param contentType
 	 */
-	warnMessage(message: string, subtitle?: string, contentType: 'text' | 'html' | 'json' = 'text') {
+	warnMessage(message: string, subtitle?: string, contentType: MessageContentType = 'text') {
 		this.subject.next({ type: 'warning', text: message, snackBar: false, subtitle: subtitle, contentType: contentType });
 	}
 
@@ -132,10 +133,10 @@ export class AlertService extends RootInjectorGuard {
 		this.errorOrWarning(error, 'warning', snackBar, subtitle);
 	}
 
-	private errorOrWarning(error: HttpErrorResponse | any, traceLevel: 'success' | 'info' | 'error' | 'warning', snackBar = false, subtitle?: string) {
+	private errorOrWarning(error: HttpErrorResponse | any, traceLevel: MessageType, snackBar = false, subtitle?: string) {
 		// In a real world app, we might use a remote logging infrastructure
 		let errMsg: string;
-		let contentType: 'text' | 'html' | 'json' = 'text';
+		let contentType: MessageContentType = 'text';
 		if (error instanceof HttpErrorResponse) {
 			let responseContentType = error.headers.get('Content-Type');
 			if (!responseContentType) {

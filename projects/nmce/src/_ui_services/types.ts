@@ -27,13 +27,16 @@ export interface ActionSheetItem {
 	timeUtc?: Date;
 }
 
+export type MessageContentType =  'text' | 'html' | 'json';
+export type MessageType='success' | 'info' | 'error' | 'warning' | 'response';
+
 export interface AlertSubjectMessage {
 	text?: string;
 
 	/**
 	 * success, info, error, warning, response
 	 */
-	type?: 'success' | 'info' | 'error' | 'warning' | 'response';
+	type?: MessageType;
 
 	/**
 	 * Optionally describe title which is translated from type. Such as explaning the source of the message.

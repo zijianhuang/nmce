@@ -67,7 +67,7 @@ export class LogDialogComponent implements AfterViewInit {
 			this.htmlContentElement.nativeElement.srcdoc = s; //this is an async operation, which will override head and body.
 
 			setTimeout(() => {
-				this.htmlContentElement?.nativeElement.contentDocument.head.insertAdjacentHTML('beforeend', '<base target="_blank" />');
+				this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', '<base target="_blank" />');
 			}, 300); // Hopefully 300ms is long enough for srcdoc done.
 		}
 	}
