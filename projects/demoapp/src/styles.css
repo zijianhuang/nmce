@@ -700,3 +700,230 @@ ul.list-style-alpha {
 
 
 /* #endregion */
+
+
+/* #region Replace fxFlexLayout */
+
+/* display: flex is with latest standard, while flexbox is older. flex may cause the label in buttons to wrap, however, this may be good.
+	https://stackoverflow.com/questions/16280040/css3-flexbox-display-box-vs-flexbox-vs-flex
+	If oabel wrapping happens, sometimes good to shorten, for example, "Change Password" to "New Password".
+*/
+
+.flex-direction-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.flex-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.flex-direction-column {
+	display: flex;
+	flex-direction: column;
+}
+
+/*fxLayoutGap=1em*/
+.column-gap-1 {
+	display: flex;
+	flex-direction: row;
+	column-gap: 1em;
+}
+
+.row-gap-1 {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1em;
+}
+
+/*fxLayoutGap=2em*/
+.column-gap-2 {
+	display: flex;
+	flex-direction: row;
+	column-gap: 2em
+}
+
+.row-gap-2 {
+	display: flex;
+	flex-direction: column;
+	row-gap: 2em
+}
+
+/*fxLayoutGap=0.5em*/
+.column-gap-half {
+	display: flex;
+	flex-direction: row;
+	column-gap: 0.5em
+}
+
+
+.flex-1 {
+	flex: 0 0 1em;
+}
+
+.flex-2 {
+	flex: 0 0 2em;
+}
+
+.flex-3 {
+	flex: 0 0 3em;
+}
+
+.flex-4 {
+	flex: 0 0 4em;
+}
+
+.flex-5 {
+	flex: 0 0 5em;
+}
+
+.flex-6 {
+	flex: 0 0 6em;
+}
+
+.flex-7 {
+	flex: 0 0 7em;
+}
+
+.flex-8 {
+	flex: 0 0 8em;
+}
+
+.flex-9 {
+	flex: 0 0 9em;
+}
+
+.flex-10 {
+	flex: 0 0 10em;
+}
+
+.flex-11 {
+	flex: 0 0 11em;
+}
+
+.flex-12 {
+	flex: 0 0 12em;
+}
+
+.flex-13 {
+	flex: 0 0 13em;
+}
+
+.flex-14 {
+	flex: 0 0 14em;
+}
+
+
+.flex-15 {
+	flex: 0 0 15em;
+}
+
+.flex-16 {
+	flex: 0 0 16em;
+}
+
+.flex-17 {
+	flex: 0 0 17em;
+}
+
+.flex-18 {
+	flex: 0 0 18em;
+}
+
+.flex-19 {
+	flex: 0 0 19em;
+}
+
+.flex-20 {
+	flex: 0 0 20em;
+}
+
+.flex-21 {
+	flex: 0 0 21em;
+}
+
+.flex-22 {
+	flex: 0 0 22em;
+}
+
+.flex-23 {
+	flex: 0 0 23em;
+}
+
+.flex-24 {
+	flex: 0 0 24em;
+}
+
+
+.flex-25 {
+	flex: 0 0 25em;
+}
+
+.flex-26 {
+	flex: 0 0 26em;
+}
+
+.flex-27 {
+	flex: 0 0 27em;
+}
+
+.flex-28 {
+	flex: 0 0 28em;
+}
+
+.flex-29 {
+	flex: 0 0 29em;
+}
+
+.flex-30 {
+	flex: 0 0 30em;
+}
+
+.flex-31 {
+	flex: 0 0 31em;
+}
+
+.flex-33 {
+	flex: 0 0 32em;
+}
+
+.flex-33 {
+	flex: 0 0 33em;
+}
+
+.flex-34 {
+	flex: 0 0 34em;
+}
+
+
+.flex-35 {
+	flex: 0 0 35em;
+}
+
+.flex-36 {
+	flex: 0 0 36em;
+}
+
+.flex-37 {
+	flex: 0 0 37em;
+}
+
+.flex-38 {
+	flex: 0 0 38em;
+}
+
+.flex-39 {
+	flex: 0 0 39em;
+}
+
+.flex-100pc {
+	flex: 0 0 100%;
+}
+
+.full-width {
+	width: 100%;
+}
+
+
+/* #endregion */

@@ -1,10 +1,10 @@
-<h1 mat-dialog-title fxLayoutGap="1em">
+<h1 mat-dialog-title class="column-gap-1">
 	<strong fxFlex="90">Email</strong>
 	<button *ngIf="!ccEnabled && !emailMessage?.cc" mat-raised-button (click)="ccEnabled=true">CC</button>
 	<button *ngIf="!bccEnabled && !emailMessage?.bcc" mat-raised-button (click)="bccEnabled=true">BCC</button>
 </h1>
 <mat-dialog-content>
-	<form fxLayout="column">
+	<form class="flex-direction-column">
 		<mat-form-field fxFlexFill>
 			<mat-label>To</mat-label>
 			<input matInput [(ngModel)]="emailMessage.to" name="to" type="email" />
@@ -37,7 +37,7 @@
 	</form>
 	<angular-editor *ngIf="emailMessage?.isHtml" name="body" [formControl]="noteControl" [config]="config"></angular-editor>
 </mat-dialog-content>
-<mat-dialog-actions fxLayoutGap="0.5em" fxlayout="row" fxLayoutAlign="center center">
+<mat-dialog-actions class="column-gap-half" fxLayoutAlign="center center">
 	<button type="submit" mat-raised-button (click)="confirm()" id="send" tabindex="1" [disabled]="!emailMessage?.to">
 		<mat-icon>send</mat-icon>
 		Send

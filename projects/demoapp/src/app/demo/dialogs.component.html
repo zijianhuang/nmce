@@ -1,6 +1,6 @@
 <fieldset>
 	<legend>AlertService</legend>
-	<div fxLayoutGap="1em">
+	<div class="column-gap-1">
 
 		<label>Text</label><button mat-mini-fab (click)="showDialog()"><mat-icon>play_arrow</mat-icon></button>
 		<mat-form-field>
@@ -16,7 +16,7 @@
 		</mat-form-field>
 		<mat-checkbox *ngIf="showSnackBarCheckbox" [(ngModel)]="snackBar" [indeterminate]="snackBar==undefined" matTooltip="Whether to display in snackBar">SnackBar</mat-checkbox>
 	</div>
-	<div fxLayoutGap="1em">
+	<div class="column-gap-1">
 		<label>HTML</label><button mat-mini-fab (click)="showDialogWithHtml()"><mat-icon>play_arrow</mat-icon></button>
 		<mat-form-field>
 			<mat-select [formControl]="dialogSelectedControlForHtml">
@@ -27,7 +27,7 @@
 			</mat-select>
 		</mat-form-field>
 	</div>
-	<div fxLayoutGap="1em">
+	<div class="column-gap-1">
 		<label>JSON</label><button mat-mini-fab (click)="showDialogWithJson()"><mat-icon>play_arrow</mat-icon></button>
 		<mat-form-field>
 			<mat-select [formControl]="dialogSelectedControlForJson">
@@ -39,7 +39,7 @@
 		</mat-form-field>
 	</div>
 
-	<div fxLayoutGap="1em">
+	<div class="column-gap-1">
 		<label>HTTP Error Response</label><button mat-mini-fab (click)="showDialogWithError()"><mat-icon>play_arrow</mat-icon></button>
 		<mat-form-field>
 			<mat-select [formControl]="dialogSelectedControlForError">
@@ -67,27 +67,27 @@
 			</mat-select>
 		</mat-form-field>
 	</div>
-	<p fxLayoutGap="1em">
+	<p class="column-gap-1">
 		<label>textDialogService</label><button mat-mini-fab (click)="showTextDialog()"><mat-icon>play_arrow</mat-icon></button>
 	</p>
 
-	<p fxLayoutGap="1em">
+	<p class="column-gap-1">
 		<label>textHReflDialogService</label><button mat-mini-fab (click)="showTextHRefDialog()"><mat-icon>play_arrow</mat-icon></button>
 	</p>
 
-	<p fxLayoutGap="1em">
+	<p class="column-gap-1">
 		<label>jsonDialogService</label><button mat-mini-fab (click)="showJsonDialog()"><mat-icon>play_arrow</mat-icon></button>
 	</p>
 
-	<p fxLayoutGap="1em">
+	<p class="column-gap-1">
 		<label>jsonDiffDialogService</label><button mat-mini-fab (click)="showJsonDiffDialog()"><mat-icon>play_arrow</mat-icon></button>
 	</p>
 
-	<p fxLayoutGap="1em">
+	<p class="column-gap-1">
 		<label>Show Any Component via DataComponentDialogService</label><button mat-mini-fab (click)="showAnyComponent()"><mat-icon>play_arrow</mat-icon></button>
 	</p>
 
-	<p fxLayoutGap="1em">
+	<p class="column-gap-1">
 		<label>Show and Print Any Component via DataComponentPrintDialogService</label><button mat-mini-fab (click)="printAnyComponent()"><mat-icon>play_arrow</mat-icon></button>
 	</p>
 

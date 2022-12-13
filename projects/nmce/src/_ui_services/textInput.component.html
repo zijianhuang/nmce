@@ -2,7 +2,7 @@
     {{ title }}
 </h1>
 <mat-dialog-content>
-    <form fxLayout="column">
+    <form class="flex-direction-column">
         <mat-form-field *ngIf="label">
             <mat-label>{{label}}</mat-label>
             <input matInput [(ngModel)]="text" name="text" type="text" />
@@ -12,7 +12,7 @@
         </mat-form-field>
     </form>
 </mat-dialog-content>
-<mat-dialog-actions fxLayoutGap="0.5em" fxlayout="row" fxLayoutAlign="center center">
+<mat-dialog-actions class="column-gap-half" fxLayoutAlign="center center">
     <button type="submit" mat-raised-button (click)="confirm()" id="submit">Submit</button>
     <button type="button" mat-raised-button (click)="cancel()" id="cancel">Cancel</button>
 </mat-dialog-actions>
