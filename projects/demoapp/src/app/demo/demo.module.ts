@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NmceComponentsModule, Nmce_UI_Lazy_ServicesModule } from 'nmce';
 import { NmceDirectivesModule } from 'nmce-directives';
@@ -24,7 +23,6 @@ import { PipesComponent } from './pipes.component';
 		FormsModule,
 		ReactiveFormsModule,
 		NGMDModule,
-		FlexLayoutModule,
 
 		NmceComponentsModule,
 		NmcePipesModule,

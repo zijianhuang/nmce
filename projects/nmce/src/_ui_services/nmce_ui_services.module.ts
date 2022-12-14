@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NmceDirectivesModule } from 'nmce-directives';
 import { NGMDModule } from '../ngmd.module';
@@ -42,7 +41,6 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 		CommonModule,
 		FormsModule,
 		NGMDModule,
-		FlexLayoutModule,
 		ReactiveFormsModule,
 		NmceDirectivesModule,
 	],
