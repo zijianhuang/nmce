@@ -39,55 +39,160 @@ iframe.frame-dialog-content {
 */
 
 /* fxLayout="row" */
-.flex-direction-row {
+.fx-layout-row {
 	display: flex;
 	flex-direction: row;
 }
 
-.flex-form {
+.fx-layout-column {
 	display: flex;
 	flex-direction: column;
 }
 
-/* fxLayout="column" */
-.flex-direction-column {
-	display: flex;
-	flex-direction: column;
+.fx-layout-wrap {
+	flex-wrap: wrap;
 }
 
-/*fxLayoutGap=1em*/
-.column-gap-1 {
+/* flex row with fxLayoutGap=1em */
+.fx-column-gap-1 {
 	display: flex;
 	flex-direction: row;
 	column-gap: 1em;
 }
 
-.row-gap-1 {
+/* flex column with fxLayoutGap=1em */
+.fx-row-gap-1 {
 	display: flex;
 	flex-direction: column;
 	row-gap: 1em;
 }
 
 /*fxLayoutGap=2em*/
-.column-gap-2 {
+.fx-column-gap-2 {
 	display: flex;
 	flex-direction: row;
 	column-gap: 2em
 }
 
-.row-gap-2 {
+.fx-row-gap-2 {
 	display: flex;
 	flex-direction: column;
 	row-gap: 2em
 }
 
 /*fxLayoutGap=0.5em*/
-.column-gap-half {
+.fx-column-gap-half {
 	display: flex;
 	flex-direction: row;
 	column-gap: 0.5em
 }
 
+.fx-row-gap-half {
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.5em
+}
+
+.fx-align-center-center {
+	justify-content: center;
+	align-content: center;
+}
+
+.fx-align-start {
+	justify-content: flex-start;
+}
+
+.fx-align-start-start {
+	justify-content: flex-start;
+	align-content: flex-start;
+}
+
+.fx-align-end {
+	justify-content: flex-end;
+}
+
+.fx-align-end-end {
+	justify-content: flex-end;
+	align-content: flex-end;
+}
+
+.fx-align-space-between {
+	justify-content: space-between;
+}
+
+.fx-grow-1 {
+	flex-grow: 1;
+}
+
+.fx-grow-2 {
+	flex-grow: 2;
+}
+
+.fx-shrink-1 {
+	flex-shrink: 1;
+}
+
+.flex-100pc {
+	flex: 100%;
+}
+
+.flex-95pc {
+	flex: 95%;
+}
+
+.flex-80pc {
+	flex: 80%;
+}
+
+/* fxFlexFill https://github.com/angular/flex-layout/wiki/fxFlexFill-API */
+.fx-full-width {
+	width: 100%;
+	max-width: 100%;
+	min-width: 100%;
+}
+
+.fx-95pc-width {
+	width: 95%;
+	max-width: 95%;
+	min-width: 95%;
+}
+.fx-80pc-width {
+	width: 80%;
+	max-width: 80%;
+	min-width: 80%;
+}
+
+.fx-50pc-width {
+	width: 50%;
+	max-width: 50%;
+	min-width: 50%;
+}
+
+.fx-offset-80px {
+	margin-left: 80px;
+}
+
+.line-ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.line2-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+
+/* #endregion */
+
+/* #region flex 0 grow 0 shrink width */
+.flex-half {
+	flex: 0 0 0.5em;
+}
 
 .flex-1 {
 	flex: 0 0 1em;
@@ -248,13 +353,170 @@ iframe.frame-dialog-content {
 	flex: 0 0 39em;
 }
 
-.flex-100pc {
-	flex: 0 0 100%;
+/* #endregion */
+
+/* #region flex grow 1 shrink 1 width while in flex, grow 1 and shrink 1 are defaults */
+.flex11-half {
+	flex: 1 1 0.5em;
 }
 
-.full-width {
-	width: 100%;
+.flex11-1 {
+	flex: 1 1 1em;
 }
 
+.flex11-2 {
+	flex: 1 1 2em;
+}
+
+.flex11-3 {
+	flex: 1 1 3em;
+}
+
+.flex11-4 {
+	flex: 1 1 4em;
+}
+
+.flex11-5 {
+	flex: 1 1 5em;
+}
+
+.flex11-6 {
+	flex: 1 1 6em;
+}
+
+.flex11-7 {
+	flex: 1 1 7em;
+}
+
+.flex11-8 {
+	flex: 1 1 8em;
+}
+
+.flex11-9 {
+	flex: 1 1 9em;
+}
+
+.flex11-10 {
+	flex: 1 1 10em;
+}
+
+.flex11-11 {
+	flex: 1 1 11em;
+}
+
+.flex11-12 {
+	flex: 1 1 12em;
+}
+
+.flex11-13 {
+	flex: 1 1 13em;
+}
+
+.flex11-14 {
+	flex: 1 1 14em;
+}
+
+
+.flex11-15 {
+	flex: 1 1 15em;
+}
+
+.flex11-16 {
+	flex: 1 1 16em;
+}
+
+.flex11-17 {
+	flex: 1 1 17em;
+}
+
+.flex11-18 {
+	flex: 1 1 18em;
+}
+
+.flex11-19 {
+	flex: 1 1 19em;
+}
+
+.flex11-20 {
+	flex: 1 1 20em;
+}
+
+.flex11-21 {
+	flex: 1 1 21em;
+}
+
+.flex11-22 {
+	flex: 1 1 22em;
+}
+
+.flex11-23 {
+	flex: 1 1 23em;
+}
+
+.flex11-24 {
+	flex: 1 1 24em;
+}
+
+
+.flex11-25 {
+	flex: 1 1 25em;
+}
+
+.flex11-26 {
+	flex: 1 1 26em;
+}
+
+.flex11-27 {
+	flex: 1 1 27em;
+}
+
+.flex11-28 {
+	flex: 1 1 28em;
+}
+
+.flex11-29 {
+	flex: 1 1 29em;
+}
+
+.flex11-30 {
+	flex: 1 1 30em;
+}
+
+.flex11-31 {
+	flex: 1 1 31em;
+}
+
+.flex11-33 {
+	flex: 1 1 32em;
+}
+
+.flex11-33 {
+	flex: 1 1 33em;
+}
+
+.flex11-34 {
+	flex: 1 1 34em;
+}
+
+
+.flex11-35 {
+	flex: 1 1 35em;
+}
+
+.flex11-36 {
+	flex: 1 1 36em;
+}
+
+.flex11-37 {
+	flex: 1 1 37em;
+}
+
+.flex11-38 {
+	flex: 1 1 38em;
+}
+
+.flex11-39 {
+	flex: 1 1 39em;
+}
 
 /* #endregion */

@@ -1,20 +1,20 @@
 <h1 mat-dialog-title>{{ title }}</h1>
 
 <mat-dialog-content class="fx-column-gap-half">
-	<mat-form-field fxFlex="6em">
+	<mat-form-field class="flex-6">
 		<mat-label>Hour</mat-label>
 		<mat-select [(ngModel)]="selectedHour" name="hour">
 			<mat-option *ngFor="let h of hourSlots" [value]="h">{{ pad0(h) }}</mat-option>
 		</mat-select>
 	</mat-form-field>
-	<mat-form-field fxFlex="6em">
+	<mat-form-field class="flex-6">
 		<mat-label>Minute</mat-label>
 		<mat-select [(ngModel)]="selectedMinute" name="minute">
 			<mat-option *ngFor="let m of minuteSlots" [value]="m">{{ pad0(m) }}</mat-option>
 		</mat-select>
 	</mat-form-field>
 </mat-dialog-content>
-<mat-dialog-actions class="fx-column-gap-half" fxLayoutAlign="center center">
+<mat-dialog-actions class="fx-column-gap-half" class="fx-align-center-center">
 	<button type="button" mat-raised-button (click)="submit()" tabindex="1">Submit</button>
 	<button *ngIf="!noClear" type="button" mat-raised-button (click)="clear()" tabindex="2">Clear</button>
 	<button mat-raised-button (click)="cancel()">Cancel</button>

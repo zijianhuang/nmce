@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>
 	<mat-icon *ngIf="useIcon" [color]="iconColor">{{titleIcon}}</mat-icon>
-	<label *ngIf="useTitle" fxFlexAlign="start">{{ title }}</label>
+	<label *ngIf="useTitle" class="fx-align-start">{{ title }}</label>
 	&nbsp;&nbsp;&nbsp;&nbsp;
 	<label>
 		{{ subtitle }}
@@ -32,6 +32,6 @@
 		</html>
 	</ng-template>
 </mat-dialog-content>
-<mat-dialog-actions class="fx-column-gap-half" fxLayoutAlign="center center">
+<mat-dialog-actions class="fx-column-gap-half fx-align-center-center">
 	<button type="button" mat-raised-button matDialogClose>Close</button>
 </mat-dialog-actions>

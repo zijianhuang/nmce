@@ -1,10 +1,10 @@
-<mat-form-field fxFlex="6.5em">
+<mat-form-field class="flex-7">
     <mat-label>Month</mat-label>
     <mat-select placeholder="MM" [(ngModel)]="selectedMonth" name="month" (selectionChange)="onSelectionChange($event)">
         <mat-option *ngFor="let m of monthSlots" [value]="m.value">{{ m.display }}</mat-option>
     </mat-select>
 </mat-form-field>
-<mat-form-field fxFlex="7.5em">
+<mat-form-field class="flex-8">
     <mat-label>Year</mat-label>
     <mat-select placeholder="YYYY" [(ngModel)]="selectedYear" name="year" (selectionChange)="onSelectionChange($event)">
         <mat-option *ngFor="let y of yearSlots" [value]="y.value">{{ y.display }}</mat-option>

@@ -1,5 +1,5 @@
 <h1 mat-dialog-title>
-	<mat-dialog-actions class="fx-column-gap-half" fxLayoutAlign="start">
+	<mat-dialog-actions class="fx-column-gap-half fx-align-start">
 		<button mat-raised-button matTooltip="Back"
 				(click)="close()">
 			<mat-icon>arrow_back_ios</mat-icon>
@@ -15,7 +15,7 @@
 	</mat-dialog-actions>
 </h1>
 <mat-dialog-content>
-	<mat-form-field fxFlexFill>
+	<mat-form-field class="fx-full-width">
 		<mat-label>{{noteLabel}}</mat-label>
 		<textarea matInput #textDetail name="note" [formControl]="noteControl"
 				  cdkTextareaAutosize cdkAutosizeMinRows="2" [cdkAutosizeMaxRows]="maxRows" [readonly]="readonly"></textarea>

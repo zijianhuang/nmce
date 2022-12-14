@@ -1,10 +1,10 @@
 <div mat-dialog-title>
-    <strong fxFlexAlign="start">{{ title }}</strong>
+    <strong class="fx-align-start">{{ title }}</strong>
 </div>
 <mat-dialog-content>
     <p>{{ body }}</p>
 </mat-dialog-content>
-<mat-dialog-actions class="fx-column-gap-half" fxLayoutAlign="center center">
+<mat-dialog-actions class="fx-column-gap-half fx-align-center-center">
     <button type="button" mat-raised-button (click)="confirm()">{{actionLabel}}</button>
     <button type="button" mat-raised-button (click)="cancel()">{{cancelLabel}}</button>
 </mat-dialog-actions>
