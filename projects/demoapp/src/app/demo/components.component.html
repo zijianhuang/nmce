@@ -22,7 +22,11 @@
 	<button mat-mini-fab (click)="addNotification()"><mat-icon>play_arrow</mat-icon></button>
 	ActionSheetItemSubjectService Add Notification to NotificationsService
 </div>
-
 <div>
 	<month-year-expiry [yearMonthExpiry]="yearMonthExpiryControl"></month-year-expiry> <span *ngIf=yearMonthExpiryControl.dirty>*</span>
+</div>
+
+<div>
+	<label>5 years</label>
+	<month-year-expiry [yearMonthExpiry]="yearMonthExpiryControl" [yearsInFuture]="5"></month-year-expiry> <span *ngIf=yearMonthExpiryControl.dirty>*</span>
 </div>

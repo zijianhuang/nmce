@@ -32,14 +32,11 @@ export class MonthYearExpiryComponent implements OnInit {
 	selectedYear: number | undefined;
 	selectedMonth: number | undefined;
 
-	constructor() {
-		const currentYear = moment().year();
-		for (let i = 0; i < 20; i++) {
-			this.yearSlots.push({
-				value: i + currentYear, display: (i + currentYear).toString()
-			});
-		}
-	}
+	/**
+	 * Default 20.
+	 */
+	@Input()
+	yearsInFuture=20;
 
 	/**
 	 * FormControl of parent modlel with FormGroup. Dirty when user changes value.
@@ -76,8 +73,17 @@ export class MonthYearExpiryComponent implements OnInit {
 	 */
 	@Output()
 	change = new EventEmitter<number>();
+	constructor() {
+	}
 
 	ngOnInit() {
+		const currentYear = moment().year();
+		for (let i = 0; i < this.yearsInFuture; i++) {
+			this.yearSlots.push({
+				value: i + currentYear, display: (i + currentYear).toString()
+			});
+		}
+	
 		if (this.yearMonthExpiry && this.yearMonthExpiry.value) {
 			this.value = parseInt(this.yearMonthExpiry.value);
 		}

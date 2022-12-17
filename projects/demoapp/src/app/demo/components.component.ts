@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActionSheetItemSubjectService, LocalAlertService, WaitService } from 'nmce';
 
-
 /**
  * Fill up the user registration form and register. Then roles checkboxes will appear.
  * and the Register button may become disabled when the user is just registered.
