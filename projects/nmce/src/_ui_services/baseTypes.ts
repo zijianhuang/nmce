@@ -1,4 +1,4 @@
-import { inject, Injectable, InjectFlags, Type } from '@angular/core';
+import { inject, Injectable, InjectFlags, InjectionToken, Type } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { ActionSheetItem } from './types';
 
@@ -82,4 +82,6 @@ export class ActionSheetItemSubjectService extends GlobalSubjectService<ActionSh
 		super(ActionSheetItemSubjectService);
 	}
 }
+
+export const DIALOG_ACTIONS_ALIGN = new InjectionToken<string>('Material Dialog action buttons align');
 

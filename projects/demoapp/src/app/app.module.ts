@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import {
-  ActionSheetItemSubjectService, LOG_DIALOG_OPTIONS, Nmce_UI_ServicesModule,
+  ActionSheetItemSubjectService, DIALOG_ACTIONS_ALIGN, LOG_DIALOG_OPTIONS, Nmce_UI_ServicesModule,
   NotificationsService
 } from 'nmce';
 import { AppRoutingModule } from './app-routing.module';
@@ -37,6 +37,11 @@ import { NGMDModule } from './ngmd.module';
     {
       provide: 'print.cssUrl',
       useValue: 'print190826.css'
+    },
+
+    {
+      provide: DIALOG_ACTIONS_ALIGN,
+      useValue: 'center'
     },
 
     NotificationsService,

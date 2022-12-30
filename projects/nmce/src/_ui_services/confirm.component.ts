@@ -1,9 +1,10 @@
-import { Component, Input, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Inject, Input } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 
 /**
  * Confirmation to say Yes or No. When saying Yes, return result true, otherwise, return activeModal.dismiss().
- * This component is used by ConfirmService
+ * This component is used by ConfirmService, which actionLabel and cancelLabel can be overriden by client calls.
  */
 @Component({
 	selector: 'confirm-content',
@@ -19,7 +20,9 @@ export class ConfirmComponent {
 	actionLabel = 'Yes';
 	cancelLabel = 'No';
 
-	constructor(@Inject(MAT_DIALOG_DATA) private data: { title: string, body: string, action: string, cancel: string }, private dialogRef: MatDialogRef<ConfirmComponent>) {
+	constructor(@Inject(MAT_DIALOG_DATA) private data: { title: string, body: string, action: string, cancel: string },
+	 @Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+	 private dialogRef: MatDialogRef<ConfirmComponent>) {
 		this.title = data.title;
 		this.body = data.body;
 		this.actionLabel = data.action;
@@ -28,9 +31,5 @@ export class ConfirmComponent {
 
 	confirm(): void {
 		this.dialogRef.close(true);
-	}
-
-	cancel(): void {
-		this.dialogRef.close();
 	}
 }

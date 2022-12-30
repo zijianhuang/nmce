@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { ConfirmComponent } from './confirm.component';
 
 /**
- * Provide ConfirmComponent dialog for confirmation Yes or No.
+ * Provide ConfirmComponent dialog for confirmation Yes or No. disableClose=true.
  */
 @Injectable()
 export class ConfirmService {
