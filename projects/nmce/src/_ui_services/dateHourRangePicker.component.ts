@@ -1,8 +1,9 @@
-import { Component, Injectable, Inject } from '@angular/core';
-import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, Inject, Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DateFunc, StringFunc } from 'nmce-func';
+import { Observable } from 'rxjs';
+import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 
 /**
  * Picke datetimes between.
@@ -28,7 +29,10 @@ export class DateHourRangePickerComponent {
 	selectedHourEnd: number;
 	selectedMinuteEnd: number;
 
-	constructor(public dialogRef: MatDialogRef<DateHourRangePickerComponent>, @Inject(MAT_DIALOG_DATA) public data: { start: Date, end: Date }) {
+	constructor(public dialogRef: MatDialogRef<DateHourRangePickerComponent>,
+		@Inject(MAT_DIALOG_DATA) public data: { start: Date, end: Date },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string
+	) {
 		this.startDate = data.start ? data.start : DateFunc.now;
 		this.endDate = DateFunc.getEndOfDate(data.end ? data.end : DateFunc.addDays(this.startDate, 180));
 

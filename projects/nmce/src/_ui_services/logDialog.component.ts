@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Inject, InjectionToken, Renderer2, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 import { AlertSubjectMessage } from './types';
 
 export interface MessageDialogOptions {
@@ -46,6 +47,7 @@ export class LogDialogComponent implements AfterViewInit {
 	constructor(
 		@Inject(LOG_DIALOG_OPTIONS) public dialogOptions: MessageDialogOptions,
 		@Inject(MAT_DIALOG_DATA) data: { message: AlertSubjectMessage },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		private renderer: Renderer2,
 	) {
 		this.message = data.message;

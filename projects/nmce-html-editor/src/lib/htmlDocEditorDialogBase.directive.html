@@ -1,23 +1,20 @@
-<h1 mat-dialog-title>
-	<mat-dialog-actions class="fx-layout-column fx-row-gap-1 fx-align-start">
-		<button mat-raised-button matTooltip="Back"
-				(click)="close()">
-			<mat-icon>arrow_back_ios</mat-icon>
+<div mat-dialog-title class="block-items-gap-1">
+	<button mat-mini-fab color="any" matTooltip="Back" (click)="close()">
+		<mat-icon>arrow_back_ios</mat-icon>
+	</button>
+	<ng-template [ngIf]="!readonly">
+		<button type="submit" mat-mini-fab color="any" (click)="save()" [disabled]="!modified"
+			matTooltip="Save changes">
+			<mat-icon>done</mat-icon>
 		</button>
-		<div *ngIf="!readonly">
-			<button type="submit" mat-mini-fab color="any" (click)="save()" [disabled]="!modified" matTooltip="Save changes">
-				<mat-icon>done</mat-icon>
-			</button>
-			<button mat-mini-fab color="any" (click)="reset()" [disabled]="!modified" matTooltip="Undo changes">
-				<mat-icon>undo</mat-icon>
-			</button>
-		</div>
-		<button mat-mini-fab (click)="print()">
-			<mat-icon>print</mat-icon>
+		<button mat-mini-fab color="any" (click)="reset()" [disabled]="!modified" matTooltip="Undo changes">
+			<mat-icon>undo</mat-icon>
 		</button>
-	</mat-dialog-actions>
-
-</h1>
+	</ng-template>
+	<button mat-mini-fab (click)="print()">
+		<mat-icon>print</mat-icon>
+	</button>
+</div>
 <mat-dialog-content>
 	<!--<p *ngIf="contentCreatedUtc">Created: {{ contentCreatedUtc | shortDate24 }}  Modified:{{ contentModifiedUtc | shortDate24 }}</p>-->
 	<label>{{ noteLabel }}</label>

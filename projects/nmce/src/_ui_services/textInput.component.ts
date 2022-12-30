@@ -1,6 +1,7 @@
 import { Component, Inject, Injectable, Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
+import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 
 /**
  * Input one line text.
@@ -20,7 +21,9 @@ export class TextInputComponent {
 	@Input()
 	title: string;
 
-	constructor(@Inject(MAT_DIALOG_DATA) public data: { text: string, label: string, title: string }, public dialogRef: MatDialogRef<TextInputComponent>) {
+	constructor(@Inject(MAT_DIALOG_DATA) public data: { text: string, label: string, title: string }, 
+	@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+	public dialogRef: MatDialogRef<TextInputComponent>) {
 		this.text = data.text;
 		this.label = data.label;
 		this.title = data.title;

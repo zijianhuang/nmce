@@ -1,18 +1,16 @@
-<h1 mat-dialog-title>
-	<mat-dialog-actions class="fx-column-gap-half fx-align-start">
-		<button mat-raised-button matTooltip="Back"
+<h1 mat-dialog-title class="block-items-gap-1">
+		<button mat-mini-fab color="any" matTooltip="Back"
 				(click)="close()">
 			<mat-icon>arrow_back_ios</mat-icon>
 		</button>
-		<div *ngIf="!readonly">
+		<ng-template [ngIf]="!readonly">
 			<button type="submit" mat-mini-fab color="any" (click)="save()" [disabled]="!modified" matTooltip="Save changes">
 				<mat-icon>done</mat-icon>
 			</button>
 			<button  mat-mini-fab color="any" (click)="reset()" [disabled]="!modified" matTooltip="Undo changes">
 				<mat-icon>undo</mat-icon>
 			</button>
-		</div>
-	</mat-dialog-actions>
+		</ng-template>
 </h1>
 <mat-dialog-content>
 	<mat-form-field class="fx-full-width">

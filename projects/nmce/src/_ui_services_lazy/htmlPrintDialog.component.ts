@@ -4,9 +4,11 @@ import { Component, Inject, Injectable, Renderer2 } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HtmlPrintFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
+import { DIALOG_ACTIONS_ALIGN } from '../_ui_services/baseTypes';
 import { HtmlBaseDialogService } from '../_ui_services/htmlBaseDialogService';
 import { HtmlDialogComponent, HtmlHRefDialogComponent, HtmlImgDialogComponent } from '../_ui_services/htmlDialog.component';
 import { DialogSize } from '../_ui_services/types';
+
 /**
  * Contain HTML content, used in HtmlDialogService.
  */
@@ -16,9 +18,10 @@ import { DialogSize } from '../_ui_services/types';
 export class HtmlPrintDialogComponent extends HtmlDialogComponent {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		public dialogRef: MatDialogRef<HtmlDialogComponent>, private location: Location, @Inject('print.cssUrl') private cssUrl: string,
 		protected renderer: Renderer2) {
-		super(data, dialogRef, renderer);
+		super(data, actionsAlign, dialogRef, renderer);
 	}
 
 	print() {
@@ -46,9 +49,10 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 	 */
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, url: string, useBackButton: boolean },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		public dialogRef: MatDialogRef<HtmlHRefDialogComponent>, protected httpClient: HttpClient, private location: Location,
 		protected renderer: Renderer2) {
-		super(data, dialogRef, httpClient, renderer);
+		super(data, actionsAlign, dialogRef, httpClient, renderer);
 	}
 
 	print() {
@@ -67,8 +71,9 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 export class HtmlImgPrintDialogComponent extends HtmlImgDialogComponent {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, imageUrl: string, useBackButton: boolean },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		public dialogRef: MatDialogRef<HtmlImgDialogComponent>, private location: Location, @Inject('print.cssUrl') private cssUrl: string) {
-		super(data, dialogRef);
+		super(data, actionsAlign, dialogRef);
 	}
 
 	print() {

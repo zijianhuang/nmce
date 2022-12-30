@@ -1,8 +1,9 @@
-import { Component, Injectable, OnDestroy, Inject } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, Inject, Injectable, OnDestroy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { StringFunc } from 'nmce-func';
+import { Observable, Subscription } from 'rxjs';
+import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 
 /**
  * Input Hour and Minute.
@@ -26,7 +27,9 @@ export class TimePickerComponent {
 
 	noClear: boolean;
 
-	constructor(@Inject(MAT_DIALOG_DATA) private data: { minutes: number, noClear: boolean }, public dialogRef: MatDialogRef<TimePickerComponent>) {
+	constructor(@Inject(MAT_DIALOG_DATA) private data: { minutes: number, noClear: boolean }, 
+	@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+	public dialogRef: MatDialogRef<TimePickerComponent>) {
 		this.selectedDate = new Date();
 		this.selectedHour = 12;
 		this.selectedMinute = 0;

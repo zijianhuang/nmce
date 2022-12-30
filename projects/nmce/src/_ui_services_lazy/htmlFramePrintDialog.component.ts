@@ -4,9 +4,11 @@ import { Component, Inject, Injectable, Renderer2 } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HtmlPrintFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
+import { DIALOG_ACTIONS_ALIGN } from '../_ui_services/baseTypes';
 import { HtmlBaseDialogService } from '../_ui_services/htmlBaseDialogService';
 import { HtmlFrameDialogComponent, HtmlHRefFrameDialogComponent } from '../_ui_services/htmlFrameDialog.component';
 import { DialogSize } from '../_ui_services/types';
+
 /**
  * Contain HTML content in iframe, used in HtmlFrameDialogService.
  */
@@ -16,8 +18,9 @@ import { DialogSize } from '../_ui_services/types';
 export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		public dialogRef: MatDialogRef<HtmlFrameDialogComponent>, private location: Location) {
-		super(data, dialogRef);
+		super(data, actionsAlign, dialogRef);
 	}
 
 	print() {
@@ -43,9 +46,11 @@ export class HtmlHRefFramePrintDialogComponent extends HtmlHRefFrameDialogCompon
 	 */
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, url: string, useBackButton: boolean },
-		public dialogRef: MatDialogRef<HtmlHRefFrameDialogComponent>, protected httpClient: HttpClient, private location: Location,
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+		public dialogRef: MatDialogRef<HtmlHRefFrameDialogComponent>, 
+		protected httpClient: HttpClient, private location: Location,
 		protected renderer: Renderer2) {
-		super(data, dialogRef, httpClient, renderer);
+		super(data, actionsAlign, dialogRef, httpClient, renderer);
 	}
 
 	print() {

@@ -1,8 +1,9 @@
-import { Component, Input, Injectable, Inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, Inject, Injectable, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { DIALOG_ACTIONS_ALIGN } from 'nmce';
+import { Observable } from 'rxjs';
 
 export interface EmailListDialog {
 	open(data?: any): Observable<string[]>;
@@ -88,7 +89,11 @@ export class EmailConfirmComponent {
 		return this.noteControl.dirty;
 	}
 
-	constructor(@Inject(MAT_DIALOG_DATA) private data: { emailMessage: EmailMessage, emailAddressesCallback: EmailListDialog, callbackData: any }, public dialogRef: MatDialogRef<EmailConfirmComponent>) {
+
+	constructor(@Inject(MAT_DIALOG_DATA) private data: { emailMessage: EmailMessage, emailAddressesCallback: EmailListDialog, callbackData: any },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string,
+		public dialogRef: MatDialogRef<EmailConfirmComponent>) {
+
 		this.emailMessage = this.data.emailMessage;
 		this.emailAddressesDialogService = data.emailAddressesCallback;
 		this.callbackData = data.callbackData;

@@ -3,6 +3,7 @@ import { Component, Inject, Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DateFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
+import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 
 /**
  * Pick dates between.
@@ -20,7 +21,10 @@ export class DateRangePickerComponent {
 	startDate: Date;
 	endDate: Date;
 
-	constructor(public dialogRef: MatDialogRef<DateRangePickerComponent>, @Inject(MAT_DIALOG_DATA) public data: { start: Date, end: Date }) {
+	constructor(public dialogRef: MatDialogRef<DateRangePickerComponent>, 
+		@Inject(MAT_DIALOG_DATA) public data: { start: Date, end: Date },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+		) {
 		this.startDate = data.start ? data.start : DateFunc.now;
 		this.endDate = DateFunc.getEndOfDate(data.end ? data.end : DateFunc.addDays(this.startDate, 180));
 	}

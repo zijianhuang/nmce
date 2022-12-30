@@ -7,6 +7,6 @@
 <mat-dialog-content>
 	<ng-container dataComponentHost></ng-container>
 </mat-dialog-content>
-<mat-dialog-actions *ngIf="!isSmallScreen&&!fullScreen" class="fx-align-center-center">
+<mat-dialog-actions *ngIf="!isSmallScreen&&!fullScreen" [align]="actionsAlign">
 	<button type="button" mat-raised-button matDialogClose>Close</button>
 </mat-dialog-actions>

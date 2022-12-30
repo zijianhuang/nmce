@@ -9,6 +9,7 @@ import { HtmlPrintFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
 import { DataComponent } from '../_types/DataComponent';
 //import { LazyDataComponentDialog } from '../_ui_services_lazy/lazy-component-dialog.service';
+import { DIALOG_ACTIONS_ALIGN } from '../_ui_services/baseTypes';
 import { DataComponentDialog } from '../_ui_services/dataComponentDialog.component';
 
 /**
@@ -28,11 +29,12 @@ export class DataComponentPrintDialog extends DataComponentDialog {
 			isSmallScreen: boolean,
 			fullScreen: boolean
 		},
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		public dialogRef: MatDialogRef<DataComponentDialog>,
 		protected componentFactoryResolver: ComponentFactoryResolver,
 		private location: Location, @Inject('print.cssUrl') private cssUrl: string
 	) {
-		super(dialogData, dialogRef, componentFactoryResolver);
+		super(dialogData, actionsAlign, dialogRef, componentFactoryResolver);
 	}
 
 	print() {

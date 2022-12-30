@@ -1,8 +1,9 @@
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { TextEditorDialogComponentBase } from '../_ui_services/textEditorDialogBase.component';
 import { AlertService } from '../_ui_services/alert.service';
+import { TextEditorDialogComponentBase } from '../_ui_services/textEditorDialogBase.component';
+import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 
 /**
  * Display text area for text of consultation to be saved in Azure Blob Storage.
@@ -15,10 +16,11 @@ import { AlertService } from '../_ui_services/alert.service';
 export class LocalTextEditorDialogComponent extends TextEditorDialogComponentBase implements OnInit {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { [k: string]: string },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		public dialogRef: MatDialogRef<LocalTextEditorDialogComponent>,
 		protected alertService: AlertService,
 	) {
-		super(data, dialogRef, alertService);
+		super(data, actionsAlign, dialogRef, alertService);
 
 		if (data) {
 			this.fileId = data.fileId;

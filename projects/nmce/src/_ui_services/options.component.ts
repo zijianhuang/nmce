@@ -1,5 +1,6 @@
-import { Component, Input, Inject} from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 
 /**
  * Confirmation through multiple options represented in buttons horizontally.
@@ -26,7 +27,9 @@ export class OptionsComponent {
 	 */
 	selected: string;
 
-	constructor(@Inject(MAT_DIALOG_DATA) data: { title: string, body: string, options: string[] }, private dialogRef: MatDialogRef<OptionsComponent>) {
+	constructor(@Inject(MAT_DIALOG_DATA) data: { title: string, body: string, options: string[] },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string,
+		private dialogRef: MatDialogRef<OptionsComponent>) {
 		this.title = data.title;
 		this.body = data.body;
 		this.options = data.options;

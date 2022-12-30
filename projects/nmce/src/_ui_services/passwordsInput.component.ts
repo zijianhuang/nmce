@@ -1,7 +1,8 @@
-import { Component, Input, Injectable, Inject} from '@angular/core';
-import { Observable } from 'rxjs';
-import { FormControl } from '@angular/forms'
+import { Component, Inject, Injectable, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
+import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 
 /**
  * Define password.
@@ -18,7 +19,9 @@ export class PasswordsInputComponent {
 
 	confirmPasswordControl = new FormControl(undefined);
 
-	constructor(@Inject(MAT_DIALOG_DATA) public data: { title: string }, public dialogRef: MatDialogRef<PasswordsInputComponent>) {
+	constructor(@Inject(MAT_DIALOG_DATA) public data: { title: string },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string,
+		public dialogRef: MatDialogRef<PasswordsInputComponent>) {
 		this.title = data.title;
 	}
 
@@ -43,7 +46,7 @@ export class PasswordsInputService {
 	constructor(private dialog: MatDialog) { }
 
 	open(title: string): Observable<string> {
-		const modalRef = this.dialog.open(PasswordsInputComponent, { width: '40em', data: {title: title} });
+		const modalRef = this.dialog.open(PasswordsInputComponent, { width: '40em', data: { title: title } });
 		return modalRef.afterClosed();
 	}
 }

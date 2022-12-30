@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSelectionListChange } from '@angular/material/list';
 import { Observable } from 'rxjs';
+import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 
 /**
  * Display a list of items to select one.
@@ -29,7 +30,9 @@ export class ItemListDialogComponent {
 	 * @param data data.items type should be array. data.toStringCallback is to conver an item in the array into string for displaying.
 	 * @param dialogRef
 	 */
-	constructor(@Inject(MAT_DIALOG_DATA) data: { title: string, items: any, toStringCallback: (item: any) => string }, private dialogRef: MatDialogRef<ItemListDialogComponent>,
+	constructor(@Inject(MAT_DIALOG_DATA) data: { title: string, items: any, toStringCallback: (item: any) => string }, 
+	@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+	private dialogRef: MatDialogRef<ItemListDialogComponent>,
 	) {
 		this.title = data.title;
 		this.items = data.items;

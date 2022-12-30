@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, Inject, Injectable, Renderer2, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
+import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 import { HtmlBaseDialogService } from './htmlBaseDialogService';
 import { DialogSize } from './types';
 
@@ -22,6 +23,7 @@ export class HtmlDialogComponent implements AfterViewInit {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		public dialogRef: MatDialogRef<HtmlDialogComponent>,
 		protected renderer: Renderer2) {
 		this.title = data.title;
@@ -58,6 +60,7 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) protected data: { title: string, url: string, useBackButton: boolean },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		public dialogRef: MatDialogRef<HtmlHRefDialogComponent>, protected httpClient: HttpClient,
 		protected renderer: Renderer2) {
 		this.title = data.title;
@@ -136,6 +139,7 @@ export class HtmlImgDialogComponent {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, imageUrl: string, useBackButton: boolean },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		public dialogRef: MatDialogRef<HtmlImgDialogComponent>) {
 		this.title = data.title;
 		this.imageUrl = data.imageUrl;

@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { DataComponentDirective } from 'nmce-directives';
 import { Observable } from 'rxjs';
 import { DataComponent } from '../_types/DataComponent';
+import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 
 /**
  * This is to host another component which has implemented interfact DataComponent. 
@@ -43,6 +44,7 @@ export class DataComponentDialog implements AfterViewInit, OnDestroy {
 			isSmallScreen: boolean,
 			fullScreen: boolean
 		},
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		public dialogRef: MatDialogRef<DataComponentDialog>,
 		protected componentFactoryResolver: ComponentFactoryResolver
 	) {

@@ -19,10 +19,7 @@
             "production": {
               "tsConfig": "projects/nmce/tsconfig.lib.prod.json"
             }
-          },
-          "styles": [
-            "projects/nmce/src/styles.css"
-          ]
+          }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",

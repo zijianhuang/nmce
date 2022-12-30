@@ -2,7 +2,7 @@ import { Directive, EventEmitter, Inject, InjectionToken, Input, Output } from '
 import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import { AlertService } from 'nmce';
+import { AlertService, DIALOG_ACTIONS_ALIGN } from 'nmce';
 import { HtmlPrintFunc, StringFunc, UuidFunc } from 'nmce-func';
 
 export const HTML_EDITOR_UPLOADURL = new InjectionToken<string|undefined>('htmlEditor.uploadUrl', {
@@ -68,7 +68,8 @@ export abstract class HtmlDocEditorDialogBaseComponent {
 	 * @param alertService
 	 */
 	constructor(@Inject(MAT_DIALOG_DATA) public data: { [k: string]: any },
-		public dialogRef: MatDialogRef<HtmlDocEditorDialogBaseComponent>,
+	@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+	public dialogRef: MatDialogRef<HtmlDocEditorDialogBaseComponent>,
 		protected uploadUrl: string | undefined,
 		protected alertService: AlertService,
 	) {

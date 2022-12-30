@@ -3,6 +3,7 @@ import { AfterViewInit, Component, ElementRef, Inject, Injectable, ViewChild } f
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DialogSize, DialogSizeToSize } from '../_ui_services/types';
+import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 
 /**
  * Contain HTML content, used in TextDialogService.
@@ -19,6 +20,7 @@ export class TextDialogComponent implements AfterViewInit {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, lines: string, useBackButton: boolean },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		public dialogRef: MatDialogRef<TextDialogComponent>) {
 		this.title = data.title;
 		this.lines = data.lines;
@@ -54,6 +56,7 @@ export class TextHRefDialogComponent implements AfterViewInit {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) data: { title: string, url: string, useBackButton: boolean },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		public dialogRef: MatDialogRef<TextDialogComponent>, private httpClient: HttpClient) {
 		this.title = data.title;
 		this.url = data.url;

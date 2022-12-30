@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>
+<h1 mat-dialog-title class="block-items-gap-1">
 	<button *ngIf="useBackButton" type="button" mat-icon-button matDialogClose aria-label="Close" class="float-left">
 		<mat-icon>arrow_back</mat-icon>
 	</button>
@@ -17,6 +17,6 @@
 	</body>
 </html>
 </mat-dialog-content>
-<mat-dialog-actions *ngIf="!useBackButton" class="fx-align-center-center">
+<mat-dialog-actions *ngIf="!useBackButton" [align]="actionsAlign">
 	<button type="button" mat-raised-button matDialogClose>Close</button>
 </mat-dialog-actions>

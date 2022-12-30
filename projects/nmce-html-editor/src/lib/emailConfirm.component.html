@@ -1,4 +1,4 @@
-<h1 mat-dialog-title class="fx-column-gap-1">
+<h1 mat-dialog-title class="block-items-gap-1">
 	<strong class="fx-90pc-width">Email</strong>
 	<button *ngIf="!ccEnabled && !emailMessage?.cc" mat-raised-button (click)="ccEnabled=true">CC</button>
 	<button *ngIf="!bccEnabled && !emailMessage?.bcc" mat-raised-button (click)="bccEnabled=true">BCC</button>
@@ -37,10 +37,10 @@
 	</form>
 	<angular-editor *ngIf="emailMessage?.isHtml" name="body" [formControl]="noteControl" [config]="config"></angular-editor>
 </mat-dialog-content>
-<mat-dialog-actions class="fx-column-gap-half fx-align-center-center">
+<mat-dialog-actions [align]="actionsAlign">
+	<button type="button" mat-raised-button matDialogClose id="cancel">Cancel</button>
 	<button type="submit" mat-raised-button (click)="confirm()" id="send" tabindex="1" [disabled]="!emailMessage?.to">
 		<mat-icon>send</mat-icon>
 		Send
 	</button>
-	<button type="button" mat-raised-button matDialogClose id="cancel">Cancel</button>
 </mat-dialog-actions>

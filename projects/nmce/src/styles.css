@@ -31,6 +31,20 @@ iframe.frame-dialog-content {
 }
 
 
+/* For block container such as mat-dialog-title which is at odd against flex. */
+.block-items-gap-1 > * {
+	margin-left: 1em;
+}
+
+	.block-items-gap-1 > *:first-child {
+		margin-left: 0em;
+	}
+
+.top-margin-half {
+	margin-top: 0.5em;
+}
+
+
 /* #region Replace fxFlexLayout */
 
 /* display: flex is with latest standard, while flexbox is older. flex may cause the label in buttons to wrap, however, this may be good.
@@ -42,11 +56,13 @@ iframe.frame-dialog-content {
 .fx-layout-row {
 	display: flex;
 	flex-direction: row;
+	align-items: center;
 }
 
 .fx-layout-column {
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start;
 }
 
 .fx-layout-wrap {
@@ -71,7 +87,7 @@ iframe.frame-dialog-content {
 .fx-column-gap-2 {
 	display: flex;
 	flex-direction: row;
-	column-gap: 2em
+	column-gap: 2em;
 }
 
 .fx-row-gap-2 {
@@ -146,25 +162,26 @@ iframe.frame-dialog-content {
 
 /* fxFlexFill https://github.com/angular/flex-layout/wiki/fxFlexFill-API */
 .fx-full-width {
+	margin: 0;
 	width: 100%;
-	max-width: 100%;
 	min-width: 100%;
 }
 
 .fx-95pc-width {
+	margin: 0;
 	width: 95%;
-	max-width: 95%;
 	min-width: 95%;
 }
+
 .fx-80pc-width {
+	margin: 0;
 	width: 80%;
-	max-width: 80%;
 	min-width: 80%;
 }
 
 .fx-50pc-width {
+	margin: 0;
 	width: 50%;
-	max-width: 50%;
 	min-width: 50%;
 }
 
@@ -192,6 +209,7 @@ iframe.frame-dialog-content {
 /* #region flex 0 grow 0 shrink width */
 .flex-half {
 	flex: 0 0 0.5em;
+	flex-wrap: nowrap;
 }
 
 .flex-1 {
@@ -356,6 +374,7 @@ iframe.frame-dialog-content {
 /* #endregion */
 
 /* #region flex grow 1 shrink 1 width while in flex, grow 1 and shrink 1 are defaults */
+/* https://github.com/angular/flex-layout/wiki/fxFlex-API */
 .flex11-half {
 	flex: 1 1 0.5em;
 }
@@ -517,6 +536,172 @@ iframe.frame-dialog-content {
 
 .flex11-39 {
 	flex: 1 1 39em;
+}
+
+/* #endregion */
+
+/* #region width */
+.width-half {
+	width: 0.5em;
+}
+
+.width-1 {
+	width: 1em;
+}
+
+.width-2 {
+	width: 2em;
+}
+
+.width-3 {
+	width: 3em;
+}
+
+.width-4 {
+	width: 4em;
+}
+
+.width-5 {
+	width: 5em;
+}
+
+.width-6 {
+	width: 6em;
+}
+
+.width-7 {
+	width: 7em;
+}
+
+.width-8 {
+	width: 8em;
+}
+
+.width-9 {
+	width: 9em;
+}
+
+.width-10 {
+	width: 10em;
+}
+
+.width-11 {
+	width: 11em;
+}
+
+.width-12 {
+	width: 12em;
+}
+
+.width-13 {
+	width: 13em;
+}
+
+.width-14 {
+	width: 14em;
+}
+
+
+.width-15 {
+	width: 15em;
+}
+
+.width-16 {
+	width: 16em;
+}
+
+.width-17 {
+	width: 17em;
+}
+
+.width-18 {
+	width: 18em;
+}
+
+.width-19 {
+	width: 19em;
+}
+
+.width-20 {
+	width: 20em;
+}
+
+.width-21 {
+	width: 21em;
+}
+
+.width-22 {
+	width: 22em;
+}
+
+.width-23 {
+	width: 23em;
+}
+
+.width-24 {
+	width: 24em;
+}
+
+
+.width-25 {
+	width: 25em;
+}
+
+.width-26 {
+	width: 26em;
+}
+
+.width-27 {
+	width: 27em;
+}
+
+.width-28 {
+	width: 28em;
+}
+
+.width-29 {
+	width: 29em;
+}
+
+.width-30 {
+	width: 30em;
+}
+
+.width-31 {
+	width: 31em;
+}
+
+.width-33 {
+	width: 32em;
+}
+
+.width-33 {
+	width: 33em;
+}
+
+.width-34 {
+	width: 34em;
+}
+
+
+.width-35 {
+	width: 35em;
+}
+
+.width-36 {
+	width: 36em;
+}
+
+.width-37 {
+	width: 37em;
+}
+
+.width-38 {
+	width: 38em;
+}
+
+.width-39 {
+	width: 39em;
 }
 
 /* #endregion */

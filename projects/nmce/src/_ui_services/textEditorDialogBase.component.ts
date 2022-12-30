@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UuidFunc } from 'nmce-func';
 import { AlertService } from './alert.service';
+import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 
 /**
  * Display text area for text to be saved in Azure Blob Storage.
@@ -53,6 +54,7 @@ export abstract class TextEditorDialogComponentBase implements AfterViewInit {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { [k: string]: any },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		public dialogRef: MatDialogRef<TextEditorDialogComponentBase>,
 		protected alertService: AlertService,
 	) {

@@ -7,6 +7,6 @@
 		<p>{{ body }}</p>
 	</div>
 </mat-dialog-content>
-<mat-dialog-actions class="fx-column-gap-half fx-align-center-center">
+<mat-dialog-actions [align]="actionsAlign">
 	<button *ngFor="let op of options" type="button" mat-raised-button (click)="confirm(op)">{{ op }}</button>
 </mat-dialog-actions>

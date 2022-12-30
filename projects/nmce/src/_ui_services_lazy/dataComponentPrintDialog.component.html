@@ -1,4 +1,4 @@
-<h1 mat-dialog-title class="fx-column-gap-1">
+<h1 mat-dialog-title class="block-items-gap-1">
 	<span class="fx-align-start">{{ title }}</span>
 	<button *ngIf="isSmallScreen||fullScreen" type="button" mat-icon-button matDialogClose aria-label="Close" class="float-left">
 		<mat-icon>arrow_back</mat-icon>
@@ -10,6 +10,6 @@
 <mat-dialog-content #htmlPrintContent>
 	<ng-template dataComponentHost></ng-template>
 </mat-dialog-content>
-<mat-dialog-actions *ngIf="!isSmallScreen&&!fullScreen" class="fx-align-center-center">
+<mat-dialog-actions *ngIf="!isSmallScreen&&!fullScreen" [align]="actionsAlign">
 	<button type="button" mat-raised-button matDialogClose>Close</button>
 </mat-dialog-actions>

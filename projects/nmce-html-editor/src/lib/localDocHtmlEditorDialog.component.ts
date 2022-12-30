@@ -1,6 +1,6 @@
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AlertService } from 'nmce';
+import { AlertService, DIALOG_ACTIONS_ALIGN } from 'nmce';
 import { Observable } from 'rxjs';
 import { HtmlDocEditorDialogBaseComponent, HTML_EDITOR_UPLOADURL } from './htmlDocEditorDialogBase.directive';
 /**
@@ -14,11 +14,12 @@ import { HtmlDocEditorDialogBaseComponent, HTML_EDITOR_UPLOADURL } from './htmlD
 export class LocalDocHtmlEditorDialogComponent extends HtmlDocEditorDialogBaseComponent implements OnInit {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { [k: string]: any },
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		public dialogRef: MatDialogRef<LocalDocHtmlEditorDialogComponent>,
 		@Inject(HTML_EDITOR_UPLOADURL) protected uploadUrl: string | undefined = undefined,
 		protected alertService: AlertService,
 	) {
-		super(data, dialogRef, data.useUploadUrl ? uploadUrl : undefined, alertService);
+		super(data, actionsAlign, dialogRef, data.useUploadUrl ? uploadUrl : undefined, alertService);
 
 		if (data) {
 			this.fileId = data.fileId;
