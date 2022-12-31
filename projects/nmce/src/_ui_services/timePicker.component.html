@@ -1,18 +1,20 @@
 <h1 mat-dialog-title>{{ title }}</h1>
 
-<mat-dialog-content class="fx-column-gap-half">
-	<mat-form-field class="flex-6">
-		<mat-label>Hour</mat-label>
-		<mat-select [(ngModel)]="selectedHour" name="hour">
-			<mat-option *ngFor="let h of hourSlots" [value]="h">{{ pad0(h) }}</mat-option>
-		</mat-select>
-	</mat-form-field>
-	<mat-form-field class="flex-6">
-		<mat-label>Minute</mat-label>
-		<mat-select [(ngModel)]="selectedMinute" name="minute">
-			<mat-option *ngFor="let m of minuteSlots" [value]="m">{{ pad0(m) }}</mat-option>
-		</mat-select>
-	</mat-form-field>
+<mat-dialog-content>
+	<div class="fx-column-gap-half">
+		<mat-form-field class="flex-6">
+			<mat-label>Hour</mat-label>
+			<mat-select [(ngModel)]="selectedHour" name="hour">
+				<mat-option *ngFor="let h of hourSlots" [value]="h">{{ pad0(h) }}</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<mat-form-field class="flex-6">
+			<mat-label>Minute</mat-label>
+			<mat-select [(ngModel)]="selectedMinute" name="minute">
+				<mat-option *ngFor="let m of minuteSlots" [value]="m">{{ pad0(m) }}</mat-option>
+			</mat-select>
+		</mat-form-field>	
+	</div>
 </mat-dialog-content>
 <mat-dialog-actions [align]="actionsAlign">
 	<button mat-raised-button matDialogClose (click)="cancel()">Cancel</button>

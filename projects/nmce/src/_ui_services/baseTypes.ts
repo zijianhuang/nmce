@@ -83,5 +83,5 @@ export class ActionSheetItemSubjectService extends GlobalSubjectService<ActionSh
 	}
 }
 
-export const DIALOG_ACTIONS_ALIGN = new InjectionToken<string>('Material Dialog action buttons align');
+export const DIALOG_ACTIONS_ALIGN = new InjectionToken<'start' | 'center' | 'end'>('Material Dialog action buttons align');
 

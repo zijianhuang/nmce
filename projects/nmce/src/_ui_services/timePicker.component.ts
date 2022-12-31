@@ -96,6 +96,7 @@ export class TimeService implements OnDestroy {
 				maxHeight: '95vh', data: data
 			})
 			: this.dialog.open(TimePickerComponent, {
+				width: '28em',
 				disableClose: true, data: data
 			});
 

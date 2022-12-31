@@ -1,6 +1,7 @@
 <h1 mat-dialog-title>{{ title }}</h1>
 
-<mat-dialog-content class="fx-column-gap-half">
+<mat-dialog-content>
+	<div class="fx-column-gap-half">
 		<mat-form-field class="flex-10">
 			<!--todo: seting width of input is not working. I guess the datepicker dictates the width? -->
 			<mat-label>Start Date</mat-label>
@@ -15,6 +16,7 @@
 			<mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
 			<mat-datepicker #picker2 [startAt]="endDate"></mat-datepicker>
 		</mat-form-field>
+	</div>
 </mat-dialog-content>
 <mat-dialog-actions [align]="actionsAlign">
 	<button mat-raised-button matDialogClose (click)="cancel()">Cancel</button>

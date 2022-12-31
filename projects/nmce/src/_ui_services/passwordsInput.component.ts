@@ -29,10 +29,6 @@ export class PasswordsInputComponent {
 		this.dialogRef.close(this.passwordControl.value);
 	}
 
-	cancel(): void {
-		this.dialogRef.close();
-	}
-
 	get saveEnabled(): boolean {
 		return this.passwordControl.value === this.confirmPasswordControl.value && this.passwordControl.dirty && this.confirmPasswordControl.dirty;
 	}
@@ -46,7 +42,9 @@ export class PasswordsInputService {
 	constructor(private dialog: MatDialog) { }
 
 	open(title: string): Observable<string> {
-		const modalRef = this.dialog.open(PasswordsInputComponent, { width: '40em', data: { title: title } });
+		const modalRef = this.dialog.open(PasswordsInputComponent, 
+			{ width: '20em', 
+			data: { title: title } });
 		return modalRef.afterClosed();
 	}
 }

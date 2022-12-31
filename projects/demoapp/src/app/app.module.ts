@@ -41,7 +41,7 @@ import { NGMDModule } from './ngmd.module';
 
     {
       provide: DIALOG_ACTIONS_ALIGN,
-      useValue: 'end'
+      useValue: 'center'
     },
 
     NotificationsService,
