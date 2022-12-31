@@ -366,5 +366,8 @@
       }
     }
   },
-  "defaultProject": "nmce"
+  "defaultProject": "nmce",
+  "cli": {
+    "analytics": false
+  }
 }
