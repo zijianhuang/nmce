@@ -1,12 +1,8 @@
 {
   "name": "nmce-pipes",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": {"name": "Z"},
   "description": "Common simple Angular pipes used in business applications.",
   "license": "MIT",
-  "repository": {"url": "https://github.com/zijianhuang/nmce"},
-  "peerDependencies": {
-    "@angular/common": "^15.0.1",
-    "@angular/core": "^15.0.1"
-  }
+  "repository": {"url": "https://github.com/zijianhuang/nmce"}
 }
