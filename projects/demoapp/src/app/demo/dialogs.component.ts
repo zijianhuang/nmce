@@ -114,13 +114,15 @@ export class DialogsComponent implements OnInit {
 		switch (this.dialogSelectedControlForError.value) {
 			case 1: //html
 				this.http.get('https://jsonapi.org/somewhere').subscribe(
-					d => { },
-					error => this.alertService.error(error),
+					{
+						next: d=>{},
+						error: error=>this.alertService.error(error)
+					}
 				);
 
 				break;
 			case 2: //text
-				this.http.get('http://localhost:5100/api/values/666').subscribe(
+				this.http.get('http://localhost:5000/api/values/666').subscribe(
 					d => { },
 					error => this.alertService.error(error),
 				);

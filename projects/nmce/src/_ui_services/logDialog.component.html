@@ -16,7 +16,7 @@
 		role="alert">HTTP Status: {{message?.status}} {{message?.statusText}}
 	</div>
 
-	<ng-template [ngIf]="message?.contentType !== 'text'">
+	<ng-template [ngIf]="['text', 'html', 'json'].indexOf(message?.contentType!)>=0 && message?.text">
 		<html>
 
 		<head>

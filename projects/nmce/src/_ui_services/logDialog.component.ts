@@ -68,8 +68,9 @@ export class LogDialogComponent implements AfterViewInit {
 				} else if (this.message.contentType === 'json' && this.message.status! >= 0) {
 					this.htmlContentElement.nativeElement.srcdoc = '<pre>' + this.message.text + '</pre>'; //good for iframe
 					//this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', '<pre>' + this.message.text + '</pre>');
-				} else if (this.message.contentType === 'json') {
-					this.renderer.setProperty(this.htmlContentElement.nativeElement, 'innerHTML', '<pre>' + this.message.text + '</pre>');
+				} else if (this.message.contentType === 'text') {
+					//this.renderer.setProperty(this.htmlContentElement.nativeElement, 'innerHTML', '<pre>' + this.message.text + '</pre>');
+					this.htmlContentElement.nativeElement.srcdoc = '<pre>' + this.message.text + '</pre>';
 				}
 			}
 		} else {

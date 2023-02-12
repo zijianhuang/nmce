@@ -39,6 +39,9 @@ export class ItemListDialogComponent {
 		this.toString = data.toStringCallback;
 	}
 
+	/**
+	 * the observable returned is empty string "".
+	 */
 	cancel(): void {
 		this.dialogRef.close();
 	}
@@ -60,7 +63,7 @@ export abstract class ItemListDialogServiceBase {
 	 * @param items
 	 * @returns object item selected.
 	 */
-	open(title: string, items: { [k: string]: any }[] | string[]): Observable<{ [k: string]: any }> {
+	open(title: string, items: { [k: string]: any }[] | string[]): Observable<{ [k: string]: any } | string> {
 		const modalRef = this.dialog.open(ItemListDialogComponent, { disableClose: true, autoFocus: false, data: { title: title, items: items, toStringCallback: this.toString } });
 		return modalRef.afterClosed();
 	}
