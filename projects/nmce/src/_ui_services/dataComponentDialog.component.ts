@@ -14,6 +14,7 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  */
 @Component({
 	templateUrl: 'dataComponentDialog.component.html',
+	styleUrls: ['../nmcestyles.css']
 })
 export class DataComponentDialog implements AfterViewInit, OnDestroy {
 	@Input()

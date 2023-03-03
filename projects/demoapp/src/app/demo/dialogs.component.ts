@@ -115,8 +115,8 @@ export class DialogsComponent implements OnInit {
 			case 1: //html
 				this.http.get('https://jsonapi.org/somewhere').subscribe(
 					{
-						next: d=>{},
-						error: error=>this.alertService.error(error)
+						next: d => { },
+						error: error => this.alertService.error(error)
 					}
 				);
 
@@ -198,10 +198,12 @@ DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ddddddddddddddddddddddddddddddddd
 	}
 
 	showAnyComponent() {
-		this.lazyComponentDialogService.open('Any NG component', HtmlDialogsComponent, 'ABCDEFG').subscribe();
+		this.lazyComponentDialogService.open('Any NG component', HtmlDialogsComponent, 'ABCDEFG',
+			{ autofocus: true, fullScreen: this.sizeSelectedControl.value == 1 }).subscribe();
 	}
 
 	printAnyComponent() {
-		this.dataComponentPrintDialogService.open('Print NG component', HtmlDialogsComponent, '1234567').subscribe();
+		this.dataComponentPrintDialogService.open('Print NG component', HtmlDialogsComponent, '1234567',
+			{ autofocus: true, fullScreen: this.sizeSelectedControl.value == 1 }).subscribe();
 	}
 }

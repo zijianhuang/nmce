@@ -8,6 +8,7 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 @Component({
 	selector: 'options-content',
 	templateUrl: 'options.component.html',
+	styleUrls: ['../nmcestyles.css']
 })
 export class OptionsComponent {
 	@Input()

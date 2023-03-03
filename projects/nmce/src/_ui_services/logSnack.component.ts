@@ -7,7 +7,7 @@ import { AlertSubjectMessage } from './types';
  */
 @Component({
 	templateUrl: 'logSnack.component.html',
-	styleUrls: ['../styles.css']
+	styleUrls: ['../nmcestyles.css']
 })
 export class LogSnackComponent {
 	message: AlertSubjectMessage;

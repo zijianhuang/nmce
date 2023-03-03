@@ -705,3 +705,14 @@ iframe.frame-dialog-content {
 }
 
 /* #endregion */
+
+
+img.max-width-auto-height {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+img.original-size {
+	-webkit-user-select: none;
+	margin: auto;
+}

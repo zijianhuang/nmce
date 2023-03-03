@@ -14,6 +14,7 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 
 	selector: 'DateRangePicker',
 	templateUrl: 'dateRangePicker.component.html',
+	styleUrls: ['../nmcestyles.css']
 })
 export class DateRangePickerComponent {
 	title = 'Date Range';

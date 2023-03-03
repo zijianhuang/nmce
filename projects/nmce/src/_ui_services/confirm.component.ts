@@ -9,6 +9,7 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 @Component({
 	selector: 'confirm-content',
 	templateUrl: 'confirm.component.html',
+	styleUrls: ['../nmcestyles.css']
 })
 export class ConfirmComponent {
 	@Input()

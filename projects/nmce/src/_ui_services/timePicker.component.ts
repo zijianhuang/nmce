@@ -9,9 +9,9 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  * Input Hour and Minute.
  */
 @Component({
-
 	selector: 'timePicker',
 	templateUrl: 'timePicker.component.html',
+	styleUrls: ['../nmcestyles.css']
 })
 export class TimePickerComponent {
 	title = 'Time';

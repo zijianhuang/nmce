@@ -3,6 +3,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
+    "strict": true,
     "target": "es2021",
     "declaration": true,
     "declarationMap": true,

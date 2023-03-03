@@ -10,6 +10,7 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  */
 @Component({
 	templateUrl: 'textDialog.component.html',
+	styleUrls: ['../nmcestyles.css']
 })
 export class TextDialogComponent implements AfterViewInit {
 	title: string;
@@ -43,6 +44,7 @@ export class TextDialogComponent implements AfterViewInit {
  */
 @Component({
 	templateUrl: 'textDialog.component.html',
+	styleUrls: ['../nmcestyles.css']
 })
 export class TextHRefDialogComponent implements AfterViewInit {
 	title: string;

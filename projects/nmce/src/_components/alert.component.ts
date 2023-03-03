@@ -9,7 +9,7 @@ import { AlertSubjectMessage, LocalAlertService } from '../_ui_services/index';
 @Component({
 	selector: 'alert',
 	templateUrl: 'alert.component.html',
-	styleUrls: ['../styles.css'],
+	styleUrls: ['../nmcestyles.css'],
 })
 export class AlertComponent implements OnInit, OnDestroy {
 	private alive = true;

@@ -11,7 +11,7 @@ import { DateFunc } from 'nmce-func';
  */
 @Pipe({ name: 'shortTime' })
 export class ShortTimePipe implements PipeTransform {
-	transform(value: Date): string {
+	transform(value: Date | undefined | null): string {
 		if (!value) {
 			return '';
 		}
@@ -25,7 +25,7 @@ export class ShortTimePipe implements PipeTransform {
  */
 @Pipe({ name: 'short24' })
 export class Short24Pipe implements PipeTransform {
-	transform(value: Date): string {
+	transform(value: Date | undefined | null): string {
 		if (!value) {
 			return '';
 		}
@@ -42,7 +42,7 @@ export class ShortDatePipe extends DatePipe {
 	transform(value: Date | string | number | undefined | null): any { //thanks to https://stackoverflow.com/questions/64806103/extending-angular-datepipe-errors-in-angular-11-worked-in-angular-10
 		return super.transform(value, 'dd/MM/yyyy');
 	}
- }
+}
 
 
 /**
@@ -50,7 +50,7 @@ export class ShortDatePipe extends DatePipe {
  */
 @Pipe({ name: 'shortDateTime' })
 export class ShortDateTimePipe implements PipeTransform {
-	transform(value: Date): string {
+	transform(value: Date | undefined | null): string {
 		if (!value) {
 			return '';
 		}
@@ -58,7 +58,7 @@ export class ShortDateTimePipe implements PipeTransform {
 		return moment(value).format('DD/MM/YYYY hh:mm a');
 	}
 
-	parse(value: string): Date | null {
+	parse(value: string | undefined | null): Date | null {
 		if (!value) {
 			return null;
 		}
@@ -72,7 +72,7 @@ export class ShortDateTimePipe implements PipeTransform {
  */
 @Pipe({ name: 'shortDate24' })
 export class ShortDate24Pipe implements PipeTransform {
-	transform(value: Date): string {
+	transform(value: Date | undefined | null): string {
 		if (!value) {
 			return '';
 		}
@@ -80,7 +80,7 @@ export class ShortDate24Pipe implements PipeTransform {
 		return moment(value).format('DD/MM/YYYY HH:mm');
 	}
 
-	parse(value: string): Date | null {
+	parse(value: string | undefined | null): Date | null {
 		if (!value) {
 			return null;
 		}
@@ -94,7 +94,7 @@ export class ShortDate24Pipe implements PipeTransform {
  */
 @Pipe({ name: 'mediumDate' })
 export class MediumDatePipe implements PipeTransform {
-	transform(value: Date): string {
+	transform(value: Date | undefined | null): string {
 		if (!value) {
 			return '';
 		}
@@ -108,7 +108,7 @@ export class MediumDatePipe implements PipeTransform {
  */
 @Pipe({ name: 'fullDate' })
 export class FullDatePipe implements PipeTransform {
-	transform(value: Date): string {
+	transform(value: Date | undefined | null): string {
 		if (!value) {
 			return '';
 		}

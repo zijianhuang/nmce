@@ -113,8 +113,8 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 }
 
 @Component({
-
 	templateUrl: 'htmlImgDialog.component.html',
+	styleUrls:['../nmcestyles.css']
 })
 export class HtmlImgDialogComponent {
 	title: string;

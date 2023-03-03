@@ -37,6 +37,7 @@ class NotificationsCache { //not exported intentionally
  */
 @Component({
 	templateUrl: 'notifications.component.html',
+	styleUrls: ['../nmcestyles.css']
 })
 export class NotificationsComponent {
 

@@ -18,6 +18,7 @@ import { DataComponentDialog } from '../_ui_services/dataComponentDialog.compone
  */
 @Component({
 	templateUrl: 'dataComponentPrintDialog.component.html',
+	styleUrls: ['../nmcestyles.css']
 })
 export class DataComponentPrintDialog extends DataComponentDialog {
 	@ViewChild('htmlPrintContent', { static: false }) htmlContentElement: ElementRef;

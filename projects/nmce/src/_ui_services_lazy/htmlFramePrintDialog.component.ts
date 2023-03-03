@@ -14,6 +14,7 @@ import { DialogSize } from '../_ui_services/types';
  */
 @Component({
 	templateUrl: 'htmlFramePrintDialog.component.html',
+	styleUrls: ['../nmcestyles.css']
 })
 export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
 	constructor(
@@ -36,6 +37,7 @@ export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
  */
 @Component({
 	templateUrl: 'htmlFramePrintDialog.component.html',
+	styleUrls: ['../nmcestyles.css']
 })
 export class HtmlHRefFramePrintDialogComponent extends HtmlHRefFrameDialogComponent {
 	/**

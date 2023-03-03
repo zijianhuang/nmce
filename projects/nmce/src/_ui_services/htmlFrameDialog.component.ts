@@ -49,8 +49,8 @@ export class HtmlFrameDialogComponent implements AfterViewInit {
  * Contain HTML content loaded from a url, used in HtmlHReflDialogService. If there's an error during loading, the error will be displayed inn the dialog body.
  */
 @Component({
-
 	templateUrl: 'htmlFrameDialog.component.html',
+	styleUrls: ['../nmcestyles.css']
 })
 export class HtmlHRefFrameDialogComponent implements AfterViewInit {
 	title: string;

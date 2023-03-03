@@ -14,6 +14,7 @@ import { DialogSize } from '../_ui_services/types';
  */
 @Component({
 	templateUrl: 'htmlPrintDialog.component.html',
+	styleUrls: ['../nmcestyles.css']
 })
 export class HtmlPrintDialogComponent extends HtmlDialogComponent {
 	constructor(
@@ -39,6 +40,7 @@ export class HtmlPrintDialogComponent extends HtmlDialogComponent {
  */
 @Component({
 	templateUrl: 'htmlPrintDialog.component.html',
+	styleUrls: ['../nmcestyles.css']
 })
 export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 	/**
@@ -67,6 +69,7 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 
 @Component({
 	templateUrl: 'htmlImgPrintDialog.component.html',
+	styleUrls:['../nmcestyles.css']
 })
 export class HtmlImgPrintDialogComponent extends HtmlImgDialogComponent {
 	constructor(

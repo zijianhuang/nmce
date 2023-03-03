@@ -25,7 +25,7 @@ export const LOG_DIALOG_OPTIONS = new InjectionToken<MessageDialogOptions>('Dial
  */
 @Component({
 	templateUrl: 'logDialog.component.html',
-	styleUrls: ['../styles.css']
+	styleUrls: ['../nmcestyles.css']
 })
 export class LogDialogComponent implements AfterViewInit {
 

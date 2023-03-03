@@ -10,6 +10,7 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 
 	selector: 'textInput',
 	templateUrl: 'textInput.component.html',
+	styleUrls: ['../nmcestyles.css']
 })
 export class TextInputComponent {
 	@Input()

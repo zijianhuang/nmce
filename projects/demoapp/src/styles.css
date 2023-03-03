@@ -660,16 +660,6 @@ table.for-print tbody td {
 	vertical-align: top;
 }
 
-img.max-width-auto-height {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-img.original-size {
-	-webkit-user-select: none;
-	margin: auto;
-}
-
 /* #endregion */
 
 /* #region report */
@@ -700,6 +690,53 @@ ul.list-style-alpha {
 
 
 /* #endregion */
+
+
+/* For block container such as mat-dialog-title which is at odd against flex. */
+.block-items-gap-1 > * {
+	margin-left: 1em;
+}
+
+	.block-items-gap-1 > *:first-child {
+		margin-left: 0em;
+	}
+
+.top-margin-half {
+	margin-top: 0.5em;
+}
+
+
+/* You can add global styles to this file, and also import other style files */
+.alert-success {
+	background-color: #dff0d8;
+	border-color: #d0e9c6;
+	color: #3c763d;
+}
+
+
+.alert-info {
+	background-color: #d9edf7;
+	border-color: #bcdff1;
+	color: #31708f;
+}
+
+
+.alert-warning {
+	background-color: #fcf8e3;
+	border-color: #faf2cc;
+	color: #8a6d3b;
+}
+
+.alert-danger {
+	background-color: #f2dede;
+	border-color: #ebcccc;
+	color: #a94442;
+}
+
+iframe.frame-dialog-content {
+	width: 75vw;
+	height: 45vh;
+}
 
 
 /* For block container such as mat-dialog-title which is at odd against flex. */
@@ -1376,3 +1413,14 @@ ul.list-style-alpha {
 }
 
 /* #endregion */
+
+
+img.max-width-auto-height {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+img.original-size {
+	-webkit-user-select: none;
+	margin: auto;
+}

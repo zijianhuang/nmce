@@ -10,6 +10,7 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  */
 @Component({
 	templateUrl: './itemListDialog.component.html',
+	styleUrls: ['../nmcestyles.css']
 })
 export class ItemListDialogComponent {
 	title: string;
