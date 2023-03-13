@@ -32,7 +32,7 @@
 		</mat-form-field>
 		<mat-form-field *ngIf="!emailMessage?.isHtml" class="fx-full-width">
 			<mat-label>Message</mat-label>
-			<textarea matInput matTextareaAutosize [(ngModel)]="emailMessage.body" name="body" type="text" matAutosizeMinRows=2 matAutosizeMaxRows=6></textarea>
+			<textarea matInput cdkTextareaAutosize [(ngModel)]="emailMessage.body" name="body" type="text" cdkAutosizeMinRows=2 cdkAutosizeMaxRows=6></textarea>
 		</mat-form-field>
 	</form>
 	<angular-editor *ngIf="emailMessage?.isHtml" name="body" [formControl]="noteControl" [config]="config"></angular-editor>

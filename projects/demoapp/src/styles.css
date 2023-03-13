@@ -898,6 +898,7 @@ iframe.frame-dialog-content {
 }
 
 .line-ellipsis {
+	display: block;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;

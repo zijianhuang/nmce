@@ -1,11 +1,11 @@
-<h1 mat-dialog-title class="block-items-gap-1">
+<h1 mat-dialog-title class="block-items-gap-1 line-ellipsis">
 	<button *ngIf="useBackButton" type="button" mat-mini-fab color="any" matDialogClose aria-label="Close">
 		<mat-icon>arrow_back</mat-icon>
 	</button>
-	<span class="fx-align-start">{{title}}</span>
 	<button mat-mini-fab (click)="print()">
 		<mat-icon>print</mat-icon>
 	</button>
+	<span>{{title}}</span>
 </h1>
 <mat-dialog-content>
 	<html>

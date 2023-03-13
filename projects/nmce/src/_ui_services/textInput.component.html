@@ -8,7 +8,7 @@
             <input matInput [(ngModel)]="text" name="text" type="text" />
         </mat-form-field>
         <mat-form-field *ngIf="!label" class="fx-full-width">
-            <textarea matInput matTextareaAutosize [(ngModel)]="text" name="text" type="text" matAutosizeMinRows="2" matAutosizeMaxRows="5" autofocus></textarea>
+            <textarea matInput cdkTextareaAutosize [(ngModel)]="text" name="text" type="text" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" autofocus></textarea>
         </mat-form-field>
     </form>
 </mat-dialog-content>

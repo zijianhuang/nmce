@@ -7,6 +7,7 @@ import {
 	DataComponentPrintDialog, DataComponentPrintDialogService, HtmlFramePrintDialogComponent,
 	HtmlFramePrintDialogService, HtmlHRefFramePrintDialogComponent, HtmlHRefFramePrintDialogService, HtmlHRefPrintDialogComponent, HtmlHRefPrintDialogService, HtmlImgPrintDialogComponent, HtmlImgPrintDialogService, HtmlPrintDialogComponent, HtmlPrintDialogService, LazyComponentDialogService, LazyComponentPrintDialogService
 } from './index';
+import { ProgressComponent, ProgressDialogService } from './progress.component';
 
 
 /**
@@ -24,12 +25,15 @@ import {
 
 	declarations: [
 
-		HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent, DataComponentPrintDialog, HtmlPrintDialogComponent, HtmlHRefPrintDialogComponent, HtmlImgPrintDialogComponent,
+		HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent, DataComponentPrintDialog, HtmlPrintDialogComponent, 
+		HtmlHRefPrintDialogComponent, HtmlImgPrintDialogComponent,
+		ProgressComponent,
 		//JsonComponent,
 	],
 
 	exports: [
-		HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent, DataComponentPrintDialog, HtmlPrintDialogComponent, HtmlHRefPrintDialogComponent,
+		HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent, DataComponentPrintDialog, HtmlPrintDialogComponent, 
+		HtmlHRefPrintDialogComponent, ProgressComponent,
 		//JsonComponent,
 	],
 	providers: [
@@ -37,6 +41,7 @@ import {
 		//JsonDialogService,
 		LazyComponentPrintDialogService,
 		LazyComponentDialogService,
+		ProgressDialogService,
 	],
 
 })

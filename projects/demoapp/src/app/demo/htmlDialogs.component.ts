@@ -40,7 +40,7 @@ export class HtmlDialogsComponent implements DataComponent {
 		if (this.useLargeHtml) {
 			this.http.get('https://jsonapi.org/extensions/', { headers: { Accept: 'text/html' }, responseType: 'text' }).subscribe(
 				s => this.htmlDialogService.open({
-					title: 'HTML Large Content',
+					title: 'HTML Large Content  AAAA bbbbbbbbbbb  ccccccccc dddddddd',
 					htmlContent: s,
 					size: this.sizeSelectedControl.value,
 					useBackButton: this.useBackButton
@@ -49,7 +49,7 @@ export class HtmlDialogsComponent implements DataComponent {
 			);
 		} else {
 			this.htmlDialogService.open({
-				title: 'HTML Content',
+				title: 'HTML Content  AAAA bbbbbbbbbbb  ccccccccc dddddddd',
 				htmlContent: 'Info <strong>OK <a target="_blank" href="https://material.angular.io/components/categories">Please check this.</a></strong>',
 				size: this.sizeSelectedControl.value,
 				useBackButton: this.useBackButton
@@ -59,7 +59,7 @@ export class HtmlDialogsComponent implements DataComponent {
 
 	showHtmlHRefDialog() {
 		this.htmlHRefDialogService.open({
-			title: 'HTML HRef Content',
+			title: 'HTML HRef Content  AAAA bbbbbbbbbbb  ccccccccc dddddddd',
 			url: 'https://jsonapi.org/extensions/',
 			size: this.sizeSelectedControl.value,
 			useBackButton: this.useBackButton
@@ -68,7 +68,7 @@ export class HtmlDialogsComponent implements DataComponent {
 
 	showHtmlHRefFrameDialog() {
 		this.htmlHRefFrameDialogService.open({
-			title: 'HTML HRef Frame Content',
+			title: 'HTML HRef Frame Content  AAAA bbbbbbbbbbb  ccccccccc dddddddd',
 			url: 'https://jsonapi.org/extensions/',
 			size: this.sizeSelectedControl.value,
 			useBackButton: this.useBackButton
@@ -77,7 +77,7 @@ export class HtmlDialogsComponent implements DataComponent {
 
 	showHtmlFrameDialog() {
 		this.htmlFrameDialogService.open({
-			title: 'HTML Frame Content',
+			title: 'HTML Frame Content  AAAA bbbbbbbbbbb  ccccccccc dddddddd',
 			htmlContent: 'Info <strong>OK <a target="_blank" href="https://material.angular.io/components/categories">Please check this.</a></strong>',
 			size: this.sizeSelectedControl.value,
 			useBackButton: this.useBackButton
@@ -88,7 +88,7 @@ export class HtmlDialogsComponent implements DataComponent {
 		const imgUrl = this.useLargeImg ? 'https://upload.wikimedia.org/wikipedia/commons/7/75/Anselm_Feuerbach_-_Das_Gastmahl._Nach_Platon_%28zweite_Fassung%29_-_Google_Art_Project.jpg'
 			: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Platon.png';
 		this.htmlImgDialogService.open({
-			title: 'HTML Img Content',
+			title: 'HTML Img Content of small or big images from a link or with long name',
 			imageUrl: imgUrl,
 			size: this.sizeSelectedControl.value,
 			useBackButton: this.useBackButton
@@ -100,7 +100,7 @@ export class HtmlDialogsComponent implements DataComponent {
 		if (this.useLargeHtml) {
 			this.http.get('https://jsonapi.org/extensions/', { headers: { Accept: 'text/html' }, responseType: 'text' }).subscribe(
 				s => this.htmlPrintDialogService.open({
-					title: 'HTML Large Content',
+					title: 'HTML Large Content AAAA bbbbbbbbbbb  ccccccccc dddddddd',
 					htmlContent: s,
 					size: this.sizeSelectedControl.value,
 					useBackButton: this.useBackButton
@@ -109,7 +109,7 @@ export class HtmlDialogsComponent implements DataComponent {
 			);
 		} else {
 			this.htmlPrintDialogService.open({
-				title: 'HTML Content',
+				title: 'HTML Content  AAAA bbbbbbbbbbb  ccccccccc dddddddd',
 				htmlContent: 'Info <strong>OK <a target="_blank" href="https://material.angular.io/components/categories">Please check this.</a></strong>',
 				size: this.sizeSelectedControl.value,
 				useBackButton: this.useBackButton
@@ -119,7 +119,7 @@ export class HtmlDialogsComponent implements DataComponent {
 
 	showHtmlHRefPrintDialog() {
 		this.htmlHRefPrintDialogService.open({
-			title: 'HTML HRef Content',
+			title: 'HTML HRef Content  AAAA bbbbbbbbbbb  ccccccccc dddddddd',
 			url: 'https://jsonapi.org/extensions/',
 			size: this.sizeSelectedControl.value,
 			useBackButton: this.useBackButton
@@ -128,7 +128,7 @@ export class HtmlDialogsComponent implements DataComponent {
 
 	showHtmlHRefFramePrintDialog() {
 		this.htmlHRefFramePrintDialogService.open({
-			title: 'HTML HRef Frame Content',
+			title: 'HTML HRef Frame Content  AAAA bbbbbbbbbbb  ccccccccc dddddddd',
 			url: 'https://jsonapi.org/extensions/',
 			size: this.sizeSelectedControl.value,
 			useBackButton: this.useBackButton
@@ -137,7 +137,7 @@ export class HtmlDialogsComponent implements DataComponent {
 
 	showHtmlFramePrintDialog() {
 		this.htmlFramePrintDialogService.open({
-			title: 'HTML Frame Content',
+			title: 'HTML Frame Content  AAAA bbbbbbbbbbb  ccccccccc dddddddd',
 			htmlContent: 'Info <strong>OK <a target="_blank" href="https://material.angular.io/components/categories">Please check this.</a></strong>',
 			size: this.sizeSelectedControl.value,
 			useBackButton: this.useBackButton
@@ -148,7 +148,7 @@ export class HtmlDialogsComponent implements DataComponent {
 		const imgUrl = this.useLargeImg ? 'https://upload.wikimedia.org/wikipedia/commons/7/75/Anselm_Feuerbach_-_Das_Gastmahl._Nach_Platon_%28zweite_Fassung%29_-_Google_Art_Project.jpg'
 			: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Platon.png';
 		this.htmlImgPrintDialogService.open({
-			title: 'HTML Img Content',
+			title: 'HTML Img Content  AAAA bbbbbbbbbbb  ccccccccc dddddddd',
 			imageUrl: imgUrl,
 			size: this.sizeSelectedControl.value,
 			useBackButton: this.useBackButton

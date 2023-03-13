@@ -1,0 +1,12 @@
+<div mat-dialog-title>
+	<strong class="fx-align-start">{{ title }}</strong>
+</div>
+<mat-dialog-content>
+	<div>
+		<mat-progress-bar [mode]="progressBarMode" [value]="progressBarValue" [bufferValue]="progressBarBufferValue"></mat-progress-bar>
+	</div>
+	<p>{{ body }}</p>
+</mat-dialog-content>
+<mat-dialog-actions [align]="actionsAlign">
+	<button *ngIf="cancelCallback && progressBarValue < 100" mat-raised-button (click)="cancel()">Cancel</button>
+</mat-dialog-actions>

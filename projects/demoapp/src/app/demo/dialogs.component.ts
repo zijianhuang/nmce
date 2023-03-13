@@ -2,10 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
-	AlertService, DataComponentPrintDialogService, LazyComponentDialogService, TextDialogService, TextHReflDialogService
+	AlertService, DataComponentPrintDialogService, LazyComponentDialogService, TextDialogService, TextHReflDialogService,
+	ProgressDialogService,
 } from 'nmce';
 import { JsonDiffDialogService } from 'nmce-json-diff';
 import { HtmlDialogsComponent } from './htmlDialogs.component';
+import { ProgressBarMode } from '@angular/material/progress-bar';
+import { timeout } from 'rxjs';
 
 /**
  * Fill up the user registration form and register. Then roles checkboxes will appear.
@@ -39,6 +42,7 @@ export class DialogsComponent implements OnInit {
 		private jsonDiffDialogService: JsonDiffDialogService,
 		private dataComponentPrintDialogService: DataComponentPrintDialogService,
 		private lazyComponentDialogService: LazyComponentDialogService,
+		private progressDialogService: ProgressDialogService,
 	) {
 		this.dialogSelectedControl.valueChanges.subscribe(
 			v => {
@@ -206,4 +210,62 @@ DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ddddddddddddddddddddddddddddddddd
 		this.dataComponentPrintDialogService.open('Print NG component', HtmlDialogsComponent, '1234567',
 			{ autofocus: true, fullScreen: this.sizeSelectedControl.value == 1 }).subscribe();
 	}
+
+	showProgressDialogIndeterminate(){
+		this.progressDialogService.open('Email sending', 'Please wait... Closing in 3 seconds', 'indeterminate').subscribe();
+		setTimeout(() => {
+			this.progressDialogService.closeIfOpened();
+		}, 3000);
+	}
+
+	showProgressDialog(){
+		this.progressDialogService.open('Uploading...', 'Ready to upload...', 'buffer', 100).subscribe();
+		setTimeout(() => {
+			this.progressDialogService.set({message: '10%', loaded: 10});
+		}, 1000);
+
+		setTimeout(() => {
+			this.progressDialogService.set({message: '50%', loaded: 50});
+		}, 2000);
+
+		setTimeout(() => {
+			this.progressDialogService.set({message: '70%', loaded: 70});
+		}, 3000);
+
+		setTimeout(() => {
+			this.progressDialogService.set({message: '10%', loaded: 100});
+		}, 4000);
+
+		setTimeout(() => {
+			this.progressDialogService.closeIfOpened();
+		}, 4500);
+	}
+
+	showProgressDialogToBeCancelled(){
+		this.progressDialogService.open('Uploading...', 'Ready to upload...', 'buffer', 100).subscribe();
+		this.progressDialogService.setCancelCallback(()=>{
+			this.progressDialogService.closeIfOpened();
+		})
+		setTimeout(() => {
+			this.progressDialogService.set({message: '10%', loaded: 10});
+		}, 1000);
+
+		setTimeout(() => {
+			this.progressDialogService.set({message: '50%', loaded: 50});
+		}, 2000);
+
+		setTimeout(() => {
+			this.progressDialogService.set({message: '70%', loaded: 70});
+		}, 3000);
+
+		setTimeout(() => {
+			this.progressDialogService.set({message: '10%', loaded: 100});
+		}, 4000);
+
+		setTimeout(() => {
+			this.progressDialogService.closeIfOpened();
+		}, 4500);
+	}
+
+	
 }

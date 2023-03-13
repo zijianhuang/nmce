@@ -5,6 +5,7 @@ import {
 	Type, ViewChild
 } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AlertService } from '../_ui_services/alert.service';
 import { HtmlPrintFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
 import { DataComponent } from '../_types/DataComponent';
@@ -33,7 +34,9 @@ export class DataComponentPrintDialog extends DataComponentDialog {
 		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		public dialogRef: MatDialogRef<DataComponentDialog>,
 		protected componentFactoryResolver: ComponentFactoryResolver,
-		private location: Location, @Inject('print.cssUrl') private cssUrl: string
+		private location: Location, 
+		@Inject('print.cssUrl') private cssUrl: string,
+		private alertService: AlertService,
 	) {
 		super(dialogData, actionsAlign, dialogRef, componentFactoryResolver);
 	}
@@ -41,6 +44,28 @@ export class DataComponentPrintDialog extends DataComponentDialog {
 	print() {
 		HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(this.cssUrl));
 	}
+
+	copyToClipboard(){
+		const htmlText = this.htmlContentElement.nativeElement.innerHTML;
+		const clipboardItem = new ClipboardItem({ //thanks to https://www.nikouusitalo.com/blog/why-isnt-clipboard-write-copying-my-richtext-html/
+			'text/plain': new Blob(
+				[htmlText],
+				{ type: 'text/plain' }
+			),
+			'text/html': new Blob(
+				[htmlText],
+				{ type: 'text/html' }
+			),
+		});
+
+		navigator.clipboard.write([clipboardItem]).then(
+			() => {
+				this.alertService.success('Copied to clipboard');
+			},
+			() => {
+				this.alertService.warn('Something wrong');
+			}
+		);	}
 }
 
 /**
