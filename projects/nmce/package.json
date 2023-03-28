@@ -1,6 +1,6 @@
 {
   "name": "nmce",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": {"name": "Z"},
   "description": "Common Angular Material extended components and services used in business applications.",
   "license": "MIT",

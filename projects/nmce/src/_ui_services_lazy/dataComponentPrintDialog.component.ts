@@ -31,10 +31,10 @@ export class DataComponentPrintDialog extends DataComponentDialog {
 			isSmallScreen: boolean,
 			fullScreen: boolean
 		},
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string,
 		public dialogRef: MatDialogRef<DataComponentDialog>,
 		protected componentFactoryResolver: ComponentFactoryResolver,
-		private location: Location, 
+		private location: Location,
 		@Inject('print.cssUrl') private cssUrl: string,
 		private alertService: AlertService,
 	) {
@@ -45,7 +45,7 @@ export class DataComponentPrintDialog extends DataComponentDialog {
 		HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(this.cssUrl));
 	}
 
-	copyToClipboard(){
+	copyToClipboard() {
 		const htmlText = this.htmlContentElement.nativeElement.innerHTML;
 		const clipboardItem = new ClipboardItem({ //thanks to https://www.nikouusitalo.com/blog/why-isnt-clipboard-write-copying-my-richtext-html/
 			'text/plain': new Blob(
@@ -65,7 +65,8 @@ export class DataComponentPrintDialog extends DataComponentDialog {
 			() => {
 				this.alertService.warn('Something wrong');
 			}
-		);	}
+		);
+	}
 }
 
 /**

@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, Injectable, Renderer2 } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SafeUrl } from '@angular/platform-browser';
 import { HtmlPrintFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from '../_ui_services/baseTypes';
@@ -73,7 +74,7 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 })
 export class HtmlImgPrintDialogComponent extends HtmlImgDialogComponent {
 	constructor(
-		@Inject(MAT_DIALOG_DATA) public data: { title: string, imageUrl: string, useBackButton: boolean },
+		@Inject(MAT_DIALOG_DATA) public data: { title: string, imageUrl: string | SafeUrl, useBackButton: boolean },
 		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		public dialogRef: MatDialogRef<HtmlImgDialogComponent>, private location: Location, @Inject('print.cssUrl') private cssUrl: string) {
 		super(data, actionsAlign, dialogRef);
@@ -135,7 +136,7 @@ export class HtmlImgPrintDialogService extends HtmlBaseDialogService<HtmlImgPrin
 	* @param title title of the dialog
 	* @param htmlContent html content to be rendered in the dialog body
 	*/
-	open(data: { title: string, imageUrl: string, size: DialogSize, useBackButton?: boolean }): Observable<any> {
+	open(data: { title: string, imageUrl: string | SafeUrl, size: DialogSize, useBackButton?: boolean }): Observable<any> {
 		return super.displayComponent(HtmlImgPrintDialogComponent, data);
 	}
 }

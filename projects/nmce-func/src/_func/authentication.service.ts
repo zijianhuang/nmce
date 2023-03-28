@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
  */
 @Injectable()
 export class AuthenticationService {
-	userName: string;
+	username?: string;
 
 	constructor(@Inject('auth.tokenUrl') private authUri: string, private http: HttpClient) {
 	}
@@ -18,9 +18,11 @@ export class AuthenticationService {
 	 * @param username
 	 * @param password
 	 */
-	login(username: string, password: string) {
+	login(username: string, password: string, headers?: any) {
 		const body = 'username=' + username + '&password=' + password + '&grant_type=password';
-		const options = { headers: { 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8' } };
+		const contentTypeHeader = { 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8' };
+		const mergedHeaders = headers ? { ...contentTypeHeader, ...headers } : contentTypeHeader;
+		const options = { headers: mergedHeaders };
 		return this.http.post<{
 			access_token: string;
 			expires: string;
@@ -36,7 +38,7 @@ export class AuthenticationService {
 					//sessionStorage.setItem('token_type', response.token_type);
 					//sessionStorage.setItem('issued', response.issued);
 					//sessionStorage.setItem('expires', response.expires); // often up to 2 weeks by default in Asp.net identity 2.
-					this.userName = response.username;
+					this.username = response.username;
 					//APP_STATUSES.userName = this.userName;
 					return response;
 				}

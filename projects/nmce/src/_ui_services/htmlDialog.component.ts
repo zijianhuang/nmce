@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, Inject, Injectable, Renderer2, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SafeUrl } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 import { HtmlBaseDialogService } from './htmlBaseDialogService';
@@ -119,7 +120,7 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 export class HtmlImgDialogComponent {
 	title: string;
 
-	imageUrl: string;
+	imageUrl: string | SafeUrl;
 
 	useBackButton: boolean;
 
@@ -138,7 +139,7 @@ export class HtmlImgDialogComponent {
 	@ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
 
 	constructor(
-		@Inject(MAT_DIALOG_DATA) public data: { title: string, imageUrl: string, useBackButton: boolean },
+		@Inject(MAT_DIALOG_DATA) public data: { title: string, imageUrl: string | SafeUrl, useBackButton: boolean },
 		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
 		public dialogRef: MatDialogRef<HtmlImgDialogComponent>) {
 		this.title = data.title;
@@ -205,7 +206,7 @@ export class HtmlImgDialogService extends HtmlBaseDialogService<HtmlImgDialogCom
 	* @param title title of the dialog
 	* @param imageUrl html content to be rendered in the dialog body
 	*/
-	open(data: { title?: string, imageUrl?: string, size?: DialogSize, useBackButton?: boolean }): Observable<any> {
+	open(data: { title?: string, imageUrl?: string | SafeUrl, size?: DialogSize, useBackButton?: boolean }): Observable<any> {
 		return super.displayComponent(HtmlImgDialogComponent, data);
 	}
 }
