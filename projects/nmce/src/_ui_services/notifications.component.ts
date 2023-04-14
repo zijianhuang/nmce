@@ -1,5 +1,6 @@
-import { Component, Injectable } from '@angular/core';
-import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { Component, Inject, Injectable } from '@angular/core';
+import { MatBottomSheet, MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { ActionSheetItemSubjectService, RootInjectorGuard } from './baseTypes';
 import { ActionSheetItem } from './types';
@@ -45,8 +46,11 @@ export class NotificationsComponent {
 		return NotificationsCache.notificationsQueue;
 	}
 
-	constructor(public sheetRef: MatBottomSheetRef<NotificationsComponent>
+	title='For actionable items, please save current works before action';
+
+	constructor(@Inject(MAT_BOTTOM_SHEET_DATA) data: {title: string}, public sheetRef: MatBottomSheetRef<NotificationsComponent>
 	) {
+		this.title=data.title;
 	}
 
 	handleAction(item: ActionSheetItem) {
@@ -108,9 +112,10 @@ export class NotificationsService extends RootInjectorGuard {
 	 * @param disableClose 
 	 * @returns clicked item
 	 */
-	open(disableClose = false): Observable<ActionSheetItem> {
+	open(title: string, disableClose = false): Observable<ActionSheetItem> {
 		this.bottomSheetRef = this.bottomSheet.open(NotificationsComponent, {
 			disableClose: disableClose,
+			data: {title: title},
 		});
 
 		return this.bottomSheetRef.afterDismissed();

@@ -99,6 +99,7 @@ export class DataComponentDialogService {
 				disableClose: true,
 				minWidth: (config && config.fullScreen) ? '98vw' : (isSmallScreen ? '98vw' : undefined),
 				minHeight: (config && config.fullScreen) ? '98vh' : undefined,
+				panelClass: 'dialog-full-content-height',
 				autoFocus: config && config.autofocus,
 				data: {
 					title: title,
