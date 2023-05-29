@@ -205,7 +205,7 @@ export class InputDialogsComponent implements OnInit {
 	}
 
 	showOptionList() {
-		this.optionListDialogService.open('Someone ask:', ['One', 'Two', 'Three']).subscribe(
+		this.optionListDialogService.open('Someone ask:', ['One 1', 'Two 2', 'Three 3']).subscribe(
 			r => {
 				this.alertService.info(`${r} selected`, true);
 			}

@@ -14,6 +14,7 @@ import { DialogSize } from '../_ui_services/types';
  * Contain HTML content, used in HtmlDialogService.
  */
 @Component({
+	selector: 'html-print-dialog',
 	templateUrl: 'htmlPrintDialog.component.html',
 	styleUrls: ['../nmcestyles.css']
 })
@@ -40,6 +41,7 @@ export class HtmlPrintDialogComponent extends HtmlDialogComponent {
  * Contain HTML content loaded from a url, used in HtmlHReflDialogService. If there's an error during loading, the error will be displayed inn the dialog body.
  */
 @Component({
+	selector: 'html-href-print-dialog',
 	templateUrl: 'htmlPrintDialog.component.html',
 	styleUrls: ['../nmcestyles.css']
 })
@@ -69,6 +71,7 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 }
 
 @Component({
+	selector: 'html-img-print-dialog',
 	templateUrl: 'htmlImgPrintDialog.component.html',
 	styleUrls:['../nmcestyles.css']
 })
