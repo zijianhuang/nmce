@@ -5,11 +5,19 @@
 		<mat-icon>clear_all</mat-icon>
 	</button>
 </h1>
-<mat-action-list>
+<mat-list>
 	<mat-list-item *ngFor="let item of items" (click)="handleAction(item)">
-		<button mat-icon-button (click)="remove(item)" matTooltip="Remove item">
-			<mat-icon>remove_circle_outline</mat-icon>
-		</button>
-		{{getDigest(item.message)}}
+		<span *ngIf="item.actionLabel" matListItemTitle>
+			<button mat-icon-button (click)="remove(item)" matTooltip="Remove item">
+				<mat-icon>remove_circle_outline</mat-icon>
+			</button>
+			{{item.actionLabel}}
+		</span>
+		<span matListItemLine>
+			<button *ngIf="!item.actionLabel" mat-icon-button (click)="remove(item)" matTooltip="Remove item">
+				<mat-icon>remove_circle_outline</mat-icon>
+			</button>
+			{{getDigest(item.message)}}
+		</span>
 	</mat-list-item>
-</mat-action-list>
+</mat-list>

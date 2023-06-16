@@ -70,9 +70,29 @@ export class ComponentsComponent implements OnInit {
 		this.actionSheetItemSubjectService.emit({
 			actionType: 'test',
 			actionId: id,
-			actionLabel: 'Hey do something ' + id,
-			message: 'Find out more details' + id,
+			actionLabel: 'Hey do something s' + id,
+			message: 'Find out more ad dsfsdsadfsd sdfsdsdfsdffsdf sdfsdfsfdetails' + id,
 		});
+		
+		this.actionSheetItemSubjectService.emit({
+			actionType: 'another',
+			actionId: id,
+			message: 'kkk Find out more sdf sdfsadf sdafas asdfas sdafsddfsddetails no actionLabel' + id,
+		});
+		
+		this.actionSheetItemSubjectService.emit({
+			actionType: 'test',
+			actionId: id,
+			actionLabel: '222 Hey do something s' + id,
+			message: '222 Find out more ad dsfsdsadfsd sdfsdsdfsdffsdf sdfsdfsfdetails' + id,
+		});
+		
+		this.actionSheetItemSubjectService.emit({
+			actionType: 'another',
+			actionId: id,
+			message: '2222 kkk Find out more sdf sdfsadf sdafas asdfas sdafsddfsddetails no actionLabel' + id,
+		});
+		
 	}
 }
 
