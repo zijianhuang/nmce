@@ -27,7 +27,7 @@ export class AppComponent implements OnDestroy {
   title = 'demoapp';
 
   notificationsState = 'zero';
-	private unsubscribe: Subject<void> = new Subject();
+  private unsubscribe: Subject<void> = new Subject();
 
   get notificationsCount() {
     if (this.notificationsService.items.length === 0) { //this count is associated to ngIf in html, so called frequently by NG runtime.
@@ -56,7 +56,11 @@ export class AppComponent implements OnDestroy {
       if (actionItem) {
         switch (actionItem.actionType) {
           case 'test':
-            this.alertService.info('test ok' + actionItem.actionId);
+            if (actionItem.actionLabel) {
+              this.alertService.notify(actionItem.message!, actionItem.actionLabel);
+            } else {
+              this.alertService.notify(actionItem.message!);
+            }
             break;
           default:
             break;
@@ -69,7 +73,7 @@ export class AppComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
-		this.unsubscribe.next();
-		this.unsubscribe.complete();
-	}
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
+  }
 }

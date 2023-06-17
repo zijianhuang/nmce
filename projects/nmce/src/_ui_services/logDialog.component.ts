@@ -85,6 +85,8 @@ export class LogDialogComponent implements AfterViewInit {
 				case 'info': return 'Info';
 				case 'warning': return 'Warning';
 				case 'error': return 'Error';
+				case 'notify' : return 'Notification';
+				case 'response': return 'Response';
 				default: return 'Info';
 			}
 		}
@@ -99,7 +101,8 @@ export class LogDialogComponent implements AfterViewInit {
 				'success': 'star',
 				'warning': 'warning',
 				'error': 'error',
-				'response': 'chat'
+				'response': 'chat',
+				'notify' : 'notifications'
 			}
 
 			return this.message.type ? iconMapping[this.message.type] : undefined;
@@ -115,7 +118,8 @@ export class LogDialogComponent implements AfterViewInit {
 				'success': 'primary',
 				'warning': 'accent',
 				'error': 'warn',
-				'response': 'primary'
+				'response': 'primary',
+				'notify' : 'primary'
 			}
 
 			return this.message.type ? colorMapping[this.message.type] : undefined;

@@ -113,6 +113,10 @@ export class AlertService extends RootInjectorGuard {
 		this.errorOrWarning(error, 'warning', snackBar, subtitle);
 	}
 
+	notify(message: string, subtitle?: string, contentType: MessageContentType = 'text') {
+		this.subject.next({ type: 'notify', text: message, snackBar: false, subtitle: subtitle, contentType: contentType });
+	}
+
 	private errorOrWarning(error: HttpErrorResponse | any, traceLevel: MessageType, snackBar = false, subtitle?: string) {
 		// In a real world app, we might use a remote logging infrastructure
 		let errMsg: string;

@@ -7,17 +7,25 @@
 </h1>
 <mat-list>
 	<mat-list-item *ngFor="let item of items" (click)="handleAction(item)">
-		<span *ngIf="item.actionLabel" matListItemTitle>
-			<button mat-icon-button (click)="remove(item)" matTooltip="Remove item">
-				<mat-icon>remove_circle_outline</mat-icon>
-			</button>
-			{{item.actionLabel}}
-		</span>
-		<span matListItemLine>
-			<button *ngIf="!item.actionLabel" mat-icon-button (click)="remove(item)" matTooltip="Remove item">
-				<mat-icon>remove_circle_outline</mat-icon>
-			</button>
-			{{getDigest(item.message)}}
-		</span>
+		<ng-template [ngIf]="item.actionLabel" [ngIfElse]="singleLine">
+			<span matListItemTitle>
+				<button mat-icon-button (click)="remove(item)" matTooltip="Remove item">
+					<mat-icon>remove_circle_outline</mat-icon>
+				</button>
+				{{item.actionLabel}}
+			</span>
+			<span matListItemLine>
+				{{getDigest(item.message)}}
+			</span>
+		</ng-template>
+		<ng-template #singleLine>
+			<span matListItemTitle>
+				<button mat-icon-button (click)="remove(item)" matTooltip="Remove item">
+					<mat-icon>remove_circle_outline</mat-icon>
+				</button>
+				{{getDigest(item.message)}}
+			</span>
+		</ng-template>
+
 	</mat-list-item>
 </mat-list>

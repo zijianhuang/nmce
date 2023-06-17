@@ -75,7 +75,7 @@ export class ComponentsComponent implements OnInit {
 		});
 		
 		this.actionSheetItemSubjectService.emit({
-			actionType: 'another',
+			actionType: 'test',
 			actionId: id,
 			message: 'kkk Find out more sdf sdfsadf sdafas asdfas sdafsddfsddetails no actionLabel' + id,
 		});
@@ -88,7 +88,7 @@ export class ComponentsComponent implements OnInit {
 		});
 		
 		this.actionSheetItemSubjectService.emit({
-			actionType: 'another',
+			actionType: 'test',
 			actionId: id,
 			message: '2222 kkk Find out more sdf sdfsadf sdafas asdfas sdafsddfsddetails no actionLabel' + id,
 		});

@@ -28,7 +28,7 @@ export interface ActionSheetItem {
 }
 
 export type MessageContentType =  'text' | 'html' | 'json';
-export type MessageType='success' | 'info' | 'error' | 'warning' | 'response';
+export type MessageType='success' | 'info' | 'error' | 'warning' | 'response' | 'notify';
 
 export interface AlertSubjectMessage {
 	text?: string;
