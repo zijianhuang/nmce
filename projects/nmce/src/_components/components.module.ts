@@ -41,10 +41,6 @@ import {
 		PrintComponent,
 	],
 
-	entryComponents:[
-		AlertComponent,
-	],
-
 	providers: [
 	],
 

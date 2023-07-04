@@ -27,12 +27,17 @@ export class RootInjectorGuard { //thanks to https://indepth.dev/posts/1148/how-
  */
  export abstract class AnySubjectService<T> {
 	private subject = new Subject<T>();
+	private subjectObservable: Observable<T>;
+
+	constructor(){
+		this.subjectObservable= this.subject.asObservable();
+	}
 
 	/**
 	 * For subscribing the event. The component that subscribes the event should unsubscribe in ngOnDestroy.
 	 */
 	getMessage(): Observable<T> {
-		return this.subject.asObservable();
+		return this.subjectObservable;
 	}
 
 	/**
@@ -49,16 +54,18 @@ export class RootInjectorGuard { //thanks to https://indepth.dev/posts/1148/how-
  */
 export abstract class GlobalSubjectService<T> extends RootInjectorGuard {
 	private subject = new Subject<T>();
+	private subjectObservable: Observable<T>;
 
 	constructor(type: Type<any>) {
 		super(type);
+		this.subjectObservable= this.subject.asObservable();
 	}
 
 	/**
 	 * For subscribing the event. The component that subscribes the event should unsubscribe in ngOnDestroy.
 	 */
 	getMessage(): Observable<T> {
-		return this.subject.asObservable();
+		return this.subjectObservable;
 	}
 
 	/**
