@@ -4,7 +4,7 @@
 	<button *ngIf="!bccEnabled && !emailMessage?.bcc" mat-raised-button (click)="bccEnabled=true">BCC</button>
 </h1>
 <mat-dialog-content>
-	<form class="fx-layout-column">
+	<form class="fx-layout-column top-margin-half">
 		<mat-form-field class="fx-full-width">
 			<mat-label>To</mat-label>
 			<input matInput [(ngModel)]="emailMessage.to" name="to" type="email" />

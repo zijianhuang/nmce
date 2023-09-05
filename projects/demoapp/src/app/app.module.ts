@@ -10,6 +10,7 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NGMDModule } from './ngmd.module';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,12 @@ import { NGMDModule } from './ngmd.module';
       provide: DIALOG_ACTIONS_ALIGN,
       useValue: 'center'
     },
+
+    {
+			provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {
+				appearance: 'outline'
+			}
+		},
 
     NotificationsService,
     ActionSheetItemSubjectService,
