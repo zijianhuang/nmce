@@ -1,6 +1,6 @@
 {
   "name": "nmce-pipes",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": {"name": "Z"},
   "description": "Common simple Angular pipes used in business applications.",
   "license": "MIT",

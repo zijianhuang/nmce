@@ -366,7 +366,7 @@
       }
     }
   },
-  "defaultProject": "nmce",
+
   "cli": {
     "analytics": false
   }

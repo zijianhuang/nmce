@@ -1,6 +1,6 @@
 {
   "name": "nmce-directives",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": {"name": "Z"},
   "description": "Common simple Angular directives used in business applications.",
   "license": "MIT",

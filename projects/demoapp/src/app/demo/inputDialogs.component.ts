@@ -123,7 +123,7 @@ export class InputDialogsComponent implements OnInit {
 		);
 	}
 	openLocalDocEditor() {
-		this.localDocEditorDialogService.open({ name: 'Somewhere', description: 'Planet', useUploadUrl: this.useUploadUrl }).subscribe(
+		this.localDocEditorDialogService.open({ name: 'Somewhere', description: 'Planet', useUploadUrl: this.useUploadUrl, noteLabel: 'abcde FG' }).subscribe(
 			r => {
 				if (r) {
 					this.htmlFileId = r.fileId;

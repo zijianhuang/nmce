@@ -4,38 +4,44 @@
 	<button *ngIf="!bccEnabled && !emailMessage?.bcc" mat-raised-button (click)="bccEnabled=true">BCC</button>
 </h1>
 <mat-dialog-content>
-	<form class="fx-layout-column top-margin-half">
-		<mat-form-field class="fx-full-width">
-			<mat-label>To</mat-label>
-			<input matInput [(ngModel)]="emailMessage.to" name="to" type="email" />
-			<button *ngIf="emailAddressesDialogService" mat-icon-button matPrefix (click)="pickToAddresses()">
-				<mat-icon>contact_mail</mat-icon>
-			</button>
-		</mat-form-field>
-		<mat-form-field *ngIf="ccEnabled || emailMessage.cc" class="fx-full-width">
-			<mat-label>CC</mat-label>
-			<input matInput [(ngModel)]="emailMessage.cc" name="cc" type="email" />
-			<button *ngIf="emailAddressesDialogService" mat-icon-button matPrefix (click)="pickCcAddresses()">
-				<mat-icon>contact_mail</mat-icon>
-			</button>
-		</mat-form-field>
-		<mat-form-field *ngIf="bccEnabled || emailMessage.bcc" class="fx-full-width">
-			<mat-label>BCC</mat-label>
-			<input matInput [(ngModel)]="emailMessage.bcc" name="bcc" type="email" />
-			<button *ngIf="emailAddressesDialogService" mat-icon-button matPrefix (click)="pickBccAddresses()">
-				<mat-icon>contact_mail</mat-icon>
-			</button>
-		</mat-form-field>
-		<mat-form-field class="fx-full-width">
-			<mat-label>Subject</mat-label>
-			<input matInput [(ngModel)]="emailMessage.subject" name="subject" type="text" />
-		</mat-form-field>
-		<mat-form-field *ngIf="!emailMessage?.isHtml" class="fx-full-width">
-			<mat-label>Message</mat-label>
-			<textarea matInput cdkTextareaAutosize [(ngModel)]="emailMessage.body" name="body" type="text" cdkAutosizeMinRows=2 cdkAutosizeMaxRows=6></textarea>
-		</mat-form-field>
-	</form>
-	<angular-editor *ngIf="emailMessage?.isHtml" name="body" [formControl]="noteControl" [config]="config"></angular-editor>
+	<p> </p>
+	<div class="top-margin-half">
+		<form class="fx-layout-column">
+			<mat-form-field class="fx-full-width">
+				<mat-label>To</mat-label>
+				<input matInput [(ngModel)]="emailMessage.to" name="to" type="email" />
+				<button *ngIf="emailAddressesDialogService" mat-icon-button matPrefix (click)="pickToAddresses()">
+					<mat-icon>contact_mail</mat-icon>
+				</button>
+			</mat-form-field>
+			<mat-form-field *ngIf="ccEnabled || emailMessage.cc" class="fx-full-width">
+				<mat-label>CC</mat-label>
+				<input matInput [(ngModel)]="emailMessage.cc" name="cc" type="email" />
+				<button *ngIf="emailAddressesDialogService" mat-icon-button matPrefix (click)="pickCcAddresses()">
+					<mat-icon>contact_mail</mat-icon>
+				</button>
+			</mat-form-field>
+			<mat-form-field *ngIf="bccEnabled || emailMessage.bcc" class="fx-full-width">
+				<mat-label>BCC</mat-label>
+				<input matInput [(ngModel)]="emailMessage.bcc" name="bcc" type="email" />
+				<button *ngIf="emailAddressesDialogService" mat-icon-button matPrefix (click)="pickBccAddresses()">
+					<mat-icon>contact_mail</mat-icon>
+				</button>
+			</mat-form-field>
+			<mat-form-field class="fx-full-width">
+				<mat-label>Subject</mat-label>
+				<input matInput [(ngModel)]="emailMessage.subject" name="subject" type="text" />
+			</mat-form-field>
+			<mat-form-field *ngIf="!emailMessage?.isHtml" class="fx-full-width">
+				<mat-label>Message</mat-label>
+				<textarea matInput cdkTextareaAutosize [(ngModel)]="emailMessage.body" name="body" type="text"
+					cdkAutosizeMinRows=2 cdkAutosizeMaxRows=6></textarea>
+			</mat-form-field>
+		</form>
+	</div>
+
+	<angular-editor *ngIf="emailMessage?.isHtml" name="body" [formControl]="noteControl"
+		[config]="config"></angular-editor>
 </mat-dialog-content>
 <mat-dialog-actions [align]="actionsAlign">
 	<button type="button" mat-raised-button matDialogClose id="cancel">Cancel</button>
