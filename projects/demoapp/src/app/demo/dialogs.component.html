@@ -14,7 +14,9 @@
 				<mat-option [value]="7" matTooltip="If snackBar is undefined, message will be displayed in dialog if longer than 50 bytes">Success Long Message</mat-option>
 			</mat-select>
 		</mat-form-field>
-		<mat-checkbox *ngIf="showSnackBarCheckbox" [(ngModel)]="snackBar" [indeterminate]="snackBar==undefined" matTooltip="Whether to display in snackBar">SnackBar</mat-checkbox>
+		@if (showSnackBarCheckbox) {
+<mat-checkbox [(ngModel)]="snackBar" [indeterminate]="snackBar==undefined" matTooltip="Whether to display in snackBar">SnackBar</mat-checkbox>
+}
 	</div>
 	<div class="fx-column-gap-1">
 		<label>HTML</label><button mat-mini-fab (click)="showDialogWithHtml()"><mat-icon>play_arrow</mat-icon></button>

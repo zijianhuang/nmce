@@ -1,22 +1,31 @@
 <h1 mat-dialog-title class="block-items-gap-1">
-	<mat-icon *ngIf="useIcon" [color]="iconColor">{{titleIcon}}</mat-icon>
-	<label *ngIf="useTitle" class="fx-align-start">{{ title }}</label>
+	@if (useIcon) {
+<mat-icon [color]="iconColor">{{titleIcon}}</mat-icon>
+}
+	@if (useTitle) {
+<label class="fx-align-start">{{ title }}</label>
+}
 	&nbsp;&nbsp;&nbsp;&nbsp;
 	<label>
 		{{ subtitle }}
 	</label>
 </h1>
 <mat-dialog-content>
-	<div *ngIf="!message?.status && message?.contentType==='text'"
+	@if (!message?.status && message?.contentType==='text') {
+<div
 		[ngClass]="{ 'alert': message, 'alert-success': messageType === 'success', 'alert-danger': messageType === 'error', 'alert-info':messageType==='info', 'alert-warning':messageType==='warning'}"
 		role="alert">{{ message?.text }}
 	</div>
-	<div *ngIf="message?.status! >= 0"
+}
+	@if (message?.status! >= 0) {
+<div
 		[ngClass]="{ 'alert': message, 'alert-success': messageType === 'success', 'alert-danger': messageType === 'error', 'alert-info':messageType==='info', 'alert-warning':messageType==='warning'}"
 		role="alert">HTTP Status: {{message?.status}} {{message?.statusText}}
 	</div>
+}
 
-	<ng-template [ngIf]="['text', 'html', 'json'].indexOf(message?.contentType!)>=0 && message?.text">
+	@if (['text', 'html', 'json'].indexOf(message?.contentType!)>=0 && message?.text) {
+
 		<html>
 
 		<head>
@@ -25,12 +34,17 @@
 		</head>
 
 		<body>
-			<iframe *ngIf="message?.status || message?.status ===0" #htmlContent class="frame-dialog-content"></iframe>
-			<div *ngIf="!message?.status &&  message?.status !==0" #htmlContent></div>
+			@if (message?.status || message?.status ===0) {
+<iframe #htmlContent class="frame-dialog-content"></iframe>
+}
+			@if (!message?.status &&  message?.status !==0) {
+<div #htmlContent></div>
+}
 		</body>
 
 		</html>
-	</ng-template>
+	
+}
 </mat-dialog-content>
 <mat-dialog-actions [align]="actionsAlign">
 	<button type="button" mat-raised-button matDialogClose>Close</button>

@@ -1,12 +1,16 @@
 <h1 mat-dialog-title class="block-items-gap-1">
-	<button *ngIf="isSmallScreen||fullScreen" type="button" mat-mini-fab color="any" matDialogClose aria-label="Close">
+	@if (isSmallScreen||fullScreen) {
+<button type="button" mat-mini-fab color="any" matDialogClose aria-label="Close">
 		<mat-icon>arrow_back</mat-icon>
 	</button>
+}
 	<span class="fx-align-start">{{ title }}</span>
 </h1>
 <mat-dialog-content>
 	<ng-container dataComponentHost></ng-container>
 </mat-dialog-content>
-<mat-dialog-actions *ngIf="!isSmallScreen&&!fullScreen" [align]="actionsAlign">
+@if (!isSmallScreen&&!fullScreen) {
+<mat-dialog-actions [align]="actionsAlign">
 	<button type="button" mat-raised-button matDialogClose>Close</button>
 </mat-dialog-actions>
+}

@@ -3,9 +3,11 @@
 </h1>
 <mat-dialog-content>
 	<mat-selection-list [multiple]="false" (selectionChange)="itemSelectionChange($event)">
-		<mat-list-option *ngFor="let p of items" togglePosition="before" [value]="p">
+		@for (p of items; track p) {
+<mat-list-option togglePosition="before" [value]="p">
 			{{toString(p)}}
 		</mat-list-option>
+}
 
 	</mat-selection-list>
 </mat-dialog-content>

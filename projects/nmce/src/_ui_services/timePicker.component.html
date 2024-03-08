@@ -5,13 +5,17 @@
 		<mat-form-field class="flex-6">
 			<mat-label>Hour</mat-label>
 			<mat-select [(ngModel)]="selectedHour" name="hour">
-				<mat-option *ngFor="let h of hourSlots" [value]="h">{{ pad0(h) }}</mat-option>
+				@for (h of hourSlots; track h) {
+<mat-option [value]="h">{{ pad0(h) }}</mat-option>
+}
 			</mat-select>
 		</mat-form-field>
 		<mat-form-field class="flex-6">
 			<mat-label>Minute</mat-label>
 			<mat-select [(ngModel)]="selectedMinute" name="minute">
-				<mat-option *ngFor="let m of minuteSlots" [value]="m">{{ pad0(m) }}</mat-option>
+				@for (m of minuteSlots; track m) {
+<mat-option [value]="m">{{ pad0(m) }}</mat-option>
+}
 			</mat-select>
 		</mat-form-field>	
 	</div>
@@ -19,5 +23,7 @@
 <mat-dialog-actions [align]="actionsAlign">
 	<button mat-raised-button matDialogClose (click)="cancel()">Cancel</button>
 	<button type="button" mat-raised-button (click)="submit()" tabindex="1">Submit</button>
-	<button *ngIf="!noClear" type="button" mat-raised-button (click)="clear()" tabindex="2">Clear</button>
+	@if (!noClear) {
+<button type="button" mat-raised-button (click)="clear()" tabindex="2">Clear</button>
+}
 </mat-dialog-actions>

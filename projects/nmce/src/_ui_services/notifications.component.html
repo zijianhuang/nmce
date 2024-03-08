@@ -6,8 +6,10 @@
 	</button>
 </h1>
 <mat-list>
-	<mat-list-item *ngFor="let item of items" (click)="handleAction(item)">
-		<ng-template [ngIf]="item.actionLabel" [ngIfElse]="singleLine">
+	@for (item of items; track item) {
+<mat-list-item (click)="handleAction(item)">
+		@if (item.actionLabel) {
+
 			<span matListItemTitle>
 				<button mat-icon-button (click)="remove(item)" matTooltip="Remove item">
 					<mat-icon>remove_circle_outline</mat-icon>
@@ -17,15 +19,19 @@
 			<span matListItemLine>
 				{{getDigest(item.message)}}
 			</span>
-		</ng-template>
-		<ng-template #singleLine>
+		
+} @else {
+
 			<span matListItemTitle>
 				<button mat-icon-button (click)="remove(item)" matTooltip="Remove item">
 					<mat-icon>remove_circle_outline</mat-icon>
 				</button>
 				{{getDigest(item.message)}}
 			</span>
-		</ng-template>
+		
+}
+		
 
 	</mat-list-item>
+}
 </mat-list>

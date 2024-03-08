@@ -1,7 +1,9 @@
 <div mat-dialog-title class="block-items-gap-1 line-ellipsis">
-	<button *ngIf="useBackButton" type="button" mat-mini-fab color="any" matDialogClose aria-label="Close">
+	@if (useBackButton) {
+<button type="button" mat-mini-fab color="any" matDialogClose aria-label="Close">
 		<mat-icon>arrow_back</mat-icon>
 	</button>
+}
 	<span>{{title}}</span>
 	<div><mat-checkbox [(ngModel)]="scaleToWidth" matTooltip="Original resolution or scale to fit width">Scale to fit width</mat-checkbox></div>
 </div>
@@ -16,6 +18,8 @@
 	</body>
 </html>
 </mat-dialog-content>
-<mat-dialog-actions *ngIf="!useBackButton" [align]="actionsAlign">
+@if (!useBackButton) {
+<mat-dialog-actions [align]="actionsAlign">
 	<button type="button" mat-raised-button matDialogClose>Close</button>
 </mat-dialog-actions>
+}

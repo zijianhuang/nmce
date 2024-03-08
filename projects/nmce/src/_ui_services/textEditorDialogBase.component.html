@@ -3,14 +3,16 @@
 				(click)="close()">
 			<mat-icon>arrow_back_ios</mat-icon>
 		</button>
-		<ng-template [ngIf]="!readonly">
+		@if (!readonly) {
+
 			<button type="submit" mat-mini-fab color="any" (click)="save()" [disabled]="!modified" matTooltip="Save changes">
 				<mat-icon>done</mat-icon>
 			</button>
 			<button  mat-mini-fab color="any" (click)="reset()" [disabled]="!modified" matTooltip="Undo changes">
 				<mat-icon>undo</mat-icon>
 			</button>
-		</ng-template>
+		
+}
 </h1>
 <mat-dialog-content>
 	<p> </p>

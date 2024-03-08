@@ -1,7 +1,9 @@
 <div mat-dialog-title class="block-items-gap-1 line-ellipsis">
-	<button *ngIf="isSmallScreen||fullScreen" type="button" mat-mini-fab color="any" matDialogClose aria-label="Close">
+	@if (isSmallScreen||fullScreen) {
+<button type="button" mat-mini-fab color="any" matDialogClose aria-label="Close">
 		<mat-icon>arrow_back</mat-icon>
 	</button>
+}
 	<button mat-mini-fab (click)="print()">
 		<mat-icon>print</mat-icon>
 	</button>
@@ -13,6 +15,8 @@
 <mat-dialog-content #htmlPrintContent>
 	<ng-template dataComponentHost></ng-template>
 </mat-dialog-content>
-<mat-dialog-actions *ngIf="!isSmallScreen&&!fullScreen" [align]="actionsAlign">
+@if (!isSmallScreen&&!fullScreen) {
+<mat-dialog-actions [align]="actionsAlign">
 	<button type="button" mat-raised-button matDialogClose>Close</button>
 </mat-dialog-actions>
+}

@@ -8,5 +8,7 @@
 	<p>{{ body }}</p>
 </mat-dialog-content>
 <mat-dialog-actions [align]="actionsAlign">
-	<button *ngIf="cancelCallback && progressBarValue < 100" mat-raised-button (click)="cancel()">Cancel</button>
+	@if (cancelCallback && progressBarValue < 100) {
+<button mat-raised-button (click)="cancel()">Cancel</button>
+}
 </mat-dialog-actions>

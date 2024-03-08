@@ -1,7 +1,11 @@
 <h1 mat-dialog-title class="block-items-gap-1">
 	<strong class="fx-90pc-width">Email</strong>
-	<button *ngIf="!ccEnabled && !emailMessage?.cc" mat-raised-button (click)="ccEnabled=true">CC</button>
-	<button *ngIf="!bccEnabled && !emailMessage?.bcc" mat-raised-button (click)="bccEnabled=true">BCC</button>
+	@if (!ccEnabled && !emailMessage?.cc) {
+<button mat-raised-button (click)="ccEnabled=true">CC</button>
+}
+	@if (!bccEnabled && !emailMessage?.bcc) {
+<button mat-raised-button (click)="bccEnabled=true">BCC</button>
+}
 </h1>
 <mat-dialog-content>
 	<p> </p>
@@ -10,38 +14,52 @@
 			<mat-form-field class="fx-full-width">
 				<mat-label>To</mat-label>
 				<input matInput [(ngModel)]="emailMessage.to" name="to" type="email" />
-				<button *ngIf="emailAddressesDialogService" mat-icon-button matPrefix (click)="pickToAddresses()">
+				@if (emailAddressesDialogService) {
+<button mat-icon-button matPrefix (click)="pickToAddresses()">
 					<mat-icon>contact_mail</mat-icon>
 				</button>
+}
 			</mat-form-field>
-			<mat-form-field *ngIf="ccEnabled || emailMessage.cc" class="fx-full-width">
+			@if (ccEnabled || emailMessage.cc) {
+<mat-form-field class="fx-full-width">
 				<mat-label>CC</mat-label>
 				<input matInput [(ngModel)]="emailMessage.cc" name="cc" type="email" />
-				<button *ngIf="emailAddressesDialogService" mat-icon-button matPrefix (click)="pickCcAddresses()">
+				@if (emailAddressesDialogService) {
+<button mat-icon-button matPrefix (click)="pickCcAddresses()">
 					<mat-icon>contact_mail</mat-icon>
 				</button>
+}
 			</mat-form-field>
-			<mat-form-field *ngIf="bccEnabled || emailMessage.bcc" class="fx-full-width">
+}
+			@if (bccEnabled || emailMessage.bcc) {
+<mat-form-field class="fx-full-width">
 				<mat-label>BCC</mat-label>
 				<input matInput [(ngModel)]="emailMessage.bcc" name="bcc" type="email" />
-				<button *ngIf="emailAddressesDialogService" mat-icon-button matPrefix (click)="pickBccAddresses()">
+				@if (emailAddressesDialogService) {
+<button mat-icon-button matPrefix (click)="pickBccAddresses()">
 					<mat-icon>contact_mail</mat-icon>
 				</button>
+}
 			</mat-form-field>
+}
 			<mat-form-field class="fx-full-width">
 				<mat-label>Subject</mat-label>
 				<input matInput [(ngModel)]="emailMessage.subject" name="subject" type="text" />
 			</mat-form-field>
-			<mat-form-field *ngIf="!emailMessage?.isHtml" class="fx-full-width">
+			@if (!emailMessage?.isHtml) {
+<mat-form-field class="fx-full-width">
 				<mat-label>Message</mat-label>
 				<textarea matInput cdkTextareaAutosize [(ngModel)]="emailMessage.body" name="body" type="text"
 					cdkAutosizeMinRows=2 cdkAutosizeMaxRows=6></textarea>
 			</mat-form-field>
+}
 		</form>
 	</div>
 
-	<angular-editor *ngIf="emailMessage?.isHtml" name="body" [formControl]="noteControl"
+	@if (emailMessage?.isHtml) {
+<angular-editor name="body" [formControl]="noteControl"
 		[config]="config"></angular-editor>
+}
 </mat-dialog-content>
 <mat-dialog-actions [align]="actionsAlign">
 	<button type="button" mat-raised-button matDialogClose id="cancel">Cancel</button>

@@ -57,11 +57,11 @@ export class NotificationsComponent {
 		this.sheetRef.dismiss(item);
 	}
 
-	getDigest(s: string) {
+	getDigest(s: string | undefined) {
 		return this.getOneLineDigest(s, 152);
 	}
 
-	private getOneLineDigest(s: string, length: number) {
+	private getOneLineDigest(s: string | undefined, length: number) {
 		if (!s) {
 			return '';
 		}

@@ -8,5 +8,7 @@
 	</div>
 </mat-dialog-content>
 <mat-dialog-actions [align]="actionsAlign">
-	<button *ngFor="let op of options" type="button" mat-raised-button (click)="confirm(op)">{{ op }}</button>
+	@for (op of options; track op) {
+<button type="button" mat-raised-button (click)="confirm(op)">{{ op }}</button>
+}
 </mat-dialog-actions>
