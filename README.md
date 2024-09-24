@@ -4,7 +4,7 @@ The projects of Angular Material Components Extensions are to deliver a set of r
 
 ## Designs
 
-The UI conforms to Material Design, and the visual components are constructed through composition and wrapping of existing components of Angular Material.
+The UI designs conforms to Material Design, and the visual components are constructed through composition and wrapping of existing components of Angular Material.
 
 When considering use cases and making design trade-off, the priority is:
 1. Desktop with big monitors, mouse and keyboard
@@ -20,14 +20,13 @@ TV is not considered.
 * Nmce-json-diff: A simple dialog service based on [jsondiffpatch](https://github.com/benjamine/jsondiffpatch).
 * nmce-pipes: Common simple Angular pipes used in business applications.
 * nmce-directives: Common simple Angular directives used in business applications.
-* demoapp: A demo application demostrating features of all above.
+* demoapp: A demo application demonstrating features of all above.
 
 ## Design Approaches
 
 * The UI design is optimized for desktop PC and tablet devices.
 * Components are based on [Angular Material Components](https://material.angular.io/components/categories).
-* Layout design is based on [Angular flex-layout](https://github.com/angular/flex-layout).
-* Minimum CSS crafting is used.
+=* Minimum CSS crafting is used.
 
 ## Development server
 

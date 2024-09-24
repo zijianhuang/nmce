@@ -44,7 +44,7 @@ export abstract class WaitServiceBase extends RootInjectorGuard {
 }
 
 /**
- * Used togehter with <wait> element, generally for handling observable. Start wait before calling an observable, stop wait in subscribe.
+ * Used together with <wait> element, generally for handling observable. Start wait before calling an observable, stop wait in subscribe.
  * The mechanism is sending and receiving WaitMessage.
  */
 @Injectable({

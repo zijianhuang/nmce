@@ -3,11 +3,11 @@ import { Subscription } from 'rxjs';
 import { WaitMessage, WaitService } from '../_ui_services/index';
 
 /**
- * display wait with mat-progress-bar.
+ * Display wait with mat-progress-bar. Working with WaitService.
  */
 @Component({
 
-	selector: 'wait',
+	selector: 'wait, nmce-wait, nmceWait',
 	templateUrl: 'wait.component.html'
 })
 export class WaitComponent implements OnInit, OnDestroy {

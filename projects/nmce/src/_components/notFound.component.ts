@@ -2,10 +2,10 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 /**
- * Not found routing defined in app-routing.module will render this page. And the user can go home.
+ * todo: move this to pattern page. Not found routing defined in app-routing.module which will render this page. And the user can go home.
  */
 @Component({
-
+	//no need to have selector
 	templateUrl: 'notFound.component.html'
 })
 export class NotFoundComponent implements OnInit {

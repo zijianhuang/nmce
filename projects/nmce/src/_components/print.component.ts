@@ -6,7 +6,8 @@ import { HtmlPrintFunc } from 'nmce-func';
  * To be embedded in any view to print a section of the view marked by element id.
  */
 @Component({
-	selector: 'print-page',
+	selector: 'print-page, nmce-print-page, nmcePrintPage',
+	exportAs: 'nmcePrintPage',
 	template: `
 	 <button (click)="printDiv()" mat-raised-button mdTooltip="Print content">Print</button>
 	`,

@@ -3,10 +3,13 @@ import { Subscription } from 'rxjs';
 import { WaitMessage, WaitProgressService } from '../_ui_services/index';
 
 /**
- * display wait with mat-progress-bar, controllable by mode and value.
+ * Display wait with mat-progress-bar, controllable by mode and value.
+ * https://danywalls.com/angulars-exportas-feature-a-practical-guide-to-sharing-component-state
+ * https://netbasal.com/angular-2-take-advantage-of-the-exportas-property-81374ce24d26
  */
 @Component({
-	selector: 'waitProgress',
+	selector: 'waitProgress, nmce-wait-progress, nmceWaitProgress',
+	exportAs: 'nmceWaitProgress',
 	templateUrl: 'waitProgress.component.html'
 })
 export class WaitProgressComponent implements OnInit, OnDestroy {

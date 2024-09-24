@@ -9,10 +9,11 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  * Pick dates between.
  * If start date is not defined, it will be today from now.
  * If the end date is not defined, it will be 180 days from the start date.
+ * todo: compare with what in NMC, may be obsolete.
  */
 @Component({
 
-	selector: 'DateRangePicker',
+	selector: 'DateRangePicker, nmce-date-range-picker',
 	templateUrl: 'dateRangePicker.component.html',
 	styleUrls: ['../nmcestyles.css']
 })
