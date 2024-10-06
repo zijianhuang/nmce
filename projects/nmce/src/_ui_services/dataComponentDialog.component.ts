@@ -6,13 +6,14 @@ import { DataComponent } from '../_types/DataComponent';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 
 /**
- * This is to host another component which has implemented interfact DataComponent. 
+ * This is to host another component which has implemented interface DataComponent. 
  * And another component is to be displayed in a dialog but not need to answer but to close.
  * The Close button may vary depending on the screen size.
  * This component is primarily used in DataComponentDialogService.
  * This is based on the concept in https://angular.io/guide/dynamic-component-loader
  */
 @Component({
+	selector: 'nmce-data-component-content',
 	templateUrl: 'dataComponentDialog.component.html',
 	styleUrls: ['../nmcestyles.css']
 })

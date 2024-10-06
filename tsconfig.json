@@ -17,6 +17,7 @@
     "importHelpers": true,
     "target": "es2022",
     "module": "es2022",
+    "esModuleInterop": true,
     "lib": [
       "es2022",
       "dom"

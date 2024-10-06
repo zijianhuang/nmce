@@ -56,7 +56,9 @@
             "outputPath": "dist/demoapp",
             "index": "projects/demoapp/src/index.html",
             "main": "projects/demoapp/src/main.ts",
-            "polyfills": "projects/demoapp/src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/demoapp/tsconfig.app.json",
             "aot": true,
             "allowedCommonJsDependencies": [
@@ -125,7 +127,9 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/demoapp/src/test.ts",
-            "polyfills": "projects/demoapp/src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/demoapp/tsconfig.spec.json",
             "karmaConfig": "projects/demoapp/karma.conf.js",
             "assets": [
@@ -224,11 +228,10 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-devkit/build-angular:jest",
           "options": {
-            "main": "projects/nmce-func/src/test.ts",
             "tsConfig": "projects/nmce-func/tsconfig.spec.json",
-            "karmaConfig": "projects/nmce-func/karma.conf.js"
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
         },
         "lint": {
@@ -366,7 +369,6 @@
       }
     }
   },
-
   "cli": {
     "analytics": false
   }

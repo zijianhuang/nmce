@@ -30,7 +30,7 @@ describe('1st tests', () => {
 
 	it('static variable', () => {
 		const staticKeys = Object.keys(MyStatus);
-		expect(staticKeys.length).toEqual(4); // something is not counted.
+		expect(staticKeys.length).toEqual(5); // something is not counted.
 		const p = staticKeys[0] as keyof MyStatus;
 		expect(MyStatus[p]).toEqual('12AB');
 		expect(MyStatus.something).toBeUndefined();
@@ -43,7 +43,7 @@ describe('1st tests', () => {
 		MyStatus.clear();
 
 		expect(MyStatus.description).toBeUndefined();
-		expect(staticKeys.length).toEqual(4); // something is not counted
+		expect(staticKeys.length).toEqual(5); // something is not counted
 		const p = staticKeys[0] as keyof MyStatus;
 		expect(MyStatus[p]).toBeUndefined();
 		expect(MyStatus.currentCalendarView).toEqual('month');

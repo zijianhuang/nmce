@@ -6,13 +6,14 @@ import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 
 /**
- * Picke datetimes between.
+ * Pick datetimes between.
  * If start date is not defined, it will be today from now.
  * If the end date is not defined, it will be 180 days from the start date.
+ * todo: compare with what in NMC, and consider to make it obsolete
  */
 @Component({
 
-	selector: 'DateHourRangePicker',
+	selector: 'DateHourRangePicker, nmce-date-hour-range-picker',
 	templateUrl: 'DateHourRangePicker.component.html',
 	styleUrls: ['../nmcestyles.css']
 })

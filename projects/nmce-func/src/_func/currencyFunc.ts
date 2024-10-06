@@ -8,11 +8,11 @@ export class CurrencyFunc {
 	private static PADDING = '000000';
 
 	/**
-	 *
+	 * Banker rounding
 	 * @param num
 	 * @param decimalPlaces default 0
 	 */
-	static bankerRound(num: number | null | undefined, decimalPlaces?: number): number {//http://stackoverflow.com/questions/3108986/gaussian-bankers-rounding-in-javascript
+	static bankerRound(num: number | null | undefined, decimalPlaces?: number): number {
 		if (!num) {
 			return 0;
 		}
@@ -25,8 +25,14 @@ export class CurrencyFunc {
 		const r = (f > 0.5 - e && f < 0.5 + e) ?
 			((i % 2 === 0) ? i : i + 1) : Math.round(n);
 		return d ? r / m : r;
+		// http://stackoverflow.com/questions/3108986/gaussian-bankers-rounding-in-javascript
 	}
 
+	/**
+	 * Banker rounding to 5 cents
+	 * @param num 
+	 * @returns 
+	 */
 	static bankerRoundTo5cents(num: number | null | undefined): number {
 		if (!num) {
 			return 0;
@@ -36,6 +42,11 @@ export class CurrencyFunc {
 		return r;
 	}
 
+	/**
+	 * Ceil to 5 cents
+	 * @param num 
+	 * @returns 
+	 */
 	static ceilTo5cents(num: number | null | undefined): number {
 		if (!num) {
 			return 0;
