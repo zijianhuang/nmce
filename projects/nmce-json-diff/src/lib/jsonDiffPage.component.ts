@@ -1,8 +1,8 @@
 import { Component, OnInit, Injectable, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LazyComponentDialogService, DataComponent } from 'nmce';
-import { diff, formatters } from 'jsondiffpatch';
-
+import { diff } from 'jsondiffpatch';
+import * as htmlFormatter from 'jsondiffpatch/lib/formatters/html'
 @Component({
 	selector: 'json-diff-page',
 	templateUrl: 'jsonDiffPage.component.html',
@@ -21,7 +21,7 @@ export class JsonDiffComponent implements DataComponent, OnInit, AfterViewInit {
 		const delta = diff(this.data.json1, this.data.json2);
 		if (delta) {
 			console.debug('delta: ' + JSON.stringify(delta));
-			this.jsonPlace.nativeElement.innerHTML = formatters.html.format(delta, this.data.json1);
+			this.jsonPlace.nativeElement.innerHTML = htmlFormatter.format(delta, this.data.json1);
 		}
 	}
 }
