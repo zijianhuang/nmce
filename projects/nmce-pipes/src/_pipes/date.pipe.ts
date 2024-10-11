@@ -10,13 +10,9 @@ import { DateFunc } from 'nmce-func';
  * For displaying utc2local time in hh:mm a/pm format.
  */
 @Pipe({ name: 'shortTime' })
-export class ShortTimePipe implements PipeTransform {
-	transform(value: Date | undefined | null): string {
-		if (!value) {
-			return '';
-		}
-
-		return DateFunc.dateTimeUtcToLocaMoment(value).format('hh:mm a');
+export class ShortTimePipe extends DatePipe {
+	transform(value: Date | string | number | undefined | null): any {
+		return super.transform(value,'short');
 	}
 }
 
@@ -24,18 +20,15 @@ export class ShortTimePipe implements PipeTransform {
  * For displaying utc2local time in 24-hour format.
  */
 @Pipe({ name: 'short24' })
-export class Short24Pipe implements PipeTransform {
-	transform(value: Date | undefined | null): string {
-		if (!value) {
-			return '';
-		}
-
-		return DateFunc.dateTimeUtcToLocaMoment(value).format('HH:mm');
+export class Short24Pipe extends DatePipe {
+	transform(value: Date | string | number | undefined | null): any {
+		return super.transform(value, 'HH:mm');
 	}
 }
 
 /**
  * For 2-way transformation of DD/MM/YYYY
+ * @deprecated use Angular DatePipe which takes dateFormat and timezone, and DATE_PIPE_DEFAULT_OPTIONS.
  */
 @Pipe({ name: 'shortDate' })
 export class ShortDatePipe extends DatePipe {
@@ -50,7 +43,7 @@ export class ShortDatePipe extends DatePipe {
  */
 @Pipe({ name: 'shortDateTime' })
 export class ShortDateTimePipe implements PipeTransform {
-	transform(value: Date | undefined | null): string {
+	transform(value: Date | string | number | undefined | null): string {
 		if (!value) {
 			return '';
 		}
@@ -72,7 +65,7 @@ export class ShortDateTimePipe implements PipeTransform {
  */
 @Pipe({ name: 'shortDate24' })
 export class ShortDate24Pipe implements PipeTransform {
-	transform(value: Date | undefined | null): string {
+	transform(value: Date | string | number | undefined | null): string {
 		if (!value) {
 			return '';
 		}
@@ -94,7 +87,7 @@ export class ShortDate24Pipe implements PipeTransform {
  */
 @Pipe({ name: 'mediumDate' })
 export class MediumDatePipe implements PipeTransform {
-	transform(value: Date | undefined | null): string {
+	transform(value: Date | string | number | undefined | null): string {
 		if (!value) {
 			return '';
 		}
@@ -108,7 +101,7 @@ export class MediumDatePipe implements PipeTransform {
  */
 @Pipe({ name: 'fullDate' })
 export class FullDatePipe implements PipeTransform {
-	transform(value: Date | undefined | null): string {
+	transform(value: Date | string | number | undefined | null): string {
 		if (!value) {
 			return '';
 		}
