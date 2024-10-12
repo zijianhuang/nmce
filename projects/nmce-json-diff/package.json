@@ -2,7 +2,7 @@
   "name": "nmce-json-diff",
   "version": "1.2.2",
   "author": {"name": "Z"},
-  "description": "Angular Mateiral extended components based on jsondiffpatch.",
+  "description": "Angular Material extended components based on jsondiffpatch.",
   "license": "MIT",
   "repository": {"url": "https://github.com/zijianhuang/nmce"}
 }
