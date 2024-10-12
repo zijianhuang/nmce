@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Inject, Pipe, PipeTransform } from '@angular/core';
+import { Inject, LOCALE_ID, Pipe, PipeTransform } from '@angular/core';
 import moment, { Moment, MomentInput } from 'moment';
 
 /**
@@ -7,7 +7,7 @@ import moment, { Moment, MomentInput } from 'moment';
  */
 @Pipe({ name: 'literalDate' })
 export class LiteralDatePipe implements PipeTransform {
-	constructor(@Inject(String) private locale: string) {
+	constructor(@Inject(LOCALE_ID) private locale: string) {
 	}
 	/**
 	 *

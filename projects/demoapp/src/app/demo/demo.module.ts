@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NmceComponentsModule, Nmce_UI_Lazy_ServicesModule } from 'nmce';
 import { NmceDirectivesModule } from 'nmce-directives';
 import { NmceHtmlEditorModule } from 'nmce-html-editor';
-import { NmceJsonDiffModule } from 'nmce-json-diff';
+
 import { NmcePipesModule } from 'nmce-pipes';
 import { NGMDModule } from '../ngmd.module';
 import { ComponentsComponent } from './components.component';
@@ -31,7 +31,6 @@ import { PipesComponent } from './pipes.component';
 		Nmce_UI_Lazy_ServicesModule,
 		NmceComponentsModule,
 		NmceHtmlEditorModule,
-		NmceJsonDiffModule,
 	],
 	declarations: [
 		DemoIndexComponent,

@@ -5,10 +5,8 @@ import {
 	AlertService, DataComponentPrintDialogService, LazyComponentDialogService, TextDialogService, TextHReflDialogService,
 	ProgressDialogService,
 } from 'nmce';
-import { JsonDiffDialogService } from 'nmce-json-diff';
+//import { JsonDiffDialogService } from 'nmce-json-diff';
 import { HtmlDialogsComponent } from './htmlDialogs.component';
-import { ProgressBarMode } from '@angular/material/progress-bar';
-import { timeout } from 'rxjs';
 
 /**
  * Fill up the user registration form and register. Then roles checkboxes will appear.
@@ -39,7 +37,7 @@ export class DialogsComponent implements OnInit {
 		private alertService: AlertService,
 		private textDialogService: TextDialogService,
 		private textHReflDialogService: TextHReflDialogService,
-		private jsonDiffDialogService: JsonDiffDialogService,
+		//private jsonDiffDialogService: JsonDiffDialogService,
 		private dataComponentPrintDialogService: DataComponentPrintDialogService,
 		private lazyComponentDialogService: LazyComponentDialogService,
 		private progressDialogService: ProgressDialogService,
@@ -179,27 +177,27 @@ DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ddddddddddddddddddddddddddddddddd
 		this.alertService.warn('Not supported anymore.');
 	}
 
-	showJsonDiffDialog() {
-		this.jsonDiffDialogService.open('JSON Diff', {
-			json1: {
-				surname: 'Smith',
-				givenName: 'John',
-				spouse: {
-					surname: 'Smith',
-					givenName: 'Alice'
-				}
-			},
-			json2: {
-				surname: 'Smith',
-				givenName: 'John',
-				spouse: {
-					surname: 'Smith',
-					givenName: 'Kay',
-					midName: 'C'
-				}
-			}
-		}).subscribe();
-	}
+	// showJsonDiffDialog() {
+	// 	this.jsonDiffDialogService.open('JSON Diff', {
+	// 		json1: {
+	// 			surname: 'Smith',
+	// 			givenName: 'John',
+	// 			spouse: {
+	// 				surname: 'Smith',
+	// 				givenName: 'Alice'
+	// 			}
+	// 		},
+	// 		json2: {
+	// 			surname: 'Smith',
+	// 			givenName: 'John',
+	// 			spouse: {
+	// 				surname: 'Smith',
+	// 				givenName: 'Kay',
+	// 				midName: 'C'
+	// 			}
+	// 		}
+	// 	}).subscribe();
+	// }
 
 	showAnyComponent() {
 		this.lazyComponentDialogService.open('Any NG component', HtmlDialogsComponent, 'ABCDEFG',
