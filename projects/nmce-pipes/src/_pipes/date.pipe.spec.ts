@@ -153,7 +153,10 @@ describe('literalDate', () => {
 	beforeEach(()=>{
 		TestBed.configureTestingModule({
 			providers: [
-				LiteralDatePipe,
+				{
+					provide: LiteralDatePipe,
+					useValue: new LiteralDatePipe('en-au')
+				},
 				{
 					provide: DATE_PIPE_DEFAULT_OPTIONS,
 					useValue: {locale: 'en-au'} // dateFormat is ignored by ShortDatePipe
@@ -187,6 +190,81 @@ describe('literalDate', () => {
 		expect(datePipe.transform('kkk')).toEqual('kkk');
 	});
 });
+
+describe('literalDateChinese', () => {
+	let datePipe: LiteralDatePipe;
+	beforeEach(()=>{
+		TestBed.configureTestingModule({
+			providers: [
+				{
+					provide: LiteralDatePipe,
+					useValue: new LiteralDatePipe('zh_cn')
+				},
+
+				{
+					provide: DATE_PIPE_DEFAULT_OPTIONS,
+					useValue: {locale: 'zh'} // dateFormat is ignored by ShortDatePipe
+				}
+			]
+		});
+
+		datePipe= TestBed.inject(LiteralDatePipe);
+	});
+	
+	it('transform', () => {
+		//moment.locale('zh_cn');
+		const dt = Date.parse('2023-12-28T15:33:44Z');
+		expect(datePipe.transform(dt)).toEqual('星期五, 十二月 29日 2023');
+
+		const dt2 = Date.now();
+		expect(datePipe.transform(dt2)).toEqual('Today');
+		const dayMilliseconds = 24*3600000;
+		expect(datePipe.transform(dt2-dayMilliseconds)).toEqual('Yesterday');
+		expect(datePipe.transform(dt2+dayMilliseconds)).toEqual('Tomorrow');
+
+		expect(datePipe.transform(0)).toEqual('星期四, 一月 1日 1970'); // 1970
+		expect(datePipe.transform(10)).toEqual('星期四, 一月 1日 1970'); // 1970
+		expect(datePipe.transform(-100000000000)).toEqual('星期二, 十一月 1日 1966'); // Before 1970
+	});
+
+	it('invalidInputs', ()=>{
+		expect(datePipe.transform(null, 'invalid')).toEqual('invalid');
+		expect(datePipe.transform(null)).toEqual('');
+		expect(datePipe.transform(undefined)).toEqual('');
+		expect(datePipe.transform('')).toEqual('');
+		expect(datePipe.transform('kkk')).toEqual('kkk');
+	});
+});
+
+describe('literalDateSpanish', () => {
+	let datePipe: LiteralDatePipe;
+	beforeEach(()=>{
+		TestBed.configureTestingModule({
+			providers: [
+				{
+					provide: LiteralDatePipe,
+					useValue: new LiteralDatePipe('es')
+				},
+			]
+		});
+
+		datePipe= TestBed.inject(LiteralDatePipe);
+	});
+	
+	it('transform', () => {
+		moment.locale('es');
+		const dt = Date.parse('2023-12-28T15:33:44Z');
+		expect(datePipe.transform(dt)).toEqual('viernes, diciembre 29º 2023');
+
+		const dt2 = Date.now();
+		expect(datePipe.transform(dt2)).toEqual('Today');
+		const dayMilliseconds = 24*3600000;
+		expect(datePipe.transform(dt2-dayMilliseconds)).toEqual('Yesterday');
+		expect(datePipe.transform(dt2+dayMilliseconds)).toEqual('Tomorrow');
+	});
+});
+
+
 
 
 

@@ -1,12 +1,14 @@
 import { DatePipe } from '@angular/common';
-import { Pipe, PipeTransform } from '@angular/core';
-import moment from 'moment';
+import { Inject, Pipe, PipeTransform } from '@angular/core';
+import moment, { Moment, MomentInput } from 'moment';
 
 /**
  * Date to Today, Tomorrow, Yesterday, dddd,MMMMDoYYYY
  */
 @Pipe({ name: 'literalDate' })
 export class LiteralDatePipe implements PipeTransform {
+	constructor(@Inject(String) private locale: string) {
+	}
 	/**
 	 *
 	 * @param value
@@ -25,25 +27,25 @@ export class LiteralDatePipe implements PipeTransform {
 				return nullText ? nullText : '';
 			}
 
-			if (Number.isNaN(n)){
+			if (Number.isNaN(n)) {
 				return value;
 			}
 
 			date = new Date(n);
-		} else if (typeof value === 'number'){
-			try{
-			date=new Date(value);
-			} catch (e){
+		} else if (typeof value === 'number') {
+			try {
+				date = new Date(value);
+			} catch (e) {
 				return value.toString();
 			}
-		} 
+		}
 		else {
 			date = value;
 		}
 
 		try {
-			return moment(date).calendar(null, {
-				sameDay: '[Today]',
+			return moment(date).locale(this.locale).calendar(null, {
+				sameDay: '[Today]', //Moment does not provide translate for this, but something hardcoded like '[今天]LT', for i18n/localization, use your own dictionary.
 				nextDay: '[Tomorrow]',
 				nextWeek: 'dddd, MMMM Do YYYY',
 				lastDay: '[Yesterday]',
@@ -67,7 +69,7 @@ export class LiteralDatePipe implements PipeTransform {
 @Pipe({ name: 'shortTime' })
 export class ShortTimePipe extends DatePipe {
 	transform(value: Date | string | number | undefined | null): any {
-		return super.transform(value,'short');
+		return super.transform(value, 'short');
 	}
 }
 
