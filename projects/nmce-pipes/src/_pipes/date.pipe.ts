@@ -4,6 +4,7 @@ import moment, { Moment, MomentInput } from 'moment';
 
 /**
  * Date to Today, Tomorrow, Yesterday, dddd,MMMMDoYYYY
+ * Limitations: Today and Tomorrow are not translated automatically through locale, and you may need to use app level localization.
  */
 @Pipe({ name: 'literalDate' })
 export class LiteralDatePipe implements PipeTransform {
