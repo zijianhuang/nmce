@@ -1,5 +1,6 @@
 import moment from 'moment';
 import { DateFunc } from './dateFunc';
+import { DateTime } from 'luxon';
 
 
 describe('DateFunc', () => {
@@ -42,21 +43,35 @@ describe('DateFunc', () => {
 		expect(localDt).toBe('2018-01-24');
 	});
 
-	it('localDateToUtc', () => {
+	it('localDateToUtcWithDateOnly', () => {
 		const dt = new Date('2018-02-23');
-		console.debug('dt: ' + dt.toString());
-		//It might be intepreted as UTC date, that will become 2010-02-23 10:00:00 in +10 timezone so is 2010-02-23T0:0:0Z
-		const m = moment(dt);
-		expect(m.isUTC()).toBeFalsy();
-		expect(m.hours()).toBe(10);
+		console.debug('localDateToUtc dt: ' + dt.toString());
+		//It might be interpreted as UTC date, that will become 2010-02-23 10:00:00 in +10 timezone so is 2010-02-23T0:0:0Z
+		const m = DateTime.fromJSDate(dt);
+		expect(m.hour).toBe(10);
 		expect(dt.getDate()).toBe(23);
-		expect(dt.getHours()).toBe(10); //somehow the Date function give it 10 hours in Brisbane
+		expect(dt.getHours()).toBe(10);
 
-		const dtUtc = DateFunc.localDateToUtc('2018-02-23');
+		const dtUtc = DateFunc.localDateToUtc('2018-02-23')!;
 		expect(dtUtc).toBeDefined();
-		console.debug('dtUtc: ' + dtUtc.toString());
+		console.debug('localDateToUtc dtUtc: ' + dtUtc.toString());
 		expect(dtUtc.getHours()).toBe(14);
 		expect(dtUtc.getDate()).toBe(22);
+	});
+
+	it('localDateToUtcWithDate', () => {
+		const dt = new Date('2018-02-23T23:00:00Z');
+		console.debug('localDateToUtc dt: ' + dt.toString());
+		const m = DateTime.fromJSDate(dt);
+		expect(m.hour).toBe(9);
+		expect(dt.getDate()).toBe(24);
+		expect(dt.getHours()).toBe(9); 
+
+		const dtUtc = DateFunc.localDateToUtc('2018-02-23T23:00:00Z')!;
+		expect(dtUtc).toBeDefined();
+		console.debug('localDateToUtc dtUtc: ' + dtUtc.toString());
+		expect(dtUtc.getHours()).toBe(14);
+		expect(dtUtc.getDate()).toBe(24);
 	});
 
 	it('mod to near 5', () => {
@@ -150,9 +165,8 @@ describe('DateFunc', () => {
 		const yesterday = moment().add(-hour - 1, 'hours').toDate();
 		const yesterdayUtc = DateFunc.localDateToUtc(yesterday);
 		console.debug(`notOlderThan1DayEnough: hour: ${hour}; yesterday: ${yesterday}, yesterDayUtc: ${yesterdayUtc}`);
-		expect(DateFunc.olderThan1Day(new Date(yesterdayUtc))).toBeTruthy();
-
-
+		if (yesterdayUtc){
+		expect(DateFunc.olderThan1Day(new Date(yesterdayUtc))).toBeTruthy();}
 	});
 
 	it('getTimeFromMins', () => {

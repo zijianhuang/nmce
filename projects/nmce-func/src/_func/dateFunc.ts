@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { DateTime } from 'luxon';
 
 export class DateFunc {
 
@@ -34,11 +35,18 @@ export class DateFunc {
 	}
 
 	/**
-	 * locate date ONLY (no time) to UTC date.
+	 * local date ONLY (no time) to UTC date.
+	 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+	 * While the time value at the heart of a Date object is UTC, the basic methods to fetch the date and time 
+	 * or its components all work in the local (i.e. host system) time zone and offset.
 	 * @param dt if dt contain time info, it will become dt.setHours(0, 0, 0, 0)
 	 */
-	static localDateToUtc(d: Date | string | number | undefined | null | string): Date {
-		const dt = moment(d).toDate();
+	static localDateToUtc(d: Date | string | number | undefined | null | string): Date | undefined | null {
+		if (d == null) {
+			return d;
+		}
+		
+		const dt = new Date(d);
 		const n = dt.setHours(0, 0, 0, 0);
 		const offset = dt.getTimezoneOffset() * 60000;
 		return new Date(n + offset);
@@ -169,7 +177,7 @@ export class DateFunc {
 	/**
 	 * Offset minutes comparing with today
 	 */
-	static getOffsetMinutes(dtUtc: Date | string | number | undefined | null ): number {
+	static getOffsetMinutes(dtUtc: Date | string | number | undefined | null): number {
 		const dm1 = moment(dtUtc);
 		const dm2 = moment(new Date().setHours(0, 0, 0, 0));
 		return dm1.diff(dm2, 'minutes');
@@ -251,8 +259,8 @@ export class DateFunc {
 
 	/**
 	 * How many years from now.
-	 * @param d 
-	 * @returns 
+	 * @param d
+	 * @returns
 	 */
 	static getAge(d: Date) {
 		const m = moment(d);
@@ -261,8 +269,8 @@ export class DateFunc {
 
 	/**
 	 * Year of date.
-	 * @param d 
-	 * @returns 
+	 * @param d
+	 * @returns
 	 */
 	static getYear(d: Date) {
 		const m = moment(d);
