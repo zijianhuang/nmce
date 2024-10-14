@@ -8,12 +8,12 @@ export class DateFunc {
 	 * @param dtUtc
 	 * @param offsetMinutes if not defined, it will be new Date().getTimezoneOffset(). //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset
 	 */
-	static dateTimeUtcToLocalDateNumber(dtUtc: Date | string | number | undefined | null): number {
-		if (!dtUtc) {
-			return 0; //0 is better for calculation by the clients.
+	static dateTimeUtcToLocalDateNumber(dtUtc: Date | string | number | undefined | null): number | undefined | null {
+		if (dtUtc == null) {
+			return dtUtc;
 		}
 
-		const localDt = DateFunc.dateTimeUtcToLocalDateTime(dtUtc);
+		const localDt = DateFunc.dateTimeUtcToLocalDateTime(dtUtc)!;
 		const localDNum = localDt.setHours(0, 0, 0, 0);
 
 		return localDNum;
@@ -23,10 +23,14 @@ export class DateFunc {
 	 * Date only. However, the date may still be in UTC.
 	 * @param dtUtc
 	 */
-	static dateTimeUtcToLocalDate(dtUtc: Date | string | number | undefined | null): Date {
-		const localDt = DateFunc.dateTimeUtcToLocalDateTime(dtUtc);
-		const localD = localDt.setHours(0, 0, 0, 0);
-		return new Date(localD);
+	static dateTimeUtcToLocalDate(dtUtc: Date | string | number | undefined | null): Date | undefined | null {
+		if (dtUtc == null) {
+			return dtUtc;
+		}
+
+		const localDt = DateFunc.dateTimeUtcToLocalDateTime(dtUtc)!;
+		const localNum = localDt.setHours(0, 0, 0, 0);
+		return new Date(localNum);
 	}
 
 	static localISODateString(dtUtc: Date | string | number | undefined | null): string {
@@ -36,6 +40,7 @@ export class DateFunc {
 
 	/**
 	 * local date ONLY (no time) to UTC date.
+	 * The input could be a string of yyyy-MM-dd, or a Date Object.
 	 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 	 * While the time value at the heart of a Date object is UTC, the basic methods to fetch the date and time 
 	 * or its components all work in the local (i.e. host system) time zone and offset.
@@ -45,14 +50,14 @@ export class DateFunc {
 		if (d == null) {
 			return d;
 		}
-		
+
 		const dt = new Date(d);
 		const n = dt.setHours(0, 0, 0, 0);
 		const offset = dt.getTimezoneOffset() * 60000;
 		return new Date(n + offset);
 	}
 
-	static getTimezoneOffset(): number {
+	static getTimezoneOffset(): number | undefined | null {
 		const dt = this.today;
 		return dt.getTimezoneOffset();
 	}
@@ -62,30 +67,45 @@ export class DateFunc {
 	 * @param dtUtc
 	 * @param offsetMinutes if not defined, it will be new Date().getTimezoneOffset(). //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset
 	 */
-	static dateTimeUtcToLocalDateTime(dtUtc: Date | string | number | undefined | null): Date {
-		const stillUtc = moment.utc(dtUtc).toDate();
-		return moment(stillUtc).local().toDate();
-	}
+	static dateTimeUtcToLocalDateTime(dtUtc: Date | string | number | undefined | null): Date | undefined | null {
+		if (dtUtc == null) {
+			return dtUtc;
+		}
 
-	static dateTimeUtcToLocalMoment(dtUtc: Date | string | number | undefined | null): moment.Moment {
-		const stillUtc = moment.utc(dtUtc);
-		return stillUtc.local();
+		const dt = new Date(dtUtc);
+		const stillUtc = DateTime.fromJSDate(dt);
+		return stillUtc.toLocal().toJSDate();
 	}
 
 	static getEndOfWeek(dt: Date | string | number | undefined | null | number) {
+		if (dt == null) {
+			return dt;
+		}
+
 		return moment(dt).endOf('isoWeek').toDate();
 	}
 
 	static getStartOfWeek(dt: Date | string | number | undefined | null | number) {
+		if (dt == null) {
+			return dt;
+		}
+
 		return moment(dt).startOf('isoWeek').toDate();
 	}
 
 	static getEndOfMonth(dt: Date | string | number | undefined | null | number) {
-		//  return new Date(dt.getFullYear(), dt.getMonth() + 1, 0, 23, 59, 59, 999);
+		if (dt == null) {
+			return dt;
+		}
+
 		return moment(dt).endOf('month').toDate();
 	}
 
 	static getStartOfMonth(dt: Date | string | number | undefined | null | number) {
+		if (dt == null) {
+			return dt;
+		}
+
 		return moment(dt).startOf('month').toDate();
 	}
 
@@ -93,16 +113,16 @@ export class DateFunc {
 		return this.getDaysBetween(dt1, dt2);
 	}
 
-	static getEndOfDate(dt: Date | undefined | null): Date {
+	static getEndOfDate(dt: Date | undefined | null): Date  | undefined | null {
 		return dt ? new Date(dt.setHours(23, 59, 59, 999)) :
 			new Date(this.now.setHours(23, 59, 59, 999));
 	}
 
-	static getStartOfDate(dt: Date | string | number | undefined | null): Date {
+	static getStartOfDate(dt: Date | string | number | undefined | null): Date | undefined | null {
 		return moment(dt).startOf('day').toDate();
 	}
 
-	static getEndOfToday(): Date {
+	static getEndOfToday(): Date | undefined | null {
 		//	return new Date((new Date(Date.now())).setHours(23, 59, 59, 999));
 		return moment(Date.now()).endOf('day').toDate();
 
@@ -114,13 +134,13 @@ export class DateFunc {
 	}
 
 	//inspired https://stackoverflow.com/questions/563406/add-days-to-javascript-date
-	static addDays(dt: Date | string | number | undefined | null, days: number = 0) {
+	static addDays(dt: Date | string | number | undefined | null, days: number = 0) : Date | undefined | null {
 		const dat = moment(dt);
 		dat.add(days, 'days');
 		return dat.toDate();
 	}
 
-	static subtractDays(dt: Date | string | number | undefined | null, days: number = 0) {
+	static subtractDays(dt: Date | string | number | undefined | null, days: number = 0): Date | undefined | null {
 		const dat = moment(dt);
 		dat.subtract(days, 'days');
 		return dat.toDate();
@@ -137,7 +157,7 @@ export class DateFunc {
 		return new Date(Date.now());
 	}
 
-	static getNext5MinuteMark(): Date {
+	static getNext5MinuteMark(): Date | undefined | null {
 		const m = moment().set('second', 0).set('millisecond', 0);
 		const minute = m.minute();
 		const mod = minute % 5;

@@ -11,7 +11,7 @@ describe('DateFunc', () => {
 		expect(dtUtc.getUTCHours()).toBe(22);
 		expect(dtUtc.getHours()).toBe(8);
 
-		const n = DateFunc.dateTimeUtcToLocalDateNumber(dtUtc);
+		const n = DateFunc.dateTimeUtcToLocalDateNumber(dtUtc)!;
 		const dt = new Date(n);
 		expect(dt.getDate()).toBe(24);
 		expect(dt.getUTCDate()).toBe(23);
@@ -28,7 +28,7 @@ describe('DateFunc', () => {
 		expect(dtUtc.getUTCHours()).toBe(22);
 		expect(dtUtc.getHours()).toBe(8);
 
-		const localDt = DateFunc.dateTimeUtcToLocalDate(dtUtc);
+		const localDt = DateFunc.dateTimeUtcToLocalDate(dtUtc)!;
 		expect(localDt.getDate()).toBe(24);
 		expect(localDt.getUTCDate()).toBe(23);
 		expect(localDt.getUTCHours()).toBe(14);
@@ -59,7 +59,7 @@ describe('DateFunc', () => {
 		expect(dtUtc.getDate()).toBe(22);
 	});
 
-	it('localDateToUtcWithDate', () => {
+	it('localDateToUtcWithDateAndTime', () => {
 		const dt = new Date('2018-02-23T23:00:00Z');
 		console.debug('localDateToUtc dt: ' + dt.toString());
 		const m = DateTime.fromJSDate(dt);
@@ -67,11 +67,11 @@ describe('DateFunc', () => {
 		expect(dt.getDate()).toBe(24);
 		expect(dt.getHours()).toBe(9); 
 
-		const dtUtc = DateFunc.localDateToUtc('2018-02-23T23:00:00Z')!;
+		const dtUtc = DateFunc.localDateToUtc('2018-02-23T23:00:00Z')!; //John is born  in 24 AEST time.
 		expect(dtUtc).toBeDefined();
 		console.debug('localDateToUtc dtUtc: ' + dtUtc.toString());
 		expect(dtUtc.getHours()).toBe(14);
-		expect(dtUtc.getDate()).toBe(24);
+		expect(dtUtc.getDate()).toBe(23); // Will be recorded 23 UTC time.
 	});
 
 	it('mod to near 5', () => {
