@@ -67,6 +67,26 @@ describe('DateFunc', () => {
 		expect(localDt).toBe('2018/1/24 08:00');
 	});
 
+	it('getDateTime24SimpleEnUs', () => {
+		const dtUtc = new Date('2018-01-23T22:00:00Z');
+
+		const currentLocale = DateFunc.getDefaultLocale();
+		DateFunc.setDefaultLocale('en-us');
+		const localDt = DateFunc.getDateTime24Simple(dtUtc);
+		DateFunc.setDefaultLocale(currentLocale);
+		expect(localDt).toBe('1/24/2018 08:00');
+	});
+
+	it('getDateTime24SimpleEnAu', () => {
+		const dtUtc = new Date('2018-01-23T22:00:00Z');
+
+		const currentLocale = DateFunc.getDefaultLocale();
+		DateFunc.setDefaultLocale('en-au');
+		const localDt = DateFunc.getDateTime24Simple(dtUtc);
+		DateFunc.setDefaultLocale(currentLocale);
+		expect(localDt).toBe('24/01/2018 08:00');
+	});
+
 	it('getDateTime24SimpleAr', () => {
 		const dtUtc = new Date('2018-01-23T22:00:00Z');
 
@@ -75,6 +95,18 @@ describe('DateFunc', () => {
 		const localDt = DateFunc.getDateTime24Simple(dtUtc);
 		DateFunc.setDefaultLocale(currentLocale);
 		expect(localDt).toBe('٢٤‏/١‏/٢٠١٨ ٠٨:٠٠');
+	});
+
+	// it('getTimezoneOffset', () => {
+	// 	const dtUtc = Date.now() - 60*60*1000;
+
+	// 	const diff = DateFunc.getTimezoneOffset(dtUtc);
+	// 	expect(diff).toBe(-599);
+	// });
+
+	it('getLocalTimezoneOffset', () => {
+		const diff = DateFunc.getLocalTimezoneOffset();
+		expect(diff).toBe(-600);
 	});
 
 	it('localDateToUtcWithDateOnly', () => {
@@ -99,7 +131,7 @@ describe('DateFunc', () => {
 		const m = DateTime.fromJSDate(dt);
 		expect(m.hour).toBe(9);
 		expect(dt.getDate()).toBe(24);
-		expect(dt.getHours()).toBe(9); 
+		expect(dt.getHours()).toBe(9);
 
 		const dtUtc = DateFunc.localDateToUtc('2018-02-23T23:00:00Z')!; //John is born  in 24 AEST time.
 		expect(dtUtc).toBeDefined();
@@ -199,8 +231,9 @@ describe('DateFunc', () => {
 		const yesterday = moment().add(-hour - 1, 'hours').toDate();
 		const yesterdayUtc = DateFunc.localDateToUtc(yesterday);
 		console.debug(`notOlderThan1DayEnough: hour: ${hour}; yesterday: ${yesterday}, yesterDayUtc: ${yesterdayUtc}`);
-		if (yesterdayUtc){
-		expect(DateFunc.olderThan1Day(new Date(yesterdayUtc))).toBeTruthy();}
+		if (yesterdayUtc) {
+			expect(DateFunc.olderThan1Day(new Date(yesterdayUtc))).toBeTruthy();
+		}
 	});
 
 	it('getTimeFromMins', () => {

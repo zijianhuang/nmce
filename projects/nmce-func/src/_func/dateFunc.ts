@@ -6,7 +6,6 @@ export class DateFunc {
 	/**
 	 * Transform UTC DateTime to local date without H, M and S. For example, the month day of 2018-01-23T22:00:00Z is 24 in Australia.
 	 * @param dtUtc
-	 * @param offsetMinutes if not defined, it will be new Date().getTimezoneOffset(). //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset
 	 */
 	static dateTimeUtcToLocalDateNumber(dtUtc: Date | string | number | undefined | null): number | undefined | null {
 		if (dtUtc == null) {
@@ -67,26 +66,6 @@ export class DateFunc {
 		const offset = dt.getTimezoneOffset() * 60000;
 		return new Date(n + offset);
 	}
-
-	static getTimezoneOffset(): number | undefined | null {
-		const dt = this.today;
-		return dt.getTimezoneOffset();
-	}
-
-	// /**
-	//  * Transform UTC DateTime to local dateTime.
-	//  * @param dtUtc
-	//  * @param offsetMinutes if not defined, it will be new Date().getTimezoneOffset(). //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset
-	//  */
-	// static dateTimeUtcToLocalDateTime(dtUtc: Date | string | number | undefined | null): Date | undefined | null {
-	// 	if (dtUtc == null) {
-	// 		return dtUtc;
-	// 	}
-
-	// 	const dt = new Date(dtUtc);
-	// 	const stillUtc = DateTime.fromJSDate(dt);
-	// 	return stillUtc.toLocal().toJSDate();
-	// }
 
 	static getEndOfWeek(dt: Date | string | number | undefined | null | number) {
 		if (dt == null) {
@@ -234,12 +213,12 @@ export class DateFunc {
 	}
 
 	/**
-	 * Offset minutes comparing with today
+	 * For example, in AEST, it is 600.
+	 * @returns 
 	 */
-	static getOffsetMinutes(dtUtc: Date | string | number | undefined | null): number {
-		const dm1 = moment(dtUtc);
-		const dm2 = moment(new Date().setHours(0, 0, 0, 0));
-		return dm1.diff(dm2, 'minutes');
+	static getLocalTimezoneOffset(): number {
+		const dt = new Date(Date.now());
+		return dt.getTimezoneOffset();
 	}
 
 	static getDaysBetween(d1?: Date | string | number | undefined | null, d2?: Date | string | number | undefined | null): number {
