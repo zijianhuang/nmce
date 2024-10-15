@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { DateTime } from 'luxon';
+import { DateTime, Settings } from 'luxon';
 
 export class DateFunc {
 
@@ -13,7 +13,7 @@ export class DateFunc {
 			return dtUtc;
 		}
 
-		const localDt = DateFunc.dateTimeUtcToLocalDateTime(dtUtc)!;
+		const localDt = new Date(dtUtc);
 		const localDNum = localDt.setHours(0, 0, 0, 0);
 
 		return localDNum;
@@ -22,20 +22,31 @@ export class DateFunc {
 	/**
 	 * Date only. However, the date may still be in UTC.
 	 * @param dtUtc
+	 * @returns new Date object.
 	 */
 	static dateTimeUtcToLocalDate(dtUtc: Date | string | number | undefined | null): Date | undefined | null {
 		if (dtUtc == null) {
 			return dtUtc;
 		}
 
-		const localDt = DateFunc.dateTimeUtcToLocalDateTime(dtUtc)!;
+		const localDt = new Date(dtUtc);
 		const localNum = localDt.setHours(0, 0, 0, 0);
 		return new Date(localNum);
 	}
 
-	static localISODateString(dtUtc: Date | string | number | undefined | null): string {
-		const dt = moment(dtUtc).local();
-		return dt.format('YYYY-MM-DD');
+	/**
+	 * '2018-01-23T22:00:00Z' will become '2018-01-24' in Australia.
+	 * @param dtUtc 
+	 * @returns  new Date object.
+	 */
+	static localISODateString(dtUtc: Date | string | number | undefined | null): string | undefined | null {		
+	    const dt = this.dateTimeUtcToLocalDate(dtUtc);
+		if (dt == null) {
+			return dt;
+		}
+
+		const d= DateTime.fromJSDate(dt);
+		return d.toISODate();
 	}
 
 	/**
@@ -62,20 +73,20 @@ export class DateFunc {
 		return dt.getTimezoneOffset();
 	}
 
-	/**
-	 * Transform UTC DateTime to local dateTime.
-	 * @param dtUtc
-	 * @param offsetMinutes if not defined, it will be new Date().getTimezoneOffset(). //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset
-	 */
-	static dateTimeUtcToLocalDateTime(dtUtc: Date | string | number | undefined | null): Date | undefined | null {
-		if (dtUtc == null) {
-			return dtUtc;
-		}
+	// /**
+	//  * Transform UTC DateTime to local dateTime.
+	//  * @param dtUtc
+	//  * @param offsetMinutes if not defined, it will be new Date().getTimezoneOffset(). //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset
+	//  */
+	// static dateTimeUtcToLocalDateTime(dtUtc: Date | string | number | undefined | null): Date | undefined | null {
+	// 	if (dtUtc == null) {
+	// 		return dtUtc;
+	// 	}
 
-		const dt = new Date(dtUtc);
-		const stillUtc = DateTime.fromJSDate(dt);
-		return stillUtc.toLocal().toJSDate();
-	}
+	// 	const dt = new Date(dtUtc);
+	// 	const stillUtc = DateTime.fromJSDate(dt);
+	// 	return stillUtc.toLocal().toJSDate();
+	// }
 
 	static getEndOfWeek(dt: Date | string | number | undefined | null | number) {
 		if (dt == null) {
@@ -190,8 +201,36 @@ export class DateFunc {
 	 * @param dtUtc
 	 */
 	static getLocalDMYHmWithSlash(dtUtc: Date | string | number | undefined | null) {
-		const d = DateFunc.dateTimeUtcToLocalDateTime(dtUtc);
-		return moment(d).format('DD/MM/YYYY HH:mm');
+		if (dtUtc == null) {
+			return dtUtc;
+		}
+		
+		const d = new Date(dtUtc);
+		const dt = DateTime.fromJSDate(d);
+		return dt.toFormat('dd/MM/yyyy HH:mm'); //https://github.com/moment/luxon/blob/master/docs/formatting.md
+	}
+
+	/**
+	 * 
+	 * @param dtUtc In 24 hour format, and the date separator depending on the system or Luxon default locale
+	 * @returns 
+	 */
+	static getDateTime24Simple(dtUtc: Date | string | number | undefined | null) {
+		if (dtUtc == null) {
+			return dtUtc;
+		}
+		
+		const d = new Date(dtUtc);
+		const dt = DateTime.fromJSDate(d);
+		return dt.toLocaleString(DateTime.DATE_SHORT) + ' ' + dt.toLocaleString(DateTime.TIME_24_SIMPLE);
+	}
+
+	static setDefaultLocale(locale: string){
+		Settings.defaultLocale=locale;
+	}
+
+	static getDefaultLocale(){
+		return Settings.defaultLocale;
 	}
 
 	/**

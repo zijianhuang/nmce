@@ -43,6 +43,40 @@ describe('DateFunc', () => {
 		expect(localDt).toBe('2018-01-24');
 	});
 
+	it('getLocalDMYHmWithSlash', () => {
+		const dtUtc = new Date('2018-01-23T22:00:00Z');
+
+		const localDt = DateFunc.getLocalDMYHmWithSlash(dtUtc);
+		expect(localDt).toBe('24/01/2018 08:00');
+	});
+
+	it('getDateTime24Simple', () => {
+		const dtUtc = new Date('2018-01-23T22:00:00Z');
+
+		const localDt = DateFunc.getDateTime24Simple(dtUtc);
+		expect(localDt).toBe('24/01/2018 08:00');
+	});
+
+	it('getDateTime24SimpleZh', () => {
+		const dtUtc = new Date('2018-01-23T22:00:00Z');
+
+		const currentLocale = DateFunc.getDefaultLocale();
+		DateFunc.setDefaultLocale('zh');
+		const localDt = DateFunc.getDateTime24Simple(dtUtc);
+		DateFunc.setDefaultLocale(currentLocale);
+		expect(localDt).toBe('2018/1/24 08:00');
+	});
+
+	it('getDateTime24SimpleAr', () => {
+		const dtUtc = new Date('2018-01-23T22:00:00Z');
+
+		const currentLocale = DateFunc.getDefaultLocale();
+		DateFunc.setDefaultLocale('ar');
+		const localDt = DateFunc.getDateTime24Simple(dtUtc);
+		DateFunc.setDefaultLocale(currentLocale);
+		expect(localDt).toBe('٢٤‏/١‏/٢٠١٨ ٠٨:٠٠');
+	});
+
 	it('localDateToUtcWithDateOnly', () => {
 		const dt = new Date('2018-02-23');
 		console.debug('localDateToUtc dt: ' + dt.toString());
