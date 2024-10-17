@@ -72,7 +72,8 @@ export class DateFunc {
 			return dt;
 		}
 
-		return moment(dt).endOf('isoWeek').toDate();
+		const dateTime = DateTime.fromJSDate(new Date(dt));
+		return dateTime.endOf('week').toJSDate();
 	}
 
 	static getStartOfWeek(dt: Date | string | number | undefined | null | number) {
@@ -80,7 +81,8 @@ export class DateFunc {
 			return dt;
 		}
 
-		return moment(dt).startOf('isoWeek').toDate();
+		const dateTime = DateTime.fromJSDate(new Date(dt));
+		return dateTime.startOf('week').toJSDate();
 	}
 
 	static getEndOfMonth(dt: Date | string | number | undefined | null | number) {
@@ -88,7 +90,8 @@ export class DateFunc {
 			return dt;
 		}
 
-		return moment(dt).endOf('month').toDate();
+		const dateTime = DateTime.fromJSDate(new Date(dt));
+		return dateTime.endOf('month').toJSDate();
 	}
 
 	static getStartOfMonth(dt: Date | string | number | undefined | null | number) {
@@ -96,7 +99,8 @@ export class DateFunc {
 			return dt;
 		}
 
-		return moment(dt).startOf('month').toDate();
+		const dateTime = DateTime.fromJSDate(new Date(dt));
+		return dateTime.startOf('month').toJSDate();
 	}
 
 	static getDaysBetweenDates(dt1: Date | string | number | undefined | null, dt2: Date | string | number | undefined | null) {

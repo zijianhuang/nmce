@@ -97,6 +97,34 @@ describe('DateFunc', () => {
 		expect(localDt).toBe('٢٤‏/١‏/٢٠١٨ ٠٨:٠٠');
 	});
 
+	it('getEndOfWeek', () => {
+		const dtUtc = new Date('2024-02-27');
+
+		const dt = DateFunc.getEndOfWeek(dtUtc)!;
+		expect(dt).toEqual(new Date('2024-03-03T13:59:59.999Z')); //Australia +10
+	});
+
+	it('getStartOfWeek', () => {
+		const dtUtc = new Date('2024-02-27');
+
+		const dt = DateFunc.getStartOfWeek(dtUtc)!;
+		expect(dt).toEqual(new Date('2024-02-25T14:00:00Z')); //Australia +10
+	});
+
+	it('getEndOfMonth', () => {
+		const dtUtc = new Date('2024-02-27');
+
+		const dt = DateFunc.getEndOfMonth(dtUtc)!;
+		expect(dt).toEqual(new Date('2024-02-29T13:59:59.999Z')); //Australia +10
+	});
+
+	it('getStartOfMonth', () => {
+		const dtUtc = new Date('2024-02-27');
+
+		const dt = DateFunc.getStartOfMonth(dtUtc)!;
+		expect(dt).toEqual(new Date('2024-01-31T14:00:00Z')); //Australia +10
+	});
+
 	// it('getTimezoneOffset', () => {
 	// 	const dtUtc = Date.now() - 60*60*1000;
 
