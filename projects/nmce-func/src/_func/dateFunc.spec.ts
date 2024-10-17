@@ -125,6 +125,47 @@ describe('DateFunc', () => {
 		expect(dt).toEqual(new Date('2024-01-31T14:00:00Z')); //Australia +10
 	});
 
+	it('getEndOfDate', () => {
+		const dtUtc = new Date('2024-02-27');
+
+		const dt = DateFunc.getEndOfDate(dtUtc)!;
+		expect(dt).toEqual(new Date('2024-02-27T13:59:59.999Z')); //Australia +10
+	});
+
+	it('getStartOfDate', () => {
+		const dtUtc = new Date('2024-02-27');
+
+		const dt = DateFunc.getStartOfDate(dtUtc)!;
+		expect(dt).toEqual(new Date('2024-02-26T14:00:00Z')); //Australia +10
+	});
+
+	it('addDays', () => {
+		const dtUtc = new Date('2024-03-01');
+		console.debug('addDay: '+ dtUtc);
+		const dt = DateFunc.addDays(dtUtc, 10)!;
+		expect(dt).toEqual(new Date('2024-03-11T00:00:00Z')); //Australia +10
+	});
+
+	it('addDaysMinusLeapFeb', () => {
+		const dtUtc = new Date('2024-03-01');
+		console.debug('addDay: '+ dtUtc);
+		const dt = DateFunc.addDays(dtUtc, -10)!;
+		expect(dt).toEqual(new Date('2024-02-20T00:00:00Z')); //Australia +10
+	});
+
+	it('addDaysMinusFeb', () => {
+		const dtUtc = new Date('2023-03-01');
+		console.debug('addDay: '+ dtUtc);
+		const dt = DateFunc.addDays(dtUtc, -10)!;
+		expect(dt).toEqual(new Date('2023-02-19T00:00:00Z')); //Australia +10
+	});
+	it('addDaysMinus', () => {
+		const dtUtc = new Date('2023-03-17');
+		console.debug('addDay: '+ dtUtc);
+		const dt = DateFunc.addDays(dtUtc, -10)!;
+		expect(dt).toEqual(new Date('2023-03-07T00:00:00Z')); //Australia +10
+	});
+
 	// it('getTimezoneOffset', () => {
 	// 	const dtUtc = Date.now() - 60*60*1000;
 

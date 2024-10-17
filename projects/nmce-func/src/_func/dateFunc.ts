@@ -67,77 +67,56 @@ export class DateFunc {
 		return new Date(n + offset);
 	}
 
-	static getEndOfWeek(dt: Date | string | number | undefined | null | number) {
-		if (dt == null) {
-			return dt;
-		}
-
+	static getEndOfWeek(dt: Date | string | number) : Date {
 		const dateTime = DateTime.fromJSDate(new Date(dt));
 		return dateTime.endOf('week').toJSDate();
 	}
 
-	static getStartOfWeek(dt: Date | string | number | undefined | null | number) {
-		if (dt == null) {
-			return dt;
-		}
-
+	static getStartOfWeek(dt: Date | string | number) : Date {
 		const dateTime = DateTime.fromJSDate(new Date(dt));
 		return dateTime.startOf('week').toJSDate();
 	}
 
-	static getEndOfMonth(dt: Date | string | number | undefined | null | number) {
-		if (dt == null) {
-			return dt;
-		}
-
+	static getEndOfMonth(dt: Date | string | number) : Date {
 		const dateTime = DateTime.fromJSDate(new Date(dt));
 		return dateTime.endOf('month').toJSDate();
 	}
 
-	static getStartOfMonth(dt: Date | string | number | undefined | null | number) {
-		if (dt == null) {
-			return dt;
-		}
-
+	static getStartOfMonth(dt: Date | string | number) : Date {
 		const dateTime = DateTime.fromJSDate(new Date(dt));
 		return dateTime.startOf('month').toJSDate();
 	}
 
-	static getDaysBetweenDates(dt1: Date | string | number | undefined | null, dt2: Date | string | number | undefined | null) {
-		return this.getDaysBetween(dt1, dt2);
+	static getEndOfDate(dt: Date | string | number): Date {
+		const dateTime = DateTime.fromJSDate(new Date(dt));
+		return dateTime.endOf('day').toJSDate();
 	}
 
-	static getEndOfDate(dt: Date | undefined | null): Date  | undefined | null {
-		return dt ? new Date(dt.setHours(23, 59, 59, 999)) :
-			new Date(this.now.setHours(23, 59, 59, 999));
-	}
-
-	static getStartOfDate(dt: Date | string | number | undefined | null): Date | undefined | null {
-		return moment(dt).startOf('day').toDate();
+	static getStartOfDate(dt: Date | string | number): Date {
+		const dateTime = DateTime.fromJSDate(new Date(dt));
+		return dateTime.startOf('day').toJSDate();
 	}
 
 	static getEndOfToday(): Date | undefined | null {
-		//	return new Date((new Date(Date.now())).setHours(23, 59, 59, 999));
-		return moment(Date.now()).endOf('day').toDate();
+		return this.getEndOfDate(Date.now());
 
 	}
 
 	static getStartOfToday(): Date {
-		//	return new Date((new Date(Date.now())).setHours(0, 0, 0, 0));
-		return moment(Date.now()).startOf('day').toDate();
+		return this.getStartOfDate(Date.now());
+	}
+
+	static getDaysBetween(d1: Date | string | number, d2: Date | string | number): number {
+		const dm1 = DateTime.fromJSDate(new Date(d1));
+		const dm2 = DateTime.fromJSDate(new Date(d1));
+		return dm2.diff(dm1, 'days').days;
 	}
 
 	//inspired https://stackoverflow.com/questions/563406/add-days-to-javascript-date
-	static addDays(dt: Date | string | number | undefined | null, days: number = 0) : Date | undefined | null {
-		const dat = moment(dt);
-		dat.add(days, 'days');
-		return dat.toDate();
-	}
-
-	static subtractDays(dt: Date | string | number | undefined | null, days: number = 0): Date | undefined | null {
-		const dat = moment(dt);
-		dat.subtract(days, 'days');
-		return dat.toDate();
+	static addDays(dt: Date | string | number, days: number) : Date {
+		const dat = DateTime.fromJSDate(new Date(dt));
+		const r = dat.plus({days: days});
+		return r.toJSDate();
 	}
 
 	/**
@@ -223,12 +202,6 @@ export class DateFunc {
 	static getLocalTimezoneOffset(): number {
 		const dt = new Date(Date.now());
 		return dt.getTimezoneOffset();
-	}
-
-	static getDaysBetween(d1?: Date | string | number | undefined | null, d2?: Date | string | number | undefined | null): number {
-		const dm1 = moment(d1);
-		const dm2 = moment(d2);
-		return dm2.diff(dm1, 'days');
 	}
 
 	/**
