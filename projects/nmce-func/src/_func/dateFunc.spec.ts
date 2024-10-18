@@ -1,7 +1,8 @@
 import moment from 'moment';
 import { DateFunc } from './dateFunc';
-import { DateTime } from 'luxon';
+import { DateTime, Settings } from 'luxon';
 
+Settings.defaultZone='Australia/Brisbane';
 
 describe('DateFunc', () => {
 	it('dateTimeUtcToLocalDateNumber', () => {
@@ -41,13 +42,6 @@ describe('DateFunc', () => {
 
 		const localDt = DateFunc.localISODateString(dtUtc);
 		expect(localDt).toBe('2018-01-24');
-	});
-
-	it('getLocalDMYHmWithSlash', () => {
-		const dtUtc = new Date('2018-01-23T22:00:00Z');
-
-		const localDt = DateFunc.getLocalDMYHmWithSlash(dtUtc);
-		expect(localDt).toBe('24/01/2018 08:00');
 	});
 
 	it('getDateTime24Simple', () => {
@@ -159,11 +153,39 @@ describe('DateFunc', () => {
 		const dt = DateFunc.addDays(dtUtc, -10)!;
 		expect(dt).toEqual(new Date('2023-02-19T00:00:00Z')); //Australia +10
 	});
+
 	it('addDaysMinus', () => {
 		const dtUtc = new Date('2023-03-17');
 		console.debug('addDay: '+ dtUtc);
 		const dt = DateFunc.addDays(dtUtc, -10)!;
 		expect(dt).toEqual(new Date('2023-03-07T00:00:00Z')); //Australia +10
+	});
+
+	it('getNext5MinuteMark', () => {
+		const dt = DateFunc.getNext5MinuteMark();
+		const dateTime = DateTime.fromJSDate(dt);
+		expect(dateTime.minute % 5).toEqual(0); 
+	});
+
+	it('getYMD', () => {
+		const dtUtc = new Date('2024-02-27T23:00:00Z');
+		expect(DateFunc.getYMD(dtUtc)).toEqual('20240228');
+		console.debug('Zone: ' + JSON.stringify(Settings.defaultZone));
+	});
+
+	it('getDMYWithSlash', () => {
+		const dtUtc = new Date('2024-02-27T23:00:00Z');
+		expect(DateFunc.getDMYWithSlash(dtUtc)).toEqual('28/02/2024');
+	});
+
+	it('getDMYHmWithSlash', () => {
+		const dtUtc = new Date('2024-02-27T23:12:34Z');
+		expect(DateFunc.getDMYHmWithSlash(dtUtc)).toEqual('28/02/2024 09:12:34');
+	});
+
+	it('getYMD', () => {
+		const dtUtc = new Date('2024-02-27T23:00:00Z');
+		expect(DateFunc.getYMD(dtUtc)).toEqual('20240228');
 	});
 
 	// it('getTimezoneOffset', () => {

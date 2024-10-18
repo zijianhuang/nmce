@@ -130,46 +130,35 @@ export class DateFunc {
 		return new Date(Date.now());
 	}
 
-	static getNext5MinuteMark(): Date | undefined | null {
-		const m = moment().set('second', 0).set('millisecond', 0);
-		const minute = m.minute();
+	/**
+	 * From now, next 5 minute mark. For example 2:23:44 will be 2:25:00;
+	 * @returns 
+	 */
+	static getNext5MinuteMark(): Date {
+		const m = DateTime.now().set({second: 0, millisecond:0});
+		const minute = m.minute;
 		const mod = minute % 5;
 		if (mod) {
 			const delta = 5 - mod;
-			return m.add(delta, 'm').toDate();
+			return m.plus({minutes: delta}).toJSDate();
 		}
 
-		return m.toDate();
+		return m.toJSDate();
 	}
 
-	static getYMD(d: Date) {
-		return moment(d).format('YYYYMMDD');
+	static getYMD(d: Date | string | number) {
+		const dt = DateTime.fromJSDate(new Date(d));
+		return dt.toFormat('yyyyMMdd');
 	}
 
-	static getDMYWithSlash(d: Date) {
-		return moment(d).format('DD/MM/YYYY');
+	static getDMYWithSlash(d: Date | string | number) {
+		const dt = DateTime.fromJSDate(new Date(d));
+		return dt.toFormat('dd/MM/yyyy');
 	}
 
-	static getDMYHmWithSlash(d: Date) {
-		return moment(d).format('DD/MM/YYYY HH:mm');
-	}
-
-	static getMcpTime(dt: Date | string | number | undefined | null) {
-		return moment(dt).format('HH:mm:ss.SSSZ');
-	}
-
-	/**
-	 * In 24 hour format
-	 * @param dtUtc
-	 */
-	static getLocalDMYHmWithSlash(dtUtc: Date | string | number | undefined | null) {
-		if (dtUtc == null) {
-			return dtUtc;
-		}
-		
-		const d = new Date(dtUtc);
-		const dt = DateTime.fromJSDate(d);
-		return dt.toFormat('dd/MM/yyyy HH:mm'); //https://github.com/moment/luxon/blob/master/docs/formatting.md
+	static getDMYHmWithSlash(d: Date | string | number) {
+		const dt = DateTime.fromJSDate(new Date(d));
+		return dt.toFormat('dd/MM/yyyy HH:mm');
 	}
 
 	/**
