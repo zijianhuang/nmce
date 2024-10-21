@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { DateTime, Settings } from 'luxon';
+import { DateTime, Duration, Settings } from 'luxon';
 
 export class DateFunc {
 
@@ -185,7 +185,7 @@ export class DateFunc {
 	}
 
 	/**
-	 * For example, in AEST, it is 600.
+	 * For example, in AEST, it is -600.
 	 * @returns 
 	 */
 	static getLocalTimezoneOffset(): number {
@@ -197,68 +197,62 @@ export class DateFunc {
 	 * Get hour of the date. If Date is not defined, the hour will be current hour.
 	 * @param dtUtc
 	 */
-	static getHour(dtUtc: Date | string | number | undefined | null | number): number {
-		const m = moment(dtUtc);
-		return m.hours();
+	static getHour(dtUtc: Date | string | number): number {
+		const dt = DateTime.fromJSDate(new Date(dtUtc));
+		return dt.hour;
 	}
 
-	static getMinute(dtUtc: Date | string | number | undefined | null | number): number {
-		const m = moment(dtUtc);
-		return m.minutes();
+	static getMinute(dtUtc: Date | string | number): number {
+		const dt = DateTime.fromJSDate(new Date(dtUtc));
+		return dt.minute;
 	}
 
-	static composeDateTime(dt: Date | string | number | undefined | null, h: number = 0, minute: number = 0): Date {
-		const mt = moment(dt);
-		return new Date(mt.toDate().setHours(h, minute, 0, 0));
+	static GetHM(dtUtc: Date | string | number): {h: number, m: number}{
+		const dt = DateTime.fromJSDate(new Date(dtUtc));
+		return {h: dt.hour, m: dt.minute};
 	}
 
-	static olderThan24Hours(d: Date | string | number | undefined | null): boolean {
-		const m = moment(d);
-		return moment().diff(m, 'hours') >= 24;
+	static composeDateTime(dt: Date | string | number, h: number = 0, minute: number = 0, second: number = 0): Date {
+		return new Date( new Date(dt).setHours(h, minute, second, 0));
 	}
 
-	static olderThan24HoursUtc(dtUtc: Date | string | number | undefined | null): boolean {
-		return DateFunc.getHourAgeUtc(dtUtc) >= 24;
+	static olderThan24Hours(d: Date | string | number): boolean {
+		const m = DateTime.fromJSDate(new Date(d));
+		return DateTime.now().diff(m, 'hours') >= Duration.fromISO('PT24H');
 	}
 
-	static olderThanHours(d: Date, hours: number) {
-		const m = moment(d);
-		return moment().diff(m, 'hours') >= hours;
-	}
-
-	static olderThanHoursUtc(dtUtc: Date | string | number | undefined | null, hours: number): boolean {
-		return DateFunc.getHourAgeUtc(dtUtc) >= hours;
+	static olderThanHours(d: Date, hours: number) : boolean {
+		const m = DateTime.fromJSDate(new Date(d));
+		const diff = DateTime.now().diff(m, 'hours'); 
+		const duration = Duration.fromISO(`PT${hours}H`);
+		console.debug('diff: ' + diff.hours + '   duration: ' + duration.hours);
+		return diff.hours >= duration.hours;
 	}
 
 	static olderThanMinutes(d: Date, minutes: number) {
-		const m = moment(d);
-		return moment().diff(m, 'minutes') >= minutes;
+		const m = DateTime.fromJSDate(new Date(d));
+		return DateTime.now().diff(m, 'minutes') >= Duration.fromMillis(minutes*60*1000);
 	}
 
 	/**
 	 * It could be 11PM yesterday, and 1 AM today. Actually based on local today.
 	 */
-	static olderThan1Day(dtUtc: Date | string | number | undefined | null): boolean {
-		return DateFunc.getDayAgeUtc(dtUtc) > 0;
+	static olderThan1Day(dtUtc: Date | string | number): boolean {
+		return DateFunc.getDayAge(dtUtc) > 0;
 	}
 
-	static getHourAge(d: Date) {
-		const m = moment(d);
-		return moment().diff(m, 'hours');
-	}
-
-	static getHourAgeUtc(dtUtc: Date | string | number | undefined | null) {
-		const m = moment.utc(dtUtc);
-		return moment.utc().diff(m, 'hours');
+	static getHourAge(d: Date | string | number) {
+		const m = DateTime.fromJSDate(new Date(d));
+		return DateTime.now().diff(m, 'hours').hours;
 	}
 
 	/**
-	 * Compare utc date with utc now.
+	 * Compare date with now.
 	 * @param dtUtc
 	 */
-	static getDayAgeUtc(dtUtc: Date | string | number | undefined | null) {
-		const m = moment.utc(dtUtc);
-		return moment.utc().diff(m, 'days');
+	static getDayAge(d: Date | string | number) {
+		const m = DateTime.fromJSDate(new Date(d));
+		return DateTime.now().diff(m, 'days').days;
 	}
 
 	/**
@@ -267,63 +261,33 @@ export class DateFunc {
 	 * @returns
 	 */
 	static getAge(d: Date) {
-		const m = moment(d);
-		return moment().diff(m, 'years');
-	}
-
-	/**
-	 * Year of date.
-	 * @param d
-	 * @returns
-	 */
-	static getYear(d: Date) {
-		const m = moment(d);
-		return m.year();
-	}
-
-	static getUtcNow(): Date {
-		return moment.utc().toDate();
-	}
-
-	static addMinutes(d: Date, m: number): Date {
-		return moment(d).add(m, 'm').toDate();
-	}
-
-	static addMonth(d: Date, m: number): Date {
-		return moment(d).add(m, 'M').toDate();
-	}
-
-	static getDuration(d1: Date, d2: Date) {
-		const md1 = moment(d1);
-		const md2 = moment(d2);
-		return moment.duration(md2.diff(md1));
+		const m = DateTime.fromJSDate(new Date(d));
+		return DateTime.now().diff(m, 'years').years;
 	}
 
 	/**
 	 * Convert minutes from midnight to HH:mm text
-	 * @param mins
+	 * @param minutes
 	 */
-	static getHMFromMins(mins: number): string {
-		// do not include the first validation check if you want, for example,
-		// getTimeFromMins(1530) to equal getTimeFromMins(90) (i.e. mins rollover)
-		if (mins >= 24 * 60 || mins < 0) {
+	static getHMFromMins(minutes: number): string {
+		if (minutes >= 24 * 60 || minutes < 0) {
 			throw new RangeError('Valid input should be greater than or equal to 0 and less than 1440.');
 		}
-		const h = mins / 60 | 0,
-			m = mins % 60 | 0;
-		return moment.utc().hours(h).minutes(m).format('HH:mm');
+		const h = minutes / 60 | 0,
+			m = minutes % 60 | 0;
+		return DateTime.utc().set({hour: h, minute: m}).toFormat('HH:mm');
 	}
 
-	static getMinutesSinceMidnight(d: Date | string | number | undefined | null) {
-		const m = moment(d);
-		const midnight = moment(d).startOf('day'); //Mutates the original moment by setting it to the start of a unit of time. So I have better not to use m which wil be changed by calling this function
-		return m.diff(midnight, 'minutes');
+	static getMinutesSinceMidnight(d: Date | string | number) {
+		const dt = DateTime.fromJSDate(new Date(d));
+		const midnight = dt.startOf('day'); //Mutates the original moment by setting it to the start of a unit of time. So I have better not to use m which wil be changed by calling this function
+		return dt.diff(midnight, 'minutes').minutes;
 	}
 
-	static getMinutesBetween(start: Date | string | number | undefined | null, end: Date | string | number | undefined | null) {
-		const m = moment(start);
-		const m2 = moment(end);
-		return m2.diff(m, 'minutes');
+	static getMinutesBetween(start: Date | string | number, end: Date | string | number) {
+		const m = DateTime.fromJSDate(new Date(start));
+		const m2 = DateTime.fromJSDate(new Date(end));
+		return m2.diff(m, 'minutes').minutes;
 	}
 
 	/**

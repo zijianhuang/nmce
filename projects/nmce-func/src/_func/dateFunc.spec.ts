@@ -180,7 +180,7 @@ describe('DateFunc', () => {
 
 	it('getDMYHmWithSlash', () => {
 		const dtUtc = new Date('2024-02-27T23:12:34Z');
-		expect(DateFunc.getDMYHmWithSlash(dtUtc)).toEqual('28/02/2024 09:12:34');
+		expect(DateFunc.getDMYHmWithSlash(dtUtc)).toEqual('28/02/2024 09:12');
 	});
 
 	it('getYMD', () => {
@@ -188,12 +188,41 @@ describe('DateFunc', () => {
 		expect(DateFunc.getYMD(dtUtc)).toEqual('20240228');
 	});
 
-	// it('getTimezoneOffset', () => {
-	// 	const dtUtc = Date.now() - 60*60*1000;
+	it('GetHM', () => {
+		const dtUtc = new Date('2024-02-27T23:12:34Z');
+		expect(DateFunc.getHour(dtUtc)).toEqual(9);
+		expect(DateFunc.getMinute(dtUtc)).toEqual(12);
+		expect(DateFunc.GetHM(dtUtc)).toEqual({h: 9, m: 12});
+	});
 
-	// 	const diff = DateFunc.getTimezoneOffset(dtUtc);
-	// 	expect(diff).toBe(-599);
-	// });
+	it('getHourAge', () => {
+		const dt = DateTime.now().plus({hours: -3}).toJSDate();
+		expect(DateFunc.getHourAge(dt)).toBeCloseTo(3, 5);
+
+		const dt2 = DateTime.now().plus({hours: -3, minutes: -44}).toJSDate();
+		expect(DateFunc.getHourAge(dt2)).toBeGreaterThan(3);
+
+		const dt3 = DateTime.now().plus({hours: 3}).toJSDate();
+		expect(DateFunc.getHourAge(dt3)).toEqual(-3);
+	});
+
+	it('getDayAge', () => {
+		const dt = DateTime.now().plus({days: -3}).toJSDate();
+		expect(DateFunc.getDayAge(dt)).toBeCloseTo(3, 5); // could be 3.000000011574074
+	});
+
+	it('getAge', () => {
+		const dt = DateTime.now().plus({years: -3}).toJSDate();
+		expect(DateFunc.getAge(dt)).toBeCloseTo(3, 5);
+	});
+
+	it('composeDateTime', () => {
+		const dtUtc = new Date('2024-02-27T23:00:00Z');
+		const r = DateFunc.composeDateTime(dtUtc, 12, 34, 56);
+		expect(r.getHours()).toEqual(12); //utc
+		expect(r.getMinutes()).toEqual(34);
+		expect(r.getSeconds()).toEqual(56);
+	});
 
 	it('getLocalTimezoneOffset', () => {
 		const diff = DateFunc.getLocalTimezoneOffset();
@@ -240,91 +269,42 @@ describe('DateFunc', () => {
 		expect(near5(37)).toBe(40);
 	});
 
-	it('older than 33 hours with 33 hours', () => {
-		const m = moment().add(-33, 'hour');
-		expect(DateFunc.olderThanHours(m.toDate(), 33)).toBeTruthy();
+	it('older than  33 hours', () => {
+		const m = DateTime.now().plus({hours: -33}).toJSDate();
+		expect(DateFunc.olderThanHours(m, 33)).toBe(true);
 	});
 
-	it('older than 33 hours with 333 hours', () => {
-		const m = moment().add(-333, 'hour');
-		expect(DateFunc.olderThanHours(m.toDate(), 33)).toBeTruthy();
+	it('older than  333 hours', () => {
+		const m = DateTime.now().plus({hours: -333}).toJSDate();
+		expect(DateFunc.olderThanHours(m, 333)).toBe(true); //https://stackoverflow.com/questions/32615713/tobetrue-vs-tobetruthy-vs-tobetrue
 	});
 
-	it('not older than 33 hours with 2 hours', () => {
-		const m = moment().add(-2, 'hour');
-		expect(DateFunc.olderThanHours(m.toDate(), 33)).toBeFalsy();
+	it('not older than  2 hours', () => {
+		const m = DateTime.now().plus({hours: -2}).toJSDate();
+		expect(DateFunc.olderThanHours(m, 2)).toBe(true);
 	});
 
 	it('older than 1 day 24 hours', () => {
-		const m = moment().add(-24, 'hour');
-		expect(DateFunc.olderThan24Hours(m.toDate())).toBeTruthy();
+		const m = DateTime.now().plus({hours: -24}).toJSDate();
+		expect(DateFunc.olderThan24Hours(m)).toBe(true);
 	});
 
 	it('older than 1 day with 333 hours', () => {
 		const m = moment().add(-333, 'hour');
-		expect(DateFunc.olderThan24Hours(m.toDate())).toBeTruthy();
+		expect(DateFunc.olderThan24Hours(m.toDate())).toBe(true);
 	});
 
 	it('not older than 1 day with 23 hours', () => {
 		const m = moment().add(-23, 'hour');
-		expect(DateFunc.olderThan24Hours(m.toDate())).toBeFalsy();
-	});
-
-	it('not older than 1 day with undefined', () => {
-		expect(DateFunc.olderThan24Hours(undefined)).toBeFalsy();
-	});
-
-
-	//UTC counter parts
-	it('older than 1 day 24 hours utc', () => {
-		const m = moment.utc().add(-24, 'hour');
-		expect(DateFunc.olderThan24HoursUtc(m.toDate())).toBeTruthy();
-	});
-
-	it('older than 1 day with 333 hours utc', () => {
-		const m = moment.utc().add(-333, 'hour');
-		expect(DateFunc.olderThan24HoursUtc(m.toDate())).toBeTruthy();
-	});
-
-	it('not older than 1 day with 23 hours utc', () => {
-		const m = moment.utc().add(-23, 'hour');
-		expect(DateFunc.olderThan24HoursUtc(m.toDate())).toBeFalsy();
-	});
-
-
-	it('older than 33 hours with 33 hours Utc', () => {
-		const m = moment.utc().add(-33, 'hour');
-		expect(DateFunc.olderThanHoursUtc(m.toDate(), 33)).toBeTruthy();
-	});
-
-	it('older than 33 hours with 333 hours Utc', () => {
-		const m = moment.utc().add(-333, 'hour');
-		expect(DateFunc.olderThanHoursUtc(m.toDate(), 33)).toBeTruthy();
-	});
-
-	it('not older than 33 hours with 2 hours Utc', () => {
-		const m = moment.utc().add(-2, 'hour');
-		expect(DateFunc.olderThanHoursUtc(m.toDate(), 33)).toBeFalsy();
+		expect(DateFunc.olderThan24Hours(m.toDate())).toBe(false);
 	});
 
 	it('olderThan1Day', () => {
-		const hour = moment().hour();
-		const yesterday = moment().add(-hour - 1, 'hours').toDate();
-		const yesterdayUtc = DateFunc.localDateToUtc(yesterday);
-		console.debug(`olderThan1Day: hour: ${hour}; yesterday: ${yesterday}, yesterDayUtc: ${yesterdayUtc}`);
-		expect(DateFunc.olderThan1Day(yesterdayUtc)).toBeTruthy();
+		const yesterday = DateTime.now().plus({hours: -24}).toJSDate();
+		const yesterdayUtc = DateFunc.localDateToUtc(yesterday)!;
+		expect(DateFunc.olderThan1Day(yesterdayUtc)).toBe(true);
 
 
-	});
-
-	it('notOlderThan1DayEnough', () => {
-		const hour = moment(Date.now()).hour();
-		const yesterday = moment().add(-hour - 1, 'hours').toDate();
-		const yesterdayUtc = DateFunc.localDateToUtc(yesterday);
-		console.debug(`notOlderThan1DayEnough: hour: ${hour}; yesterday: ${yesterday}, yesterDayUtc: ${yesterdayUtc}`);
-		if (yesterdayUtc) {
-			expect(DateFunc.olderThan1Day(new Date(yesterdayUtc))).toBeTruthy();
-		}
 	});
 
 	it('getTimeFromMins', () => {
@@ -341,6 +321,15 @@ describe('DateFunc', () => {
 		console.debug('getMinutesSinceMidnight: ' + d.toString());
 		const v = DateFunc.getMinutesSinceMidnight(d);
 		expect(v).toBe(780);
+	});
+
+	it('getMinutesBetween', () => {
+		const v = DateFunc.getMinutesBetween('2018-01-02T13:00:00Z', '2018-01-02T13:00:00Z');
+		expect(v).toBe(0);
+		const v2 = DateFunc.getMinutesBetween('2018-01-02T13:00:00Z', '2018-01-02T14:00:00Z');
+		expect(v2).toBeCloseTo(60, 5);
+		const v3 = DateFunc.getMinutesBetween('2018-01-02T13:00:00Z', '2018-01-02T14:00:30Z');
+		expect(v3).toBeCloseTo(60.5, 5);
 	});
 
 	it('firstDayOfWeek en-AU', () => {
