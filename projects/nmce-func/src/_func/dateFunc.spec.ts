@@ -348,5 +348,25 @@ describe('DateFunc', () => {
 		expect(d.firstDayOfWeek()).toBe(0);
 	});
 
+	it('dateDataToDate', () => {
+		expect(DateFunc.dateDataToDate('2018-01-02T13:00:00Z')).toEqual(new Date('2018-01-02T13:00:00Z')); // string
+		expect(DateFunc.dateDataToDate(new Date('2018-01-02T13:00:00Z'))).toEqual(new Date('2018-01-02T13:00:00Z')); // Date
+		expect(DateFunc.dateDataToDate(Date.parse('2018-01-02T13:00:00Z'))).toEqual(new Date('2018-01-02T13:00:00Z')); //number
+	});
+
+	it('dateDataToDateWithInvalid', () => {
+		expect(()=> DateFunc.dateDataToDate('20180102T130000Z')).toThrow(RangeError) ;
+		expect(()=> DateFunc.dateDataToDate(NaN)).toThrow(RangeError) ;
+		expect(()=> DateFunc.dateDataToDate(null!)).toThrow(TypeError);
+		expect(()=> DateFunc.dateDataToDate(undefined!)).toThrow(TypeError);
+
+	});
+
+	it('dateDataToDateOrNull', () => {
+		expect(DateFunc.dateDataToDateOrNull(null)).toBeNull();
+		expect(DateFunc.dateDataToDateOrNull(undefined)).toBeUndefined();
+	});
+
+
 
 });
