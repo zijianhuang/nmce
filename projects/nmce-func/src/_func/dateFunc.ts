@@ -1,4 +1,3 @@
-import moment from 'moment';
 import { DateTime, Duration, Settings } from 'luxon';
 
 export class DateFunc {
@@ -35,6 +34,11 @@ export class DateFunc {
 		throw new TypeError('Expect Date, string or number');
 	}
 
+	/**
+	 * Similar to dateDataToDate, but allow null and defined semantically.
+	 * @param dt 
+	 * @returns 
+	 */
 	static dateDataToDateOrNull(dt: Date | string | number | null | undefined) : Date | null | undefined {
 		if (dt instanceof Date){
 			return dt;
@@ -246,6 +250,23 @@ export class DateFunc {
 		return Settings.defaultLocale;
 	}
 
+	static setDefaultZone(zone: string){
+		Settings.defaultZone=zone;
+	}
+
+	static getDefaultZone() : string {
+		return Settings.defaultZone.name;
+	}
+
+	// //https://github.com/moment/luxon/issues/1363
+	// static isZoneUniversal(): boolean{
+	// 	return Settings.defaultZone.isUniversal;
+	// }
+
+	static isZoneValid(): boolean{
+		return Settings.defaultZone.isValid;
+	}
+
 	/**
 	 * For example, in AEST, it is -600.
 	 * @returns 
@@ -350,74 +371,6 @@ export class DateFunc {
 		const m = DateTime.fromJSDate(this.dateDataToDate(start));
 		const m2 = DateTime.fromJSDate(this.dateDataToDate(end));
 		return m2.diff(m, 'minutes').minutes;
-	}
-
-	/**
-	 * Parse json string with date serialized into string, and get proper date object back
-	 * @param s
-	 */
-	static dateSafeJsonParse(s: string) {
-		return JSON.parse(s, this.dateReviver);
-	}
-
-	private static dateReviver(key: string, value: any) {
-		if (DateFunc.isSerializedDate(value)) {
-			return (new Date(value));
-		}
-
-		// If it's not a date-string, we want to return the value as-is. If we fail to return
-		// a value, it will be omitted from the resultant data structure.
-		return (value);
-
-	}
-
-
-	// I determine if the given value is a string that matches the serialized-date pattern.
-	private static isSerializedDate(value: any): boolean {
-		// Dates are serialized in TZ format, example: '1981-12-20T04:00:14.000Z'.
-		const datePattern = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/;
-		return (DateFunc.isString(value) && datePattern.test(value));
-	}
-
-
-	// I determine if the given value is a String.
-	private static isString(value: any): boolean {
-		return ({}.toString.call(value) === '[object String]');
-	}
-
-	static dateSafeParse(s: string | Date) {
-		const m = moment(s);
-		return m.toDate();
-	}
-
-	static composeDateWithMinutes(d: Date, minute: number): Date {
-		const m = moment(d);
-		const midnight = moment(d).startOf('day'); // Mutates the original moment by setting it to the start of a unit of time. So I have better not to use m which wil be changed by calling this function
-		midnight.add(minute, 'minutes');
-		return midnight.toDate();
-	}
-
-	/**
-	 * Safe compare since date data may be considered as string rather than date.
-	 * @param d1
-	 * @param d2
-	 */
-	static compare(d1: Date | undefined, d2: Date | undefined): number {
-		if (!d1 && !d2) {
-			return 0;
-		}
-
-		if (!d1) {
-			return -NaN
-		}
-
-		if (!d2) {
-			return NaN;
-		}
-
-		const dd1 = (new Date(d1)).valueOf();
-		const dd2 = (new Date(d2)).valueOf();
-		return dd1 - dd2;
 	}
 }
 

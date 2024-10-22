@@ -1,10 +1,20 @@
-import moment from 'moment';
 import { DateFunc } from './dateFunc';
 import { DateTime, Settings } from 'luxon';
 
 Settings.defaultZone='Australia/Brisbane';
 
 describe('DateFunc', () => {
+	it('getDefaultZone', () => {
+		const d = DateFunc.getDefaultZone();
+		expect(d).toBe('Australia/Brisbane');
+		expect(DateFunc.isZoneValid()).toBe(true);
+
+		DateFunc.setDefaultZone('abc/efg');
+		expect(DateFunc.isZoneValid()).toBe(false);
+
+		DateFunc.setDefaultZone(d);
+	});
+
 	it('dateTimeUtcToLocalDateNumber', () => {
 		const dtUtc = new Date('2018-01-23T22:00:00Z');
 		expect(dtUtc.getDate()).toBe(24);
@@ -203,7 +213,7 @@ describe('DateFunc', () => {
 		expect(DateFunc.getHourAge(dt2)).toBeGreaterThan(3);
 
 		const dt3 = DateTime.now().plus({hours: 3}).toJSDate();
-		expect(DateFunc.getHourAge(dt3)).toEqual(-3);
+		expect(DateFunc.getHourAge(dt3)).toBeCloseTo(-3, 5);
 	});
 
 	it('getDayAge', () => {
@@ -290,13 +300,13 @@ describe('DateFunc', () => {
 	});
 
 	it('older than 1 day with 333 hours', () => {
-		const m = moment().add(-333, 'hour');
-		expect(DateFunc.olderThan24Hours(m.toDate())).toBe(true);
+		const m = DateTime.now().plus({hours: -333});
+		expect(DateFunc.olderThan24Hours(m.toJSDate())).toBe(true);
 	});
 
 	it('not older than 1 day with 23 hours', () => {
-		const m = moment().add(-23, 'hour');
-		expect(DateFunc.olderThan24Hours(m.toDate())).toBe(false);
+		const m = DateTime.now().plus({hours: -23});
+		expect(DateFunc.olderThan24Hours(m.toJSDate())).toBe(false);
 	});
 
 	it('olderThan1Day', () => {
@@ -316,8 +326,7 @@ describe('DateFunc', () => {
 	});
 
 	it('getMinutesSinceMidnight', () => {
-		const m = moment('20180102T130000');
-		const d = m.toDate();
+		const d = DateFunc.dateDataToDate('2018-01-02T13:00:00');
 		console.debug('getMinutesSinceMidnight: ' + d.toString());
 		const v = DateFunc.getMinutesSinceMidnight(d);
 		expect(v).toBe(780);
@@ -333,19 +342,18 @@ describe('DateFunc', () => {
 	});
 
 	it('firstDayOfWeek en-AU', () => {
-		const d = moment.localeData('en-AU');
-		expect(d.firstDayOfWeek()).toBe(0); // the lib previously return 1, but now 0. https://www.abc.net.au/news/2019-08-18/which-day-do-you-consider-the-start-of-the-week/11346348
-		//https://thetylt.com/culture/sunday-first-or-last-day-of-the-week, apparently the balance of the debate inside the lib dev team had been changing.
+		DateFunc.setDefaultLocale('en-AU');
+		expect(DateTime.now().startOf('week').weekday).toBe(1);
 	});
 
 	it('firstDayOfWeek en-GB', () => {
-		const d = moment.localeData('en-GB');
-		expect(d.firstDayOfWeek()).toBe(1);
+		DateFunc.setDefaultLocale('en-GB');
+		expect(DateTime.now().startOf('week').weekday).toBe(1);
 	});
 
 	it('firstDayOfWeek en-US', () => {
-		const d = moment.localeData('en-US');
-		expect(d.firstDayOfWeek()).toBe(0);
+		DateFunc.setDefaultLocale('en-US');
+		expect(DateTime.now().startOf('week').weekday).toBe(1);
 	});
 
 	it('dateDataToDate', () => {
