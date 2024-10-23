@@ -13,5 +13,33 @@ describe('currencyFunc', () => {
 		expect(CurrencyFunc.bankerRound(7.4)).toEqual(7);
 		expect(CurrencyFunc.bankerRound(8.6)).toEqual(9);		
 	});
+	
+	it('bankerRoundTo5cents', () => {
+		expect(CurrencyFunc.bankerRoundTo5cents(3.53)).toEqual(3.55);
+		expect(CurrencyFunc.bankerRoundTo5cents(3.52)).toEqual(3.50);
+		expect(CurrencyFunc.bankerRoundTo5cents(3.525)).toEqual(3.50);
+		expect(CurrencyFunc.bankerRoundTo5cents(3.526)).toEqual(3.55);
+		expect(CurrencyFunc.bankerRoundTo5cents(3.535)).toEqual(3.55);
+		
+		expect(CurrencyFunc.bankerRoundTo5cents(3.56)).toEqual(3.55);
+		expect(CurrencyFunc.bankerRoundTo5cents(3.574)).toEqual(3.55);
+		expect(CurrencyFunc.bankerRoundTo5cents(3.576)).toEqual(3.60);
+		expect(CurrencyFunc.bankerRoundTo5cents(3.58)).toEqual(3.60);
+		expect(CurrencyFunc.bankerRoundTo5cents(3.575)).toEqual(3.60);		
+	});
+
+	// it('ceilTo5Cents', () => {
+	// 	expect(CurrencyFunc.ceilTo5Cents(3.53)).toEqual(3.55);
+	// 	expect(CurrencyFunc.ceilTo5Cents(3.52)).toEqual(3.50);
+	// 	expect(CurrencyFunc.ceilTo5Cents(3.525)).toEqual(3.50);
+	// 	expect(CurrencyFunc.ceilTo5Cents(3.526)).toEqual(3.55);
+	// 	expect(CurrencyFunc.ceilTo5Cents(3.535)).toEqual(3.55);
+		
+	// 	expect(CurrencyFunc.ceilTo5Cents(3.56)).toEqual(3.55);
+	// 	expect(CurrencyFunc.ceilTo5Cents(3.574)).toEqual(3.55);
+	// 	expect(CurrencyFunc.ceilTo5Cents(3.576)).toEqual(3.60);
+	// 	expect(CurrencyFunc.ceilTo5Cents(3.58)).toEqual(3.60);
+	// 	expect(CurrencyFunc.ceilTo5Cents(3.575)).toEqual(3.60);		
+	// });
 
 });

@@ -47,7 +47,7 @@ export class CurrencyFunc {
 	 * @param num 
 	 * @returns 
 	 */
-	static ceilTo5cents(num: number | null | undefined): number {
+	static ceilTo5Cents(num: number | null | undefined): number {
 		if (!num) {
 			return 0;
 		}
