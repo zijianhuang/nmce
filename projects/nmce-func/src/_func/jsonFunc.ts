@@ -11,7 +11,7 @@ export class JsonFunc {
 	 * @returns 
 	 */
 	static groupBy<T>(array: Array<T>, propertyName: string) {
-		return array.reduce(function(acc: any, obj: any) {
+		return array.reduce(function (acc: any, obj: any) {
 			const key = obj[propertyName];
 			if (!acc[key]) {
 				acc[key] = [];
@@ -29,12 +29,14 @@ export class JsonFunc {
 	 * @param propertyName
 	 */
 	static groupByDate<T>(array: Array<T>, propertyName: string) {
-		return array.reduce(function(acc: any, obj: any) {
+		return array.reduce(function (acc: any, obj: any) {
 			const key = DateFunc.dateTimeUtcToLocalDateNumber(obj[propertyName]);
-			if (!acc[key]) {
-				acc[key] = [];
+			if (key != null) {
+				if (!acc[key]) {
+					acc[key] = [];
+				}
+				acc[key].push(obj);
 			}
-			acc[key].push(obj);
 			return acc;
 		}, {});
 	}

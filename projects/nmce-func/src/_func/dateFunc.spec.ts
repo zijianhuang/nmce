@@ -221,6 +221,19 @@ describe('DateFunc', () => {
 		expect(DateFunc.getDayAge(dt)).toBeCloseTo(3, 5); // could be 3.000000011574074
 	});
 
+	it('getDayAgeWithSecondsChanged', () => {
+		const dt = DateTime.now().plus({seconds: -3*24*3600}).toJSDate();
+		expect(DateFunc.getDayAge(dt)).toBeCloseTo(3, 5); // could be 3.000000011574074
+	});
+
+	it('getDayAgeWithMillisecondsChanged', () => {
+		const dt2 = Date.now();
+		const dayMilliseconds = 3*24*3600000;
+		
+		const dateTime = DateTime.fromJSDate(new Date(dt2 -dayMilliseconds)).toJSDate();
+		expect(DateFunc.getDayAge(dateTime)).toBeCloseTo(3, 5); // could be 3.000000011574074
+	});
+
 	it('getAge', () => {
 		const dt = DateTime.now().plus({years: -3}).toJSDate();
 		expect(DateFunc.getAge(dt)).toBeCloseTo(3, 5);

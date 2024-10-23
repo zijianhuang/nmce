@@ -1,6 +1,8 @@
 import { DatePipe } from '@angular/common';
 import { Inject, LOCALE_ID, Pipe, PipeTransform } from '@angular/core';
 import moment, { Moment, MomentInput } from 'moment';
+import { DateTime, Duration, Settings } from 'luxon';
+import { DateFunc } from 'nmce-func';
 
 /**
  * Date to Today, Tomorrow, Yesterday, dddd,MMMMDoYYYY
@@ -15,48 +17,20 @@ export class LiteralDatePipe implements PipeTransform {
 	 * @param value
 	 * @param nullText what text to shown if the date is not defined or too small.
 	 */
-	transform(value: Date | string | number | undefined | null, nullText?: string): string {
+	transform(value: Date | string | number | undefined | null, nullText?: string): string | null {
 		if (!value && value !== 0) {
 			return nullText ? nullText : '';
 		}
 
-		let date: Date;
-
-		if (typeof value === 'string') {
-			const n = Number.parseInt(value);
-			if (n < 1000) {
-				return nullText ? nullText : '';
-			}
-
-			if (Number.isNaN(n)) {
-				return value;
-			}
-
-			date = new Date(n);
-		} else if (typeof value === 'number') {
-			try {
-				date = new Date(value);
-			} catch (e) {
-				return value.toString();
-			}
-		}
-		else {
-			date = value;
+		const dt = DateFunc.dateDataToDate(value);
+		const dayAge = DateFunc.getDayAge(dt);
+		const dateTime = DateTime.fromJSDate(dt);
+		console.debug('dayAge: ' + dayAge);
+		if ([0, 1, -1].includes(Math.round(dayAge))){
+			return dateTime.toRelativeCalendar();
 		}
 
-		try {
-			return moment(date).locale(this.locale).calendar(null, {
-				sameDay: '[Today]', //Moment does not provide translate for this, but something hardcoded like '[今天]LT', for i18n/localization, use your own dictionary.
-				nextDay: '[Tomorrow]',
-				nextWeek: 'dddd, MMMM Do YYYY',
-				lastDay: '[Yesterday]',
-				lastWeek: 'dddd, MMMM Do YYYY',
-				sameElse: 'dddd, MMMM Do YYYY'
-			});
-
-		} catch (e) {
-			return '';
-		}
+		return dateTime.toLocaleString(DateTime.DATE_HUGE);
 	}
 }
 
