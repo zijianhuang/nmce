@@ -1,8 +1,5 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
-import { DateAdapter, MAT_DATE_FORMATS, } from '@angular/material/core'; //MD tutorial site use this.
-
 import { LayoutModule } from '@angular/cdk/layout';
 
 import {
@@ -151,12 +148,6 @@ import {
 
 		//{ provide: MAT_DATE_LOCALE, useValue: 'en-AU' },By default, the MAT_DATE_LOCALE injection token will use the existing LOCALE_ID locale code from @angular/core.
 		//If you want to override it, you can provide a new value for the MAT_DATE_LOCALE token
-
-		// The adapter has to be provided to each lazy module which imports this module.
-		{ provide: DateAdapter, useClass: MomentDateAdapter, deps: [LOCALE_ID] },
-		{ provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
-		{ provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } },
-
 	]
 })
 export class NGMDModule { }
