@@ -1,5 +1,8 @@
 /**
  * Currency calculations. Undefined input of number is considered zero, just like null.
+ * Simple functions for currency before you decide to use more comprehensive ones:
+ * https://github.com/scurker/currency.js
+ * https://github.com/dinerojs/dinero.js Up to date and popular
  */
 export class CurrencyFunc {
 	private static DECIMAL_SEPARATOR = '.';
@@ -10,14 +13,14 @@ export class CurrencyFunc {
 	/**
 	 * Banker rounding
 	 * @param num
-	 * @param decimalPlaces default 0
+	 * @param decimalPlace default 0
 	 */
-	static bankerRound(num: number | null | undefined, decimalPlaces?: number): number {
+	static bankerRound(num: number | null | undefined, decimalPlace?: number): number {
 		if (!num) {
 			return 0;
 		}
 
-		const d = decimalPlaces || 0;
+		const d = decimalPlace || 0;
 		const m = Math.pow(10, d);
 		const n = +(d ? num * m : num).toFixed(8); // Avoid rounding errors
 		const i = Math.floor(n), f = n - i;
@@ -42,41 +45,53 @@ export class CurrencyFunc {
 		return r;
 	}
 
-	static transformCurrency(value: number | string | undefined, fractionSize: number = 2): string {
-		let [integer, fraction = ''] = (value || '').toString()
-			.split(this.DECIMAL_SEPARATOR);
+	// static transformCurrency(value: number | string | undefined, fractionSize: number = 2): string { In favour of dinerojs
+	// 	let [integer, fraction = ''] = (value || '').toString()
+	// 		.split(this.DECIMAL_SEPARATOR);
 
-		fraction = fractionSize > 0
-			? this.DECIMAL_SEPARATOR + (fraction + this.PADDING).substring(0, fractionSize)
-			: '';
+	// 	fraction = fractionSize > 0
+	// 		? this.DECIMAL_SEPARATOR + (fraction + this.PADDING).substring(0, fractionSize)
+	// 		: '';
 
-		integer = integer.replace(/\B(?=(\d{3})+(?!\d))/g, this.THOUSANDS_SEPARATOR);
+	// 	integer = integer.replace(/\B(?=(\d{3})+(?!\d))/g, this.THOUSANDS_SEPARATOR);
 
-		return integer + fraction;
-	}
+	// 	return integer + fraction;
+	// }
 
-	static parseCurrency(value: string | undefined, fractionSize: number = 2): string {
-		let [integer, fraction = ''] = (value || '').split(this.DECIMAL_SEPARATOR);
+	// static parseCurrency(value: string | undefined, fractionSize: number = 2): string {
+	// 	let [integer, fraction = ''] = (value || '').split(this.DECIMAL_SEPARATOR);
 
-		integer = integer.replace(new RegExp(this.THOUSANDS_SEPARATOR, 'g'), '');
+	// 	integer = integer.replace(new RegExp(this.THOUSANDS_SEPARATOR, 'g'), '');
 
-		fraction = parseInt(fraction, 10) > 0 && fractionSize > 0
-			? this.DECIMAL_SEPARATOR + (fraction + this.PADDING).substring(0, fractionSize)
-			: '';
+	// 	fraction = parseInt(fraction, 10) > 0 && fractionSize > 0
+	// 		? this.DECIMAL_SEPARATOR + (fraction + this.PADDING).substring(0, fractionSize)
+	// 		: '';
 
-		return integer + fraction;
-	}
+	// 	return integer + fraction;
+	// }
 
 
 	//http://stackoverflow.com/questions/2998784/how-to-output-integers-with-leading-zeros-in-javascript
 	static pad(num: number | null | undefined, size: number): string {
+		if (num == null){
+			 return '';
+		}
 
-		num = null;
-		let s = num + '';
+		if (num ===0){
+			return '0';
+		}
+
+		const numText = num.toString();
+		let s = numText + '';
 		while (s.length < size) { s = '0' + s; }
 		return s;
 	}
 
+	/**
+	 * Sum array of numbers
+	 * @param ns 
+	 * @returns 
+	 */
 	static sum(ns: (number | null | undefined)[]): number {
 		const r = <number>ns.reduce((a, b) => (a ?? 0) + (b ?? 0), 0);
 		return r;

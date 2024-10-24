@@ -2,27 +2,6 @@
 	<strong>Date and Time:</strong>
 	<ul>
 		<li>
-			<label>shortTime</label>: <span>{{currentDateTime | shortTime}}</span>
-		</li>
-		<li>
-			<label>short24</label>: <span>{{currentDateTime | short24}}</span>
-		</li>
-		<li>
-			<label>shortDate</label>: <span>{{currentDateTime | shortDate}}</span>
-		</li>
-		<li>
-			<label>shortDateTime</label>: <span>{{currentDateTime | shortDateTime}}</span>
-		</li>
-		<li>
-			<label>shortDate24</label>: <span>{{currentDateTime | shortDate24}}</span>
-		</li>
-		<li>
-			<label>mediumDate</label>: <span>{{currentDateTime | mediumDate}}</span>
-		</li>
-		<li>
-			<label>fullDate</label>: <span>{{currentDateTime | fullDate}}</span>
-		</li>
-		<li>
 			<label>literalDate</label>: <span>{{currentDateTime | literalDate}}</span>
 		</li>
 		<li>
@@ -40,8 +19,8 @@
 <div>
 	<strong>Currency:</strong>
 	<ul>
-		<li><label>Amount 12345.67 with currencyAUD</label>: <span>{{amount | currencyAUD}}</span></li>
-		<li><label>Amount 987199 with centsToAUD</label>: <span>{{amountInCent | centsToAUD}}</span></li>
+		<li><label>Amount 12345.45 with bankerRound and currency</label>: <span>{{12345.465 | bankerRound: 2 | currency: 'AUD' : 'symbol'}}</span></li>
+		<li><label>Amount 987199 with centsToAUD</label>: <span>{{amountInCent/100  | currency: 'AUD' : 'symbol'}}</span></li>
 	</ul>
 </div>
 
@@ -49,7 +28,6 @@
 	<strong>Number:</strong>
 	<ul>
 		<li><label>Pad 123 with pad:8</label>: <span>{{123 | pad:8}}</span></li>
-		<li><label>Amount 987199 with centsToAUD</label>: <span>{{amountInCent | centsToAUD}}</span></li>
 	</ul>
 </div>
 

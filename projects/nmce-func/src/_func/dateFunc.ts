@@ -258,11 +258,6 @@ export class DateFunc {
 		return Settings.defaultZone.name;
 	}
 
-	// //https://github.com/moment/luxon/issues/1363
-	// static isZoneUniversal(): boolean{
-	// 	return Settings.defaultZone.isUniversal;
-	// }
-
 	static isZoneValid(): boolean{
 		return Settings.defaultZone.isValid;
 	}
@@ -363,7 +358,7 @@ export class DateFunc {
 
 	static getMinutesSinceMidnight(d: Date | string | number) {
 		const dt = DateTime.fromJSDate(this.dateDataToDate(d));
-		const midnight = dt.startOf('day'); //Mutates the original moment by setting it to the start of a unit of time. So I have better not to use m which wil be changed by calling this function
+		const midnight = dt.startOf('day');
 		return dt.diff(midnight, 'minutes').minutes;
 	}
 

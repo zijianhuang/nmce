@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-	AutofocusDirective, CurrencyFormatterDirective, DataComponentDirective, ScrollIntoDirective
+	AutofocusDirective, DataComponentDirective, ScrollIntoDirective
 } from './index';
 
 
@@ -19,7 +19,6 @@ import {
 
 	declarations: [
 		AutofocusDirective,
-		CurrencyFormatterDirective,
 		ScrollIntoDirective,
 		DataComponentDirective,
 	],
@@ -27,7 +26,6 @@ import {
 
 	exports: [
 		AutofocusDirective,
-		CurrencyFormatterDirective,
 		ScrollIntoDirective,
 		DataComponentDirective,
 	]

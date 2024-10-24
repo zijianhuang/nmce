@@ -1,18 +1,15 @@
 import { NgModule } from '@angular/core';
 import {
-	AudCurrencyPipe, CentToDollarPipe, FullDatePipe, LiteralDatePipe, MediumDatePipe, PadPipe,
-	Short24Pipe, ShortDate24Pipe, ShortDatePipe, ShortDateTimePipe, ShortTimePipe
+	AudCurrencyPipe, CentToDollarPipe,  LiteralDatePipe,  PadPipe, BankerRoundPipe
+	 
 } from './index';
 
 
 @NgModule({
-	declarations: [ShortTimePipe, FullDatePipe, MediumDatePipe, ShortDatePipe, ShortDateTimePipe,
+	declarations: [
 		AudCurrencyPipe, LiteralDatePipe,
-		Short24Pipe, ShortDate24Pipe, PadPipe, CentToDollarPipe,
+		PadPipe, CentToDollarPipe, BankerRoundPipe,
 	],
-	exports: [ShortTimePipe, FullDatePipe, MediumDatePipe, ShortDatePipe, AudCurrencyPipe, LiteralDatePipe, ShortDateTimePipe,
-		Short24Pipe, ShortDate24Pipe, PadPipe, CentToDollarPipe
-
-	],
+	exports: [ AudCurrencyPipe, LiteralDatePipe, PadPipe, CentToDollarPipe, BankerRoundPipe	],
 })
 export class NmcePipesModule {}

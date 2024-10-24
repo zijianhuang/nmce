@@ -29,4 +29,15 @@ describe('currencyFunc', () => {
 		//https://www.calculatorsoup.com/calculators/math/round-to-nearest-multiple.php
 	});
 
+	it('sum', ()=>{
+		expect(CurrencyFunc.sum([1,2, undefined, 3, null, 5])).toEqual(11);
+		expect(CurrencyFunc.sum([undefined, null])).toEqual(0);
+	});
+
+	it('pad', ()=>{
+		expect(CurrencyFunc.pad(123.4, 6)).toBe('0123.4');
+		expect(CurrencyFunc.pad(0, 6)).toBe('0');
+		expect(CurrencyFunc.pad(null, 6)).toBe('');
+	});
+
 });
