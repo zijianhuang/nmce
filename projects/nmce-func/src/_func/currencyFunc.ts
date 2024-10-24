@@ -38,23 +38,8 @@ export class CurrencyFunc {
 			return 0;
 		}
 
-		const r = this.bankerRound(Math.ceil(num * 20 - 0.5) / 20, 2);
+		const r = this.bankerRound(Math.round(num / 0.05) * 0.05, 2);
 		return r;
-	}
-
-	/**
-	 * Ceil to 5 cents
-	 * @param num 
-	 * @returns 
-	 */
-	static ceilTo5Cents(num: number | null | undefined): number {
-		if (!num) {
-			return 0;
-		}
-
-		const r = this.bankerRound(Math.ceil(num * 20) / 20, 4);
-		const roundup = Math.ceil(r * 10000) / 10000;
-		return roundup;
 	}
 
 	static transformCurrency(value: number | string | undefined, fractionSize: number = 2): string {

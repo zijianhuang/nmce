@@ -17,7 +17,7 @@ describe('currencyFunc', () => {
 	it('bankerRoundTo5cents', () => {
 		expect(CurrencyFunc.bankerRoundTo5cents(3.53)).toEqual(3.55);
 		expect(CurrencyFunc.bankerRoundTo5cents(3.52)).toEqual(3.50);
-		expect(CurrencyFunc.bankerRoundTo5cents(3.525)).toEqual(3.50);
+		expect(CurrencyFunc.bankerRoundTo5cents(3.525)).toEqual(3.55);
 		expect(CurrencyFunc.bankerRoundTo5cents(3.526)).toEqual(3.55);
 		expect(CurrencyFunc.bankerRoundTo5cents(3.535)).toEqual(3.55);
 		
@@ -26,20 +26,7 @@ describe('currencyFunc', () => {
 		expect(CurrencyFunc.bankerRoundTo5cents(3.576)).toEqual(3.60);
 		expect(CurrencyFunc.bankerRoundTo5cents(3.58)).toEqual(3.60);
 		expect(CurrencyFunc.bankerRoundTo5cents(3.575)).toEqual(3.60);		
+		//https://www.calculatorsoup.com/calculators/math/round-to-nearest-multiple.php
 	});
-
-	// it('ceilTo5Cents', () => {
-	// 	expect(CurrencyFunc.ceilTo5Cents(3.53)).toEqual(3.55);
-	// 	expect(CurrencyFunc.ceilTo5Cents(3.52)).toEqual(3.50);
-	// 	expect(CurrencyFunc.ceilTo5Cents(3.525)).toEqual(3.50);
-	// 	expect(CurrencyFunc.ceilTo5Cents(3.526)).toEqual(3.55);
-	// 	expect(CurrencyFunc.ceilTo5Cents(3.535)).toEqual(3.55);
-		
-	// 	expect(CurrencyFunc.ceilTo5Cents(3.56)).toEqual(3.55);
-	// 	expect(CurrencyFunc.ceilTo5Cents(3.574)).toEqual(3.55);
-	// 	expect(CurrencyFunc.ceilTo5Cents(3.576)).toEqual(3.60);
-	// 	expect(CurrencyFunc.ceilTo5Cents(3.58)).toEqual(3.60);
-	// 	expect(CurrencyFunc.ceilTo5Cents(3.575)).toEqual(3.60);		
-	// });
 
 });
