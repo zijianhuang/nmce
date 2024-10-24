@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatSelectChange } from '@angular/material/select';
-import moment from 'moment';
+import { DateTime } from 'luxon';
 
 /**
  * Display 20 years in the future, with 12 months each. Good for display expiry date within 20 years.
@@ -77,7 +77,7 @@ export class MonthYearExpiryComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		const currentYear = moment().year();
+		const currentYear = DateTime.now().year;
 		for (let i = 0; i < this.yearsInFuture; i++) {
 			this.yearSlots.push({
 				value: i + currentYear, display: (i + currentYear).toString()

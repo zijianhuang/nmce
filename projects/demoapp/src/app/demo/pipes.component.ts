@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import moment from 'moment';
+import { DateTime } from 'luxon';
+
 
 @Component({
 	templateUrl: 'pipes.component.html',
@@ -15,9 +16,9 @@ export class PipesComponent implements OnInit {
 		
 	) {
 		this.currentDateTime = new Date();
-		this.yesterday= moment(this.currentDateTime).add(-1, 'day').toDate();
-		this.tomorrow= moment(this.currentDateTime).add(1, 'day').toDate();
-		this.future= moment(this.currentDateTime).add(10, 'day').toDate();
+		this.yesterday= DateTime.fromJSDate(this.currentDateTime).plus({days: -1}).toJSDate();
+		this.tomorrow= DateTime.fromJSDate(this.currentDateTime).plus({days: 1}).toJSDate();
+		this.future= DateTime.fromJSDate(this.currentDateTime).plus({days: 10}).toJSDate();
 	}
 
 	ngOnInit() {
