@@ -1,9 +1,9 @@
 {
   "name": "nmce-func",
-  "version": "1.4",
+  "version": "1.4.0",
   "author": {"name": "Z"},
   "description": "Common simple functions used in business applications.",
   "license": "MIT",
-  "repository": {"url": "https://github.com/zijianhuang/nmce"},
+  "repository": {"url": "https://github.com/zijianhuang/nmce.git"},
   "keywords": ["angular"]
 }

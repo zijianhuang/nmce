@@ -1,8 +1,8 @@
 {
   "name": "nmce",
-  "version": "1.6",
+  "version": "1.6.0",
   "author": {"name": "Z"},
   "description": "Common Angular Material extended components and services used in business applications.",
   "license": "MIT",
-  "repository": {"url": "https://github.com/zijianhuang/nmce"}
+  "repository": {"url": "https://github.com/zijianhuang/nmce.git"}
 }
