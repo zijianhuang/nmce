@@ -185,6 +185,31 @@ export class DateFunc {
 		return r.toJSDate();
 	}
 
+	static addMonths(dt: Date | string | number, months: number) : Date {
+		const dat = DateTime.fromJSDate(this.dateDataToDate(dt));
+		const r = dat.plus({months: months});
+		return r.toJSDate();
+	}
+
+	static addYears(dt: Date | string | number, years: number) : Date {
+		const dat = DateTime.fromJSDate(this.dateDataToDate(dt));
+		const r = dat.plus({years: years});
+		return r.toJSDate();
+	}
+
+	static addHours(dt: Date | string | number, hours: number) : Date {
+		const dat = DateTime.fromJSDate(this.dateDataToDate(dt));
+		const r = dat.plus({hours: hours});
+		return r.toJSDate();
+	}
+
+	static addMinutes(dt: Date | string | number, minutes: number) : Date {
+		const dat = DateTime.fromJSDate(this.dateDataToDate(dt));
+		const r = dat.plus({minutes: minutes});
+		return r.toJSDate();
+	}
+
+
 	/**
 	 * Start of today
 	 */
