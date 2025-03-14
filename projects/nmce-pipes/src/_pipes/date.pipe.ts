@@ -6,7 +6,10 @@ import { DateFunc } from 'nmce-func';
  * Date to Today, Tomorrow, Yesterday, dddd,MMMMDoYYYY
  * Limitations: Today and Tomorrow are not translated automatically through locale, and you may need to use app level localization.
  */
-@Pipe({ name: 'literalDate' })
+@Pipe({
+    name: 'literalDate',
+    standalone: false
+})
 export class LiteralDatePipe implements PipeTransform {
 	constructor(@Inject(LOCALE_ID) private locale: string) {
 	}

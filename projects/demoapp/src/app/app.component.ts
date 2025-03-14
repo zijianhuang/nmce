@@ -5,23 +5,19 @@ import { ActionSheetItemSubjectService, AlertService, NotificationsService } fro
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  animations: [
-    trigger('newNotificationComing', [
-      state('zero', style({})),
-
-      state('more', style({})),
-
-      state('one', style({})),
-
-      transition('zero => *', useAnimation(bounceInDown, { delay: 500 })),
-
-      transition('* => *', useAnimation(flash, { delay: 200 })),
-    ])
-
-  ]
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    animations: [
+        trigger('newNotificationComing', [
+            state('zero', style({})),
+            state('more', style({})),
+            state('one', style({})),
+            transition('zero => *', useAnimation(bounceInDown, { delay: 500 })),
+            transition('* => *', useAnimation(flash, { delay: 200 })),
+        ])
+    ],
+    standalone: false
 })
 export class AppComponent implements OnDestroy {
   title = 'demoapp';

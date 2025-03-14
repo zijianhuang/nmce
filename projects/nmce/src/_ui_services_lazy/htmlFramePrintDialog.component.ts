@@ -13,9 +13,10 @@ import { DialogSize } from '../_ui_services/types';
  * Contain HTML content in iframe, used in HtmlFrameDialogService.
  */
 @Component({
-	selector: 'html-frame-print-dialog',
-	templateUrl: 'htmlFramePrintDialog.component.html',
-	styleUrls: ['../nmcestyles.css']
+    selector: 'html-frame-print-dialog',
+    templateUrl: 'htmlFramePrintDialog.component.html',
+    styleUrls: ['../nmcestyles.css'],
+    standalone: false
 })
 export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
 	constructor(
@@ -37,9 +38,10 @@ export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
  * Contain HTML content loaded from a url, used in HtmlHReflDialogService. If there's an error during loading, the error will be displayed inn the dialog body.
  */
 @Component({
-	selector: 'html-href-frame-print-dialog',
-	templateUrl: 'htmlFramePrintDialog.component.html',
-	styleUrls: ['../nmcestyles.css']
+    selector: 'html-href-frame-print-dialog',
+    templateUrl: 'htmlFramePrintDialog.component.html',
+    styleUrls: ['../nmcestyles.css'],
+    standalone: false
 })
 export class HtmlHRefFramePrintDialogComponent extends HtmlHRefFrameDialogComponent {
 	/**

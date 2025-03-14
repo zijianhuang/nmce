@@ -12,8 +12,9 @@ import { DialogSize } from './types';
  * The content is contained inside another html tag, and all href linkes will be opened in new browser tab.
  */
 @Component({
-	selector: 'html-dialog',
-	templateUrl: 'htmlDialog.component.html',
+    selector: 'html-dialog',
+    templateUrl: 'htmlDialog.component.html',
+    standalone: false
 })
 export class HtmlDialogComponent implements AfterViewInit {
 	title: string;
@@ -45,8 +46,9 @@ export class HtmlDialogComponent implements AfterViewInit {
  * Contain HTML content loaded from a url, used in HtmlHReflDialogService. If there's an error during loading, the error will be displayed n the dialog body.
  */
 @Component({
-	selector: 'html-ref-dialog',
-	templateUrl: 'htmlDialog.component.html',
+    selector: 'html-ref-dialog',
+    templateUrl: 'htmlDialog.component.html',
+    standalone: false
 })
 export class HtmlHRefDialogComponent implements AfterViewInit {
 	title: string;
@@ -115,9 +117,10 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 }
 
 @Component({
-	selector: 'html-img-dialog',
-	templateUrl: 'htmlImgDialog.component.html',
-	styleUrls:['../nmcestyles.css']
+    selector: 'html-img-dialog',
+    templateUrl: 'htmlImgDialog.component.html',
+    styleUrls: ['../nmcestyles.css'],
+    standalone: false
 })
 export class HtmlImgDialogComponent {
 	title: string;

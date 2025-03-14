@@ -6,9 +6,9 @@ import { WaitMessage, WaitService } from '../_ui_services/index';
  * Display wait with mat-progress-bar. Working with WaitService.
  */
 @Component({
-
-	selector: 'wait, nmce-wait, nmceWait',
-	templateUrl: 'wait.component.html'
+    selector: 'wait, nmce-wait, nmceWait',
+    templateUrl: 'wait.component.html',
+    standalone: false
 })
 export class WaitComponent implements OnInit, OnDestroy {
 	message: WaitMessage;

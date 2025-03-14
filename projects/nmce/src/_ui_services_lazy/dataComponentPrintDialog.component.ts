@@ -18,8 +18,9 @@ import { DataComponentDialog } from '../_ui_services/dataComponentDialog.compone
  * The Close button may vary depending on the screen size.
  */
 @Component({
-	templateUrl: 'dataComponentPrintDialog.component.html',
-	styleUrls: ['../nmcestyles.css']
+    templateUrl: 'dataComponentPrintDialog.component.html',
+    styleUrls: ['../nmcestyles.css'],
+    standalone: false
 })
 export class DataComponentPrintDialog extends DataComponentDialog {
 	@ViewChild('htmlPrintContent', { static: false }) htmlContentElement: ElementRef;

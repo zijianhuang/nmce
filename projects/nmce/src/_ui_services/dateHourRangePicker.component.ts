@@ -12,10 +12,10 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  * todo: compare with what in NMC, and consider to make it obsolete
  */
 @Component({
-
-	selector: 'DateHourRangePicker, nmce-date-hour-range-picker',
-	templateUrl: 'DateHourRangePicker.component.html',
-	styleUrls: ['../nmcestyles.css']
+    selector: 'DateHourRangePicker, nmce-date-hour-range-picker',
+    templateUrl: 'DateHourRangePicker.component.html',
+    styleUrls: ['../nmcestyles.css'],
+    standalone: false
 })
 export class DateHourRangePickerComponent {
 	title = 'Date Range';

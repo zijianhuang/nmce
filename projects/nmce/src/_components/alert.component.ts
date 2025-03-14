@@ -7,10 +7,11 @@ import { AlertSubjectMessage, LocalAlertService } from '../_ui_services/index';
  * And alert message is also written into console with respective alert type.
  */
 @Component({
-	selector: 'alert, nmce-alert, nmceAlert',
-	exportAs: 'nmceAlert',
-	templateUrl: 'alert.component.html',
-	styleUrls: ['../nmcestyles.css'],
+    selector: 'alert, nmce-alert, nmceAlert',
+    exportAs: 'nmceAlert',
+    templateUrl: 'alert.component.html',
+    styleUrls: ['../nmcestyles.css'],
+    standalone: false
 })
 export class AlertComponent implements OnInit, OnDestroy {
 	private alive = true;

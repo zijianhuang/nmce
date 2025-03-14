@@ -6,7 +6,8 @@ import { DemoInputDialogService } from './demoInput.dialog';
  * and the Register button may become disabled when the user is just registered.
  */
 @Component({
-	templateUrl: 'directives.component.html',
+    templateUrl: 'directives.component.html',
+    standalone: false
 })
 export class DirectivesComponent implements OnInit {
 	currentDateTime: Date;

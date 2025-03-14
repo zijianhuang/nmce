@@ -24,8 +24,9 @@ export const LOG_DIALOG_OPTIONS = new InjectionToken<MessageDialogOptions>('Dial
  * Message from HTTP response, displayed in iFrame, regardless of content Type
  */
 @Component({
-	templateUrl: 'logDialog.component.html',
-	styleUrls: ['../nmcestyles.css']
+    templateUrl: 'logDialog.component.html',
+    styleUrls: ['../nmcestyles.css'],
+    standalone: false
 })
 export class LogDialogComponent implements AfterViewInit {
 

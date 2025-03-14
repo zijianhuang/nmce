@@ -17,7 +17,8 @@ import { EmailConfirmService, LocalDocEditorDialogService } from 'nmce-html-edit
  * and the Register button may become disabled when the user is just registered.
  */
 @Component({
-	templateUrl: 'inputDialogs.component.html',
+    templateUrl: 'inputDialogs.component.html',
+    standalone: false
 })
 export class InputDialogsComponent implements OnInit {
 	loading = false;

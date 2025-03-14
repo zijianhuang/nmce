@@ -7,9 +7,10 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  * This component is used by ConfirmService, which actionLabel and cancelLabel can be overriden by client calls.
  */
 @Component({
-	selector: 'confirm-content',
-	templateUrl: 'confirm.component.html',
-	styleUrls: ['../nmcestyles.css']
+    selector: 'confirm-content',
+    templateUrl: 'confirm.component.html',
+    styleUrls: ['../nmcestyles.css'],
+    standalone: false
 })
 export class ConfirmComponent {
 	@Input()

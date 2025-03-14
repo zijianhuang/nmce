@@ -9,8 +9,9 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  * This will be shown by a concrete service of ItemListDialogServiceBase<T>.
  */
 @Component({
-	templateUrl: './itemListDialog.component.html',
-	styleUrls: ['../nmcestyles.css']
+    templateUrl: './itemListDialog.component.html',
+    styleUrls: ['../nmcestyles.css'],
+    standalone: false
 })
 export class ItemListDialogComponent {
 	title: string;

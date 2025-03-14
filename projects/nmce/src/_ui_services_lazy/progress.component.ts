@@ -11,7 +11,8 @@ import { DIALOG_ACTIONS_ALIGN, TransmitProgress } from '../public-api';
  * This component is used by ConfirmService, which actionLabel and cancelLabel can be overriden by client calls.
  */
 @Component({
-	templateUrl: 'progress.component.html',
+    templateUrl: 'progress.component.html',
+    standalone: false
 })
 export class ProgressComponent {
 	@Input()

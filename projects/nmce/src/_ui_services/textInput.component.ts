@@ -7,10 +7,10 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  * Input one line text.
  */
 @Component({
-
-	selector: 'textInput',
-	templateUrl: 'textInput.component.html',
-	styleUrls: ['../nmcestyles.css']
+    selector: 'textInput',
+    templateUrl: 'textInput.component.html',
+    styleUrls: ['../nmcestyles.css'],
+    standalone: false
 })
 export class TextInputComponent {
 	@Input()

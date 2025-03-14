@@ -11,7 +11,8 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  * This component is used by multiple functions via different routes, or by HTML tempalte so noteLabel and modelChanged will be used.
  */
 @Component({
-	templateUrl: '../_ui_services/textEditorDialogBase.component.html',
+    templateUrl: '../_ui_services/textEditorDialogBase.component.html',
+    standalone: false
 })
 export class LocalTextEditorDialogComponent extends TextEditorDialogComponentBase implements OnInit {
 	constructor(

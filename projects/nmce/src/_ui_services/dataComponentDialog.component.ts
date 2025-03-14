@@ -13,9 +13,10 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  * This is based on the concept in https://angular.io/guide/dynamic-component-loader
  */
 @Component({
-	selector: 'nmce-data-component-content',
-	templateUrl: 'dataComponentDialog.component.html',
-	styleUrls: ['../nmcestyles.css']
+    selector: 'nmce-data-component-content',
+    templateUrl: 'dataComponentDialog.component.html',
+    styleUrls: ['../nmcestyles.css'],
+    standalone: false
 })
 export class DataComponentDialog implements AfterViewInit, OnDestroy {
 	@Input()

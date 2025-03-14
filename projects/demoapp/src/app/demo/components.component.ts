@@ -7,7 +7,8 @@ import { ActionSheetItemSubjectService, LocalAlertService, WaitService } from 'n
  * and the Register button may become disabled when the user is just registered.
  */
 @Component({
-	templateUrl: 'components.component.html',
+    templateUrl: 'components.component.html',
+    standalone: false
 })
 export class ComponentsComponent implements OnInit {
 	loading = false;

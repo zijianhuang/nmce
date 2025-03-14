@@ -42,7 +42,10 @@ import { CurrencyFunc, StringFunc } from 'nmce-func';
 // 	}
 // }
 
-@Pipe({ name: 'bankerRound' })
+@Pipe({
+    name: 'bankerRound',
+    standalone: false
+})
 export class BankerRoundPipe implements PipeTransform {
 	transform(value: number | string| undefined | null, decimalPlace: number = 0): any { // have to change to any in NG 11.
 		if (typeof value == 'number'){
@@ -61,7 +64,10 @@ export class BankerRoundPipe implements PipeTransform {
 /**
  * Pad number with zero
  */
-@Pipe({ name: 'pad' })
+@Pipe({
+    name: 'pad',
+    standalone: false
+})
 export class PadPipe implements PipeTransform {
 	transform(n: number, length: number): string {
 		return StringFunc.pad(n, length);

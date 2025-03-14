@@ -5,8 +5,8 @@ import { Location } from '@angular/common';
  * Todo: move this to pattern page. To temporarily present a component not yet being developed however currently workflow need to show something.
  */
 @Component({
-
-	templateUrl: 'wip.component.html'
+    templateUrl: 'wip.component.html',
+    standalone: false
 })
 export class WIPComponent implements OnInit {
 

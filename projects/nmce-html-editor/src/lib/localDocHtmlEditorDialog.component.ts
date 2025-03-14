@@ -9,7 +9,8 @@ import { HtmlDocEditorDialogBaseComponent, HTML_EDITOR_UPLOADURL } from './htmlD
  * This component is used by multiple functions via different routes, or by HTML tempalte so noteLabel and modelChanged will be used.
  */
 @Component({
-	templateUrl: './htmlDocEditorDialogBase.directive.html',
+    templateUrl: './htmlDocEditorDialogBase.directive.html',
+    standalone: false
 })
 export class LocalDocHtmlEditorDialogComponent extends HtmlDocEditorDialogBaseComponent implements OnInit {
 	constructor(

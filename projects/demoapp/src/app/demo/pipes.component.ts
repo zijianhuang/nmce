@@ -3,7 +3,8 @@ import { DateTime } from 'luxon';
 
 
 @Component({
-	templateUrl: 'pipes.component.html',
+    templateUrl: 'pipes.component.html',
+    standalone: false
 })
 export class PipesComponent implements OnInit {
 	currentDateTime: Date;

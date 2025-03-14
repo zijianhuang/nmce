@@ -6,7 +6,8 @@
  * if the autofocus config is not false. Generally speaking, no need to use this directive in a component presented in a mateiral dialog.
  */
 @Directive({
-	selector: '[autofocus]'
+    selector: '[autofocus]',
+    standalone: false
 })
 export class AutofocusDirective implements AfterViewInit, DoCheck {
 	private toFocus = false;

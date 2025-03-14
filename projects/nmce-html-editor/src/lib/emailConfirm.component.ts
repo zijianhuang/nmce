@@ -24,8 +24,9 @@ export interface EmailMessage {
  * If Email message body is HTML, a HTML editor is used. Images are embedded inside HTML.
  */
 @Component({
-	selector: 'email-confirm',
-	templateUrl: 'emailConfirm.component.html',
+    selector: 'email-confirm',
+    templateUrl: 'emailConfirm.component.html',
+    standalone: false
 })
 export class EmailConfirmComponent {
 	ccEnabled = false;

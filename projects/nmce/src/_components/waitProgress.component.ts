@@ -8,9 +8,10 @@ import { WaitMessage, WaitProgressService } from '../_ui_services/index';
  * https://netbasal.com/angular-2-take-advantage-of-the-exportas-property-81374ce24d26
  */
 @Component({
-	selector: 'waitProgress, nmce-wait-progress, nmceWaitProgress',
-	exportAs: 'nmceWaitProgress',
-	templateUrl: 'waitProgress.component.html'
+    selector: 'waitProgress, nmce-wait-progress, nmceWaitProgress',
+    exportAs: 'nmceWaitProgress',
+    templateUrl: 'waitProgress.component.html',
+    standalone: false
 })
 export class WaitProgressComponent implements OnInit, OnDestroy {
 	message: WaitMessage;

@@ -8,9 +8,10 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  * Define password.
  */
 @Component({
-	selector: 'passwordsInput',
-	templateUrl: 'passwordsInput.component.html',
-	styleUrls: ['../nmcestyles.css']
+    selector: 'passwordsInput',
+    templateUrl: 'passwordsInput.component.html',
+    styleUrls: ['../nmcestyles.css'],
+    standalone: false
 })
 export class PasswordsInputComponent {
 	@Input()

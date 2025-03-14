@@ -9,9 +9,10 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  * Contain HTML content, used in TextDialogService.
  */
 @Component({
-	selector: 'text-dialog',
-	templateUrl: 'textDialog.component.html',
-	styleUrls: ['../nmcestyles.css']
+    selector: 'text-dialog',
+    templateUrl: 'textDialog.component.html',
+    styleUrls: ['../nmcestyles.css'],
+    standalone: false
 })
 export class TextDialogComponent implements AfterViewInit {
 	title: string;
@@ -44,9 +45,10 @@ export class TextDialogComponent implements AfterViewInit {
  * Display text as HTML pre in a dialog, which is loaded from a url, used in TextHReflDialogService. If there's an error during loading, the error will be displayed n the dialog body.
  */
 @Component({
-	selector: 'text-href-dialog',
-	templateUrl: 'textDialog.component.html',
-	styleUrls: ['../nmcestyles.css']
+    selector: 'text-href-dialog',
+    templateUrl: 'textDialog.component.html',
+    styleUrls: ['../nmcestyles.css'],
+    standalone: false
 })
 export class TextHRefDialogComponent implements AfterViewInit {
 	title: string;

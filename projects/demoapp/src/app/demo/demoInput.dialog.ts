@@ -4,7 +4,8 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 @Component({
     selector: 'demo-dialog',
     templateUrl: 'demoInput.dialog.html',
-  })
+    standalone: false
+})
   export class DemoInputComponent {
     constructor(
       public dialogRef: MatDialogRef<DemoInputComponent>,

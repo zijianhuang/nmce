@@ -3,8 +3,9 @@ import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 @Component({
-	selector: 'demo-index',
-	templateUrl: 'demo-index.component.html',
+    selector: 'demo-index',
+    templateUrl: 'demo-index.component.html',
+    standalone: false
 })
 export class DemoIndexComponent implements OnInit {
 	constructor(private titleService: Title,

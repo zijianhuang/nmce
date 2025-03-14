@@ -6,11 +6,12 @@ import { HtmlPrintFunc } from 'nmce-func';
  * To be embedded in any view to print a section of the view marked by element id.
  */
 @Component({
-	selector: 'print-page, nmce-print-page, nmcePrintPage',
-	exportAs: 'nmcePrintPage',
-	template: `
+    selector: 'print-page, nmce-print-page, nmcePrintPage',
+    exportAs: 'nmcePrintPage',
+    template: `
 	 <button (click)="printDiv()" mat-raised-button mdTooltip="Print content">Print</button>
 	`,
+    standalone: false
 })
 export class PrintComponent implements OnInit {//inspired by https://www.linkedin.com/pulse/create-print-component-angular2-which-user-defined-html-rajesh-g
 

@@ -13,7 +13,8 @@ import { HtmlDialogsComponent } from './htmlDialogs.component';
  * and the Register button may become disabled when the user is just registered.
  */
 @Component({
-	templateUrl: 'dialogs.component.html',
+    templateUrl: 'dialogs.component.html',
+    standalone: false
 })
 export class DialogsComponent implements OnInit {
 	loading = false;

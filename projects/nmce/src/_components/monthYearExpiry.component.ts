@@ -7,8 +7,9 @@ import { DateTime } from 'luxon';
  * Display 20 years in the future, with 12 months each. Good for display expiry date within 20 years.
  */
 @Component({
-	selector: 'month-year-expiry, nmce-month-year-expiry',
-	templateUrl: 'monthYearExpiry.component.html',
+    selector: 'month-year-expiry, nmce-month-year-expiry',
+    templateUrl: 'monthYearExpiry.component.html',
+    standalone: false
 })
 export class MonthYearExpiryComponent implements OnInit {
 	yearSlots: { value: number | undefined, display: string }[] = [{ value: undefined, display: '' }];

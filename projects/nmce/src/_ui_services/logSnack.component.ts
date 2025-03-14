@@ -6,8 +6,9 @@ import { AlertSubjectMessage } from './types';
  * Display AlertSubjectMessage through rendering MatSnackBar. Generally this is called by alert service.
  */
 @Component({
-	templateUrl: 'logSnack.component.html',
-	styleUrls: ['../nmcestyles.css']
+    templateUrl: 'logSnack.component.html',
+    styleUrls: ['../nmcestyles.css'],
+    standalone: false
 })
 export class LogSnackComponent {
 	message: AlertSubjectMessage;

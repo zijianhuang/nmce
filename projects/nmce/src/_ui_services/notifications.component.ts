@@ -37,8 +37,9 @@ class NotificationsCache { //not exported intentionally
  * Display ActionSheet to simulate the notification feature of Windows and other OSs.
  */
 @Component({
-	templateUrl: 'notifications.component.html',
-	styleUrls: ['../nmcestyles.css']
+    templateUrl: 'notifications.component.html',
+    styleUrls: ['../nmcestyles.css'],
+    standalone: false
 })
 export class NotificationsComponent {
 

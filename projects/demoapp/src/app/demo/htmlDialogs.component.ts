@@ -6,7 +6,8 @@ import { DataComponent, HtmlDialogService, HtmlFrameDialogService, HtmlFramePrin
  * Users search and list
  */
 @Component({
-	templateUrl: 'htmlDialogs.component.html',
+    templateUrl: 'htmlDialogs.component.html',
+    standalone: false
 })
 export class HtmlDialogsComponent implements DataComponent {
 	useBackButton: boolean;

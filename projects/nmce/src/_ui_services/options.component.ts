@@ -6,9 +6,10 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  * Confirmation through multiple options represented in buttons horizontally.
  */
 @Component({
-	selector: 'options-content',
-	templateUrl: 'options.component.html',
-	styleUrls: ['../nmcestyles.css']
+    selector: 'options-content',
+    templateUrl: 'options.component.html',
+    styleUrls: ['../nmcestyles.css'],
+    standalone: false
 })
 export class OptionsComponent {
 	@Input()

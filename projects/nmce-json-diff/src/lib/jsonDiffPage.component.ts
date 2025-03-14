@@ -5,8 +5,9 @@ import { diff } from 'jsondiffpatch';
 import {format} from 'jsondiffpatch/lib/formatters/html';
 
 @Component({
-	selector: 'json-diff-page',
-	templateUrl: 'jsonDiffPage.component.html',
+    selector: 'json-diff-page',
+    templateUrl: 'jsonDiffPage.component.html',
+    standalone: false
 })
 export class JsonDiffComponent implements DataComponent, OnInit, AfterViewInit {
 	data: any;
