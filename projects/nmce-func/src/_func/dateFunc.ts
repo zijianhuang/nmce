@@ -16,7 +16,7 @@ export class DateFunc {
 		if (typeof dt === 'string'){
 			const r = Date.parse(dt);
 			if (isNaN(r)){
-				throw new RangeError('Invalid string for Date');
+				throw new RangeError(`Invalid string for Date`);
 			}
 
 			return new Date(r);

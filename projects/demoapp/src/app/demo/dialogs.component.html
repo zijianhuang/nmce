@@ -5,17 +5,17 @@
 		<label>Text</label><button mat-mini-fab (click)="showDialog()"><mat-icon>play_arrow</mat-icon></button>
 		<mat-form-field>
 			<mat-select [formControl]="dialogSelectedControl">
-				<mat-option [value]="1" matTooltip="If snackBar is undefined, message will be displayed in snackbar if not longer than 50 bytes">Success</mat-option>
+				<mat-option [value]="1" i18n-matTooltip  matTooltip="If snackBar is undefined, message will be displayed in snackbar if not longer than 50 bytes">Success</mat-option>
 				<mat-option [value]="2">Info</mat-option>
 				<mat-option [value]="3">Warn</mat-option>
 				<mat-option [value]="4">Error</mat-option>
-				<mat-option [value]="5" matTooltip="With subtitle">Warn Message</mat-option>
-				<mat-option [value]="6" matTooltip="With subtitle">Error Message</mat-option>
-				<mat-option [value]="7" matTooltip="If snackBar is undefined, message will be displayed in dialog if longer than 50 bytes">Success Long Message</mat-option>
+				<mat-option [value]="5" i18n-matTooltip  matTooltip="With subtitle">Warn Message</mat-option>
+				<mat-option [value]="6" i18n-matTooltip  matTooltip="With subtitle">Error Message</mat-option>
+				<mat-option [value]="7" i18n-matTooltip  matTooltip="If snackBar is undefined, message will be displayed in dialog if longer than 50 bytes">Success Long Message</mat-option>
 			</mat-select>
 		</mat-form-field>
 		@if (showSnackBarCheckbox) {
-<mat-checkbox [(ngModel)]="snackBar" [indeterminate]="snackBar==undefined" matTooltip="Whether to display in snackBar">SnackBar</mat-checkbox>
+<mat-checkbox [(ngModel)]="snackBar" [indeterminate]="snackBar==undefined" i18n-matTooltip  matTooltip="Whether to display in snackBar">SnackBar</mat-checkbox>
 }
 	</div>
 	<div class="fx-column-gap-1">
@@ -24,8 +24,8 @@
 			<mat-select [formControl]="dialogSelectedControlForHtml">
 				<mat-option [value]="1">Success</mat-option>
 				<mat-option [value]="2">Info</mat-option>
-				<mat-option [value]="3" matTooltip="With subtitle">Warn Message</mat-option>
-				<mat-option [value]="4" matTooltip="With subtitle">Error Message</mat-option>
+				<mat-option [value]="3" i18n-matTooltip  matTooltip="With subtitle">Warn Message</mat-option>
+				<mat-option [value]="4" i18n-matTooltip  matTooltip="With subtitle">Error Message</mat-option>
 			</mat-select>
 		</mat-form-field>
 	</div>
@@ -35,8 +35,8 @@
 			<mat-select [formControl]="dialogSelectedControlForJson">
 				<mat-option [value]="1">Success</mat-option>
 				<mat-option [value]="2">Info</mat-option>
-				<mat-option [value]="3" matTooltip="With subtitle">Warn Message</mat-option>
-				<mat-option [value]="4" matTooltip="With subtitle">Error Message</mat-option>
+				<mat-option [value]="3" i18n-matTooltip  matTooltip="With subtitle">Warn Message</mat-option>
+				<mat-option [value]="4" i18n-matTooltip  matTooltip="With subtitle">Error Message</mat-option>
 			</mat-select>
 		</mat-form-field>
 	</div>

@@ -36,7 +36,7 @@
 	<p class="fx-column-gap-1">
 		<label>LocalDocHtmlEditor.open New</label><button mat-mini-fab (click)="openLocalDocEditor()"><mat-icon>play_arrow</mat-icon></button>
 		<label></label>@if (htmlFileId) {
-<button mat-icon-button (click)="editHtml()" matTooltip="Edit">
+<button mat-icon-button (click)="editHtml()"  i18n-matTooltip  matTooltip="Edit">
 			<mat-icon>edit</mat-icon>
 		</button>
 }
@@ -48,7 +48,7 @@
 		<label>LocalTextEditor.open New</label><button mat-mini-fab (click)="openLocalTextEditor()"><mat-icon>play_arrow</mat-icon></button>
 		
 		<label></label>@if (textFileId) {
-<button mat-icon-button (click)="editText()" matTooltip="Edit">
+<button mat-icon-button (click)="editText()" i18n-matTooltip  matTooltip="Edit">
 			<mat-icon>edit</mat-icon>
 		</button>
 }

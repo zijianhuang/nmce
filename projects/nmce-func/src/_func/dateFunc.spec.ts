@@ -147,28 +147,49 @@ describe('DateFunc', () => {
 		const dtUtc = new Date('2024-03-01');
 		console.debug('addDay: '+ dtUtc);
 		const dt = DateFunc.addDays(dtUtc, 10)!;
-		expect(dt).toEqual(new Date('2024-03-11T00:00:00Z')); //Australia +10
+		expect(dt).toEqual(new Date('2024-03-11T00:00:00Z'));
 	});
 
 	it('addDaysMinusLeapFeb', () => {
 		const dtUtc = new Date('2024-03-01');
 		console.debug('addDay: '+ dtUtc);
 		const dt = DateFunc.addDays(dtUtc, -10)!;
-		expect(dt).toEqual(new Date('2024-02-20T00:00:00Z')); //Australia +10
+		expect(dt).toEqual(new Date('2024-02-20T00:00:00Z'));
 	});
 
 	it('addDaysMinusFeb', () => {
 		const dtUtc = new Date('2023-03-01');
 		console.debug('addDay: '+ dtUtc);
 		const dt = DateFunc.addDays(dtUtc, -10)!;
-		expect(dt).toEqual(new Date('2023-02-19T00:00:00Z')); //Australia +10
+		expect(dt).toEqual(new Date('2023-02-19T00:00:00Z')); 
 	});
 
 	it('addDaysMinus', () => {
 		const dtUtc = new Date('2023-03-17');
 		console.debug('addDay: '+ dtUtc);
 		const dt = DateFunc.addDays(dtUtc, -10)!;
-		expect(dt).toEqual(new Date('2023-03-07T00:00:00Z')); //Australia +10
+		expect(dt).toEqual(new Date('2023-03-07T00:00:00Z')); 
+	});
+
+	it('addMonths', () => {
+		const dtUtc = new Date('2024-01-29');
+		console.debug('addMonths: '+ dtUtc);
+		const dt = DateFunc.addMonths(dtUtc, 1)!;
+		expect(dt).toEqual(new Date('2024-02-29T00:00:00Z'));
+	});
+
+	it('addMonthsFebEnd', () => {
+		const dtUtc = new Date('2024-01-30');
+		console.debug('addMonths: '+ dtUtc);
+		const dt = DateFunc.addMonths(dtUtc, 1)!;
+		expect(dt).toEqual(new Date('2024-02-29T00:00:00Z'));
+	});
+
+	it('addMonthsFebEnd2', () => {
+		const dtUtc = new Date('2024-01-31');
+		console.debug('addMonths: '+ dtUtc);
+		const dt = DateFunc.addMonths(dtUtc, 1)!;
+		expect(dt).toEqual(new Date('2024-02-29T00:00:00Z'));
 	});
 
 	it('getNext5MinuteMark', () => {

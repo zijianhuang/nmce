@@ -7,5 +7,4 @@ module.exports = {
     "<rootDir>/dist/"
   ],
 
-  //globalSetup: 'jest-preset-angular/global-setup'
 };
