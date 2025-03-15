@@ -61,7 +61,7 @@ export class LocalDocHtmlEditorDialogComponent extends HtmlDocEditorDialogBaseCo
 			localStorage.setItem(this.fileId, this.noteControl.value);
 		}
 
-		this.alertService.success(this.noteLabel + ' saved to Local Storage', true);
+		this.alertService.success($localize`${this.noteLabel} saved to Local Storage`, true);
 		this.dialogRef.close({ fileId: this.fileId, text: this.note, meta: meta });
 	}
 

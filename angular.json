@@ -49,6 +49,30 @@
       "root": "projects/demoapp",
       "sourceRoot": "projects/demoapp/src",
       "prefix": "app",
+      "i18n": {
+				"sourceLocale": {
+					"baseHref": "/en/",
+					"code": "en"
+				},
+				"locales": {
+					"zh-Hans": {
+						"translation": "projects/locales/messages.zh-hans.xlf",
+						"baseHref": "/zh-Hans/"
+					},
+					"zh-Hant": {
+						"translation": "projects/locales/messages.zh-hant.xlf",
+						"baseHref": "/zh-Hant/"
+					},
+					"ja": {
+						"translation": "projects/locales/messages.ja.xlf",
+						"baseHref": "/ja/"
+					},
+					"es": {
+						"translation": "projects/locales/messages.es.xlf",
+						"baseHref": "/es/"
+					}
+				}
+			},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -62,9 +86,7 @@
             ],
             "tsConfig": "projects/demoapp/tsconfig.app.json",
             "aot": true,
-            "allowedCommonJsDependencies": [
-              
-            ],
+            "allowedCommonJsDependencies": [],
             "assets": [
               "projects/demoapp/src/favicon.ico",
               "projects/demoapp/src/assets",
@@ -72,7 +94,6 @@
             ],
             "styles": [
               "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
-              
               "projects/demoapp/src/styles.css"
             ],
             "scripts": [],
@@ -80,6 +101,7 @@
           },
           "configurations": {
             "production": {
+              "localize": true,
               "fileReplacements": [
                 {
                   "replace": "projects/demoapp/src/environments/environment.ts",
@@ -118,9 +140,18 @@
           }
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",
           "options": {
-            "buildTarget": "demoapp:build"
+            "buildTarget": "demoapp:build",
+            "format": "xlf",
+						"outputPath": "projects/locales",
+            "targetFiles": [
+							"messages.zh-hans.xlf",
+							"messages.zh-hant.xlf",
+							"messages.ja.xlf",
+							"messages.es.xlf"
+						],
+						"sourceFile": "messages.xlf"
           }
         },
         "test": {
@@ -231,7 +262,10 @@
           "builder": "@angular-devkit/build-angular:jest",
           "options": {
             "tsConfig": "projects/nmce-func/tsconfig.spec.json",
-            "polyfills": ["zone.js", "zone.js/testing"]
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         },
         "lint": {

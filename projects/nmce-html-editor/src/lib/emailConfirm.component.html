@@ -43,12 +43,12 @@
 			</mat-form-field>
 }
 			<mat-form-field class="fx-full-width">
-				<mat-label>Subject</mat-label>
+				<mat-label i18n>Subject</mat-label>
 				<input matInput [(ngModel)]="emailMessage.subject" name="subject" type="text" />
 			</mat-form-field>
 			@if (!emailMessage?.isHtml) {
 <mat-form-field class="fx-full-width">
-				<mat-label>Message</mat-label>
+				<mat-label i18n>Message</mat-label>
 				<textarea matInput cdkTextareaAutosize [(ngModel)]="emailMessage.body" name="body" type="text"
 					cdkAutosizeMinRows=2 cdkAutosizeMaxRows=6></textarea>
 			</mat-form-field>

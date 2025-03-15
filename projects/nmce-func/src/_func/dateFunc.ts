@@ -16,7 +16,7 @@ export class DateFunc {
 		if (typeof dt === 'string'){
 			const r = Date.parse(dt);
 			if (isNaN(r)){
-				throw new RangeError(`Invalid string for Date`);
+				throw new RangeError($localize`Invalid string for Date`);
 			}
 
 			return new Date(r);
@@ -25,13 +25,13 @@ export class DateFunc {
 		if (typeof dt === 'number'){
 			const rd = new Date(dt)
 			if (Number.isNaN(rd.valueOf())){
-				throw new RangeError('Invalid number for Date');
+				throw new RangeError($localize`Invalid number for Date`);
 			}
 
 			return rd;
 		}
 
-		throw new TypeError('Expect Date, string or number');
+		throw new TypeError($localize`Expect Date, string or number`);
 	}
 
 	/**
@@ -47,7 +47,7 @@ export class DateFunc {
 		if (typeof dt === 'string'){
 			const r = Date.parse(dt);
 			if (isNaN(r)){
-				throw new RangeError('Invalid string for Date');
+				throw new RangeError($localize`Invalid string for Date`);
 			}
 
 			return new Date(r);
@@ -56,7 +56,7 @@ export class DateFunc {
 		if (typeof dt === 'number'){
 			const rd = new Date(dt)
 			if (Number.isNaN(rd.valueOf())){
-				throw new RangeError('Invalid number for Date');
+				throw new RangeError($localize`Invalid number for Date`);
 			}
 
 			return rd;
@@ -66,7 +66,7 @@ export class DateFunc {
 			return dt;
 		}
 
-		throw new TypeError('Expect Date, string or number');
+		throw new TypeError($localize`Expect Date, string or number`);
 	}
 
 	/**
@@ -374,7 +374,7 @@ export class DateFunc {
 	 */
 	static getHMFromMins(minutes: number): string {
 		if (minutes >= 24 * 60 || minutes < 0) {
-			throw new RangeError('Valid input should be greater than or equal to 0 and less than 1440.');
+			throw new RangeError($localize`Valid input should be greater than or equal to 0 and less than 1440.`);
 		}
 		const h = minutes / 60 | 0,
 			m = minutes % 60 | 0;

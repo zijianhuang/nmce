@@ -109,12 +109,12 @@ export abstract class HtmlDocEditorDialogBaseComponent {
 	 */
 	protected getPlainDigest(len: number) {
 		const s = StringFunc.getOneLineDigestOfHtml(StringFunc.getHtmlPlainText(this.noteControl.value), len);
-		return s ? s : 'Empty Text';
+		return s ? s : $localize`Empty Text`;
 	};
 
 	save() {
 		if (!this.noteControl.value) {
-			this.alertService.warn('Not allow to save empty document.');
+			this.alertService.warn($localize`Not allow to save empty document.`);
 			return;
 		}
 
@@ -158,7 +158,7 @@ export abstract class HtmlDocEditorDialogBaseComponent {
 
 	print() {
 		if (!this.noteControl.value) {
-			this.alertService.warn('Not allow to print empty document.');
+			this.alertService.warn($localize`Not allow to print empty document.`);
 			return;
 		}
 
