@@ -61,10 +61,10 @@ export class DataComponentPrintDialog extends DataComponentDialog {
 
 		navigator.clipboard.write([clipboardItem]).then(
 			() => {
-				this.alertService.success('Copied to clipboard');
+				this.alertService.success($localize`Copied to clipboard`);
 			},
 			() => {
-				this.alertService.warn('Something wrong');
+				this.alertService.warn($localize`Something wrong`);
 			}
 		);
 	}

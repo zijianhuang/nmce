@@ -19,8 +19,8 @@ export class ConfirmComponent {
 	@Input()
 	body: string;
 
-	actionLabel = 'Yes';
-	cancelLabel = 'No';
+	actionLabel = $localize`Yes`;
+	cancelLabel = $localize`No`;
 
 	constructor(@Inject(MAT_DIALOG_DATA) private data: { title: string, body: string, action: string, cancel: string },
 	 @Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 

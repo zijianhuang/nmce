@@ -87,9 +87,9 @@ export class TextHRefDialogComponent implements AfterViewInit {
 					if (error.status === 0) {
 						if (error.url){
 							const host = new URL(error.url).host;
-							errMsg = `No response from backend ${host}. Connection is unavailable.`;	
+							errMsg = $localize`No response from backend ${host}. Connection is unavailable.`;	
 						}else{
-							errMsg = `No response from backend. Connection is unavailable.`;	
+							errMsg = $localize`No response from backend. Connection is unavailable.`;	
 						}
 					} else {
 						if (error.message) {

@@ -8,13 +8,13 @@ import { ActionSheetItem } from './types';
 export class RootInjectorGuard { //thanks to https://indepth.dev/posts/1148/how-to-avoid-angular-injectable-instances-duplication
 	constructor(type: Type<any>) {
 		if (!type){
-			throw Error('The derived concrete class had not called super(DerivedClassName) properly.');
+			throw Error($localize`The derived concrete class had not called super(DerivedClassName) properly.`);
 		}
 
 		console.debug(`Global [${type.name}] created.`); // name is correct only when build or serve with  --optimization=false
 		const parent = inject(type, InjectFlags.Optional | InjectFlags.SkipSelf);
 		if (parent) {
-			throw Error(`[${type.name}]: trying to create multiple instances, but this service should be a singleton.`);
+			throw Error($localize`[${type.name}]: trying to create multiple instances, but this service should be a singleton.`);
 		}
 	}
 }

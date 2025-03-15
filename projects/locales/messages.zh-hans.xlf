@@ -1,30 +1,6 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" target-language="zh-hans" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="6295778850406750402" datatype="html">
-        <source>Show notifications</source>
-        <target state="new">Show notifications</target>
-      </trans-unit>
-      <trans-unit id="8462028028050974616" datatype="html">
-        <source>If snackBar is undefined, message will be displayed in snackbar if not longer than 50 bytes</source>
-        <target state="new">If snackBar is undefined, message will be displayed in snackbar if not longer than 50 bytes</target>
-      </trans-unit>
-      <trans-unit id="3811002149173921620" datatype="html">
-        <source>With subtitle</source>
-        <target state="new">With subtitle</target>
-      </trans-unit>
-      <trans-unit id="583725857605575164" datatype="html">
-        <source>If snackBar is undefined, message will be displayed in dialog if longer than 50 bytes</source>
-        <target state="new">If snackBar is undefined, message will be displayed in dialog if longer than 50 bytes</target>
-      </trans-unit>
-      <trans-unit id="5766873408931457797" datatype="html">
-        <source>Whether to display in snackBar</source>
-        <target state="new">Whether to display in snackBar</target>
-      </trans-unit>
-      <trans-unit id="7585826646011739428" datatype="html">
-        <source>Edit</source>
-        <target state="new">Edit</target>
-      </trans-unit>
       <trans-unit id="5371894085388750329" datatype="html">
         <source>Original resolution or scale to fit width</source>
         <target state="new">Original resolution or scale to fit width</target>

@@ -8,10 +8,10 @@
 @if (notificationsCount) {
 <div class="fixed-bottom">
 	<div class="fx-column-gap-half fx-align-end-end">
-		<!-- <button *ngIf="notificationsCount>0" [@newNotificationComing]="notificationsState" type="button" mat-raised-button (click)="showNotifications()" i18n-matTooltip  matTooltip="Show notifications">
+		<!-- <button *ngIf="notificationsCount>0" [@newNotificationComing]="notificationsState" type="button" mat-raised-button (click)="showNotifications()" matTooltip="Show notifications">
 			Notifications ({{notificationsCount}})
 		</button>		 -->
-		<button [@newNotificationComing]="notificationsState" type="button" mat-icon-button (click)="showNotifications()" i18n-matTooltip  matTooltip="Show notifications">
+		<button [@newNotificationComing]="notificationsState" type="button" mat-icon-button (click)="showNotifications()" matTooltip="Show notifications">
 			<mat-icon matBadge="{{notificationsCount}}" matBadgeColor="warn">notifications</mat-icon>
 		</button>
 	</div>

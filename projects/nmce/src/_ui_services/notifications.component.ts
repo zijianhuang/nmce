@@ -47,7 +47,7 @@ export class NotificationsComponent {
 		return NotificationsCache.notificationsQueue;
 	}
 
-	title='For actionable items, please save current works before action';
+	title=$localize`For actionable items, please save current works before action`;
 
 	constructor(@Inject(MAT_BOTTOM_SHEET_DATA) data: {title: string}, public sheetRef: MatBottomSheetRef<NotificationsComponent>
 	) {

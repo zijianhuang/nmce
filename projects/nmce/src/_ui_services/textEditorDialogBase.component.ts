@@ -73,7 +73,7 @@ export abstract class TextEditorDialogComponentBase implements AfterViewInit {
 
 	save() {
 		if (!this.note) {
-			this.alertService.warn('Not allow to save empty document.');
+			this.alertService.warn($localize`Not allow to save empty document.`);
 			return;
 		}
 

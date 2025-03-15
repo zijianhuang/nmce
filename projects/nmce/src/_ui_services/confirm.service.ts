@@ -23,7 +23,7 @@ export class ConfirmService {
 
 	constructor(private dialog: MatDialog) { }
 
-	open(title: string, body: string, action = 'Yes', cancel = 'No'): Observable<boolean> {
+	open(title: string, body: string, action = $localize`Yes`, cancel = $localize`No`): Observable<boolean> {
 		this.modalRef = this.dialog.open(ConfirmComponent, {
 			disableClose: true,
 			data: {
@@ -45,7 +45,7 @@ export class ConfirmService {
 	 * With default "Are you sure?" body.
 	 */
 	openDefault(): Observable<boolean> {
-		return this.open('Confirm', 'Are you sure?');
+		return this.open($localize`Confirm`, $localize`Are you sure?`);
 	}
 
 	closeIfOpened() {

@@ -18,7 +18,7 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
     standalone: false
 })
 export class DateRangePickerComponent {
-	title = 'Date Range';
+	title = $localize`Date Range`;
 
 	startDate: Date;
 	endDate: Date;

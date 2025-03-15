@@ -33,7 +33,7 @@ export class HtmlPrintDialogComponent extends HtmlDialogComponent {
 			//HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(this.cssUrl));
 			HtmlPrintFunc.printWithCSS(this.htmlContent, this.location.prepareExternalUrl(this.cssUrl));
 		} else {
-			console.error('this.htmlContentElement does not exist.');
+			console.error($localize`this.htmlContentElement does not exist.`);
 		}
 	}
 }
@@ -66,7 +66,7 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 		if (this.htmlContent) {
 			HtmlPrintFunc.print(this.htmlContent);
 		} else {
-			console.error('this.htmlContentElement does not exist.');
+			console.error($localize`this.htmlContentElement does not exist.`);
 		}
 	}
 
@@ -90,7 +90,7 @@ export class HtmlImgPrintDialogComponent extends HtmlImgDialogComponent {
 		if (this.htmlContentElement) {
 			HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(this.cssUrl));
 		} else {
-			console.error('this.htmlContentElement does not exist.');
+			console.error($localize`this.htmlContentElement does not exist.`);
 		}
 	}
 }
