@@ -59,6 +59,198 @@
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="2807800733729323332" datatype="html">
+        <source>Yes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/confirm.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/confirm.service.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="349480122875358760" datatype="html">
+        <source>Expect Date, string or number</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-func/src/_func/dateFunc.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-func/src/_func/dateFunc.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3542042671420335679" datatype="html">
+        <source>No</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/confirm.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/confirm.service.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4180340141420826523" datatype="html">
+        <source>Invalid number for Date</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-func/src/_func/dateFunc.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-func/src/_func/dateFunc.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4390435099342067853" datatype="html">
+        <source>[<x id="PH" equiv-text="type.name"/>]: trying to create multiple instances, but this service should be a singleton.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/baseTypes.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5143548108329331679" datatype="html">
+        <source>No response from backend <x id="PH" equiv-text="host"/>. Connection is unavailable.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/alert.service.ts</context>
+          <context context-type="linenumber">143</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/htmlFrameDialog.component.ts</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/localAlert.service.ts</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/textDialog.component.ts</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5190092630197064800" datatype="html">
+        <source>Invalid string for Date</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-func/src/_func/dateFunc.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-func/src/_func/dateFunc.ts</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6112642683465360445" datatype="html">
+        <source><x id="PH" equiv-text="this.noteLabel"/> saved to Local Storage</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/localTextEditorDialog.component.ts</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6483680626836794824" datatype="html">
+        <source>Date Range</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/dateRangePicker.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6789040151215296839" datatype="html">
+        <source>The derived concrete class had not called super(DerivedClassName) properly.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/baseTypes.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6800308101673162937" datatype="html">
+        <source>No response from backend. Connection is unavailable.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/alert.service.ts</context>
+          <context context-type="linenumber">145</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/htmlFrameDialog.component.ts</context>
+          <context context-type="linenumber">109</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/localAlert.service.ts</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/textDialog.component.ts</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6941659493626287408" datatype="html">
+        <source>For actionable items, please save current works before action</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/notifications.component.ts</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7114071321253816795" datatype="html">
+        <source>this.htmlContentElement does not exist.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.ts</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7482395107104484666" datatype="html">
+        <source>Valid input should be greater than or equal to 0 and less than 1440.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-func/src/_func/dateFunc.ts</context>
+          <context context-type="linenumber">377</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7515883357904500238" datatype="html">
+        <source>Are you sure?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/confirm.service.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7816570869614983442" datatype="html">
+        <source>Something wrong</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/dataComponentPrintDialog.component.ts</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="786281080071228614" datatype="html">
+        <source>Scale to fit width</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlImgPrintDialog.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8592282545368203219" datatype="html">
+        <source>Not allow to save empty document.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/textEditorDialogBase.component.ts</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9178182467454450952" datatype="html">
+        <source>Confirm</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/confirm.service.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="969162659595657718" datatype="html">
+        <source>Copied to clipboard</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/dataComponentPrintDialog.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>

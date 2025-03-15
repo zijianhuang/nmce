@@ -7,8 +7,5 @@
   "angularCompilerOptions": {
     "compilationMode": "partial",
     "strictMetadataEmit": false
-  },
-  "files": [
-    "../demoapp/src/polyfills.ts"
-]
+  }
 }

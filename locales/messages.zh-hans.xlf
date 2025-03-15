@@ -29,6 +29,86 @@
         <source>Undo changes</source>
         <target state="new">Undo changes</target>
       </trans-unit>
+      <trans-unit id="5190092630197064800" datatype="html">
+        <source>Invalid string for Date</source>
+        <target state="new">Invalid string for Date</target>
+      </trans-unit>
+      <trans-unit id="4180340141420826523" datatype="html">
+        <source>Invalid number for Date</source>
+        <target state="new">Invalid number for Date</target>
+      </trans-unit>
+      <trans-unit id="349480122875358760" datatype="html">
+        <source>Expect Date, string or number</source>
+        <target state="new">Expect Date, string or number</target>
+      </trans-unit>
+      <trans-unit id="7482395107104484666" datatype="html">
+        <source>Valid input should be greater than or equal to 0 and less than 1440.</source>
+        <target state="new">Valid input should be greater than or equal to 0 and less than 1440.</target>
+      </trans-unit>
+      <trans-unit id="5143548108329331679" datatype="html">
+        <source>No response from backend <x id="PH" equiv-text="host"/>. Connection is unavailable.</source>
+        <target state="new">No response from backend <x id="PH" equiv-text="host"/>. Connection is unavailable.</target>
+      </trans-unit>
+      <trans-unit id="6800308101673162937" datatype="html">
+        <source>No response from backend. Connection is unavailable.</source>
+        <target state="new">No response from backend. Connection is unavailable.</target>
+      </trans-unit>
+      <trans-unit id="6789040151215296839" datatype="html">
+        <source>The derived concrete class had not called super(DerivedClassName) properly.</source>
+        <target state="new">The derived concrete class had not called super(DerivedClassName) properly.</target>
+      </trans-unit>
+      <trans-unit id="4390435099342067853" datatype="html">
+        <source>[<x id="PH" equiv-text="type.name"/>]: trying to create multiple instances, but this service should be a singleton.</source>
+        <target state="new">[<x id="PH" equiv-text="type.name"/>]: trying to create multiple instances, but this service should be a singleton.</target>
+      </trans-unit>
+      <trans-unit id="2807800733729323332" datatype="html">
+        <source>Yes</source>
+        <target state="new">Yes</target>
+      </trans-unit>
+      <trans-unit id="3542042671420335679" datatype="html">
+        <source>No</source>
+        <target state="new">No</target>
+      </trans-unit>
+      <trans-unit id="9178182467454450952" datatype="html">
+        <source>Confirm</source>
+        <target state="new">Confirm</target>
+      </trans-unit>
+      <trans-unit id="7515883357904500238" datatype="html">
+        <source>Are you sure?</source>
+        <target state="new">Are you sure?</target>
+      </trans-unit>
+      <trans-unit id="6483680626836794824" datatype="html">
+        <source>Date Range</source>
+        <target state="new">Date Range</target>
+      </trans-unit>
+      <trans-unit id="6112642683465360445" datatype="html">
+        <source><x id="PH" equiv-text="this.noteLabel"/> saved to Local Storage</source>
+        <target state="new"><x id="PH" equiv-text="this.noteLabel"/> saved to Local Storage</target>
+      </trans-unit>
+      <trans-unit id="6941659493626287408" datatype="html">
+        <source>For actionable items, please save current works before action</source>
+        <target state="new">For actionable items, please save current works before action</target>
+      </trans-unit>
+      <trans-unit id="8592282545368203219" datatype="html">
+        <source>Not allow to save empty document.</source>
+        <target state="new">Not allow to save empty document.</target>
+      </trans-unit>
+      <trans-unit id="969162659595657718" datatype="html">
+        <source>Copied to clipboard</source>
+        <target state="new">Copied to clipboard</target>
+      </trans-unit>
+      <trans-unit id="7816570869614983442" datatype="html">
+        <source>Something wrong</source>
+        <target state="new">Something wrong</target>
+      </trans-unit>
+      <trans-unit id="786281080071228614" datatype="html">
+        <source>Scale to fit width</source>
+        <target state="new">Scale to fit width</target>
+      </trans-unit>
+      <trans-unit id="7114071321253816795" datatype="html">
+        <source>this.htmlContentElement does not exist.</source>
+        <target state="new">this.htmlContentElement does not exist.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
