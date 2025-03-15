@@ -90,5 +90,5 @@ References:
 ### For libraries
 
 As of Angular 19, extra works ave to be done:
-1. To ensure `$localize` strings in TS files to be included, in tsconfig.lib.json of each lib, add `"types": ["@angular/localize"]` to "compilerOptions".
+1. To ensure `$localize` strings in TS files to be included, in tsconfig.json of the root, add `"types": ["@angular/localize"]` to "compilerOptions".
 1. To ensure 
