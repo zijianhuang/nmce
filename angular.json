@@ -56,19 +56,19 @@
 				},
 				"locales": {
 					"zh-Hans": {
-						"translation": "projects/locales/messages.zh-hans.xlf",
+						"translation": "locales/messages.zh-hans.xlf",
 						"baseHref": "/zh-Hans/"
 					},
 					"zh-Hant": {
-						"translation": "projects/locales/messages.zh-hant.xlf",
+						"translation": "locales/messages.zh-hant.xlf",
 						"baseHref": "/zh-Hant/"
 					},
 					"ja": {
-						"translation": "projects/locales/messages.ja.xlf",
+						"translation": "locales/messages.ja.xlf",
 						"baseHref": "/ja/"
 					},
 					"es": {
-						"translation": "projects/locales/messages.es.xlf",
+						"translation": "locales/messages.es.xlf",
 						"baseHref": "/es/"
 					}
 				}
@@ -144,10 +144,10 @@
           "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",
           "options": {
             "buildTarget": "demoapp:build",
-            "format": "xlf",
+            "format": "xliff",
             "includeContext": "sourceFileOnly",
             
-						"outputPath": "projects/locales",
+						"outputPath": "locales",
             "targetFiles": [
 							"messages.zh-hans.xlf",
 							"messages.zh-hant.xlf",

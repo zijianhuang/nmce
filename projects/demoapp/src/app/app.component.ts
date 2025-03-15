@@ -30,6 +30,7 @@ export class AppComponent implements OnDestroy {
       this.notificationsState = 'zero';
     }
 
+    console.info($localize`Something to say`);
     return this.notificationsService.items.length;
   }
 

@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,7 +21,6 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
     AppRoutingModule,
     RouterModule,
     BrowserAnimationsModule,
-    HttpClientModule,
     NGMDModule,
     Nmce_UI_ServicesModule,
   ],
@@ -34,6 +33,10 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
         };
       }
     },
+
+    provideHttpClient(
+			withInterceptorsFromDi()
+		),
 
     {
       provide: 'print.cssUrl',

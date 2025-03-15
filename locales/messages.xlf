@@ -2,6 +2,13 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="4194876199597412112" datatype="html">
+        <source>Undo changes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/textEditorDialogBase.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="5371894085388750329" datatype="html">
         <source>Original resolution or scale to fit width</source>
         <context-group purpose="location">
@@ -20,6 +27,13 @@
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="644076270269313240" datatype="html">
+        <source>Something to say</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/demoapp/src/app/app.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="6945988051184690124" datatype="html">
         <source>Remove item</source>
         <context-group purpose="location">
@@ -31,13 +45,6 @@
           <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8890553633144307762" datatype="html">
-        <source>Back</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/nmce/src/_ui_services/textEditorDialogBase.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="7000649363168371045" datatype="html">
         <source>Save changes</source>
         <context-group purpose="location">
@@ -45,11 +52,11 @@
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4194876199597412112" datatype="html">
-        <source>Undo changes</source>
+      <trans-unit id="8890553633144307762" datatype="html">
+        <source>Back</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/textEditorDialogBase.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
     </body>

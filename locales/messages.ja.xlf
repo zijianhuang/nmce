@@ -1,6 +1,10 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" target-language="ja" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="644076270269313240" datatype="html">
+        <source>Something to say</source>
+        <target state="new">Something to say</target>
+      </trans-unit>
       <trans-unit id="5371894085388750329" datatype="html">
         <source>Original resolution or scale to fit width</source>
         <target state="new">Original resolution or scale to fit width</target>
