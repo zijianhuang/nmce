@@ -47,7 +47,7 @@ export class DataComponentDialog implements AfterViewInit, OnDestroy {
 			isSmallScreen: boolean,
 			fullScreen: boolean
 		},
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 		public dialogRef: MatDialogRef<DataComponentDialog>,
 		protected componentFactoryResolver: ComponentFactoryResolver
 	) {

@@ -6,5 +6,9 @@
         "luxon",
         "NMCE",
         "nmcestyles"
-    ]
+    ],
+    "search.exclude": {
+        "**/appdist": true,
+        "**/dist": true
+    }
 }

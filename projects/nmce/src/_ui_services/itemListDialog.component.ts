@@ -33,7 +33,7 @@ export class ItemListDialogComponent {
 	 * @param dialogRef
 	 */
 	constructor(@Inject(MAT_DIALOG_DATA) data: { title: string, items: any, toStringCallback: (item: any) => string }, 
-	@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+	@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 	private dialogRef: MatDialogRef<ItemListDialogComponent>,
 	) {
 		this.title = data.title;

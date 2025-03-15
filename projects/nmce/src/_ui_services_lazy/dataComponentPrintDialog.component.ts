@@ -32,7 +32,7 @@ export class DataComponentPrintDialog extends DataComponentDialog {
 			isSmallScreen: boolean,
 			fullScreen: boolean
 		},
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string,
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
 		public dialogRef: MatDialogRef<DataComponentDialog>,
 		protected componentFactoryResolver: ComponentFactoryResolver,
 		private location: Location,

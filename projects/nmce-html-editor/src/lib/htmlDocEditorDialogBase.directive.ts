@@ -68,7 +68,7 @@ export abstract class HtmlDocEditorDialogBaseComponent {
 	 * @param alertService
 	 */
 	constructor(@Inject(MAT_DIALOG_DATA) public data: { [k: string]: any },
-	@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+	@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 	public dialogRef: MatDialogRef<HtmlDocEditorDialogBaseComponent>,
 		protected uploadUrl: string | undefined,
 		protected alertService: AlertService,

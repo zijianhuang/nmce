@@ -3,7 +3,7 @@
 <mat-dialog-content>
 	<div class="fx-column-gap-half top-margin-half">
 		<mat-form-field class="flex-6">
-			<mat-label>Hour</mat-label>
+			<mat-label i18n>Hour</mat-label>
 			<mat-select [(ngModel)]="selectedHour" name="hour">
 				@for (h of hourSlots; track h) {
 <mat-option [value]="h">{{ pad0(h) }}</mat-option>
@@ -11,7 +11,7 @@
 			</mat-select>
 		</mat-form-field>
 		<mat-form-field class="flex-6">
-			<mat-label>Minute</mat-label>
+			<mat-label i18n>Minute</mat-label>
 			<mat-select [(ngModel)]="selectedMinute" name="minute">
 				@for (m of minuteSlots; track m) {
 <mat-option [value]="m">{{ pad0(m) }}</mat-option>
@@ -21,9 +21,9 @@
 	</div>
 </mat-dialog-content>
 <mat-dialog-actions [align]="actionsAlign">
-	<button mat-raised-button matDialogClose (click)="cancel()">Cancel</button>
-	<button type="button" mat-raised-button (click)="submit()" tabindex="1">Submit</button>
+	<button mat-raised-button matDialogClose (click)="cancel()" i18n>Cancel</button>
+	<button type="button" mat-raised-button (click)="submit()" tabindex="1" i18n>Submit</button>
 	@if (!noClear) {
-<button type="button" mat-raised-button (click)="clear()" tabindex="2">Clear</button>
+<button type="button" mat-raised-button (click)="clear()" tabindex="2" i18n>Clear</button>
 }
 </mat-dialog-actions>

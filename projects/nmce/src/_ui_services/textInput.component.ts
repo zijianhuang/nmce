@@ -23,7 +23,7 @@ export class TextInputComponent {
 	title: string;
 
 	constructor(@Inject(MAT_DIALOG_DATA) public data: { text: string, label: string, title: string }, 
-	@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+	@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 	public dialogRef: MatDialogRef<TextInputComponent>) {
 		this.text = data.text;
 		this.label = data.label;

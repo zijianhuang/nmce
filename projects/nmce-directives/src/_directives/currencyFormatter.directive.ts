@@ -1,6 +1,6 @@
 // import { Directive, ElementRef, HostListener, OnInit } from '@angular/core';
 // import { CurrencyFunc } from 'nmce-func';
-
+// in favour of dinerojs, depending on the application
 // /**
 //  * Decorate HTML input for inputting and displaying currency. The input type must not be number and should be text only.
 //  * If the input type is number, the built-in validator will be fighting against this directive.

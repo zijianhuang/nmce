@@ -17,7 +17,7 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 export class LocalTextEditorDialogComponent extends TextEditorDialogComponentBase implements OnInit {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { [k: string]: string },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 		public dialogRef: MatDialogRef<LocalTextEditorDialogComponent>,
 		protected alertService: AlertService,
 	) {

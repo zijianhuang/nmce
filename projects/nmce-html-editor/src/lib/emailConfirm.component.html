@@ -12,7 +12,7 @@
 	<div class="top-margin-half">
 		<form class="fx-layout-column">
 			<mat-form-field class="fx-full-width">
-				<mat-label>To</mat-label>
+				<mat-label i18n="To for Email recipient">To</mat-label>
 				<input matInput [(ngModel)]="emailMessage.to" name="to" type="email" />
 				@if (emailAddressesDialogService) {
 <button mat-icon-button matPrefix (click)="pickToAddresses()">
@@ -22,7 +22,7 @@
 			</mat-form-field>
 			@if (ccEnabled || emailMessage.cc) {
 <mat-form-field class="fx-full-width">
-				<mat-label>CC</mat-label>
+				<mat-label i18n="Email carbon copy">CC</mat-label>
 				<input matInput [(ngModel)]="emailMessage.cc" name="cc" type="email" />
 				@if (emailAddressesDialogService) {
 <button mat-icon-button matPrefix (click)="pickCcAddresses()">
@@ -33,7 +33,7 @@
 }
 			@if (bccEnabled || emailMessage.bcc) {
 <mat-form-field class="fx-full-width">
-				<mat-label>BCC</mat-label>
+				<mat-label i18n="email blind carbon copy">BCC</mat-label>
 				<input matInput [(ngModel)]="emailMessage.bcc" name="bcc" type="email" />
 				@if (emailAddressesDialogService) {
 <button mat-icon-button matPrefix (click)="pickBccAddresses()">
@@ -43,7 +43,7 @@
 			</mat-form-field>
 }
 			<mat-form-field class="fx-full-width">
-				<mat-label i18n>Subject</mat-label>
+				<mat-label i18n="email subject">Subject</mat-label>
 				<input matInput [(ngModel)]="emailMessage.subject" name="subject" type="text" />
 			</mat-form-field>
 			@if (!emailMessage?.isHtml) {
@@ -62,9 +62,9 @@
 }
 </mat-dialog-content>
 <mat-dialog-actions [align]="actionsAlign">
-	<button type="button" mat-raised-button matDialogClose id="cancel">Cancel</button>
+	<button type="button" mat-raised-button matDialogClose id="cancel" i18n>Cancel</button>
 	<button type="submit" mat-raised-button (click)="confirm()" id="send" tabindex="1" [disabled]="!emailMessage?.to">
 		<mat-icon>send</mat-icon>
-		Send
+		<span i18n="Email send">Send</span>
 	</button>
 </mat-dialog-actions>

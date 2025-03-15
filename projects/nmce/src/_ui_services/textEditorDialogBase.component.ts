@@ -54,7 +54,7 @@ export abstract class TextEditorDialogComponentBase implements AfterViewInit {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { [k: string]: any },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 		public dialogRef: MatDialogRef<TextEditorDialogComponentBase>,
 		protected alertService: AlertService,
 	) {

@@ -23,7 +23,7 @@ export class ConfirmComponent {
 	cancelLabel = $localize`No`;
 
 	constructor(@Inject(MAT_DIALOG_DATA) private data: { title: string, body: string, action: string, cancel: string },
-	 @Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+	 @Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 	 private dialogRef: MatDialogRef<ConfirmComponent>) {
 		this.title = data.title;
 		this.body = data.body;

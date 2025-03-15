@@ -48,7 +48,7 @@ export class LogDialogComponent implements AfterViewInit {
 	constructor(
 		@Inject(LOG_DIALOG_OPTIONS) public dialogOptions: MessageDialogOptions,
 		@Inject(MAT_DIALOG_DATA) data: { message: AlertSubjectMessage },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 		private renderer: Renderer2,
 	) {
 		this.message = data.message;

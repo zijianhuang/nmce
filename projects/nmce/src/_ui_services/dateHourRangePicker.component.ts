@@ -33,7 +33,7 @@ export class DateHourRangePickerComponent {
 
 	constructor(public dialogRef: MatDialogRef<DateHourRangePickerComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: { start: Date, end: Date },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end'
 	) {
 		this.startDate = data.start ? data.start : DateFunc.now;
 		this.endDate = DateFunc.getEndOfDate(data.end ? data.end : DateFunc.addDays(this.startDate, 180));

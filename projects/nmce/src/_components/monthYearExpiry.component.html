@@ -1,6 +1,6 @@
 <div class="fx-column-gap-half">
     <mat-form-field class="flex-7">
-        <mat-label>Month</mat-label>
+        <mat-label i18n>Month</mat-label>
         <mat-select placeholder="MM" [(ngModel)]="selectedMonth" name="month"
             (selectionChange)="onSelectionChange($event)">
             @for (m of monthSlots; track m) {
@@ -9,7 +9,7 @@
         </mat-select>
     </mat-form-field>
     <mat-form-field class="flex-7">
-        <mat-label>Year</mat-label>
+        <mat-label i18n>Year</mat-label>
         <mat-select placeholder="YYYY" [(ngModel)]="selectedYear" name="year"
             (selectionChange)="onSelectionChange($event)">
             @for (y of yearSlots; track y) {

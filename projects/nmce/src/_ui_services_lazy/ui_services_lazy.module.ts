@@ -28,17 +28,14 @@ import { ProgressComponent, ProgressDialogService } from './progress.component';
 		HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent, DataComponentPrintDialog, HtmlPrintDialogComponent, 
 		HtmlHRefPrintDialogComponent, HtmlImgPrintDialogComponent,
 		ProgressComponent,
-		//JsonComponent,
 	],
 
 	exports: [
 		HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent, DataComponentPrintDialog, HtmlPrintDialogComponent, 
 		HtmlHRefPrintDialogComponent, ProgressComponent,
-		//JsonComponent,
 	],
 	providers: [
 		HtmlFramePrintDialogService, HtmlHRefFramePrintDialogService, DataComponentPrintDialogService, HtmlHRefPrintDialogService, HtmlPrintDialogService, HtmlImgPrintDialogService,
-		//JsonDialogService,
 		LazyComponentPrintDialogService,
 		LazyComponentDialogService,
 		ProgressDialogService,

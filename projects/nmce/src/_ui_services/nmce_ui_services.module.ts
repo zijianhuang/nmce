@@ -98,7 +98,6 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 		DateRangePickerComponent,
 		DateHourRangePickerComponent,
 
-		//ItemListDialogComponent,
 		LocalTextEditorDialogComponent,
 	],
 	providers: [
@@ -131,8 +130,6 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 
 		LocalTextEditorDialogService,
 		OptionListDialogService,
-		//NotificationsService,
-		//ActionSheetItemSubjectService,
 	],
 
 })

@@ -110,7 +110,7 @@
               ],
               "optimization": true,
               "outputPath": {
-								"base": "dist/prod/"
+								"base": "appdist/prod/"
 							},
               "outputHashing": "all",
               "sourceMap": false,
@@ -131,7 +131,7 @@
             },
             "development": {
 							"outputPath": {
-								"base": "dist/development/"
+								"base": "appdist/development/"
 							},
 							"optimization": false,
 							"extractLicenses": false,

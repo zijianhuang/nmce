@@ -23,7 +23,7 @@ export class TextDialogComponent implements AfterViewInit {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, lines: string, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 		public dialogRef: MatDialogRef<TextDialogComponent>) {
 		this.title = data.title;
 		this.lines = data.lines;
@@ -62,7 +62,7 @@ export class TextHRefDialogComponent implements AfterViewInit {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) data: { title: string, url: string, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 		public dialogRef: MatDialogRef<TextDialogComponent>, private httpClient: HttpClient) {
 		this.title = data.title;
 		this.url = data.url;

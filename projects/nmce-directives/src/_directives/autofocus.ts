@@ -33,7 +33,11 @@ export class AutofocusDirective implements AfterViewInit, DoCheck {
 		}
 	}
 
-	@Input() set autofocus(condition: boolean) {
+	@Input() 
+	get autofocus(){
+		return this.focused;
+	}
+	set autofocus(condition: boolean) {
 		this.toFocus = condition !== false;
 	}
 }

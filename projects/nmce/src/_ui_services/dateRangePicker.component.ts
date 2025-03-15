@@ -25,7 +25,7 @@ export class DateRangePickerComponent {
 
 	constructor(public dialogRef: MatDialogRef<DateRangePickerComponent>, 
 		@Inject(MAT_DIALOG_DATA) public data: { start: Date, end: Date },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 		) {
 		this.startDate = data.start ? data.start : DateFunc.now;
 		this.endDate = DateFunc.getEndOfDate(data.end ? data.end : DateFunc.addDays(this.startDate, 180));
@@ -59,7 +59,7 @@ export class DateRangePickerService {
 	}
 
 	/**
-	 * Picke dates between through DateRangePickerComponent.
+	 * Pick dates between through DateRangePickerComponent.
 	 * If start date is not defined, it will be today from now.
 	 * If the end date is not defined, it will be 180 days from the start date.
 	 */

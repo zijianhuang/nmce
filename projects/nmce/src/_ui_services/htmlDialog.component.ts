@@ -25,7 +25,7 @@ export class HtmlDialogComponent implements AfterViewInit {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 		public dialogRef: MatDialogRef<HtmlDialogComponent>,
 		protected renderer: Renderer2) {
 		this.title = data.title;
@@ -64,7 +64,7 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) protected data: { title: string, url: string, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 		public dialogRef: MatDialogRef<HtmlHRefDialogComponent>, protected httpClient: HttpClient,
 		protected renderer: Renderer2) {
 		this.title = data.title;
@@ -91,9 +91,9 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 					if (error.status === 0) {
 						if (error.url) {
 							const host = new URL(error.url).host;
-							errMsg = `No response from backend ${host}. Connection is unavailable.`;
+							errMsg = $localize`No response from backend ${host}. Connection is unavailable.`;
 						} else {
-							errMsg = `No response from backend. Connection is unavailable.`
+							errMsg = $localize`No response from backend. Connection is unavailable.`
 						}
 					} else {
 						if (error.message) {
@@ -145,7 +145,7 @@ export class HtmlImgDialogComponent {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, imageUrl: string | SafeUrl, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 		public dialogRef: MatDialogRef<HtmlImgDialogComponent>) {
 		this.title = data.title;
 		this.imageUrl = data.imageUrl;

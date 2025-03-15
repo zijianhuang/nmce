@@ -1,10 +1,6 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" target-language="zh-hant" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="644076270269313240" datatype="html">
-        <source>Something to say</source>
-        <target state="new">Something to say</target>
-      </trans-unit>
       <trans-unit id="5371894085388750329" datatype="html">
         <source>Original resolution or scale to fit width</source>
         <target state="new">Original resolution or scale to fit width</target>
@@ -112,6 +108,7 @@
       <trans-unit id="9127604588498960753" datatype="html">
         <source>Subject</source>
         <target state="new">Subject</target>
+        <note priority="1" from="description">email subject</note>
       </trans-unit>
       <trans-unit id="8066608938393600549" datatype="html">
         <source>Message</source>
@@ -124,6 +121,95 @@
       <trans-unit id="6992551490395604932" datatype="html">
         <source>Not allow to print empty document.</source>
         <target state="new">Not allow to print empty document.</target>
+      </trans-unit>
+      <trans-unit id="41150179304162218" datatype="html">
+        <source> The page your are trying to visit can&apos;t be found. </source>
+        <target state="new"> The page your are trying to visit can&apos;t be found. </target>
+      </trans-unit>
+      <trans-unit id="2821179408673282599" datatype="html">
+        <source>Home</source>
+        <target state="new">Home</target>
+      </trans-unit>
+      <trans-unit id="5073308731342027963" datatype="html">
+        <source> Work in progress </source>
+        <target state="new"> Work in progress </target>
+      </trans-unit>
+      <trans-unit id="3318968477864966943" datatype="html">
+        <source> We are still working on this page. Keep an eye on our newsletters to stay up to date with the latest news and information regarding future developments. </source>
+        <target state="new"> We are still working on this page. Keep an eye on our newsletters to stay up to date with the latest news and information regarding future developments. </target>
+      </trans-unit>
+      <trans-unit id="4730804625942085752" datatype="html">
+        <source>Minute</source>
+        <target state="new">Minute</target>
+      </trans-unit>
+      <trans-unit id="3284697869924237097" datatype="html">
+        <source>Hour</source>
+        <target state="new">Hour</target>
+      </trans-unit>
+      <trans-unit id="2159130950882492111" datatype="html">
+        <source>Cancel</source>
+        <target state="new">Cancel</target>
+      </trans-unit>
+      <trans-unit id="935187492052582731" datatype="html">
+        <source>Submit</source>
+        <target state="new">Submit</target>
+      </trans-unit>
+      <trans-unit id="8700121026680200191" datatype="html">
+        <source>Clear</source>
+        <target state="new">Clear</target>
+      </trans-unit>
+      <trans-unit id="3604386807230411192" datatype="html">
+        <source>Start Date</source>
+        <target state="new">Start Date</target>
+      </trans-unit>
+      <trans-unit id="7819314041543176992" datatype="html">
+        <source>Close</source>
+        <target state="new">Close</target>
+      </trans-unit>
+      <trans-unit id="1431416938026210429" datatype="html">
+        <source>Password</source>
+        <target state="new">Password</target>
+      </trans-unit>
+      <trans-unit id="3241357959735682038" datatype="html">
+        <source>Confirm Password</source>
+        <target state="new">Confirm Password</target>
+        <note priority="1" from="description">user need to input the same password again to confirm</note>
+      </trans-unit>
+      <trans-unit id="1230154438678955604" datatype="html">
+        <source>Change</source>
+        <target state="new">Change</target>
+      </trans-unit>
+      <trans-unit id="1640609344969975994" datatype="html">
+        <source>To</source>
+        <target state="new">To</target>
+        <note priority="1" from="description">To for Email recipient</note>
+      </trans-unit>
+      <trans-unit id="2587240527868724590" datatype="html">
+        <source>CC</source>
+        <target state="new">CC</target>
+        <note priority="1" from="description">Email carbon copy</note>
+      </trans-unit>
+      <trans-unit id="1158196584444204374" datatype="html">
+        <source>BCC</source>
+        <target state="new">BCC</target>
+        <note priority="1" from="description">email blind carbon copy</note>
+      </trans-unit>
+      <trans-unit id="6490688569532630280" datatype="html">
+        <source>Send</source>
+        <target state="new">Send</target>
+        <note priority="1" from="description">Email send</note>
+      </trans-unit>
+      <trans-unit id="5403684285319082289" datatype="html">
+        <source>Month</source>
+        <target state="new">Month</target>
+      </trans-unit>
+      <trans-unit id="1464072562214937907" datatype="html">
+        <source>Year</source>
+        <target state="new">Year</target>
+      </trans-unit>
+      <trans-unit id="7379726829888309084" datatype="html">
+        <source>End Date</source>
+        <target state="new">End Date</target>
       </trans-unit>
     </body>
   </file>

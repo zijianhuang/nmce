@@ -92,7 +92,7 @@ export class EmailConfirmComponent {
 
 
 	constructor(@Inject(MAT_DIALOG_DATA) private data: { emailMessage: EmailMessage, emailAddressesCallback: EmailListDialog, callbackData: any },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string,
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
 		public dialogRef: MatDialogRef<EmailConfirmComponent>) {
 
 		this.emailMessage = this.data.emailMessage;

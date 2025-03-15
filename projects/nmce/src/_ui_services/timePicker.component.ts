@@ -29,7 +29,7 @@ export class TimePickerComponent {
 	noClear: boolean;
 
 	constructor(@Inject(MAT_DIALOG_DATA) private data: { minutes: number, noClear: boolean }, 
-	@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+	@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 	public dialogRef: MatDialogRef<TimePickerComponent>) {
 		this.selectedDate = new Date();
 		this.selectedHour = 12;

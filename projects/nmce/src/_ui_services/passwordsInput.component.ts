@@ -22,7 +22,7 @@ export class PasswordsInputComponent {
 	confirmPasswordControl = new FormControl(undefined);
 
 	constructor(@Inject(MAT_DIALOG_DATA) public data: { title: string },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string,
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
 		public dialogRef: MatDialogRef<PasswordsInputComponent>) {
 		this.title = data.title;
 	}

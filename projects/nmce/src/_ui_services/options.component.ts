@@ -30,7 +30,7 @@ export class OptionsComponent {
 	selected: string;
 
 	constructor(@Inject(MAT_DIALOG_DATA) data: { title: string, body: string, options: string[] },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string,
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
 		private dialogRef: MatDialogRef<OptionsComponent>) {
 		this.title = data.title;
 		this.body = data.body;

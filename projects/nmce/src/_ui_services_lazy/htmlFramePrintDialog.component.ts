@@ -21,7 +21,7 @@ import { DialogSize } from '../_ui_services/types';
 export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 		public dialogRef: MatDialogRef<HtmlFrameDialogComponent>, private location: Location) {
 		super(data, actionsAlign, dialogRef);
 	}
@@ -52,7 +52,7 @@ export class HtmlHRefFramePrintDialogComponent extends HtmlHRefFrameDialogCompon
 	 */
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, url: string, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: string, 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 		public dialogRef: MatDialogRef<HtmlHRefFrameDialogComponent>, 
 		protected httpClient: HttpClient, private location: Location,
 		protected renderer: Renderer2) {
