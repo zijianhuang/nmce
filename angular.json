@@ -50,35 +50,35 @@
       "sourceRoot": "projects/demoapp/src",
       "prefix": "app",
       "i18n": {
-				"sourceLocale": {
-					"baseHref": "/en/",
-					"code": "en"
-				},
-				"locales": {
-					"zh-Hans": {
-						"translation": "locales/messages.zh-hans.xlf",
-						"baseHref": "/zh-Hans/"
-					},
-					"zh-Hant": {
-						"translation": "locales/messages.zh-hant.xlf",
-						"baseHref": "/zh-Hant/"
-					},
-					"ja": {
-						"translation": "locales/messages.ja.xlf",
-						"baseHref": "/ja/"
-					},
-					"es": {
-						"translation": "locales/messages.es.xlf",
-						"baseHref": "/es/"
-					}
-				}
-			},
+        "sourceLocale": {
+          "baseHref": "/en/",
+          "code": "en"
+        },
+        "locales": {
+          "zh-Hans": {
+            "translation": "locales/messages.zh-hans.xlf",
+            "baseHref": "/zh-Hans/"
+          },
+          "zh-Hant": {
+            "translation": "locales/messages.zh-hant.xlf",
+            "baseHref": "/zh-Hant/"
+          },
+          "ja": {
+            "translation": "locales/messages.ja.xlf",
+            "baseHref": "/ja/"
+          },
+          "es": {
+            "translation": "locales/messages.es.xlf",
+            "baseHref": "/es/"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": {
-              "base": "dist/demoapp"
+              "base": "dist/"
             },
             "index": "projects/demoapp/src/index.html",
             "polyfills": [
@@ -109,6 +109,9 @@
                 }
               ],
               "optimization": true,
+              "outputPath": {
+								"base": "dist/prod/"
+							},
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
@@ -125,7 +128,16 @@
                   "maximumError": "10kb"
                 }
               ]
-            }
+            },
+            "development": {
+							"outputPath": {
+								"base": "dist/development/"
+							},
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
           }
         },
         "serve": {
@@ -136,25 +148,37 @@
           "configurations": {
             "production": {
               "buildTarget": "demoapp:build:production"
+            },
+            "development": {
+              "buildTarget": "demoapp:build:development",
+              "prebundle": {
+                "exclude": [
+                  "nmce",
+                  "nmce-func",
+                  "nmce-directives",
+                  "nmce-pipes",
+                  "nmce-json-diff",
+                  "nmce-html-editor"
+                ]
+              }
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          
           "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",
           "options": {
             "buildTarget": "demoapp:build",
             "format": "xliff",
             "includeContext": "sourceFileOnly",
-            
-						"outputPath": "locales",
+            "outputPath": "locales",
             "targetFiles": [
-							"messages.zh-hans.xlf",
-							"messages.zh-hant.xlf",
-							"messages.ja.xlf",
-							"messages.es.xlf"
-						],
-						"sourceFile": "messages.xlf"
+              "messages.zh-hans.xlf",
+              "messages.zh-hant.xlf",
+              "messages.ja.xlf",
+              "messages.es.xlf"
+            ],
+            "sourceFile": "messages.xlf"
           }
         },
         "test": {

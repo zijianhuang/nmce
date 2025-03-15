@@ -70,3 +70,25 @@ There are a few similar open source projects:
 
 * [Angular Material Extensions](https://ng-matero.github.io/extensions/).
 * [angular-material-extensions](https://github.com/angular-material-extensions), most repositories are up to date as of 2023.
+
+## I18N
+
+After updating i18n tagging in HTML and TS codes, run:
+
+`ng extract-i18n`
+
+This will create or update messages.xlf, and merge with existing translations, since this command had been replaced what mentioned in: https://stackoverflow.com/questions/71775495/update-merge-i18n-translation-files-in-angular, that is `ng add ng-extract-i18n-merge` from https://github.com/daniel-sc/ng-extract-i18n-merge .
+
+Remarks:
+* Sometimes I have to run `ng add ng-extract-i18n-merge` first after defining new languages in angular.json, and then run `ng extract-i18n` to generate new xlf files.
+
+Run `ProdCreateLangSite.bat` once to create local test sites for each translation.
+
+References:
+* https://angular.dev/guide/i18n/merge
+
+### For libraries
+
+As of Angular 19, extra works ave to be done:
+1. To ensure `$localize` strings in TS files to be included, in tsconfig.lib.json of each lib, add `"types": ["@angular/localize"]` to "compilerOptions".
+1. To ensure 

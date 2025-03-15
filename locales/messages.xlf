@@ -5,6 +5,10 @@
       <trans-unit id="4194876199597412112" datatype="html">
         <source>Undo changes</source>
         <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-html-editor/src/lib/htmlDocEditorDialogBase.directive.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/textEditorDialogBase.component.html</context>
           <context context-type="linenumber">11</context>
         </context-group>
@@ -48,12 +52,20 @@
       <trans-unit id="7000649363168371045" datatype="html">
         <source>Save changes</source>
         <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-html-editor/src/lib/htmlDocEditorDialogBase.directive.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/textEditorDialogBase.component.html</context>
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8890553633144307762" datatype="html">
         <source>Back</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-html-editor/src/lib/htmlDocEditorDialogBase.directive.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/textEditorDialogBase.component.html</context>
           <context context-type="linenumber">3</context>
@@ -142,6 +154,10 @@
       </trans-unit>
       <trans-unit id="6112642683465360445" datatype="html">
         <source><x id="PH" equiv-text="this.noteLabel"/> saved to Local Storage</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-html-editor/src/lib/localDocHtmlEditorDialog.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/localTextEditorDialog.component.ts</context>
           <context context-type="linenumber">57</context>
@@ -233,6 +249,10 @@
       <trans-unit id="8592282545368203219" datatype="html">
         <source>Not allow to save empty document.</source>
         <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-html-editor/src/lib/htmlDocEditorDialogBase.directive.ts</context>
+          <context context-type="linenumber">117</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/textEditorDialogBase.component.ts</context>
           <context context-type="linenumber">76</context>
         </context-group>
@@ -249,6 +269,34 @@
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/dataComponentPrintDialog.component.ts</context>
           <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="43679560859374265" datatype="html">
+        <source>Empty Text</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-html-editor/src/lib/htmlDocEditorDialogBase.directive.ts</context>
+          <context context-type="linenumber">112</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6992551490395604932" datatype="html">
+        <source>Not allow to print empty document.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-html-editor/src/lib/htmlDocEditorDialogBase.directive.ts</context>
+          <context context-type="linenumber">161</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8066608938393600549" datatype="html">
+        <source>Message</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-html-editor/src/lib/emailConfirm.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9127604588498960753" datatype="html">
+        <source>Subject</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-html-editor/src/lib/emailConfirm.component.html</context>
+          <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
     </body>
