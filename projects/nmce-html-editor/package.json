@@ -4,5 +4,5 @@
   "author": {"name": "Z"},
   "description": "Angular Material extended components based on @kolkov@angular-editor.",
   "license": "MIT",
-  "repository": {"url": "https://github.com/zijianhuang/nmce.git"}
+  "repository": {"url": "git+https://github.com/zijianhuang/nmce.git"}
 }
