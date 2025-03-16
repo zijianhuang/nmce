@@ -1,215 +1,222 @@
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" target-language="zh-hant" datatype="plaintext" original="ng2.template">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file original="ng2.template" source-language="en" datatype="plaintext" target-language="zh-hant">
     <body>
       <trans-unit id="5371894085388750329" datatype="html">
         <source>Original resolution or scale to fit width</source>
-        <target state="new">Original resolution or scale to fit width</target>
+        <target state="translated">原始解析度或縮放以適合寬度</target>
       </trans-unit>
       <trans-unit id="6219288588962415681" datatype="html">
         <source>Clear notifications</source>
-        <target state="new">Clear notifications</target>
+        <target state="translated">清除通知</target>
       </trans-unit>
       <trans-unit id="6945988051184690124" datatype="html">
         <source>Remove item</source>
-        <target state="new">Remove item</target>
+        <target state="translated">移除項目</target>
       </trans-unit>
       <trans-unit id="8890553633144307762" datatype="html">
         <source>Back</source>
-        <target state="new">Back</target>
+        <target state="translated">後退</target>
       </trans-unit>
       <trans-unit id="7000649363168371045" datatype="html">
         <source>Save changes</source>
-        <target state="new">Save changes</target>
+        <target state="translated">儲存變更</target>
       </trans-unit>
       <trans-unit id="4194876199597412112" datatype="html">
         <source>Undo changes</source>
-        <target state="new">Undo changes</target>
+        <target state="translated">撤銷更改</target>
       </trans-unit>
       <trans-unit id="5190092630197064800" datatype="html">
         <source>Invalid string for Date</source>
-        <target state="new">Invalid string for Date</target>
+        <target state="translated">日期字串無效</target>
       </trans-unit>
       <trans-unit id="4180340141420826523" datatype="html">
         <source>Invalid number for Date</source>
-        <target state="new">Invalid number for Date</target>
+        <target state="translated">日期數字無效</target>
       </trans-unit>
       <trans-unit id="349480122875358760" datatype="html">
         <source>Expect Date, string or number</source>
-        <target state="new">Expect Date, string or number</target>
+        <target state="translated">期望日期，字串或數字</target>
       </trans-unit>
       <trans-unit id="7482395107104484666" datatype="html">
         <source>Valid input should be greater than or equal to 0 and less than 1440.</source>
-        <target state="new">Valid input should be greater than or equal to 0 and less than 1440.</target>
+        <target state="translated">有效輸入應大於或等於 0 且小於 1440。</target>
       </trans-unit>
       <trans-unit id="5143548108329331679" datatype="html">
-        <source>No response from backend <x id="PH" equiv-text="host"/>. Connection is unavailable.</source>
-        <target state="new">No response from backend <x id="PH" equiv-text="host"/>. Connection is unavailable.</target>
+        <source>
+          <x id="PH" equiv-text="host" />No response from backend . Connection is unavailable.</source>
+        <target state="translated">
+          <x id="PH" equiv-text="host" />後端無回應 。連接不可用。</target>
       </trans-unit>
       <trans-unit id="6800308101673162937" datatype="html">
         <source>No response from backend. Connection is unavailable.</source>
-        <target state="new">No response from backend. Connection is unavailable.</target>
+        <target state="translated">後端無響應。連接不可用。</target>
       </trans-unit>
       <trans-unit id="6789040151215296839" datatype="html">
         <source>The derived concrete class had not called super(DerivedClassName) properly.</source>
-        <target state="new">The derived concrete class had not called super(DerivedClassName) properly.</target>
+        <target state="translated">衍生的特定類別沒有正確呼叫 super(DerivedClassName)。</target>
       </trans-unit>
       <trans-unit id="4390435099342067853" datatype="html">
-        <source>[<x id="PH" equiv-text="type.name"/>]: trying to create multiple instances, but this service should be a singleton.</source>
-        <target state="new">[<x id="PH" equiv-text="type.name"/>]: trying to create multiple instances, but this service should be a singleton.</target>
+        <source>
+          <x id="PH" equiv-text="type.name" />[]: trying to create multiple instances, but this service should be a singleton.</source>
+        <target state="translated">
+          <x id="PH" equiv-text="type.name" />[]：嘗試建立多個實例，但此服務應該是單例。</target>
       </trans-unit>
       <trans-unit id="2807800733729323332" datatype="html">
         <source>Yes</source>
-        <target state="new">Yes</target>
+        <target state="translated">是的</target>
       </trans-unit>
       <trans-unit id="3542042671420335679" datatype="html">
         <source>No</source>
-        <target state="new">No</target>
+        <target state="translated">不</target>
       </trans-unit>
       <trans-unit id="9178182467454450952" datatype="html">
         <source>Confirm</source>
-        <target state="new">Confirm</target>
+        <target state="translated">確認</target>
       </trans-unit>
       <trans-unit id="7515883357904500238" datatype="html">
         <source>Are you sure?</source>
-        <target state="new">Are you sure?</target>
+        <target state="translated">你確定嗎？</target>
       </trans-unit>
       <trans-unit id="6483680626836794824" datatype="html">
         <source>Date Range</source>
-        <target state="new">Date Range</target>
+        <target state="translated">日期範圍</target>
       </trans-unit>
       <trans-unit id="6112642683465360445" datatype="html">
-        <source><x id="PH" equiv-text="this.noteLabel"/> saved to Local Storage</source>
-        <target state="new"><x id="PH" equiv-text="this.noteLabel"/> saved to Local Storage</target>
+        <source>
+          <x id="PH" equiv-text="this.noteLabel" /> saved to Local Storage</source>
+        <target state="translated">
+          <x id="PH" equiv-text="this.noteLabel" /> 已儲存至本機儲存</target>
       </trans-unit>
       <trans-unit id="6941659493626287408" datatype="html">
         <source>For actionable items, please save current works before action</source>
-        <target state="new">For actionable items, please save current works before action</target>
+        <target state="translated">對於可操作的項目，請在操作前儲存目前工作</target>
       </trans-unit>
       <trans-unit id="8592282545368203219" datatype="html">
         <source>Not allow to save empty document.</source>
-        <target state="new">Not allow to save empty document.</target>
+        <target state="translated">不允許儲存空文檔。</target>
       </trans-unit>
       <trans-unit id="969162659595657718" datatype="html">
         <source>Copied to clipboard</source>
-        <target state="new">Copied to clipboard</target>
+        <target state="translated">已複製到剪貼簿</target>
       </trans-unit>
       <trans-unit id="7816570869614983442" datatype="html">
         <source>Something wrong</source>
-        <target state="new">Something wrong</target>
+        <target state="translated">有事嗎</target>
       </trans-unit>
       <trans-unit id="786281080071228614" datatype="html">
         <source>Scale to fit width</source>
-        <target state="new">Scale to fit width</target>
+        <target state="translated">縮放以適合寬度</target>
       </trans-unit>
       <trans-unit id="7114071321253816795" datatype="html">
         <source>this.htmlContentElement does not exist.</source>
-        <target state="new">this.htmlContentElement does not exist.</target>
+        <target state="translated">this.htmlContentElement 不存在。</target>
       </trans-unit>
       <trans-unit id="9127604588498960753" datatype="html">
         <source>Subject</source>
-        <target state="new">Subject</target>
-        <note priority="1" from="description">email subject</note>
+        <target state="translated">主題</target>
+        <note from="description">email subject</note>
       </trans-unit>
       <trans-unit id="8066608938393600549" datatype="html">
         <source>Message</source>
-        <target state="new">Message</target>
+        <target state="translated">訊息</target>
       </trans-unit>
       <trans-unit id="43679560859374265" datatype="html">
         <source>Empty Text</source>
-        <target state="new">Empty Text</target>
+        <target state="translated">空文本</target>
       </trans-unit>
       <trans-unit id="6992551490395604932" datatype="html">
         <source>Not allow to print empty document.</source>
-        <target state="new">Not allow to print empty document.</target>
+        <target state="translated">不允許列印空文檔。</target>
       </trans-unit>
       <trans-unit id="41150179304162218" datatype="html">
-        <source> The page your are trying to visit can&apos;t be found. </source>
-        <target state="new"> The page your are trying to visit can&apos;t be found. </target>
+        <source> The page your are trying to visit can't be found. </source>
+        <target state="translated"> 找不到您要造訪的頁面。 </target>
       </trans-unit>
       <trans-unit id="2821179408673282599" datatype="html">
         <source>Home</source>
-        <target state="new">Home</target>
+        <target state="translated">家</target>
       </trans-unit>
       <trans-unit id="5073308731342027963" datatype="html">
         <source> Work in progress </source>
-        <target state="new"> Work in progress </target>
+        <target state="translated"> 正在進行中 </target>
       </trans-unit>
       <trans-unit id="3318968477864966943" datatype="html">
         <source> We are still working on this page. Keep an eye on our newsletters to stay up to date with the latest news and information regarding future developments. </source>
-        <target state="new"> We are still working on this page. Keep an eye on our newsletters to stay up to date with the latest news and information regarding future developments. </target>
+        <target state="translated"> 我們仍在處理此頁面。請關注我們的新聞通訊，以了解有關未來發展的最新新聞和資訊。 </target>
       </trans-unit>
       <trans-unit id="4730804625942085752" datatype="html">
         <source>Minute</source>
-        <target state="new">Minute</target>
+        <target state="translated">分分鐘</target>
       </trans-unit>
       <trans-unit id="3284697869924237097" datatype="html">
         <source>Hour</source>
-        <target state="new">Hour</target>
+        <target state="translated">小時</target>
       </trans-unit>
       <trans-unit id="2159130950882492111" datatype="html">
         <source>Cancel</source>
-        <target state="new">Cancel</target>
+        <target state="translated">取消</target>
       </trans-unit>
       <trans-unit id="935187492052582731" datatype="html">
         <source>Submit</source>
-        <target state="new">Submit</target>
+        <target state="translated">提交</target>
       </trans-unit>
       <trans-unit id="8700121026680200191" datatype="html">
         <source>Clear</source>
-        <target state="new">Clear</target>
+        <target state="translated">清除</target>
       </trans-unit>
       <trans-unit id="3604386807230411192" datatype="html">
         <source>Start Date</source>
-        <target state="new">Start Date</target>
+        <target state="translated">開始日期</target>
       </trans-unit>
       <trans-unit id="7819314041543176992" datatype="html">
         <source>Close</source>
-        <target state="new">Close</target>
+        <target state="translated">關閉</target>
       </trans-unit>
       <trans-unit id="1431416938026210429" datatype="html">
         <source>Password</source>
-        <target state="new">Password</target>
+        <target state="translated">密碼</target>
       </trans-unit>
       <trans-unit id="3241357959735682038" datatype="html">
         <source>Confirm Password</source>
-        <target state="new">Confirm Password</target>
-        <note priority="1" from="description">user need to input the same password again to confirm</note>
+        <target state="translated">確認密碼</target>
+        <note from="description">user need to input the same password again to confirm</note>
       </trans-unit>
       <trans-unit id="1230154438678955604" datatype="html">
         <source>Change</source>
-        <target state="new">Change</target>
+        <target state="translated">改變</target>
       </trans-unit>
       <trans-unit id="1640609344969975994" datatype="html">
         <source>To</source>
-        <target state="new">To</target>
-        <note priority="1" from="description">To for Email recipient</note>
+        <target state="translated">到</target>
+        <note from="description">To for Email recipient</note>
       </trans-unit>
       <trans-unit id="2587240527868724590" datatype="html">
         <source>CC</source>
-        <target state="new">CC</target>
-        <note priority="1" from="description">Email carbon copy</note>
+        <target state="translated">副本</target>
+        <note from="description">Email carbon copy</note>
       </trans-unit>
       <trans-unit id="1158196584444204374" datatype="html">
         <source>BCC</source>
-        <target state="new">BCC</target>
-        <note priority="1" from="description">email blind carbon copy</note>
+        <target state="translated">密件副本</target>
+        <note from="description">email blind carbon copy</note>
       </trans-unit>
       <trans-unit id="6490688569532630280" datatype="html">
         <source>Send</source>
-        <target state="new">Send</target>
-        <note priority="1" from="description">Email send</note>
+        <target state="translated">傳送</target>
+        <note from="description">Email send</note>
       </trans-unit>
       <trans-unit id="5403684285319082289" datatype="html">
         <source>Month</source>
-        <target state="new">Month</target>
+        <target state="translated">月</target>
       </trans-unit>
       <trans-unit id="1464072562214937907" datatype="html">
         <source>Year</source>
-        <target state="new">Year</target>
+        <target state="translated">年</target>
       </trans-unit>
       <trans-unit id="7379726829888309084" datatype="html">
         <source>End Date</source>
-        <target state="new">End Date</target>
+        <target state="translated">結束日期</target>
       </trans-unit>
     </body>
   </file>
