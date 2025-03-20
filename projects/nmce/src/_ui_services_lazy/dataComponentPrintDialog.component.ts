@@ -23,7 +23,7 @@ import { DataComponentDialog } from '../_ui_services/dataComponentDialog.compone
     standalone: false
 })
 export class DataComponentPrintDialog extends DataComponentDialog {
-	@ViewChild('htmlPrintContent', { static: false }) htmlContentElement: ElementRef;
+	@ViewChild('htmlPrintContent', { static: true }) htmlContentElement: ElementRef;
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) protected dialogData: {

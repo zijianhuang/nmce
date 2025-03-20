@@ -1,9 +1,9 @@
 <div mat-dialog-title class="block-items-gap-1 line-ellipsis">
 	@if (isSmallScreen||fullScreen) {
-<button type="button" mat-mini-fab color="any" matDialogClose aria-label="Close">
+	<button type="button" mat-mini-fab color="any" matDialogClose aria-label="Close">
 		<mat-icon>arrow_back</mat-icon>
 	</button>
-}
+	}
 	<button mat-mini-fab (click)="print()">
 		<mat-icon>print</mat-icon>
 	</button>
@@ -13,7 +13,7 @@
 	<span class="fx-align-start">{{ title }}</span>
 </div>
 <mat-dialog-content #htmlPrintContent>
-	<ng-template dataComponentHost></ng-template>
+	<ng-container dataComponentHost></ng-container>
 </mat-dialog-content>
 @if (!isSmallScreen&&!fullScreen) {
 <mat-dialog-actions [align]="actionsAlign">

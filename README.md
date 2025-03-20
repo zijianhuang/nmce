@@ -73,6 +73,8 @@ There are a few similar open source projects:
 
 ## I18N
 
+The translations done within the libraries of this project are to verify if i18n is properly done, while the app projects utilizing the libraries will pickup translation units annotated in the lib codes. This is, the translation resource files (XLF) won't be utilized directly in the app projects, since `ng extract-i18n` can scan the i18n annotations in 3rd party libraries. 
+
 After updating i18n tagging in HTML and TS codes, run:
 
 `ng extract-i18n`
