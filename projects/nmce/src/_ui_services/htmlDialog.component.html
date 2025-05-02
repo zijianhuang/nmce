@@ -1,23 +1,32 @@
 <h1 mat-dialog-title class="block-items-gap-1 line-ellipsis">
 	@if (useBackButton) {
-<button type="button" mat-mini-fab color="any" matDialogClose aria-label="Close">
+	<button type="button" mat-mini-fab color="any" matDialogClose aria-label="Close">
 		<mat-icon>arrow_back</mat-icon>
 	</button>
-}
+	}
 	<span>{{title}}</span>
 </h1>
 <mat-dialog-content>
 	<html>
+
 	<head>
 		<base target="_blank" />
 		<!-- Ensure all href are opened in new tab, as described in https://stackoverflow.com/questions/17281486/use-target-blank-in-css -->
 	</head>
+
 	<body [innerHTML]="htmlContent">
 	</body>
-</html>
+
+	</html>
 </mat-dialog-content>
 @if (!useBackButton) {
 <mat-dialog-actions [align]="actionsAlign">
+	@if (toConfirm){
+		<button type="button" mat-raised-button matDialogClose>{{no}}</button>
+		<button type="button" mat-raised-button color="primary" (click)="confirm()">{{yes}}</button>
+	}@else{
 	<button type="button" mat-raised-button matDialogClose>Close</button>
+	}
+
 </mat-dialog-actions>
 }

@@ -82,6 +82,7 @@
             },
             "index": "projects/demoapp/src/index.html",
             "polyfills": [
+              "projects/demoapp/src/polyfills.ts",
               "zone.js"
             ],
             "tsConfig": "projects/demoapp/tsconfig.app.json",
@@ -110,8 +111,8 @@
               ],
               "optimization": true,
               "outputPath": {
-								"base": "appdist/prod/"
-							},
+                "base": "appdist/prod/"
+              },
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
@@ -130,14 +131,14 @@
               ]
             },
             "development": {
-							"outputPath": {
-								"base": "appdist/development/"
-							},
-							"optimization": false,
-							"extractLicenses": false,
-							"sourceMap": true,
-							"namedChunks": true
-						}
+              "outputPath": {
+                "base": "appdist/development/"
+              },
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
           }
         },
         "serve": {

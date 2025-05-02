@@ -22,15 +22,21 @@ export class HtmlDialogComponent implements AfterViewInit {
 	htmlContent: string;
 
 	useBackButton: boolean;
+	toConfirm?: boolean;
+	yes?: string;
+	no?: string;
 
 	constructor(
-		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean },
+		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean, toConfirm?: boolean, yes?: string, no?: string },
 		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 		public dialogRef: MatDialogRef<HtmlDialogComponent>,
 		protected renderer: Renderer2) {
 		this.title = data.title;
 		this.htmlContent = data.htmlContent;
 		this.useBackButton = data.useBackButton;
+		this.toConfirm=data.toConfirm;
+		this.yes=data.yes;
+		this.no=data.no;
 	}
 
 	// @ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
@@ -40,6 +46,9 @@ export class HtmlDialogComponent implements AfterViewInit {
 		//this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', this.htmlContent);working
 	}
 
+	confirm(){
+		this.dialogRef.close(true);
+	}
 }
 
 /**
@@ -59,17 +68,23 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 	url: string;
 
 	useBackButton: boolean;
+	toConfirm?: boolean;
+	yes?: string;
+	no?: string;
 
 	htmlContent: string;
 
 	constructor(
-		@Inject(MAT_DIALOG_DATA) protected data: { title: string, url: string, useBackButton: boolean },
+		@Inject(MAT_DIALOG_DATA) protected data: { title: string, url: string, useBackButton: boolean, toConfirm?: boolean, yes?: string, no?: string },
 		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 		public dialogRef: MatDialogRef<HtmlHRefDialogComponent>, protected httpClient: HttpClient,
 		protected renderer: Renderer2) {
 		this.title = data.title;
 		this.url = data.url;
 		this.useBackButton = data.useBackButton;
+		this.toConfirm=data.toConfirm;
+		this.yes=data.yes;
+		this.no=data.no;
 	}
 
 	// /**
@@ -114,6 +129,9 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 
 	}
 
+	confirm(){
+		this.dialogRef.close(true);
+	}
 }
 
 @Component({
@@ -128,6 +146,9 @@ export class HtmlImgDialogComponent {
 	imageUrl: string | SafeUrl;
 
 	useBackButton: boolean;
+	toConfirm?: boolean;
+	yes?: string;
+	no?: string;
 
 	private _scaleToWidth = true;
 	/**
@@ -144,16 +165,23 @@ export class HtmlImgDialogComponent {
 	@ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
 
 	constructor(
-		@Inject(MAT_DIALOG_DATA) public data: { title: string, imageUrl: string | SafeUrl, useBackButton: boolean },
+		@Inject(MAT_DIALOG_DATA) public data: { title: string, imageUrl: string | SafeUrl, useBackButton: boolean, toConfirm?: boolean, yes?: string, no?: string },
 		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 		public dialogRef: MatDialogRef<HtmlImgDialogComponent>) {
 		this.title = data.title;
 		this.imageUrl = data.imageUrl;
 		this.useBackButton = data.useBackButton;
+		this.toConfirm=data.toConfirm;
+		this.yes=data.yes;
+		this.no=data.no;
 		console.debug('HtmlImgDialogComponent created with ' + this.imageUrl);
 
 		const s = sessionStorage['HtmlImgDialogComponent.scaleToWidth'];
 		this._scaleToWidth = (s == null) || s === 'true';
+	}
+
+	confirm(){
+		this.dialogRef.close(true);
 	}
 }
 
@@ -171,7 +199,7 @@ export class HtmlDialogService extends HtmlBaseDialogService<HtmlDialogComponent
 	* @param title title of the dialog
 	* @param htmlContent html content to be rendered in the dialog body
 	*/
-	open(data: { title?: string, htmlContent?: string, size?: DialogSize, useBackButton?: boolean }): Observable<any> {
+	open(data: { title?: string, htmlContent?: string, size?: DialogSize, useBackButton?: boolean, toConfirm?: boolean, yes?: string, no?: string }): Observable<any> {
 		return super.displayComponent(HtmlDialogComponent, data);
 	}
 }
@@ -193,7 +221,7 @@ export class HtmlHRefDialogService extends HtmlBaseDialogService<HtmlHRefDialogC
 	 * @param title
 	 * @param url to be rendered in the dialog body
 	 */
-	open(data: { title?: string, url?: string, size?: DialogSize, useBackButton?: boolean }): Observable<any> {
+	open(data: { title?: string, url?: string, size?: DialogSize, useBackButton?: boolean, toConfirm?: boolean, yes?: string, no?: string }): Observable<any> {
 		return super.displayComponent(HtmlHRefDialogComponent, data);
 	}
 }
@@ -211,7 +239,7 @@ export class HtmlImgDialogService extends HtmlBaseDialogService<HtmlImgDialogCom
 	* @param title title of the dialog
 	* @param imageUrl html content to be rendered in the dialog body
 	*/
-	open(data: { title?: string, imageUrl?: string | SafeUrl, size?: DialogSize, useBackButton?: boolean }): Observable<any> {
+	open(data: { title?: string, imageUrl?: string | SafeUrl, size?: DialogSize, useBackButton?: boolean, toConfirm?: boolean, yes?: string, no?: string }): Observable<any> {
 		return super.displayComponent(HtmlImgDialogComponent, data);
 	}
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { DataComponent, HtmlDialogService, HtmlFrameDialogService, HtmlFramePrintDialogService, HtmlHRefDialogService, HtmlHRefFrameDialogService, HtmlHRefFramePrintDialogService, HtmlHRefPrintDialogService, HtmlImgDialogService, HtmlImgPrintDialogService, HtmlPrintDialogService } from 'nmce';
+import { AlertService, DataComponent, HtmlDialogService, HtmlFrameDialogService, HtmlFramePrintDialogService, HtmlHRefDialogService, HtmlHRefFrameDialogService, HtmlHRefFramePrintDialogService, HtmlHRefPrintDialogService, HtmlImgDialogService, HtmlImgPrintDialogService, HtmlPrintDialogService } from 'nmce';
 /**
  * Users search and list
  */
@@ -32,6 +32,7 @@ export class HtmlDialogsComponent implements DataComponent {
 		private htmlHRefFramePrintDialogService: HtmlHRefFramePrintDialogService,
 		private htmlImgPrintDialogService: HtmlImgPrintDialogService,
 		private htmlFramePrintDialogService: HtmlFramePrintDialogService,
+		private alertService: AlertService,
 
 	) {
 		this.showLarge=true;
@@ -64,6 +65,24 @@ export class HtmlDialogsComponent implements DataComponent {
 			url: 'https://jsonapi.org/extensions/',
 			size: this.sizeSelectedControl.value,
 			useBackButton: this.useBackButton
+		});
+	}
+
+	showHtmlHRefConfirmDialog() {
+		this.htmlHRefDialogService.open({
+			title: 'HTML HRef Content Term of Services',
+			url: 'https://jsonapi.org/extensions/',
+			size: this.sizeSelectedControl.value,
+			useBackButton: false,
+			toConfirm: true,
+			yes: 'Agree',
+			no: 'Disagree'
+		}).subscribe(r=>{
+			if (r){
+				this.alertService.success('User agreed.', false);
+			}else{
+				this.alertService.warn('User disagreed.', false);
+			}
 		});
 	}
 
