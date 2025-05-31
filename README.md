@@ -32,6 +32,8 @@ TV is not considered.
 
 Run `ng serve demoapp` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files in demoapp.
 
+Additionally, you may execute `startAppDev.ps1` or `startAppProd.ps1` to run the app using the build.
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.

@@ -2,7 +2,7 @@ import { Component, OnInit, Injectable, ViewChild, ElementRef, AfterViewInit } f
 import { Observable } from 'rxjs';
 import { LazyComponentDialogService, DataComponent } from 'nmce';
 import { diff } from 'jsondiffpatch';
-import {format} from 'jsondiffpatch/lib/formatters/html';
+import  {format} from 'jsondiffpatch/formatters/html';
 
 @Component({
     selector: 'json-diff-page',
