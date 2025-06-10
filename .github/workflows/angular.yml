@@ -30,8 +30,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache-dependency-path: ./package-lock.json
         cache: 'npm'
-    - name: Install Angular CLI
-      run: npm install -g @angular/cli
+    - name: Install packages
+      run: npm install
     - run: ./buildComponents.ps1
     - run: npm run test nmce-func
     - run: npm run test nmce-pipes
