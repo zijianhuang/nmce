@@ -55,13 +55,13 @@
           "code": "en"
         },
         "locales": {
-          "zh-Hans": {
+          "zh-hans": {
             "translation": "locales/messages.zh-hans.xlf",
-            "baseHref": "/zh-Hans/"
+            "baseHref": "/zh-hans/"
           },
-          "zh-Hant": {
+          "zh-hant": {
             "translation": "locales/messages.zh-hant.xlf",
-            "baseHref": "/zh-Hant/"
+            "baseHref": "/zh-hant/"
           },
           "ja": {
             "translation": "locales/messages.ja.xlf",

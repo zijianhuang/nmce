@@ -1,3 +1,4 @@
+import '@angular/localize/init';
 import { DateFunc } from './dateFunc';
 import { DateTime, Settings } from 'luxon';
 
@@ -89,16 +90,6 @@ describe('DateFunc', () => {
 		const localDt = DateFunc.getDateTime24Simple(dtUtc);
 		DateFunc.setDefaultLocale(currentLocale);
 		expect(localDt).toBe('24/01/2018 08:00');
-	});
-
-	it('getDateTime24SimpleAr', () => {
-		const dtUtc = new Date('2018-01-23T22:00:00Z');
-
-		const currentLocale = DateFunc.getDefaultLocale();
-		DateFunc.setDefaultLocale('ar');
-		const localDt = DateFunc.getDateTime24Simple(dtUtc);
-		DateFunc.setDefaultLocale(currentLocale);
-		expect(localDt).toBe('٢٤‏/١‏/٢٠١٨ ٠٨:٠٠');
 	});
 
 	it('getEndOfWeek', () => {

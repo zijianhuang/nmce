@@ -2,9 +2,11 @@
 
 The projects of Angular Material Components Extensions are to deliver a set of reusable Angular codes and [Angular Material](https://material.angular.io/) Extensions, targeting complex business applications with rich data structures, intensive GUI and complex workflows.
 
+[Demo Sites](https://zijianhuang.github.io/nmce/en/) in [various locales](https://zijianhuang.github.io/nmce/).
+
 ## Designs
 
-The UI designs conforms to Material Design, and the visual components are constructed through composition and wrapping of existing components of Angular Material.
+The UI design conforms to Material Design, and the visual components are constructed through composing, bridging and wrapping of existing Angular Material Components.
 
 When considering use cases and making design trade-off, the priority is:
 1. Desktop with big monitors, mouse and keyboard
@@ -26,7 +28,7 @@ TV is not considered.
 
 * The UI design is optimized for desktop PC and tablet devices.
 * Components are based on [Angular Material Components](https://material.angular.io/components/categories).
-=* Minimum CSS crafting is used.
+* Minimum CSS crafting is used.
 
 ## Development server
 

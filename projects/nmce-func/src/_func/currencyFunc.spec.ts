@@ -1,3 +1,4 @@
+import '@angular/localize/init';
 import { CurrencyFunc } from './currencyFunc';
 
 describe('currencyFunc', () => {
