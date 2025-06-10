@@ -1,0 +1,361 @@
+/* This file is a subset of styles.css, and is referenced in HtmlFunc.print() and angular.json. */
+
+
+/* #region Bootstrap 4 Alpha 6 good stuffs. Ready to get rid of Bootstrap*/
+
+.container-fluid {
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.alert-success {
+	background-color: #dff0d8;
+	border-color: #d0e9c6;
+	color: #3c763d;
+}
+
+
+.alert-info {
+	background-color: #d9edf7;
+	border-color: #bcdff1;
+	color: #31708f;
+}
+
+
+.alert-warning {
+	background-color: #fcf8e3;
+	border-color: #faf2cc;
+	color: #8a6d3b;
+}
+
+.alert-danger {
+	background-color: #f2dede;
+	border-color: #ebcccc;
+	color: #a94442;
+}
+
+
+.bg-info {
+	background-color: #5bc0de !important;
+}
+
+
+.bg-warning {
+	background-color: #f0ad4e !important;
+}
+
+.bg-danger {
+	background-color: #d9534f !important;
+}
+
+.bg-inverse {
+	background-color: #292b2c !important;
+}
+
+
+.text-uppercase {
+	text-transform: uppercase !important;
+}
+
+.font-weight-bold {
+	font-weight: bold;
+}
+
+.font-italic {
+	font-style: italic;
+}
+
+.text-left {
+	text-align: left !important;
+}
+
+.text-right {
+	text-align: right !important;
+}
+
+.text-center {
+	text-align: center !important;
+}
+
+
+/* #endregion */
+
+
+/* #region layout shared with print */
+
+.doc-small {
+	font-size: small;
+}
+
+
+div.func-title {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.indent-1 {
+	margin-left: 1em;
+}
+
+.indent-2 {
+	margin-left: 2em;
+}
+
+.rotate-90 {
+	transform: rotate(90deg);
+}
+
+.rotate-180 {
+	transform: rotate(180deg);
+}
+
+.rotate-270 {
+	transform: rotate(270deg);
+}
+
+.row-selection {
+	background-color: lightyellow;
+}
+
+.flip-mirror {
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+}
+
+
+.full-width {
+	width: 100%;
+}
+
+.strike {
+	text-decoration: line-through;
+}
+
+.deleted {
+	text-decoration: line-through dashed;
+}
+
+.table {
+	border-collapse: collapse;
+	border-color: black;
+}
+
+
+.table-striped tbody tr:nth-of-type(odd) {
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+.full-width .mat-mdc-dialog-container {
+	max-width: none;
+	width: 100vw;
+}
+
+
+.app-container {
+	padding-top: 4.5em;
+	padding-bottom: 0.5em;
+}
+
+.content-top-padding-relative {
+	position: relative;
+	margin-top: 4.5em;
+}
+
+.content-left-padding-relative {
+	margin-left: 1.5em;
+}
+
+.flex-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.basic-width {
+	width: 25em;
+}
+
+.date-width {
+	width: 5em;
+}
+
+
+.ellipsis-line {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	box-sizing: border-box;
+}
+
+.inline {
+	display: inline-block;
+}
+
+.block {
+	display: block;
+}
+
+
+.mat-mdc-raised-button {
+	text-transform: uppercase;
+	background-color: #e5eff2;
+}
+
+.readonly-area {
+	background-color: #d1f5d1;
+}
+
+.float-right {
+	float: right;
+}
+
+
+.sidenav-container {
+	flex: 1;
+	top: 0.3em;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.sidenav {
+	display: flex;
+}
+
+.sidenav-container-container {
+	display: flex;
+	flex-direction: column;
+	bottom: 0;
+}
+
+.href {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/*growing list in the tab client area of a dialog with 95vh */
+.dialog-content-list-in-tab {
+	max-height: 50vh;
+	overflow: auto;
+}
+
+.right-align {
+	float: right;
+}
+
+.left-align {
+	float: left;
+}
+
+
+.two-line {
+	height: 2em;
+}
+
+.three-line {
+	height: 3em;
+}
+
+
+#tyro-logo-horizontal-svg {
+	width: 79px;
+	max-width: 100%;
+	height: 37px;
+	margin-top: 11px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+/*Add this to img, so the following text could be aligned together at the middle. https://stackoverflow.com/questions/25414091/how-to-center-the-image-both-horizontally-and-vertically-in-span-tag*/
+.v-middle {
+	vertical-align: middle;
+}
+
+
+.headers-align .mat-expansion-panel-header-title,
+.headers-align .mat-expansion-panel-header-description {
+	flex-basis: 0;
+}
+
+.headers-align .mat-expansion-panel-header-description {
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+.input-hint {
+	font-style: italic;
+}
+
+
+.small-rounded {
+	border-radius: 5px;
+}
+
+
+button.margin-top-small, div.margin-top-small {
+	margin-top: 0.5em;
+}
+
+.align-items-horizontal {
+	display: flex;
+	align-content: center;
+	align-items: center;
+}
+
+
+.total-line {
+	border-top: 2px solid;
+	border-top-color: black;
+	border-bottom: 2px solid;
+	border-bottom-color: black;
+}
+
+td {
+	vertical-align: top;
+}
+
+
+img.max-width-height {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+/* #endregion */
+
+/* #region report */
+
+/* Also goes to printYYmmdd.css */
+.report-title {
+	font-size: 1.3em;
+	font-weight: bold;
+	text-transform: uppercase !important;
+	text-align: center
+}
+
+.report-sub-title {
+	font-size: 1.2em;
+	font-weight: bold;
+	text-align: center
+}
+
+ul.list-style-none {
+	margin: 0;
+	list-style: none;
+	float: left;
+}
+
+ul.list-style-alpha {
+	list-style: lower-alpha;
+}
+
+
+/* #endregion */
+
+tbody > tr > td.column-title {
+	font-size: small;
+}
