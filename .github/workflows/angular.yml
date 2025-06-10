@@ -5,15 +5,17 @@ name: NMCE Build
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   build:
     name: AngularHeroesBuild
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        shell: pwsh
 
     strategy:
       matrix:
