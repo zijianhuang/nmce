@@ -32,6 +32,9 @@ jobs:
         cache: 'npm'
     - name: Install packages
       run: npm install --force
+    - name: Install Angular CLI
+      run: npm install -g @angular/cli
+
     - run: ./buildComponents.ps1
     - run: npm run test nmce-func
     - run: npm run test nmce-pipes
