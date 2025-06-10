@@ -13,7 +13,7 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  */
 @Component({
     selector: 'DateHourRangePicker, nmce-date-hour-range-picker',
-    templateUrl: 'DateHourRangePicker.component.html',
+    templateUrl: 'dateHourRangePicker.component.html',
     styleUrls: ['../nmcestyles.css'],
     standalone: false
 })
