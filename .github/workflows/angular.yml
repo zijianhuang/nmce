@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    name: AngularHeroesBuild
+    name: NMCE Build
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -30,6 +30,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache-dependency-path: ./package-lock.json
         cache: 'npm'
+    - name: Install Angular CLI
+      run: npm install -g @angular/cli
     - run: ./buildComponents.ps1
     - run: npm run test nmce-func
     - run: npm run test nmce-pipes
