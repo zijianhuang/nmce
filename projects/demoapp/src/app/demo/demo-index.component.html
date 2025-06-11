@@ -1,6 +1,6 @@
 <div class="fx-column-gap-half" class="fixed-top-2 indent-1 semi-transparent">
-	<nav mat-tab-nav-bar>
-		<a mat-tab-link
+	<nav mat-tab-nav-bar [tabPanel]="dialogsPanel">
+		<a mat-tab-link #dialogsPanel
 		   routerLink="/demo/dialogs"
 		   routerLinkActive #rlaDialogs="routerLinkActive"
 		   [active]="rlaDialogs.isActive">
