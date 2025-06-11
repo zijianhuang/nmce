@@ -15,7 +15,7 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
     standalone: false
 })
 export class TimePickerComponent {
-	title = 'Time';
+	title = $localize`Time`;
 
 	hourSlots = Array.from(Array(24).keys()); // thanks to https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n
 

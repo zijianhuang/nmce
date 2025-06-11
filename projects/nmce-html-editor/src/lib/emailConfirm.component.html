@@ -1,10 +1,10 @@
 <h1 mat-dialog-title class="block-items-gap-1">
-	<strong class="fx-90pc-width">Email</strong>
+	<strong class="fx-90pc-width" i18n>Email</strong>
 	@if (!ccEnabled && !emailMessage?.cc) {
-<button mat-raised-button (click)="ccEnabled=true">CC</button>
+<button mat-raised-button (click)="ccEnabled=true" i18n>CC</button>
 }
 	@if (!bccEnabled && !emailMessage?.bcc) {
-<button mat-raised-button (click)="bccEnabled=true">BCC</button>
+<button mat-raised-button (click)="bccEnabled=true" i18n>BCC</button>
 }
 </h1>
 <mat-dialog-content>
