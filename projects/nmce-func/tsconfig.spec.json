@@ -4,11 +4,11 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/spec",
     "types": [
-      "jest"
+      "jasmine",  "@angular/localize"
     ]
   },
   "files": [
- 
+
   ],
   "include": [
     "**/*.spec.ts",

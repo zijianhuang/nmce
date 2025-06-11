@@ -1,4 +1,3 @@
-import '@angular/localize/init';
 import { TestBed } from '@angular/core/testing';
 import {   LiteralDatePipe, } from './date.pipe';
 import { DATE_PIPE_DEFAULT_OPTIONS, DatePipe } from '@angular/common';
@@ -75,7 +74,7 @@ describe('literalDate', () => {
 		expect(datePipe.transform(null)).toEqual('');
 		expect(datePipe.transform(undefined)).toEqual('');
 		expect(datePipe.transform('')).toEqual('');
-		expect(() => datePipe.transform('kkk')).toThrow(RangeError);
+		expect(() => datePipe.transform('kkk')).toThrow(new RangeError('Invalid string for Date'));
 	});
 });
 
@@ -125,7 +124,7 @@ describe('literalDateChinese', () => {
 		expect(datePipe.transform(null)).toEqual('');
 		expect(datePipe.transform(undefined)).toEqual('');
 		expect(datePipe.transform('')).toEqual('');
-		expect(()=>datePipe.transform('kkk')).toThrow(RangeError);
+		expect(()=>datePipe.transform('kkk')).toThrow(new RangeError('Invalid string for Date'));
 	});
 });
 

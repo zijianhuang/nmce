@@ -1,4 +1,3 @@
-import '@angular/localize/init';
 import { StringAusFunc } from './stringAusFunc';
 
 describe('stringAusFunc', () => {

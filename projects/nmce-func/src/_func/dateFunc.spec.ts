@@ -1,4 +1,3 @@
-import '@angular/localize/init';
 import { DateFunc } from './dateFunc';
 import { DateTime, Settings } from 'luxon';
 
@@ -58,7 +57,10 @@ describe('DateFunc', () => {
 	it('getDateTime24Simple', () => {
 		const dtUtc = new Date('2018-01-23T22:00:00Z');
 
+		const currentLocale = DateFunc.getDefaultLocale();
+		DateFunc.setDefaultLocale('en-au');
 		const localDt = DateFunc.getDateTime24Simple(dtUtc);
+		DateFunc.setDefaultLocale(currentLocale);
 		expect(localDt).toBe('24/01/2018 08:00');
 	});
 
@@ -388,10 +390,10 @@ describe('DateFunc', () => {
 	});
 
 	it('dateDataToDateWithInvalid', () => {
-		expect(()=> DateFunc.dateDataToDate('20180102T130000Z')).toThrow(RangeError) ;
-		expect(()=> DateFunc.dateDataToDate(NaN)).toThrow(RangeError) ;
-		expect(()=> DateFunc.dateDataToDate(null!)).toThrow(TypeError);
-		expect(()=> DateFunc.dateDataToDate(undefined!)).toThrow(TypeError);
+		expect(()=> DateFunc.dateDataToDate('20180102T130000Z')).toThrow(new RangeError($localize`Invalid string for Date`)) ;
+		expect(()=> DateFunc.dateDataToDate(NaN)).toThrow(new RangeError($localize`Invalid number for Date`)) ;
+		expect(()=> DateFunc.dateDataToDate(null!)).toThrow(new RangeError($localize`Expect Date, string or number`));
+		expect(()=> DateFunc.dateDataToDate(undefined!)).toThrow(new RangeError($localize`Expect Date, string or number`));
 
 	});
 

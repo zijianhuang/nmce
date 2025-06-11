@@ -1,4 +1,3 @@
-import '@angular/localize/init';
 import { StringFunc } from './stringFunc';
 
 class MyStatus {
