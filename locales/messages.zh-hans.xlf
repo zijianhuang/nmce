@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" target-language="zh-hans" datatype="plaintext" original="ng2.template">
     <body>
@@ -43,8 +42,8 @@
         <target state="translated">有效输入应大于或等于 0 且小于 1440。</target>
       </trans-unit>
       <trans-unit id="5143548108329331679" datatype="html">
-        <source>No response from backend <x id="PH" equiv-text="host" />. Connection is unavailable.</source>
-        <target state="translated">后端无响应<x id="PH" equiv-text="host" />. 连接不可用。</target>
+        <source>No response from backend <x id="PH" equiv-text="host"/>. Connection is unavailable.</source>
+        <target state="translated">后端无响应<x id="PH" equiv-text="host"/>. 连接不可用。</target>
       </trans-unit>
       <trans-unit id="6800308101673162937" datatype="html">
         <source>No response from backend. Connection is unavailable.</source>
@@ -55,8 +54,8 @@
         <target state="translated">派生的具体类没有正确调用 super(DerivedClassName)。</target>
       </trans-unit>
       <trans-unit id="4390435099342067853" datatype="html">
-        <source>[<x id="PH" equiv-text="type.name" />]: trying to create multiple instances, but this service should be a singleton.</source>
-        <target state="translated">[<x id="PH" equiv-text="type.name" />]：尝试创建多个实例，但此服务应该是单例。</target>
+        <source>[<x id="PH" equiv-text="type.name"/>]: trying to create multiple instances, but this service should be a singleton.</source>
+        <target state="translated">[<x id="PH" equiv-text="type.name"/>]：尝试创建多个实例，但此服务应该是单例。</target>
       </trans-unit>
       <trans-unit id="2807800733729323332" datatype="html">
         <source>Yes</source>
@@ -79,10 +78,8 @@
         <target state="translated">日期范围</target>
       </trans-unit>
       <trans-unit id="6112642683465360445" datatype="html">
-        <source>
-          <x id="PH" equiv-text="this.noteLabel" /> saved to Local Storage</source>
-        <target state="translated">
-          <x id="PH" equiv-text="this.noteLabel" />已保存到本地存储</target>
+        <source><x id="PH" equiv-text="this.noteLabel"/> saved to Local Storage</source>
+        <target state="translated"><x id="PH" equiv-text="this.noteLabel"/>已保存到本地存储</target>
       </trans-unit>
       <trans-unit id="6941659493626287408" datatype="html">
         <source>For actionable items, please save current works before action</source>
@@ -126,7 +123,7 @@
         <target state="translated">不允许打印空文档。</target>
       </trans-unit>
       <trans-unit id="41150179304162218" datatype="html">
-        <source> The page your are trying to visit can't be found. </source>
+        <source> The page your are trying to visit can&apos;t be found. </source>
         <target state="translated">找不到您要访问的页面。</target>
       </trans-unit>
       <trans-unit id="2821179408673282599" datatype="html">

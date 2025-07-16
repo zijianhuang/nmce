@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" target-language="es" datatype="plaintext" original="ng2.template">
     <body>
@@ -43,8 +42,8 @@
         <target state="translated">La entrada válida debe ser mayor o igual a 0 y menor que 1440.</target>
       </trans-unit>
       <trans-unit id="5143548108329331679" datatype="html">
-        <source>No response from backend <x id="PH" equiv-text="host" />. Connection is unavailable.</source>
-        <target state="translated">No hay respuesta del backend<x id="PH" equiv-text="host" />La conexión no está disponible.</target>
+        <source>No response from backend <x id="PH" equiv-text="host"/>. Connection is unavailable.</source>
+        <target state="translated">No hay respuesta del backend<x id="PH" equiv-text="host"/>La conexión no está disponible.</target>
       </trans-unit>
       <trans-unit id="6800308101673162937" datatype="html">
         <source>No response from backend. Connection is unavailable.</source>
@@ -55,8 +54,8 @@
         <target state="translated">La clase concreta derivada no había llamado a super(DerivedClassName) correctamente.</target>
       </trans-unit>
       <trans-unit id="4390435099342067853" datatype="html">
-        <source>[<x id="PH" equiv-text="type.name" />]: trying to create multiple instances, but this service should be a singleton.</source>
-        <target state="translated">[<x id="PH" equiv-text="type.name" />]: intentando crear múltiples instancias, pero este servicio debería ser un singleton.</target>
+        <source>[<x id="PH" equiv-text="type.name"/>]: trying to create multiple instances, but this service should be a singleton.</source>
+        <target state="translated">[<x id="PH" equiv-text="type.name"/>]: intentando crear múltiples instancias, pero este servicio debería ser un singleton.</target>
       </trans-unit>
       <trans-unit id="2807800733729323332" datatype="html">
         <source>Yes</source>
@@ -79,10 +78,8 @@
         <target state="translated">Rango de fechas</target>
       </trans-unit>
       <trans-unit id="6112642683465360445" datatype="html">
-        <source>
-          <x id="PH" equiv-text="this.noteLabel" /> saved to Local Storage</source>
-        <target state="translated">
-          <x id="PH" equiv-text="this.noteLabel" />guardado en almacenamiento local</target>
+        <source><x id="PH" equiv-text="this.noteLabel"/> saved to Local Storage</source>
+        <target state="translated"><x id="PH" equiv-text="this.noteLabel"/>guardado en almacenamiento local</target>
       </trans-unit>
       <trans-unit id="6941659493626287408" datatype="html">
         <source>For actionable items, please save current works before action</source>
@@ -126,7 +123,7 @@
         <target state="translated">No permitir imprimir documento vacío.</target>
       </trans-unit>
       <trans-unit id="41150179304162218" datatype="html">
-        <source> The page your are trying to visit can't be found. </source>
+        <source> The page your are trying to visit can&apos;t be found. </source>
         <target state="translated">No se puede encontrar la página que estás intentando visitar.</target>
       </trans-unit>
       <trans-unit id="2821179408673282599" datatype="html">
