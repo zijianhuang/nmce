@@ -1,6 +1,6 @@
 {
   "name": "nmce-json-diff",
-  "version": "1.4.2",
+  "version": "1.4.4",
   "author": {"name": "Z"},
   "description": "Angular Material extended components based on jsondiffpatch.",
   "license": "MIT",
