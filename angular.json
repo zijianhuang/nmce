@@ -56,11 +56,11 @@
         },
         "locales": {
           "zh-hans": {
-            "translation": "locales/messages.zh-hans.xlf",
+            "translation": "locales/messages.zh-Hans.xlf",
             "baseHref": "/zh-hans/"
           },
           "zh-hant": {
-            "translation": "locales/messages.zh-hant.xlf",
+            "translation": "locales/messages.zh-Hant.xlf",
             "baseHref": "/zh-hant/"
           },
           "ja": {
@@ -175,8 +175,8 @@
             "includeContext": "sourceFileOnly",
             "outputPath": "locales",
             "targetFiles": [
-              "messages.zh-hans.xlf",
-              "messages.zh-hant.xlf",
+              "messages.zh-Hans.xlf",
+              "messages.zh-Hant.xlf",
               "messages.ja.xlf",
               "messages.es.xlf"
             ],
