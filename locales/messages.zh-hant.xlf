@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" target-language="zh-hant" datatype="plaintext" original="ng2.template">
     <body>
@@ -42,8 +43,8 @@
         <target state="translated">有效輸入應大於或等於 0 且小於 1440。</target>
       </trans-unit>
       <trans-unit id="5143548108329331679" datatype="html">
-        <source>No response from backend <x id="PH" equiv-text="host"/>. Connection is unavailable.</source>
-        <target state="translated">後端無回應<x id="PH" equiv-text="host"/>. 連接不可用。</target>
+        <source>No response from backend <x id="PH" equiv-text="host" />. Connection is unavailable.</source>
+        <target state="translated">後端無回應<x id="PH" equiv-text="host" />. 連接不可用。</target>
       </trans-unit>
       <trans-unit id="6800308101673162937" datatype="html">
         <source>No response from backend. Connection is unavailable.</source>
@@ -54,8 +55,8 @@
         <target state="translated">衍生的特定類別沒有正確呼叫 super(DerivedClassName)。</target>
       </trans-unit>
       <trans-unit id="4390435099342067853" datatype="html">
-        <source>[<x id="PH" equiv-text="type.name"/>]: trying to create multiple instances, but this service should be a singleton.</source>
-        <target state="translated">[<x id="PH" equiv-text="type.name"/>]：嘗試建立多個實例，但此服務應該是單例。</target>
+        <source>[<x id="PH" equiv-text="type.name" />]: trying to create multiple instances, but this service should be a singleton.</source>
+        <target state="translated">[<x id="PH" equiv-text="type.name" />]：嘗試建立多個實例，但此服務應該是單例。</target>
       </trans-unit>
       <trans-unit id="2807800733729323332" datatype="html">
         <source>Yes</source>
@@ -78,12 +79,18 @@
         <target state="translated">日期範圍</target>
       </trans-unit>
       <trans-unit id="6112642683465360445" datatype="html">
-        <source><x id="PH" equiv-text="this.noteLabel"/> saved to Local Storage</source>
-        <target state="translated"><x id="PH" equiv-text="this.noteLabel"/> 已儲存至本機儲存</target>
+        <source>
+          <x id="PH" equiv-text="this.noteLabel" /> saved to Local Storage</source>
+        <target state="translated">
+          <x id="PH" equiv-text="this.noteLabel" /> 已儲存至本機儲存</target>
       </trans-unit>
       <trans-unit id="6941659493626287408" datatype="html">
         <source>For actionable items, please save current works before action</source>
         <target state="translated">對於可操作的項目，請在操作前儲存目前工作</target>
+      </trans-unit>
+      <trans-unit id="8497528947328199741" datatype="html">
+        <source>Time</source>
+        <target state="translated">時間</target>
       </trans-unit>
       <trans-unit id="8592282545368203219" datatype="html">
         <source>Not allow to save empty document.</source>
@@ -123,7 +130,7 @@
         <target state="translated">不允許列印空文檔。</target>
       </trans-unit>
       <trans-unit id="41150179304162218" datatype="html">
-        <source> The page your are trying to visit can&apos;t be found. </source>
+        <source> The page your are trying to visit can't be found. </source>
         <target state="translated"> 找不到您要造訪的頁面。 </target>
       </trans-unit>
       <trans-unit id="2821179408673282599" datatype="html">
@@ -141,6 +148,10 @@
       <trans-unit id="4730804625942085752" datatype="html">
         <source>Minute</source>
         <target state="translated">分鐘</target>
+      </trans-unit>
+      <trans-unit id="4768749765465246664" datatype="html">
+        <source>Email</source>
+        <target state="translated">電子郵件</target>
       </trans-unit>
       <trans-unit id="3284697869924237097" datatype="html">
         <source>Hour</source>
@@ -187,12 +198,10 @@
       <trans-unit id="2587240527868724590" datatype="html">
         <source>CC</source>
         <target state="translated">副本</target>
-        <note priority="1" from="description">Email carbon copy</note>
       </trans-unit>
       <trans-unit id="1158196584444204374" datatype="html">
         <source>BCC</source>
         <target state="translated">密件副本</target>
-        <note priority="1" from="description">email blind carbon copy</note>
       </trans-unit>
       <trans-unit id="6490688569532630280" datatype="html">
         <source>Send</source>

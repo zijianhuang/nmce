@@ -167,6 +167,10 @@
       <trans-unit id="6483680626836794824" datatype="html">
         <source>Date Range</source>
         <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/dateHourRangePicker.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/dateRangePicker.component.ts</context>
           <context context-type="linenumber">21</context>
         </context-group>
@@ -253,6 +257,13 @@
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlImgPrintDialog.component.html</context>
           <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8497528947328199741" datatype="html">
+        <source>Time</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/timePicker.component.ts</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8592282545368203219" datatype="html">
@@ -428,6 +439,13 @@
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="4768749765465246664" datatype="html">
+        <source>Email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-html-editor/src/lib/emailConfirm.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="5073308731342027963" datatype="html">
         <source> Work in progress </source>
         <context-group purpose="location">
@@ -450,16 +468,8 @@
           <context context-type="linenumber">32</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">projects/nmce/src/_ui_services/textDialog.component.html</context>
-          <context context-type="linenumber">32</context>
-        </context-group>
-        <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/dataComponentPrintDialog.component.html</context>
           <context context-type="linenumber">20</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.html</context>
-          <context context-type="linenumber">25</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.html</context>
@@ -502,7 +512,10 @@
       </trans-unit>
       <trans-unit id="1158196584444204374" datatype="html">
         <source>BCC</source>
-        <note priority="1" from="description">email blind carbon copy</note>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-html-editor/src/lib/emailConfirm.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce-html-editor/src/lib/emailConfirm.component.html</context>
           <context context-type="linenumber">36</context>
@@ -525,7 +538,10 @@
       </trans-unit>
       <trans-unit id="2587240527868724590" datatype="html">
         <source>CC</source>
-        <note priority="1" from="description">Email carbon copy</note>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce-html-editor/src/lib/emailConfirm.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce-html-editor/src/lib/emailConfirm.component.html</context>
           <context context-type="linenumber">25</context>

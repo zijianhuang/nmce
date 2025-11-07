@@ -89,10 +89,10 @@ Remarks:
 * Sometimes I have to run `ng add ng-extract-i18n-merge` first after defining new languages in angular.json, and then run `ng extract-i18n` to generate new xlf files.
 * Before running `extract-i18n`, better to run "buildComponents.ps1" to ensure all being built successfully. since `extract-i18n` or what behind could just fail to find updated tran units but without reporting build error.
 
-Run `ProdCreateLangSite.bat` once to create local test sites for each translation.
-
 References:
 * https://angular.dev/guide/i18n/merge
+
+Then run locales/`Translate.ps1` to translate new or updated items.
 
 ### For libraries
 
