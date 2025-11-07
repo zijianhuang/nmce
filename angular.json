@@ -82,6 +82,8 @@
             },
             "index": "projects/demoapp/src/index.html",
             "polyfills": [
+              							"projects/demoapp/src/polyfills.ts",
+
               "zone.js"
             ],
             "tsConfig": "projects/demoapp/tsconfig.app.json",

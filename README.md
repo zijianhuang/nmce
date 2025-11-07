@@ -99,8 +99,3 @@ References:
 As of Angular 19, extra works ave to be done:
 1. To ensure `$localize` strings in TS files to be included, in tsconfig.json of the root and project nmce, add `"types": ["@angular/localize"]` to "compilerOptions".
 1. To avoid build error, in tsconfig.json of project nmce, add `"types": ["@angular/localize"]` to "compilerOptions".
-
-*Remarks*
-* `ng serve` the app could see `$localize is not a function` at runtime.
-* Development build of the app could see `$localize is not a function` at runtime. And what suggested on https://github.com/angular/angular-cli/issues/27878 is not working.
-* Therefore, test localization only with production build.

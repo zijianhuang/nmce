@@ -1,5 +1,6 @@
 /*
  * Public API Surface of nmce-func
  */
-import { $localize } from '@angular/localize/init';
+/// <reference types="@angular/localize" />
+
 export * from './_func/index';

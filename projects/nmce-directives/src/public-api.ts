@@ -1,7 +1,8 @@
 /*
  * Public API Surface of nmce-directives
  */
-import { $localize } from '@angular/localize/init';
+/// <reference types="@angular/localize" />
+
 export * from './_directives/index';
 export * from './_directives/directives.module';
 
