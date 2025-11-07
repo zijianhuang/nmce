@@ -1,5 +1,6 @@
 import { state, style, transition, trigger, useAnimation } from '@angular/animations';
 import { Component, OnDestroy } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
 import { bounceInDown, flash } from 'ng-animate';
 import { ActionSheetItemSubjectService, AlertService, NotificationsService } from 'nmce';
 import { Subject } from 'rxjs';
@@ -36,7 +37,9 @@ export class AppComponent implements OnDestroy {
   constructor(private alertService: AlertService,
     private notificationsService: NotificationsService,
     private actionSheetItemSubjectService: ActionSheetItemSubjectService,
+    private iconRegistry: MatIconRegistry,
   ) {
+    iconRegistry.setDefaultFontSetClass('material-symbols-outlined');
     this.alertService.initOnce();
     this.actionSheetItemSubjectService.getMessage().subscribe(
       d => this.showNotifications()
