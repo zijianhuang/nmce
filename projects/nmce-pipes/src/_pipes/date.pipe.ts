@@ -8,7 +8,7 @@ import { DateFunc } from 'nmce-func';
  */
 @Pipe({
     name: 'literalDate',
-    standalone: false
+    standalone: true
 })
 export class LiteralDatePipe implements PipeTransform {
 	constructor(@Inject(LOCALE_ID) private locale: string) {

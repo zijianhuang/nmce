@@ -1,6 +1,18 @@
-# NmceFunc
+# Nmce-Func
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
+Common functions used in JavaScript apps and also in other projects of the NMCE repository. The functions cover these areas:
+1. Address
+1. Currency
+1. Date and time
+1. HTML print
+1. JavaScript
+1. JSON
+1. String
+1. String for Australian
+1. UUID
+
+Hints:
+* Many of the date time functions are the wrappers of luxon.
 
 ## Code scaffolding
 

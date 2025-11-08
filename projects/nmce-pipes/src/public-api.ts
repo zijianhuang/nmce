@@ -3,5 +3,6 @@
  */
 /// <reference types="@angular/localize" />
 
-export * from './_pipes/index';
-export * from './_pipes/appPipes.module';
+export * from './_pipes/bankRound.pipe';
+export * from './_pipes/date.pipe';
+export * from './_pipes/pad.pipe';

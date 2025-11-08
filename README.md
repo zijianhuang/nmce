@@ -1,8 +1,18 @@
 # NMCE Projects
 
-The projects of Angular Material Components Extensions are to deliver a set of reusable Angular codes and [Angular Material](https://material.angular.io/) Extensions, targeting complex business applications with rich data structures, intensive GUI and complex workflows.
+The projects of Angular Material Components Extensions are to deliver a set of reusable Angular codes and [Angular Material UI Component Library](https://material.angular.io/) Extensions, targeting complex business applications with rich data structures, intensive GUI and complex workflows.
 
+## Demo
 [Demo Sites](https://zijianhuang.github.io/nmce/en/) in [various locales](https://zijianhuang.github.io/nmce/).
+
+## Projects
+* [nmce-func](https://www.npmjs.com/package/nmce-func): Common functions used in business applications and the components and the services in this NMCE project.
+* nmce: A few sets of components and services based on [Angular Material Components](https://material.angular.io/components/categories).
+* nmce-html-editor: A few dialog services based on [@kolkov/angular-editor](https://github.com/kolkov/angular-editor), present a HTML editor in a dialog.
+* Nmce-json-diff: A simple dialog service based on [jsondiffpatch](https://github.com/benjamine/jsondiffpatch).
+* nmce-pipes: Common simple Angular pipes used in business applications.
+* nmce-directives: Common simple Angular directives used in business applications.
+* demoapp: A demo application demonstrating features of all above.
 
 ## Designs
 
@@ -14,15 +24,6 @@ When considering use cases and making design trade-off, the priority is:
 1. Smartphone
 
 TV is not considered.
-
-## Projects
-* nmce-func: Common functions used in business applications and the components and the services in this NMCE project.
-* nmce: A few sets of components and services based on [Angular Material Components](https://material.angular.io/components/categories).
-* nmce-html-editor: A few dialog services based on [@kolkov/angular-editor](https://github.com/kolkov/angular-editor), present a HTML editor in a dialog.
-* Nmce-json-diff: A simple dialog service based on [jsondiffpatch](https://github.com/benjamine/jsondiffpatch).
-* nmce-pipes: Common simple Angular pipes used in business applications.
-* nmce-directives: Common simple Angular directives used in business applications.
-* demoapp: A demo application demonstrating features of all above.
 
 ## Design Approaches
 

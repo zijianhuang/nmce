@@ -1,6 +1,9 @@
-# NmcePipes
+# Nmce-Pipes
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
+Angular pipes cover:
+1. LiteralDatePipe
+1. BankerRoundPipe
+1. PadPipe
 
 ## Code scaffolding
 
