@@ -54,5 +54,11 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "references": [
+    { "path": "projects/nmce-func/tsconfig.lib.json" },
+    { "path": "projects/nmce-func/tsconfig.spec.json" },
+    { "path": "projects/nmce-pipes/tsconfig.lib.json" },
+    { "path": "projects/nmce-pipes/tsconfig.spec.json" }
+  ]
 }

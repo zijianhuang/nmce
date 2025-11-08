@@ -4,7 +4,6 @@ import { DATE_PIPE_DEFAULT_OPTIONS, DatePipe } from '@angular/common';
 
 import { DateFunc } from 'nmce-func';
 
-
 describe('DatePipeMinus10', () => {
 	let datePipe: DatePipe;
 	beforeEach(() => {
