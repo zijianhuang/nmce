@@ -5,7 +5,7 @@ import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
  */
 @Directive({
     selector: '[scrollInto]',
-    standalone: false
+    standalone: true
 })
 export class ScrollIntoDirective implements AfterViewInit {
 	constructor(private el: ElementRef) {

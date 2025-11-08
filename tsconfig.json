@@ -13,14 +13,14 @@
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "importHelpers": true,
-    "target": "es2022",
-    "module": "es2022",
+    "target": "es2024",
+    "module": "esnext",
     "esModuleInterop": true,
     "types": [
       "@angular/localize"
     ],
     "lib": [
-      "es2022",
+      "es2024",
       "dom"
     ],
     "paths": {

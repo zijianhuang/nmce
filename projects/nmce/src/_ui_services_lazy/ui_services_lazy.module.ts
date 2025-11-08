@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NmceDirectivesModule } from 'nmce-directives';
 import { NGMDModule } from '../ngmd.module';
 import {
 	DataComponentPrintDialog, DataComponentPrintDialogService, HtmlFramePrintDialogComponent,
@@ -19,8 +18,7 @@ import { ProgressComponent, ProgressDialogService } from './progress.component';
 		CommonModule,
 		FormsModule,
 		NGMDModule,
-		ReactiveFormsModule,
-		NmceDirectivesModule,
+		ReactiveFormsModule
 	],
 
 	declarations: [

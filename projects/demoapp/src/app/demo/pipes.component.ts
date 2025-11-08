@@ -1,10 +1,12 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { DateTime } from 'luxon';
-
+import { BankerRoundPipe, LiteralDatePipe, PadPipe } from 'nmce-pipes';
 
 @Component({
     templateUrl: 'pipes.component.html',
-    standalone: false
+    standalone: true,
+	imports: [LiteralDatePipe, BankerRoundPipe, PadPipe, CurrencyPipe]
 })
 export class PipesComponent implements OnInit {
 	currentDateTime: Date;

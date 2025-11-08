@@ -7,7 +7,7 @@ import { AfterViewInit, Directive, DoCheck, ElementRef, Input } from '@angular/c
  */
 @Directive({
     selector: '[autofocus]',
-    standalone: false
+    standalone: true
 })
 export class AutofocusDirective implements AfterViewInit, DoCheck {
 	private toFocus = false;

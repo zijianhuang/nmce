@@ -3,7 +3,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
-    "target": "es2022",
+    "target": "es2024",
     "declarationMap": true,
     "inlineSources": true,
     "composite": true,
@@ -12,7 +12,7 @@
     "types": [],
     "lib": [
       "dom",
-      "es2022"
+      "es2024"
     ]
   },
   "angularCompilerOptions": {

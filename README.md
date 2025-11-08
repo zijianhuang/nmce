@@ -23,13 +23,21 @@ When considering use cases and making design trade-off, the priority is:
 1. Tablet
 1. Smartphone
 
-TV is not considered.
+TV screen is not considered.
+
+Remarks:
+* This repository has started with a lot functions, pipes, directives and components since 2017 however overtime as Angular and Angular Material UI Component Library have grown more matured and comprehensive, many has gone in favor of the built-ins one of the frameworks and libraries which include the following:
+    * MomentJS then luxon for date time handling.
+    * dinerojs for monetary calculations.
+
 
 ## Design Approaches
 
 * The UI design is optimized for desktop PC and tablet devices.
 * Components are based on [Angular Material Components](https://material.angular.io/components/categories).
 * Minimum CSS crafting is used.
+* Extensions to already comprehensive frameworks and libraries.
+* Once respective frameworks and libraries evolve overlapping or surpassing what offered in this repository, the respective codes of this repository will then be deprecated and removed later.
 
 ## Development server
 

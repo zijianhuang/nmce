@@ -2,7 +2,7 @@ import { Directive, ViewContainerRef } from '@angular/core';
 
 @Directive({
     selector: '[dataComponentHost]',
-    standalone: false
+    standalone: true
 })
 export class DataComponentDirective {
 	constructor(public viewContainerRef: ViewContainerRef) { }
