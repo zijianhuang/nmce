@@ -59,7 +59,7 @@ export class ProgressComponent {
 	}
 }
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ProgressDialogService {
 	modalRef?: MatDialogRef<ProgressComponent>;
 

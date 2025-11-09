@@ -22,7 +22,6 @@ import { LazyComponentPrintDialogService } from './lazy-component-print-dialog.s
 		NGMDModule,
 		ReactiveFormsModule,
 	
-
 		HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent, DataComponentPrintDialog, HtmlPrintDialogComponent, 
 		HtmlHRefPrintDialogComponent, HtmlImgPrintDialogComponent,
 		ProgressComponent,

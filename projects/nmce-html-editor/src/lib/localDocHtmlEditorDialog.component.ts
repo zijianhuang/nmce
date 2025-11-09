@@ -1,8 +1,13 @@
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { AlertService, DIALOG_ACTIONS_ALIGN } from 'nmce';
 import { Observable } from 'rxjs';
 import { HtmlDocEditorDialogBaseComponent, HTML_EDITOR_UPLOADURL } from './htmlDocEditorDialogBase.directive';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 /**
  * Display text area for text of consultation to be saved in Local Storage.
  * Different fields will trigger different events which will be further handled.
@@ -10,7 +15,10 @@ import { HtmlDocEditorDialogBaseComponent, HTML_EDITOR_UPLOADURL } from './htmlD
  */
 @Component({
     templateUrl: './htmlDocEditorDialogBase.directive.html',
-    standalone: false
+     standalone: true,
+	imports: [MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, FormsModule, ReactiveFormsModule,
+		AngularEditorModule,
+	]
 })
 export class LocalDocHtmlEditorDialogComponent extends HtmlDocEditorDialogBaseComponent implements OnInit {
 	constructor(
@@ -73,7 +81,7 @@ export class LocalDocHtmlEditorDialogComponent extends HtmlDocEditorDialogBaseCo
 	}
 }
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class LocalDocEditorDialogService {
 	constructor(private dialog: MatDialog) { }
 

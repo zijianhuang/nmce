@@ -106,7 +106,7 @@ export class HtmlImgPrintDialogComponent extends HtmlImgDialogComponent {
 /**
  * Display HTML content in the dialog.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class HtmlPrintDialogService extends HtmlBaseDialogService<HtmlPrintDialogComponent> {
 	constructor(protected dialog: MatDialog) { super(dialog); }
 
@@ -125,7 +125,7 @@ export class HtmlPrintDialogService extends HtmlBaseDialogService<HtmlPrintDialo
  * If the URL is under the same url root of NG2 app, make sure thee content directory is with a rewrite rule like <add input="{REQUEST_URI}" pattern="^/(content)" negate="true"/>
  * Otherwise if the file is not found, the program may treat the url as a legitimate NG2 route, because of other rewrite rules.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class HtmlHRefPrintDialogService extends HtmlBaseDialogService<HtmlHRefPrintDialogComponent> {
 	constructor(protected dialog: MatDialog) { super(dialog); }
 
@@ -140,7 +140,7 @@ export class HtmlHRefPrintDialogService extends HtmlBaseDialogService<HtmlHRefPr
 
 }
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class HtmlImgPrintDialogService extends HtmlBaseDialogService<HtmlImgPrintDialogComponent> {
 	constructor(protected dialog: MatDialog) { super(dialog); }
 

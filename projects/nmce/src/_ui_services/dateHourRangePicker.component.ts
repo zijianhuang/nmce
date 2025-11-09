@@ -83,7 +83,7 @@ export class DateHourRangePickerComponent {
 /**
  * Picke datetimes between.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class DateHourRangePickerService {
 	private isHandsetPortrait: boolean;
 	constructor(private dialog: MatDialog, breakpointObserver: BreakpointObserver) {

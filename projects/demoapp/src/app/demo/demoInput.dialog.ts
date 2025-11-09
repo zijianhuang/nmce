@@ -17,7 +17,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
     }
   }
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class DemoInputDialogService {
 	constructor(private dialog: MatDialog) { }
 

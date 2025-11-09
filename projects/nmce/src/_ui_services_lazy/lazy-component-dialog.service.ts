@@ -6,7 +6,7 @@ import { DataComponentDialogService } from '../_ui_services/dataComponentDialog.
  * Simple inheritance from DataComponentDialogService, Show a component in a dialog, for component defined in a lazy module. 
  * And this service should be provided in the lazy module.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class LazyComponentDialogService extends DataComponentDialogService {
 	constructor(dialog: MatDialog) {
 		super(dialog);

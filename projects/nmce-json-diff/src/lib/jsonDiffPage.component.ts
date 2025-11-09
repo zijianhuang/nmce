@@ -7,7 +7,7 @@ import  {format} from 'jsondiffpatch/formatters/html';
 @Component({
     selector: 'json-diff-page',
     templateUrl: 'jsonDiffPage.component.html',
-    standalone: false
+    standalone: true
 })
 export class JsonDiffComponent implements DataComponent, OnInit, AfterViewInit {
 	data: any;
@@ -28,7 +28,7 @@ export class JsonDiffComponent implements DataComponent, OnInit, AfterViewInit {
 	}
 }
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class JsonDiffDialogService {
 	constructor(private dialog: LazyComponentDialogService) { }
 

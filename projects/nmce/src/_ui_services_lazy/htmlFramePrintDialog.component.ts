@@ -76,7 +76,7 @@ export class HtmlHRefFramePrintDialogComponent extends HtmlHRefFrameDialogCompon
 /**
  * Display HTML content in the iframe of the dialog.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class HtmlFramePrintDialogService extends HtmlBaseDialogService<HtmlFramePrintDialogComponent> {
 	constructor(protected dialog: MatDialog) { super(dialog); }
 
@@ -95,7 +95,7 @@ export class HtmlFramePrintDialogService extends HtmlBaseDialogService<HtmlFrame
  * If the URL is under the same url root of NG2 app, make sure thee content directory is with a rewrite rule like <add input="{REQUEST_URI}" pattern="^/(content)" negate="true"/>
  * Otherwise if the file is not found, the program may treat the url as a legitimate NG2 route, because of other rewrite rules.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class HtmlHRefFramePrintDialogService extends HtmlBaseDialogService<HtmlHRefFramePrintDialogComponent> {
 	constructor(protected dialog: MatDialog) { super(dialog); }
 

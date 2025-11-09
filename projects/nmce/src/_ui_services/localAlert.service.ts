@@ -6,7 +6,7 @@ import { AlertSubjectMessage } from './types';
 /**
  * To display in the alert component AlertComponent <alert> which is to be rendered in parent template HTML.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class LocalAlertService {
 	private subject = new Subject<AlertSubjectMessage>();
 	constructor() {

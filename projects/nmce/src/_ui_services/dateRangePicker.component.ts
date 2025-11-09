@@ -53,7 +53,7 @@ export class DateRangePickerComponent {
 /**
  * Pick dates between.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class DateRangePickerService {
 	private isHandsetPortrait: boolean;
 	constructor(private dialog: MatDialog, breakpointObserver: BreakpointObserver) {

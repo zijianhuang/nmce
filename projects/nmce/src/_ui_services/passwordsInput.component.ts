@@ -42,7 +42,7 @@ export class PasswordsInputComponent {
 /**
  * Defining password in a dialog
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class PasswordsInputService {
 	constructor(private dialog: MatDialog) { }
 

@@ -6,7 +6,7 @@ import { ConfirmComponent } from './confirm.component';
 /**
  * Provide ConfirmComponent dialog for confirmation Yes or No. disableClose=true.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ConfirmService {
 	modalRef: MatDialogRef<ConfirmComponent>;
 

@@ -197,7 +197,7 @@ export class HtmlImgDialogComponent {
 /**
  * Display HTML content in a dialog.  Use this only when you are sure the HTML content does not contain naughty styling that could do graffiti all over the NG2 page.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class HtmlDialogService extends HtmlBaseDialogService<HtmlDialogComponent> {
 	constructor(protected dialog: MatDialog) { super(dialog); }
 
@@ -219,7 +219,7 @@ export class HtmlDialogService extends HtmlBaseDialogService<HtmlDialogComponent
  * Warning: You should provide url which will not return HTML that may jeopardize the health of the Angular SPA. If you really want to show a random but not too malicious Web page inside the SPA,
  * you may use HtmlHRefFrameDialogService which will put the Web content inside a frame.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class HtmlHRefDialogService extends HtmlBaseDialogService<HtmlHRefDialogComponent> {
 	constructor(protected dialog: MatDialog) { super(dialog); }
 
@@ -237,7 +237,7 @@ export class HtmlHRefDialogService extends HtmlBaseDialogService<HtmlHRefDialogC
  * Display image with option scale to fit width or original resolution.
  *
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class HtmlImgDialogService extends HtmlBaseDialogService<HtmlImgDialogComponent> {
 	constructor(protected dialog: MatDialog) { super(dialog); }
 

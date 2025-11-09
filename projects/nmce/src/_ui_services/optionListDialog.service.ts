@@ -5,7 +5,7 @@ import { ItemListDialogServiceBase } from './itemListDialog.component';
 /**
  * Show a list of string object item in dialog, and select one.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class OptionListDialogService extends ItemListDialogServiceBase {
 	constructor(protected dialog: MatDialog) {
 		super(dialog);

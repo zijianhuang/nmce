@@ -83,7 +83,7 @@ export class DataComponentDialog implements AfterViewInit, OnDestroy {
  * Display an NG component in a dialog, and this dialog has not need to answer but close. 
  * For a component defined in a lazy module, use LazyComponentDialogService.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class DataComponentDialogService {
 	modalRef: MatDialogRef<DataComponentDialog>;
 

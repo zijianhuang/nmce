@@ -117,7 +117,7 @@ export class TextHRefDialogComponent implements AfterViewInit {
 /**
  * Display text as HTML pre in a dialog
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class TextDialogService {
 	constructor(private dialog: MatDialog) { }
 
@@ -155,7 +155,7 @@ export class TextDialogService {
  * If the URL is under the same url root of NG2 app, make sure thee content directory is with a rewrite rule like <add input="{REQUEST_URI}" pattern="^/(content)" negate="true"/>
  * Otherwise if the file is not found, the program may treat the url as a legitimate NG2 route, because of other rewrite rules.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class TextHReflDialogService {
 	constructor(private dialog: MatDialog) { }
 

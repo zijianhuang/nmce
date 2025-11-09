@@ -72,7 +72,7 @@ export class TimePickerComponent {
 /**
  * Show dialog of inputting hour and minute.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class TimeService implements OnDestroy {
 	isHandsetPortrait: boolean;
 	private bs: Subscription;

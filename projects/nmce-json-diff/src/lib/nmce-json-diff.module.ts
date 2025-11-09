@@ -4,8 +4,8 @@ import { LazyComponentDialogService } from 'nmce';
 
 
 @NgModule({
-  declarations: [JsonDiffComponent],
   imports: [
+    JsonDiffComponent
   ],
   exports: [JsonDiffComponent],
   providers: [

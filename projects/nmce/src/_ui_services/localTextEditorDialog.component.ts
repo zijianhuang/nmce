@@ -75,7 +75,7 @@ export class LocalTextEditorDialogComponent extends TextEditorDialogComponentBas
 	}
 }
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class LocalTextEditorDialogService {
 	constructor(private dialog: MatDialog) { }
 

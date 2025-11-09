@@ -46,7 +46,7 @@ export class TextInputComponent {
 /**
  * Display TextInputComponent modal which may give input or TextArea. Null mean cancel.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class TextInputService {
 	constructor(private dialog: MatDialog) { }
 

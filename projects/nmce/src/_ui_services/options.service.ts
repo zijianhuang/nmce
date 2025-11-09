@@ -6,7 +6,7 @@ import { OptionsComponent } from './options.component';
 /**
  * Confirmation with multiple options as buttons horizontally.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class OptionsService {
 	constructor(private dialog: MatDialog) { }
 

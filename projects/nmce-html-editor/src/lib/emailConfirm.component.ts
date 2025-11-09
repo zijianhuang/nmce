@@ -1,7 +1,10 @@
 import { Component, Inject, Injectable, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { AngularEditorConfig, AngularEditorModule } from '@kolkov/angular-editor';
 import { DIALOG_ACTIONS_ALIGN } from 'nmce';
 import { Observable } from 'rxjs';
 
@@ -26,7 +29,10 @@ export interface EmailMessage {
 @Component({
     selector: 'email-confirm',
     templateUrl: 'emailConfirm.component.html',
-    standalone: false
+    standalone: true,
+	imports: [MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, FormsModule, ReactiveFormsModule,
+		AngularEditorModule,
+	]
 })
 export class EmailConfirmComponent {
 	ccEnabled = false;
@@ -168,7 +174,7 @@ export class EmailConfirmComponent {
 /**
  * Display EmailConfirmComponent dialog, and return the modified EmailMessage.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class EmailConfirmService {
 	constructor(private dialog: MatDialog) {
 	}

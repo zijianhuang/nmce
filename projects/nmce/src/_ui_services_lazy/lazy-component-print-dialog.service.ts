@@ -7,7 +7,7 @@ import { DataComponentPrintDialogService } from '../_ui_services_lazy/dataCompon
 /**
  * Show a component in a dialog, for component defined in a lazy module. And this service should be provided in the lazy module.
  */
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class LazyComponentPrintDialogService extends DataComponentPrintDialogService {
 	constructor(dialog: MatDialog) {
 		super(dialog);
