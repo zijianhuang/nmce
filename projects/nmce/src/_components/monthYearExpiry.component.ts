@@ -1,15 +1,24 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { MatSelectChange } from '@angular/material/select';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatProgressBar, MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSelectChange, MatSelectModule } from '@angular/material/select';
 import { DateTime } from 'luxon';
 
 /**
  * Display 20 years in the future, with 12 months each. Good for display expiry date within 20 years.
  */
 @Component({
-    selector: 'month-year-expiry, nmce-month-year-expiry',
-    templateUrl: 'monthYearExpiry.component.html',
-    standalone: false
+	selector: 'month-year-expiry, nmce-month-year-expiry',
+	templateUrl: 'monthYearExpiry.component.html',
+	standalone: true,
+	imports: [
+		CommonModule,
+		FormsModule,
+		ReactiveFormsModule,
+		MatProgressBarModule,
+		MatSelectModule,
+	]
 })
 export class MonthYearExpiryComponent implements OnInit {
 	yearSlots: { value: number | undefined, display: string }[] = [{ value: undefined, display: '' }];
@@ -37,7 +46,7 @@ export class MonthYearExpiryComponent implements OnInit {
 	 * Default 20.
 	 */
 	@Input()
-	yearsInFuture=20;
+	yearsInFuture = 20;
 
 	/**
 	 * FormControl of parent modlel with FormGroup. Dirty when user changes value.
@@ -84,7 +93,7 @@ export class MonthYearExpiryComponent implements OnInit {
 				value: i + currentYear, display: (i + currentYear).toString()
 			});
 		}
-	
+
 		if (this.yearMonthExpiry && this.yearMonthExpiry.value) {
 			this.value = parseInt(this.yearMonthExpiry.value);
 		}

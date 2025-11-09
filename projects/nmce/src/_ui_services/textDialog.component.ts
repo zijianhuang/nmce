@@ -1,18 +1,22 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, Inject, Injectable, ViewChild } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DialogSize, DialogSizeToSize } from '../_ui_services/types';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 /**
  * Contain HTML content, used in TextDialogService.
  */
 @Component({
-    selector: 'text-dialog',
-    templateUrl: 'textDialog.component.html',
-    styleUrls: ['../nmcestyles.css'],
-    standalone: false
+	selector: 'text-dialog',
+	templateUrl: 'textDialog.component.html',
+	styleUrls: ['../nmcestyles.css'],
+	standalone: true,
+	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule]
 })
 export class TextDialogComponent implements AfterViewInit {
 	title: string;
@@ -23,7 +27,7 @@ export class TextDialogComponent implements AfterViewInit {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, lines: string, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
 		public dialogRef: MatDialogRef<TextDialogComponent>) {
 		this.title = data.title;
 		this.lines = data.lines;
@@ -45,10 +49,11 @@ export class TextDialogComponent implements AfterViewInit {
  * Display text as HTML pre in a dialog, which is loaded from a url, used in TextHReflDialogService. If there's an error during loading, the error will be displayed n the dialog body.
  */
 @Component({
-    selector: 'text-href-dialog',
-    templateUrl: 'textDialog.component.html',
-    styleUrls: ['../nmcestyles.css'],
-    standalone: false
+	selector: 'text-href-dialog',
+	templateUrl: 'textDialog.component.html',
+	styleUrls: ['../nmcestyles.css'],
+	standalone: true,
+	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule,]
 })
 export class TextHRefDialogComponent implements AfterViewInit {
 	title: string;
@@ -62,7 +67,7 @@ export class TextHRefDialogComponent implements AfterViewInit {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) data: { title: string, url: string, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
 		public dialogRef: MatDialogRef<TextDialogComponent>, private httpClient: HttpClient) {
 		this.title = data.title;
 		this.url = data.url;
@@ -85,11 +90,11 @@ export class TextHRefDialogComponent implements AfterViewInit {
 				let errMsg: string;
 				if (error instanceof HttpErrorResponse) {
 					if (error.status === 0) {
-						if (error.url){
+						if (error.url) {
 							const host = new URL(error.url).host;
-							errMsg = $localize`No response from backend ${host}. Connection is unavailable.`;	
-						}else{
-							errMsg = $localize`No response from backend. Connection is unavailable.`;	
+							errMsg = $localize`No response from backend ${host}. Connection is unavailable.`;
+						} else {
+							errMsg = $localize`No response from backend. Connection is unavailable.`;
 						}
 					} else {
 						if (error.message) {

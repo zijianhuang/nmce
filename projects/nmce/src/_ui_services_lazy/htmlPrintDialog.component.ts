@@ -1,7 +1,7 @@
-import { Location } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, Injectable, Renderer2 } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { SafeUrl } from '@angular/platform-browser';
 import { HtmlPrintFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
@@ -9,6 +9,10 @@ import { DIALOG_ACTIONS_ALIGN } from '../_ui_services/baseTypes';
 import { HtmlBaseDialogService } from '../_ui_services/htmlBaseDialogService';
 import { HtmlDialogComponent, HtmlHRefDialogComponent, HtmlImgDialogComponent } from '../_ui_services/htmlDialog.component';
 import { DialogSize } from '../_ui_services/types';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
 
 /**
  * Contain HTML content, used in HtmlDialogService.
@@ -17,7 +21,8 @@ import { DialogSize } from '../_ui_services/types';
     selector: 'html-print-dialog',
     templateUrl: 'htmlPrintDialog.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+     standalone: true,
+	imports: [MatButtonModule,MatDialogModule, CommonModule, MatIconModule, MatCheckboxModule, FormsModule]
 })
 export class HtmlPrintDialogComponent extends HtmlDialogComponent {
 	constructor(
@@ -45,7 +50,8 @@ export class HtmlPrintDialogComponent extends HtmlDialogComponent {
     selector: 'html-href-print-dialog',
     templateUrl: 'htmlPrintDialog.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+    standalone: true,
+	imports: [MatButtonModule,MatDialogModule, CommonModule, MatIconModule, MatCheckboxModule, FormsModule]
 })
 export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 	/**
@@ -76,7 +82,8 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
     selector: 'html-img-print-dialog',
     templateUrl: 'htmlImgPrintDialog.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+    standalone: true,
+	imports: [MatButtonModule,MatDialogModule, CommonModule, MatIconModule, MatCheckboxModule, FormsModule]
 })
 export class HtmlImgPrintDialogComponent extends HtmlImgDialogComponent {
 	constructor(

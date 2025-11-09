@@ -1,8 +1,10 @@
 import { Component, Inject, Injectable, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 /**
  * Define password.
@@ -11,7 +13,8 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
     selector: 'passwordsInput',
     templateUrl: 'passwordsInput.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+    standalone: true,
+	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule]
 })
 export class PasswordsInputComponent {
 	@Input()

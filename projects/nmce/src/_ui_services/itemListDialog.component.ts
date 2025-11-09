@@ -1,8 +1,10 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatSelectionListChange } from '@angular/material/list';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
+import { MatListModule, MatSelectionListChange } from '@angular/material/list';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 /**
  * Display a list of items to select one.
@@ -11,7 +13,8 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 @Component({
     templateUrl: './itemListDialog.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+    standalone: true,
+	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatListModule]
 })
 export class ItemListDialogComponent {
 	title: string;

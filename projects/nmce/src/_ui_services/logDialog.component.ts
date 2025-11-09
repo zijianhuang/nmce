@@ -1,7 +1,11 @@
 import { AfterViewInit, Component, ElementRef, Inject, InjectionToken, Renderer2, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 import { AlertSubjectMessage } from './types';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 export interface MessageDialogOptions {
 	useIcon?: boolean;
@@ -26,7 +30,8 @@ export const LOG_DIALOG_OPTIONS = new InjectionToken<MessageDialogOptions>('Dial
 @Component({
     templateUrl: 'logDialog.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+    standalone: true,
+	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, CommonModule, MatIconModule]
 })
 export class LogDialogComponent implements AfterViewInit {
 

@@ -1,9 +1,14 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, Inject, Injectable } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { DateFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormField } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 /**
  * Pick dates between.
@@ -12,10 +17,11 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  * todo: compare with what in NMC, may be obsolete.
  */
 @Component({
-    selector: 'DateRangePicker, nmce-date-range-picker',
-    templateUrl: 'dateRangePicker.component.html',
-    styleUrls: ['../nmcestyles.css'],
-    standalone: false
+	selector: 'DateRangePicker, nmce-date-range-picker',
+	templateUrl: 'dateRangePicker.component.html',
+	styleUrls: ['../nmcestyles.css'],
+	standalone: true,
+	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatDatepickerModule, MatFormFieldModule, FormsModule,]
 })
 export class DateRangePickerComponent {
 	title = $localize`Date Range`;
@@ -23,10 +29,10 @@ export class DateRangePickerComponent {
 	startDate: Date;
 	endDate: Date;
 
-	constructor(public dialogRef: MatDialogRef<DateRangePickerComponent>, 
+	constructor(public dialogRef: MatDialogRef<DateRangePickerComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: { start: Date, end: Date },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
-		) {
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
+	) {
 		this.startDate = data.start ? data.start : DateFunc.now;
 		this.endDate = DateFunc.getEndOfDate(data.end ? data.end : DateFunc.addDays(this.startDate, 180));
 	}

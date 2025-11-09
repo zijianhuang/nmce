@@ -1,11 +1,15 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, Inject, Injectable, Renderer2, ViewChild } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { SafeUrl } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 import { HtmlBaseDialogService } from './htmlBaseDialogService';
 import { DialogSize } from './types';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 /**
  * Contain HTML content, used in HtmlDialogService.
@@ -14,7 +18,8 @@ import { DialogSize } from './types';
 @Component({
     selector: 'html-dialog',
     templateUrl: 'htmlDialog.component.html',
-    standalone: false
+    standalone: true,
+	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule]
 })
 export class HtmlDialogComponent implements AfterViewInit {
 	title: string;
@@ -57,7 +62,8 @@ export class HtmlDialogComponent implements AfterViewInit {
 @Component({
     selector: 'html-ref-dialog',
     templateUrl: 'htmlDialog.component.html',
-    standalone: false
+    standalone: true,
+	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule]
 })
 export class HtmlHRefDialogComponent implements AfterViewInit {
 	title: string;
@@ -138,7 +144,8 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
     selector: 'html-img-dialog',
     templateUrl: 'htmlImgDialog.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+    standalone: true,
+	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule, CommonModule,]
 })
 export class HtmlImgDialogComponent {
 	title: string;

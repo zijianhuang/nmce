@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { WaitMessage, WaitService } from '../_ui_services/index';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 /**
  * Display wait with mat-progress-bar. Working with WaitService.
@@ -8,7 +9,10 @@ import { WaitMessage, WaitService } from '../_ui_services/index';
 @Component({
     selector: 'wait, nmce-wait, nmceWait',
     templateUrl: 'wait.component.html',
-    standalone: false
+    standalone: true,
+	imports: [
+		MatProgressBarModule
+	]
 })
 export class WaitComponent implements OnInit, OnDestroy {
 	message: WaitMessage;

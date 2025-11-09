@@ -11,7 +11,7 @@ import { HtmlPrintFunc } from 'nmce-func';
     template: `
 	 <button (click)="printDiv()" mat-raised-button mdTooltip="Print content">Print</button>
 	`,
-    standalone: false
+    standalone: true
 })
 export class PrintComponent implements OnInit {//inspired by https://www.linkedin.com/pulse/create-print-component-angular2-which-user-defined-html-rajesh-g
 

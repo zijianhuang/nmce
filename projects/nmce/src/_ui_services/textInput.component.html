@@ -4,16 +4,17 @@
 <mat-dialog-content>
     <form class="fx-layout-column top-margin-half">
         @if (label) {
-<mat-form-field class="fx-full-width">
+        <mat-form-field class="fx-full-width">
             <mat-label>{{label}}</mat-label>
             <input matInput [(ngModel)]="text" name="text" type="text" />
         </mat-form-field>
-}
+        }
         @if (!label) {
-<mat-form-field class="fx-full-width">
-            <textarea matInput cdkTextareaAutosize [(ngModel)]="text" name="text" type="text" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" autofocus></textarea>
+        <mat-form-field class="fx-full-width">
+            <textarea matInput cdkTextareaAutosize [(ngModel)]="text" name="text" type="text" cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="5" autofocus></textarea>
         </mat-form-field>
-}
+        }
     </form>
 </mat-dialog-content>
 <mat-dialog-actions [align]="actionsAlign">

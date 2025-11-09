@@ -1,6 +1,7 @@
 import { Component, Inject, Input } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
+import { MatButtonModule } from '@angular/material/button';
 
 /**
  * Confirmation to say Yes or No. When saying Yes, return result true, otherwise, return activeModal.dismiss().
@@ -10,7 +11,8 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
     selector: 'confirm-content',
     templateUrl: 'confirm.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+    standalone: true,
+	imports: [MatButtonModule, MatDialogModule]
 })
 export class ConfirmComponent {
 	@Input()

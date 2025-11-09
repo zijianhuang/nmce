@@ -4,6 +4,9 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { ActionSheetItemSubjectService, RootInjectorGuard } from './baseTypes';
 import { ActionSheetItem } from './types';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 class NotificationsCache { //not exported intentionally
 	private static notifications: ActionSheetItem[] = [];
@@ -39,7 +42,8 @@ class NotificationsCache { //not exported intentionally
 @Component({
     templateUrl: 'notifications.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+    standalone: true,
+	imports: [MatButtonModule, MatListModule, MatIconModule]
 })
 export class NotificationsComponent {
 

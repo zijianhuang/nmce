@@ -6,7 +6,7 @@ import { Location } from '@angular/common';
  */
 @Component({
     templateUrl: 'wip.component.html',
-    standalone: false
+    standalone: true,
 })
 export class WIPComponent implements OnInit {
 

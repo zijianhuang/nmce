@@ -1,9 +1,14 @@
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { AlertService } from '../_ui_services/alert.service';
 import { TextEditorDialogComponentBase } from '../_ui_services/textEditorDialogBase.component';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { TextFieldModule } from '@angular/cdk/text-field';
 
 /**
  * Display text area for text of consultation to be saved in Azure Blob Storage.
@@ -12,7 +17,8 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  */
 @Component({
     templateUrl: '../_ui_services/textEditorDialogBase.component.html',
-    standalone: false
+    standalone: true,
+	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, TextFieldModule]
 })
 export class LocalTextEditorDialogComponent extends TextEditorDialogComponentBase implements OnInit {
 	constructor(

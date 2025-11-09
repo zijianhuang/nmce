@@ -1,13 +1,15 @@
-import { Location } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, Injectable, Renderer2 } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { HtmlPrintFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from '../_ui_services/baseTypes';
 import { HtmlBaseDialogService } from '../_ui_services/htmlBaseDialogService';
 import { HtmlFrameDialogComponent, HtmlHRefFrameDialogComponent } from '../_ui_services/htmlFrameDialog.component';
 import { DialogSize } from '../_ui_services/types';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 /**
  * Contain HTML content in iframe, used in HtmlFrameDialogService.
@@ -16,7 +18,8 @@ import { DialogSize } from '../_ui_services/types';
     selector: 'html-frame-print-dialog',
     templateUrl: 'htmlFramePrintDialog.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+     standalone: true,
+	imports: [MatButtonModule,MatDialogModule, CommonModule, MatIconModule]
 })
 export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
 	constructor(
@@ -41,7 +44,8 @@ export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
     selector: 'html-href-frame-print-dialog',
     templateUrl: 'htmlFramePrintDialog.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+    standalone: true,
+	imports: [MatButtonModule,MatDialogModule, CommonModule, MatIconModule]
 })
 export class HtmlHRefFramePrintDialogComponent extends HtmlHRefFrameDialogComponent {
 	/**

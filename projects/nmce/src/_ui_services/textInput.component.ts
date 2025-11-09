@@ -1,7 +1,10 @@
 import { Component, Inject, Injectable, Input } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 /**
  * Input one line text.
@@ -10,7 +13,8 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
     selector: 'textInput',
     templateUrl: 'textInput.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+    standalone: true,
+	imports: [FormsModule, ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule]
 })
 export class TextInputComponent {
 	@Input()

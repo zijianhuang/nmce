@@ -1,6 +1,7 @@
 import { Component, Inject, Input } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
+import { MatButtonModule } from '@angular/material/button';
 
 /**
  * Confirmation through multiple options represented in buttons horizontally.
@@ -9,7 +10,8 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
     selector: 'options-content',
     templateUrl: 'options.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+    standalone: true,
+	imports: [MatButtonModule, MatDialogModule]
 })
 export class OptionsComponent {
 	@Input()

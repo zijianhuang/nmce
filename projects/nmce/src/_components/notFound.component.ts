@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
     //no need to have selector
     templateUrl: 'notFound.component.html',
-    standalone: false
+    standalone: true
 })
 export class NotFoundComponent implements OnInit {
 

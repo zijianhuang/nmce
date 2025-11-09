@@ -21,9 +21,7 @@ import {
 		FormsModule,
 		NGMDModule,
 		ReactiveFormsModule,
-	],
 
-	declarations: [
 		AlertComponent,
 		NotFoundComponent, WIPComponent,
 		WaitComponent,

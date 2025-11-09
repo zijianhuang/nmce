@@ -1,9 +1,13 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, Inject, Injectable, OnDestroy } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { StringFunc } from 'nmce-func';
 import { Observable, Subscription } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 /**
  * Input Hour and Minute.
@@ -12,7 +16,8 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
     selector: 'timePicker',
     templateUrl: 'timePicker.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+    standalone: true,
+	imports: [FormsModule, ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatSelectModule]
 })
 export class TimePickerComponent {
 	title = $localize`Time`;

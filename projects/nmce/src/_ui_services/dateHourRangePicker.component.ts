@@ -1,9 +1,15 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, Inject, Injectable } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { DateFunc, StringFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 /**
  * Pick datetimes between.
@@ -12,10 +18,11 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
  * todo: compare with what in NMC, and consider to make it obsolete
  */
 @Component({
-    selector: 'DateHourRangePicker, nmce-date-hour-range-picker',
-    templateUrl: 'dateHourRangePicker.component.html',
-    styleUrls: ['../nmcestyles.css'],
-    standalone: false
+	selector: 'DateHourRangePicker, nmce-date-hour-range-picker',
+	templateUrl: 'dateHourRangePicker.component.html',
+	styleUrls: ['../nmcestyles.css'],
+	standalone: true,
+	imports: [FormsModule, ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatSelectModule, MatDatepickerModule, MatFormFieldModule]
 })
 export class DateHourRangePickerComponent {
 	title = $localize`Date Range`;

@@ -1,6 +1,8 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { takeWhile } from 'rxjs/operators';
 import { AlertSubjectMessage, LocalAlertService } from '../_ui_services/index';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /**
  * Alert to render element alert in a component through LocalAlertService.
@@ -11,7 +13,12 @@ import { AlertSubjectMessage, LocalAlertService } from '../_ui_services/index';
     exportAs: 'nmceAlert',
     templateUrl: 'alert.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+    standalone: true,
+	imports: [
+		CommonModule,
+		FormsModule,
+		ReactiveFormsModule,
+	]
 })
 export class AlertComponent implements OnInit, OnDestroy {
 	private alive = true;

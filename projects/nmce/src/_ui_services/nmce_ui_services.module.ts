@@ -40,10 +40,8 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 		CommonModule,
 		FormsModule,
 		NGMDModule,
-		ReactiveFormsModule
-	],
-
-	declarations: [
+		ReactiveFormsModule,
+	
 		HtmlDialogComponent,
 		HtmlHRefDialogComponent,
 		HtmlFrameDialogComponent,

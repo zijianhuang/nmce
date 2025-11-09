@@ -1,10 +1,13 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, Inject, Injectable, Renderer2, ViewChild } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 import { HtmlBaseDialogService } from './htmlBaseDialogService';
 import { DialogSize } from './types';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 /**
  * Contain HTML content in iframe, used in HtmlFrameDialogService.
@@ -12,7 +15,8 @@ import { DialogSize } from './types';
 @Component({
     selector: 'html-frame-dialog',
     templateUrl: 'htmlFrameDialog.component.html',
-    standalone: false
+    standalone: true,
+	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule]
 })
 export class HtmlFrameDialogComponent implements AfterViewInit {
 	title: string;
@@ -53,7 +57,8 @@ export class HtmlFrameDialogComponent implements AfterViewInit {
     selector: 'html-href-frame-dialog',
     templateUrl: 'htmlFrameDialog.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+    standalone: true,
+	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule,]
 })
 export class HtmlHRefFrameDialogComponent implements AfterViewInit {
 	title: string;

@@ -1,10 +1,12 @@
 import { Component, Inject, Input } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { ProgressBarMode } from '@angular/material/progress-bar';
+import { MatProgressBarModule, ProgressBarMode } from '@angular/material/progress-bar';
 import { DIALOG_ACTIONS_ALIGN, TransmitProgress } from '../public-api';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 /**
  * Confirmation to say Yes or No. When saying Yes, return result true, otherwise, return activeModal.dismiss().
@@ -12,7 +14,8 @@ import { DIALOG_ACTIONS_ALIGN, TransmitProgress } from '../public-api';
  */
 @Component({
     templateUrl: 'progress.component.html',
-    standalone: false
+    standalone: true,
+	imports: [MatButtonModule,MatDialogModule, CommonModule, MatProgressBarModule]
 })
 export class ProgressComponent {
 	@Input()

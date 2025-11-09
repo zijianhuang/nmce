@@ -1,9 +1,11 @@
 import { AfterViewInit, Component, ComponentFactoryResolver, Inject, Injectable, Input, OnDestroy, Type, ViewChild } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { DataComponentDirective } from 'nmce-directives';
 import { Observable } from 'rxjs';
 import { DataComponent } from '../_types/DataComponent';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 /**
  * This is to host another component which has implemented interface DataComponent. 
@@ -16,7 +18,8 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
     selector: 'nmce-data-component-content',
     templateUrl: 'dataComponentDialog.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+    standalone: true,
+	imports: [MatButtonModule, MatDialogModule, MatIconModule]
 })
 export class DataComponentDialog implements AfterViewInit, OnDestroy {
 	@Input()

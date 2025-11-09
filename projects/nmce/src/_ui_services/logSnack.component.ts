@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 import { AlertSubjectMessage } from './types';
+import { CommonModule } from '@angular/common';
 
 /**
  * Display AlertSubjectMessage through rendering MatSnackBar. Generally this is called by alert service.
@@ -8,7 +9,8 @@ import { AlertSubjectMessage } from './types';
 @Component({
     templateUrl: 'logSnack.component.html',
     styleUrls: ['../nmcestyles.css'],
-    standalone: false
+    standalone: true,
+	imports: [CommonModule]
 })
 export class LogSnackComponent {
 	message: AlertSubjectMessage;
