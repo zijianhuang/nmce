@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { MatInputModule } from '@angular/material/input';
 /**
  * Display text area for text of consultation to be saved in Local Storage.
  * Different fields will trigger different events which will be further handled.
@@ -16,7 +17,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 @Component({
     templateUrl: './htmlDocEditorDialogBase.directive.html',
      standalone: true,
-	imports: [MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, FormsModule, ReactiveFormsModule,
+	imports: [MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatIconModule, FormsModule, ReactiveFormsModule,
 		AngularEditorModule,
 	]
 })

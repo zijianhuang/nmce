@@ -7,10 +7,6 @@ import { LazyComponentDialogService } from 'nmce';
   imports: [
     JsonDiffComponent
   ],
-  exports: [JsonDiffComponent],
-  providers: [
-    JsonDiffDialogService,
-    LazyComponentDialogService
-  ]
+  exports: [JsonDiffComponent]
 })
 export class NmceJsonDiffModule { }

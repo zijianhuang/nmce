@@ -1,10 +1,13 @@
 import { Component, Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
     selector: 'demo-dialog',
     templateUrl: 'demoInput.dialog.html',
-    standalone: false
+    standalone: true,
+    imports: [MatFormFieldModule, MatInputModule]
 })
   export class DemoInputComponent {
     constructor(

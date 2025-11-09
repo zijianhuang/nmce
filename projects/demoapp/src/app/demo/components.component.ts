@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { ActionSheetItemSubjectService, LocalAlertService, WaitService } from 'nmce';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ActionSheetItemSubjectService, LocalAlertService, WaitService, WaitComponent, NmceComponentsModule } from 'nmce';
+import { MatSelect, MatSelectModule } from "@angular/material/select";
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 /**
  * Fill up the user registration form and register. Then roles checkboxes will appear.
@@ -8,7 +13,8 @@ import { ActionSheetItemSubjectService, LocalAlertService, WaitService } from 'n
  */
 @Component({
     templateUrl: 'components.component.html',
-    standalone: false
+    standalone: true,
+    imports: [NmceComponentsModule, MatSelectModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, ReactiveFormsModule],
 })
 export class ComponentsComponent implements OnInit {
 	loading = false;

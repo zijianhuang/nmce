@@ -2,18 +2,21 @@
 	<button mat-mini-fab (click)="localAlert()"><mat-icon>play_arrow</mat-icon></button>
 	<mat-form-field>
 		<mat-select [formControl]="dialogSelectedControl">
-			<mat-option [value]="1" >Success</mat-option>
+			<mat-option [value]="1">Success</mat-option>
 			<mat-option [value]="2">Info</mat-option>
 			<mat-option [value]="3">Warn</mat-option>
 			<mat-option [value]="4">Error</mat-option>
 		</mat-select>
 	</mat-form-field>
 	LocalAlertService:
-	<p><alert></alert></p>
+	<p>
+		<alert></alert>
+	</p>
 </div>
 
 <div class="fx-row-gap-1">
-	<button mat-mini-fab (click)="toggleWait()"><mat-icon>{{waitServiceIsWaiting?'stop':'play_arrow'}}</mat-icon></button>
+	<button mat-mini-fab
+		(click)="toggleWait()"><mat-icon>{{waitServiceIsWaiting?'stop':'play_arrow'}}</mat-icon></button>
 	WaitService:
 	<wait></wait>
 </div>
@@ -23,10 +26,16 @@
 	ActionSheetItemSubjectService Add Notification to NotificationsService
 </div>
 <div>
-	<month-year-expiry [yearMonthExpiry]="yearMonthExpiryControl"></month-year-expiry> <span *ngIf=yearMonthExpiryControl.dirty>*</span>
+	<month-year-expiry [yearMonthExpiry]="yearMonthExpiryControl"></month-year-expiry>
+	@if (yearMonthExpiryControl.dirty) {
+		<span>*</span>
+	}
 </div>
 
 <div>
 	<label>5 years</label>
-	<month-year-expiry [yearMonthExpiry]="yearMonthExpiryControl" [yearsInFuture]="5"></month-year-expiry> <span *ngIf=yearMonthExpiryControl.dirty>*</span>
+	<month-year-expiry [yearMonthExpiry]="yearMonthExpiryControl" [yearsInFuture]="5"></month-year-expiry> 
+		@if (yearMonthExpiryControl.dirty) {
+		<span>*</span>
+	}
 </div>

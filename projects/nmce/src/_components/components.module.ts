@@ -37,10 +37,6 @@ import {
 		MonthYearExpiryComponent,
 		AlertComponent, //need to export the entry component
 		PrintComponent,
-	],
-
-	providers: [
-	],
-
+	]
 })
 export class NmceComponentsModule { }

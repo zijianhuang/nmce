@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 /**
  * Input Hour and Minute.
@@ -17,7 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
     templateUrl: 'timePicker.component.html',
     styleUrls: ['../nmcestyles.css'],
     standalone: true,
-	imports: [FormsModule, ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatSelectModule]
+	imports: [FormsModule, ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatSelectModule]
 })
 export class TimePickerComponent {
 	title = $localize`Time`;

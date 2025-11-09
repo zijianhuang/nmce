@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlertService, DataComponent, HtmlDialogService, HtmlFrameDialogService, HtmlFramePrintDialogService, HtmlHRefDialogService, HtmlHRefFrameDialogService, HtmlHRefFramePrintDialogService, HtmlHRefPrintDialogService, HtmlImgDialogService, HtmlImgPrintDialogService, HtmlPrintDialogService } from 'nmce';
+import { NGMDModule } from '../ngmd.module';
 /**
  * Users search and list
  */
 @Component({
     templateUrl: 'htmlDialogs.component.html',
-    standalone: false
+    standalone: true,
+	imports: [NGMDModule, FormsModule, ReactiveFormsModule]
 })
 export class HtmlDialogsComponent implements DataComponent {
 	useBackButton: boolean;

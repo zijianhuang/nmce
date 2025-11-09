@@ -95,38 +95,7 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 		DateHourRangePickerComponent,
 
 		LocalTextEditorDialogComponent,
-	],
-	providers: [
-		//{
-		//	provide: MY_DIALOG_OPTIONS, useValue: { useIcon: false }
-		//},
-
-		NotificationsComponent,
-		TextInputService,
-		PasswordsInputService,
-		TimeService,
-
-		LocalAlertService,
-		ConfirmService,
-		OptionsService,
-		HtmlFrameDialogService,
-		HtmlHRefFrameDialogService,
-		HtmlHRefDialogService,
-		HtmlDialogService,
-		HtmlDialogService,
-		TextHReflDialogService,
-		TextDialogService,
-		HtmlImgDialogService,
-
-		DataComponentDialogService,
-
-		DateRangePickerService,
-		DateHourRangePickerService,
-
-
-		LocalTextEditorDialogService,
-		OptionListDialogService,
-	],
+	]
 
 })
 export class Nmce_UI_ServicesModule { }

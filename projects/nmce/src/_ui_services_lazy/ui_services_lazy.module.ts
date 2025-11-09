@@ -30,13 +30,7 @@ import { LazyComponentPrintDialogService } from './lazy-component-print-dialog.s
 	exports: [
 		HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent, DataComponentPrintDialog, HtmlPrintDialogComponent, 
 		HtmlHRefPrintDialogComponent, ProgressComponent,
-	],
-	providers: [
-		HtmlFramePrintDialogService, HtmlHRefFramePrintDialogService, DataComponentPrintDialogService, HtmlHRefPrintDialogService, HtmlPrintDialogService, HtmlImgPrintDialogService,
-		LazyComponentPrintDialogService,
-		LazyComponentDialogService,
-		ProgressDialogService,
-	],
+	]
 
 })
 export class Nmce_UI_Lazy_ServicesModule { }

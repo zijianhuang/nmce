@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { TextFieldModule } from '@angular/cdk/text-field';
+import { MatInputModule } from '@angular/material/input';
 
 /**
  * Display text area for text of consultation to be saved in Azure Blob Storage.
@@ -18,7 +19,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 @Component({
     templateUrl: '../_ui_services/textEditorDialogBase.component.html',
     standalone: true,
-	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, TextFieldModule]
+	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatIconModule, TextFieldModule]
 })
 export class LocalTextEditorDialogComponent extends TextEditorDialogComponentBase implements OnInit {
 	constructor(

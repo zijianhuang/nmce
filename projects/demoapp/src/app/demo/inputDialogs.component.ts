@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
 import {
 	AlertService,
 	ConfirmService, DateHourRangePickerService, DateRangePickerService, DialogSize, HtmlFramePrintDialogService, LocalTextEditorDialogService, OptionListDialogService, OptionsService,
@@ -9,6 +12,7 @@ import {
 	TimeService
 } from 'nmce';
 import { EmailConfirmService, LocalDocEditorDialogService } from 'nmce-html-editor';
+import { NGMDModule } from '../ngmd.module';
 
 
 
@@ -18,7 +22,8 @@ import { EmailConfirmService, LocalDocEditorDialogService } from 'nmce-html-edit
  */
 @Component({
     templateUrl: 'inputDialogs.component.html',
-    standalone: false
+    standalone: true,
+	imports: [NGMDModule, FormsModule]
 })
 export class InputDialogsComponent implements OnInit {
 	loading = false;

@@ -5,6 +5,7 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 /**
  * Input one line text.
@@ -14,7 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     templateUrl: 'textInput.component.html',
     styleUrls: ['../nmcestyles.css'],
     standalone: true,
-	imports: [FormsModule, ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule]
+	imports: [FormsModule, ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule]
 })
 export class TextInputComponent {
 	@Input()

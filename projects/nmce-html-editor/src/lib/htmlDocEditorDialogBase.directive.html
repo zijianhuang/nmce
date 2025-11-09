@@ -18,7 +18,6 @@
 	</button>
 </div>
 <mat-dialog-content>
-	<!--<p *ngIf="contentCreatedUtc">Created: {{ contentCreatedUtc | shortDate24 }}  Modified:{{ contentModifiedUtc | shortDate24 }}</p>-->
 	<label>{{ noteLabel }}</label>
 	<angular-editor id="htmlEditor" [formControl]="noteControl" [config]="config"></angular-editor>
 </mat-dialog-content>

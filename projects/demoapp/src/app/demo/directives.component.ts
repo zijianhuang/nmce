@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DemoInputDialogService } from './demoInput.dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 /**
  * Fill up the user registration form and register. Then roles checkboxes will appear.
@@ -7,7 +10,8 @@ import { DemoInputDialogService } from './demoInput.dialog';
  */
 @Component({
     templateUrl: 'directives.component.html',
-    standalone: false
+    standalone: true,
+	imports: [MatFormFieldModule, MatButtonModule, MatInputModule]
 })
 export class DirectivesComponent implements OnInit {
 	currentDateTime: Date;

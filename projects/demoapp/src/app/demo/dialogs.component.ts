@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
 	AlertService, DataComponentPrintDialogService, LazyComponentDialogService, TextDialogService, TextHReflDialogService,
 	ProgressDialogService,
 } from 'nmce';
 //import { JsonDiffDialogService } from 'nmce-json-diff';
 import { HtmlDialogsComponent } from './htmlDialogs.component';
+import { NGMDModule } from '../ngmd.module';
 
 /**
  * Fill up the user registration form and register. Then roles checkboxes will appear.
@@ -14,7 +15,8 @@ import { HtmlDialogsComponent } from './htmlDialogs.component';
  */
 @Component({
     templateUrl: 'dialogs.component.html',
-    standalone: false
+    standalone: true,
+	imports: [NGMDModule, FormsModule, ReactiveFormsModule]
 })
 export class DialogsComponent implements OnInit {
 	loading = false;

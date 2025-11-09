@@ -29,13 +29,7 @@ import { PipesComponent } from './pipes.component';
 		NmceHtmlEditorModule,
 	],
 	declarations: [
-		DemoIndexComponent,
-		DialogsComponent,
-		HtmlDialogsComponent,
-		InputDialogsComponent,
-		ComponentsComponent,
-		DirectivesComponent,
-		DemoInputComponent,
+
 	],
 	providers: [
 		DemoInputDialogService,

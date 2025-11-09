@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
 
 /**
  * Pick datetimes between.
@@ -22,7 +23,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 	templateUrl: 'dateHourRangePicker.component.html',
 	styleUrls: ['../nmcestyles.css'],
 	standalone: true,
-	imports: [FormsModule, ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatSelectModule, MatDatepickerModule, MatFormFieldModule]
+	imports: [FormsModule, ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatIconModule, MatSelectModule, MatDatepickerModule, MatFormFieldModule]
 })
 export class DateHourRangePickerComponent {
 	title = $localize`Date Range`;

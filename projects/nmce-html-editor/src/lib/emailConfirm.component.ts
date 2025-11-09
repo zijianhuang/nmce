@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { AngularEditorConfig, AngularEditorModule } from '@kolkov/angular-editor';
 import { DIALOG_ACTIONS_ALIGN } from 'nmce';
 import { Observable } from 'rxjs';
@@ -30,7 +31,7 @@ export interface EmailMessage {
     selector: 'email-confirm',
     templateUrl: 'emailConfirm.component.html',
     standalone: true,
-	imports: [MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, FormsModule, ReactiveFormsModule,
+	imports: [MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatIconModule, FormsModule, ReactiveFormsModule,
 		AngularEditorModule,
 	]
 })

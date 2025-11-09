@@ -7,7 +7,7 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatFormField } from '@angular/material/input';
+import { MatFormField, MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 /**
@@ -21,7 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 	templateUrl: 'dateRangePicker.component.html',
 	styleUrls: ['../nmcestyles.css'],
 	standalone: true,
-	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatDatepickerModule, MatFormFieldModule, FormsModule,]
+	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatDatepickerModule, MatFormFieldModule, MatInputModule, FormsModule,]
 })
 export class DateRangePickerComponent {
 	title = $localize`Date Range`;
