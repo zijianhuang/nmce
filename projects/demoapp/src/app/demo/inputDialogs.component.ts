@@ -13,6 +13,7 @@ import {
 } from 'nmce';
 import { EmailConfirmService, LocalDocEditorDialogService } from 'nmce-html-editor';
 
+
 /**
  * Fill up the user registration form and register. Then roles checkboxes will appear.
  * and the Register button may become disabled when the user is just registered.
@@ -20,7 +21,8 @@ import { EmailConfirmService, LocalDocEditorDialogService } from 'nmce-html-edit
 @Component({
     templateUrl: 'inputDialogs.component.html',
     standalone: true,
-	imports: [FormsModule, MatIconModule, MatCheckboxModule, MatButtonModule]
+	imports: [FormsModule, MatIconModule, MatCheckboxModule, MatButtonModule],
+
 })
 export class InputDialogsComponent implements OnInit {
 	loading = false;

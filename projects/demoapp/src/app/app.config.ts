@@ -9,11 +9,14 @@ import {
 } from 'nmce';
 import { AppRoutingModule } from './app-routing.module';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MAT_LUXON_DATE_ADAPTER_OPTIONS, MAT_LUXON_DATE_FORMATS, LuxonDateAdapter } from '@angular/material-luxon-adapter';
+import { DateAdapter, MatRippleModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
+
     importProvidersFrom(
       BrowserModule,
       AppRoutingModule,
@@ -53,6 +56,11 @@ export const appConfig: ApplicationConfig = {
 
     NotificationsService,
     ActionSheetItemSubjectService,
+
+    { provide: DateAdapter, useClass: LuxonDateAdapter, deps: [MAT_DATE_LOCALE, MAT_LUXON_DATE_ADAPTER_OPTIONS] },
+		{ provide: MAT_DATE_FORMATS, useValue: MAT_LUXON_DATE_FORMATS },
+		{ provide: MAT_LUXON_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } },
+		//{ provide: MAT_LIST_CONFIG, useValue: { hideSingleSelectionIndicator : true} }
   ]
 
 }

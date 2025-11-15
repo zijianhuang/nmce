@@ -1,13 +1,15 @@
 import { Component, Injectable } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { AutofocusDirective } from 'nmce-directives';
 
 @Component({
     selector: 'demo-dialog',
     templateUrl: 'demoInput.dialog.html',
     standalone: true,
-    imports: [MatFormFieldModule, MatInputModule]
+    imports: [MatFormFieldModule, MatInputModule, MatButtonModule, AutofocusDirective]
 })
   export class DemoInputComponent {
     constructor(

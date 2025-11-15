@@ -18,6 +18,7 @@
     "strictMetadataEmit": true,
     "enableResourceInlining": true,
     "strictTemplates": true,
+    "fullTemplateTypeCheck": true,
     "strictInputTypes": false
   },
   "exclude": [

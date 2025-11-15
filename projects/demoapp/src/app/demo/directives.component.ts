@@ -3,6 +3,7 @@ import { DemoInputDialogService } from './demoInput.dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { AutofocusDirective } from 'nmce-directives';
 
 /**
  * Fill up the user registration form and register. Then roles checkboxes will appear.
@@ -11,7 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 @Component({
     templateUrl: 'directives.component.html',
     standalone: true,
-	imports: [MatFormFieldModule, MatButtonModule, MatInputModule]
+	imports: [MatFormFieldModule, MatButtonModule, MatInputModule, AutofocusDirective]
 })
 export class DirectivesComponent implements OnInit {
 	currentDateTime: Date;
