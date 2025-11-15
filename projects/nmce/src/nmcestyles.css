@@ -49,7 +49,7 @@ iframe.frame-dialog-content {
 
 /* display: flex is with latest standard, while flexbox is older. flex may cause the label in buttons to wrap, however, this may be good.
 	https://stackoverflow.com/questions/16280040/css3-flexbox-display-box-vs-flexbox-vs-flex
-	If oabel wrapping happens, sometimes good to shorten, for example, "Change Password" to "New Password".
+	If label wrapping happens, sometimes good to shorten, for example, "Change Password" to "New Password".
 */
 
 /* fxLayout="row" */

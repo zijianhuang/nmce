@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ComponentFactoryResolver, Inject, Injectable, Input, OnDestroy, Type, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Inject, Injectable, Input, OnDestroy, Type, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { DataComponentDirective } from 'nmce-directives';
 import { Observable } from 'rxjs';
@@ -19,9 +19,9 @@ import { MatIconModule } from '@angular/material/icon';
     templateUrl: 'dataComponentDialog.component.html',
     styleUrls: ['../nmcestyles.css'],
     standalone: true,
-	imports: [MatButtonModule, MatDialogModule, MatIconModule]
+	imports: [MatButtonModule, MatDialogModule, MatIconModule, DataComponentDirective]
 })
-export class DataComponentDialog implements AfterViewInit, OnDestroy {
+export class DataComponentDialog implements AfterViewInit {
 	@Input()
 	title: string;
 
@@ -52,7 +52,6 @@ export class DataComponentDialog implements AfterViewInit, OnDestroy {
 		},
 		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
 		public dialogRef: MatDialogRef<DataComponentDialog>,
-		protected componentFactoryResolver: ComponentFactoryResolver
 	) {
 		this.isSmallScreen = dialogData.isSmallScreen;
 		this.title = dialogData.title;
@@ -64,9 +63,6 @@ export class DataComponentDialog implements AfterViewInit, OnDestroy {
 
 	ngAfterViewInit() {
 		this.loadComponent();
-	}
-
-	ngOnDestroy() {
 	}
 
 	loadComponent() {

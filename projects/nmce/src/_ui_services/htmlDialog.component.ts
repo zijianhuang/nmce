@@ -21,7 +21,7 @@ import { CommonModule } from '@angular/common';
     standalone: true,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule]
 })
-export class HtmlDialogComponent implements AfterViewInit {
+export class HtmlDialogComponent {
 	title: string;
 
 	htmlContent: string;
@@ -42,13 +42,6 @@ export class HtmlDialogComponent implements AfterViewInit {
 		this.toConfirm=data.toConfirm;
 		this.yes=data.yes;
 		this.no=data.no;
-	}
-
-	// @ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
-
-	ngAfterViewInit() {
-		//this.renderer.setProperty(this.htmlContentElement?.nativeElement, 'innerHTML', this.htmlContent);working
-		//this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', this.htmlContent);working
 	}
 
 	confirm(){
@@ -130,7 +123,6 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 				}
 
 				this.htmlContent=errMsg;
-				// this.renderer.setProperty(this.htmlContentElement?.nativeElement, 'innerHTML', errMsg);
 			});
 
 	}
@@ -215,7 +207,7 @@ export class HtmlDialogService extends HtmlBaseDialogService<HtmlDialogComponent
  * Display HTML content from URL in a dialog. Use this only when you are sure the HTML content does not contain naughty styling that could  do graffiti all over the NG2 page.
  * If the URL is under the same url root of NG2 app, make sure thee content directory is with a rewrite rule like <add input="{REQUEST_URI}" pattern="^/(content)" negate="true"/>
  * Otherwise if the file is not found, the program may treat the url as a legitimate NG2 route, because of other rewrite rules; and then various warnings or errors may be appearing
- * in browser console because of missing resources or confliciting stylings.
+ * in browser console because of missing resources or conflicting stylings.
  * Warning: You should provide url which will not return HTML that may jeopardize the health of the Angular SPA. If you really want to show a random but not too malicious Web page inside the SPA,
  * you may use HtmlHRefFrameDialogService which will put the Web content inside a frame.
  */

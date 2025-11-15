@@ -1,7 +1,7 @@
 import { CommonModule, Location } from '@angular/common';
 import {
 	Component,
-	ComponentFactoryResolver, ElementRef, Inject, Injectable,
+	ElementRef, Inject, Injectable,
 	Type, ViewChild
 } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
@@ -13,16 +13,18 @@ import { DIALOG_ACTIONS_ALIGN } from '../_ui_services/baseTypes';
 import { DataComponentDialog } from '../_ui_services/dataComponentDialog.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { DataComponentDirective } from 'nmce-directives';
 
 /**
- * This is to host another component which has implemented interface DataComponent. And another component is to be displayed in a dialog but no need to answer but to close.
+ * This is to host another component which has implemented interface DataComponent. 
+ * And another component is to be displayed in a dialog but no need to answer but to close.
  * The Close button may vary depending on the screen size.
  */
 @Component({
 	templateUrl: 'dataComponentPrintDialog.component.html',
 	styleUrls: ['../nmcestyles.css'],
 	standalone: true,
-	imports: [MatButtonModule, MatDialogModule, CommonModule, MatIconModule,]
+	imports: [MatButtonModule, MatDialogModule, CommonModule, MatIconModule, DataComponentDirective]
 })
 export class DataComponentPrintDialog extends DataComponentDialog {
 	@ViewChild('htmlPrintContent', { static: true }) htmlContentElement: ElementRef;
@@ -36,12 +38,11 @@ export class DataComponentPrintDialog extends DataComponentDialog {
 		},
 		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
 		public dialogRef: MatDialogRef<DataComponentDialog>,
-		protected componentFactoryResolver: ComponentFactoryResolver,
 		private location: Location,
 		@Inject('print.cssUrl') private cssUrl: string,
 		private alertService: AlertService,
 	) {
-		super(dialogData, actionsAlign, dialogRef, componentFactoryResolver);
+		super(dialogData, actionsAlign, dialogRef);
 	}
 
 	print() {
