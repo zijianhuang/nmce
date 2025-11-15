@@ -1,15 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 import { AlertService, DataComponent, HtmlDialogService, HtmlFrameDialogService, HtmlFramePrintDialogService, HtmlHRefDialogService, HtmlHRefFrameDialogService, HtmlHRefFramePrintDialogService, HtmlHRefPrintDialogService, HtmlImgDialogService, HtmlImgPrintDialogService, HtmlPrintDialogService } from 'nmce';
-import { NGMDModule } from '../ngmd.module';
+
 /**
  * Users search and list
  */
 @Component({
     templateUrl: 'htmlDialogs.component.html',
     standalone: true,
-	imports: [NGMDModule, FormsModule, ReactiveFormsModule]
+	imports: [FormsModule, ReactiveFormsModule, MatFormFieldModule, MatSelectModule, MatIconModule, MatCheckboxModule, MatButtonModule]
 })
 export class HtmlDialogsComponent implements DataComponent {
 	useBackButton: boolean;

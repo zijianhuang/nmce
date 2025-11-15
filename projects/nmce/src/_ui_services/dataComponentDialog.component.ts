@@ -31,7 +31,7 @@ export class DataComponentDialog implements AfterViewInit, OnDestroy {
 	/**
 	 * Reference to dataComponentHost with ng-container
 	 */
-	@ViewChild(DataComponentDirective, { static: false }) componentHost: DataComponentDirective;
+	@ViewChild(DataComponentDirective, { static: true }) componentHost: DataComponentDirective;
 
 	externalComponentType: Type<DataComponent>;
 

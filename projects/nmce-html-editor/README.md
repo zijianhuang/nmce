@@ -1,6 +1,6 @@
 # NmceHtmlEditor
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
+Based on [@kolkov/angular-editor](https://www.npmjs.com/package/@kolkov/angular-editor), LocalDocHtmlEditorDialogComponent and EmailConfirmComponent are exported.
 
 ## Code scaffolding
 

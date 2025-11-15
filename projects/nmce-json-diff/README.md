@@ -1,6 +1,6 @@
-# NmceJsonDiff
+# Nmce-Json-Diff
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
+Based on [jsondiffpatch](https://www.npmjs.com/package/jsondiffpatch), JsonDiffComponent and JsonDiffDialogService show the JSON diff result.
 
 ## Code scaffolding
 

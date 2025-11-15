@@ -1,10 +1,12 @@
 import { state, style, transition, trigger, useAnimation } from '@angular/animations';
 import { Component, OnDestroy } from '@angular/core';
-import { MatIconRegistry } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { bounceInDown, flash } from 'ng-animate';
 import { ActionSheetItemSubjectService, AlertService, NotificationsService } from 'nmce';
 import { Subject } from 'rxjs';
-
+import {MatBadgeModule} from '@angular/material/badge';
+import { RouterModule } from '@angular/router';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -18,7 +20,8 @@ import { Subject } from 'rxjs';
             transition('* => *', useAnimation(flash, { delay: 200 })),
         ])
     ],
-    standalone: false
+    standalone: true,
+    imports: [MatIconModule, MatButtonModule, MatBadgeModule, RouterModule]
 })
 export class AppComponent implements OnDestroy {
   title = 'demoapp';

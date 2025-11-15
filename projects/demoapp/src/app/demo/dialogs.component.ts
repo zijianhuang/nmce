@@ -7,7 +7,11 @@ import {
 } from 'nmce';
 //import { JsonDiffDialogService } from 'nmce-json-diff';
 import { HtmlDialogsComponent } from './htmlDialogs.component';
-import { NGMDModule } from '../ngmd.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
 
 /**
  * Fill up the user registration form and register. Then roles checkboxes will appear.
@@ -16,7 +20,7 @@ import { NGMDModule } from '../ngmd.module';
 @Component({
     templateUrl: 'dialogs.component.html',
     standalone: true,
-	imports: [NGMDModule, FormsModule, ReactiveFormsModule]
+	imports: [FormsModule, ReactiveFormsModule, MatFormFieldModule, MatButtonModule, MatSelectModule, MatCheckboxModule, MatIconModule]
 })
 export class DialogsComponent implements OnInit {
 	loading = false;

@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, RouterModule } from '@angular/router';
-import { NGMDModule } from '../ngmd.module';
-
+import {MatTabsModule} from '@angular/material/tabs'
 @Component({
     selector: 'demo-index',
     templateUrl: 'demo-index.component.html',
     standalone: true,
-	imports: [NGMDModule, RouterModule]
+	imports: [RouterModule, MatTabsModule]
 })
 export class DemoIndexComponent implements OnInit {
 	constructor(private titleService: Title,

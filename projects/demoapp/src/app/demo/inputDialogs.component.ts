@@ -12,9 +12,6 @@ import {
 	TimeService
 } from 'nmce';
 import { EmailConfirmService, LocalDocEditorDialogService } from 'nmce-html-editor';
-import { NGMDModule } from '../ngmd.module';
-
-
 
 /**
  * Fill up the user registration form and register. Then roles checkboxes will appear.
@@ -23,7 +20,7 @@ import { NGMDModule } from '../ngmd.module';
 @Component({
     templateUrl: 'inputDialogs.component.html',
     standalone: true,
-	imports: [NGMDModule, FormsModule]
+	imports: [FormsModule, MatIconModule, MatCheckboxModule, MatButtonModule]
 })
 export class InputDialogsComponent implements OnInit {
 	loading = false;

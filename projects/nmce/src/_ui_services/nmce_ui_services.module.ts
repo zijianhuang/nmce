@@ -1,34 +1,26 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NGMDModule } from '../ngmd.module';
 import {
 	ConfirmComponent,
-	ConfirmService,
 	DataComponentDialog,
-	DataComponentDialogService,
 	DateHourRangePickerComponent,
-	DateHourRangePickerService, DateRangePickerComponent,
-	DateRangePickerService,
+	DateRangePickerComponent,
 	HtmlDialogComponent,
-	HtmlDialogService, HtmlFrameDialogComponent,
-	HtmlFrameDialogService, HtmlHRefDialogComponent,
-	HtmlHRefDialogService, HtmlHRefFrameDialogComponent,
-	HtmlHRefFrameDialogService, HtmlImgDialogComponent, HtmlImgDialogService,
+	HtmlFrameDialogComponent,
+	HtmlHRefDialogComponent,
+	HtmlHRefFrameDialogComponent,
+	HtmlImgDialogComponent, 
 
-	LocalAlertService,
-	LocalTextEditorDialogComponent, LocalTextEditorDialogService, LogDialogComponent, LogSnackComponent,
+	LocalTextEditorDialogComponent, LogDialogComponent, LogSnackComponent,
 	NotificationsComponent,
 
-
-	OptionListDialogService, OptionsComponent,
-	OptionsService, PasswordsInputComponent,
-	PasswordsInputService, TextDialogComponent,
-	TextDialogService, TextHRefDialogComponent,
-	TextHReflDialogService, TextInputComponent,
-	TextInputService, TimePickerComponent,
-	TimeService
-} from './index';
+	OptionsComponent,
+	PasswordsInputComponent,
+	TextDialogComponent,
+	TextHRefDialogComponent,
+	TextInputComponent,
+	TimePickerComponent} from './index';
 import { ItemListDialogComponent } from './itemListDialog.component';
 
 /**
@@ -39,7 +31,6 @@ import { ItemListDialogComponent } from './itemListDialog.component';
 	imports: [
 		CommonModule,
 		FormsModule,
-		NGMDModule,
 		ReactiveFormsModule,
 	
 		HtmlDialogComponent,

@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NGMDModule } from '../ngmd.module';
 import {
 	AlertComponent, MonthYearExpiryComponent, NotFoundComponent,
 
@@ -19,7 +18,6 @@ import {
 	imports: [
 		CommonModule,
 		FormsModule,
-		NGMDModule,
 		ReactiveFormsModule,
 
 		AlertComponent,

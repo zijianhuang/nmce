@@ -1,14 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NGMDModule } from '../ngmd.module';
 
-import { ProgressComponent, ProgressDialogService } from './progress.component';
-import { DataComponentPrintDialog, DataComponentPrintDialogService } from './dataComponentPrintDialog.component';
-import { HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent, HtmlFramePrintDialogService, HtmlHRefFramePrintDialogService } from './htmlFramePrintDialog.component';
-import { HtmlPrintDialogComponent, HtmlHRefPrintDialogComponent, HtmlImgPrintDialogComponent, HtmlHRefPrintDialogService, HtmlPrintDialogService, HtmlImgPrintDialogService } from './htmlPrintDialog.component';
-import { LazyComponentDialogService } from './lazy-component-dialog.service';
-import { LazyComponentPrintDialogService } from './lazy-component-print-dialog.service';
+import { ProgressComponent } from './progress.component';
+import { DataComponentPrintDialog } from './dataComponentPrintDialog.component';
+import { HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent } from './htmlFramePrintDialog.component';
+import { HtmlPrintDialogComponent, HtmlHRefPrintDialogComponent, HtmlImgPrintDialogComponent } from './htmlPrintDialog.component';
 
 
 /**
@@ -19,7 +16,6 @@ import { LazyComponentPrintDialogService } from './lazy-component-print-dialog.s
 	imports: [
 		CommonModule,
 		FormsModule,
-		NGMDModule,
 		ReactiveFormsModule,
 	
 		HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent, DataComponentPrintDialog, HtmlPrintDialogComponent, 
