@@ -8,8 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 /**
- * This is to host another component which has implemented interface DataComponent. 
- * And another component is to be displayed in a dialog but not need to answer but to close.
+ * This is to host another component which implements interface DataComponent. 
+ * And the other component is to be displayed in a dialog but no need to answer but to close.
  * The Close button may vary depending on the screen size.
  * This component is primarily used in DataComponentDialogService.
  * This is based on the concept in https://angular.io/guide/dynamic-component-loader

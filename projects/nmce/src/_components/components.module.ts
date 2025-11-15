@@ -3,16 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
 	AlertComponent, MonthYearExpiryComponent, NotFoundComponent,
-
-
-
 	PrintComponent, WaitComponent, WaitProgressComponent, WIPComponent
 } from './index';
 
-
 /**
- * Contain components. Other feature modules that need to access custom html element of components like my-datetimepicker still need to import this module explicitly.
- * It is a bit strange that Ng2 could pick this module up though I had explicitly import it only in ml_appointments.module for datetime picker.???
+ * Contain components for apps preferring importing module.
  */
 @NgModule({
 	imports: [

@@ -9,14 +9,13 @@ import { AlertService } from '../_ui_services/alert.service';
 import { HtmlPrintFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
 import { DataComponent } from '../_types/DataComponent';
-//import { LazyDataComponentDialog } from '../_ui_services_lazy/lazy-component-dialog.service';
 import { DIALOG_ACTIONS_ALIGN } from '../_ui_services/baseTypes';
 import { DataComponentDialog } from '../_ui_services/dataComponentDialog.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 /**
- * This is to host another component which has implemented interface DataComponent. And another component is to be displayed in a dialog but not need to answer but to close.
+ * This is to host another component which has implemented interface DataComponent. And another component is to be displayed in a dialog but no need to answer but to close.
  * The Close button may vary depending on the screen size.
  */
 @Component({
