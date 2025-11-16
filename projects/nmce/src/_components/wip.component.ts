@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Location } from '@angular/common';
 
 /**
- * Todo: move this to pattern page. To temporarily present a component not yet being developed however currently workflow need to show something.
+ * To temporarily present a component not yet being developed however currently workflow need to show something.
  */
 @Component({
     templateUrl: 'wip.component.html',

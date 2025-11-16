@@ -121,7 +121,6 @@ npm install --save-dev @compodoc/compodoc
 npx compodoc -p tsconfig.doc.json
 # or serve
 npx compodoc -p tsconfig.doc.json -s
-
 ```
 
 # Alternative or Complementary

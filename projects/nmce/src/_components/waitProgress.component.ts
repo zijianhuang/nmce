@@ -6,8 +6,6 @@ import { CommonModule} from '@angular/common';
 
 /**
  * Display wait with mat-progress-bar, controllable by mode and value.
- * https://danywalls.com/angulars-exportas-feature-a-practical-guide-to-sharing-component-state
- * https://netbasal.com/angular-2-take-advantage-of-the-exportas-property-81374ce24d26
  */
 @Component({
     selector: 'waitProgress, nmce-wait-progress, nmceWaitProgress',

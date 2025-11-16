@@ -9,7 +9,7 @@ import { HtmlPrintFunc } from 'nmce-func';
     selector: 'print-page, nmce-print-page, nmcePrintPage',
     exportAs: 'nmcePrintPage',
     template: `
-	 <button (click)="printDiv()" mat-raised-button mdTooltip="Print content">Print</button>
+	 <button (click)="printDiv()" mat-raised-button mdTooltip="Print content" i18n>Print</button>
 	`,
     standalone: true
 })

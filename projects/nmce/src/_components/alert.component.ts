@@ -30,7 +30,6 @@ export class AlertComponent implements OnInit, OnDestroy {
 		} else {
 			return false;
 		}
-
 	}
 
 	constructor(
@@ -58,13 +57,11 @@ export class AlertComponent implements OnInit, OnDestroy {
 				}
 			}
 
-			this.ref.detectChanges(); //to make sure the component render mid and tic. Otherwise, in Chrome an FF, I have to click. Not sure if this is a bug in NG2.
+			this.ref.detectChanges();
 		});
 	}
 
 	ngOnDestroy(): void {
 		this.alive = false;
 	}
-
-
 }
