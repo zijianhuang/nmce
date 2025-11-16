@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+
+  "include": [
+    "projects/nmce/**/*",
+    "projects/nmce-directives/**/*",
+    "projects/nmce-pipes/**/*",
+    "projects/nmce-func/**/*",
+    "projects/nmce-html-editor/**/*",
+    "projects/nmce-json-diff/**/*"
+
+  ]
+}

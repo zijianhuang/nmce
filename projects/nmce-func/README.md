@@ -1,6 +1,6 @@
-# Nmce-Func
+# [Nmce-Func](https://www.npmjs.com/package/nmce-func)
 
-Common functions used in JavaScript apps and also in other projects of the NMCE repository. The functions cover these areas:
+Common functions used in JavaScript apps and also in other library projects of the NMCE repository. The functions cover these areas:
 1. Address
 1. Currency
 1. Date and time

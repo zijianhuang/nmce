@@ -1,4 +1,7 @@
-# NmceDirectives
+# [Nmce-Directives](https://www.npmjs.com/package/nmce-directives)
+
+* autofocus
+* scrollInto
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
 

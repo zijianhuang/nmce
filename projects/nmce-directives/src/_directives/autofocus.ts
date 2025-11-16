@@ -1,4 +1,4 @@
-import { AfterViewInit, Directive, DoCheck, ElementRef, Input, OnChanges } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
 
 /**
  * Use as a parameterized input parameter in html element.

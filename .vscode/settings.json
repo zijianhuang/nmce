@@ -8,6 +8,7 @@
         "nmcestyles"
     ],
     "search.exclude": {
+        "**/documentation": true,
         "**/appdist": true,
         "**/dist": true
     }

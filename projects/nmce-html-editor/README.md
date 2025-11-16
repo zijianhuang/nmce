@@ -1,4 +1,4 @@
-# NmceHtmlEditor
+# [Nmce=Html-Editor](https://www.npmjs.com/package/nmce-html-editor)
 
 Based on [@kolkov/angular-editor](https://www.npmjs.com/package/@kolkov/angular-editor), LocalDocHtmlEditorDialogComponent and EmailConfirmComponent are exported.
 

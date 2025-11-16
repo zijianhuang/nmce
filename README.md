@@ -1,20 +1,20 @@
 # NMCE Projects
 
-The projects of Angular Material Components Extensions are to deliver a set of reusable Angular codes and [Angular Material UI Component Library](https://material.angular.io/) Extensions, targeting complex business applications with rich data structures, intensive GUI and complex workflows.
+The projects of Angular Material Components Extensions are to deliver a set of reusable Angular codes and Extensions of [Angular Material UI Component Library](https://material.angular.io/), targeting complex business applications with rich data structures, intensive GUI and complex workflows.
 
 ## Demo
 [Demo Sites](https://zijianhuang.github.io/nmce/en/) in [various locales](https://zijianhuang.github.io/nmce/).
 
 ## Projects
-* [nmce-func](https://www.npmjs.com/package/nmce-func): Common functions used in business applications and the components and the services in this NMCE project.
-* nmce: A few sets of components and services based on [Angular Material Components](https://material.angular.io/components/categories).
-* nmce-html-editor: A few dialog services based on [@kolkov/angular-editor](https://github.com/kolkov/angular-editor), present a HTML editor in a dialog.
-* Nmce-json-diff: A simple dialog service based on [jsondiffpatch](https://github.com/benjamine/jsondiffpatch).
-* nmce-pipes: Common simple Angular pipes used in business applications.
-* nmce-directives: Common simple Angular directives used in business applications.
+* [nmce-func](https://www.npmjs.com/package/nmce-func): Common functions used in business applications, as well as the components and the services in this NMCE libraries.
+* [nmce](https://www.npmjs.com/package/nmce): A few sets of components and services based on [Angular Material Components](https://material.angular.io/components/categories).
+* [nmce-html-editor](https://www.npmjs.com/package/nmce-html-editor): A few dialog services based on [@kolkov/angular-editor](https://github.com/kolkov/angular-editor), present a HTML editor in a dialog.
+* [nmce-json-diff](https://www.npmjs.com/package/nmce-json-diff): A simple dialog service based on [jsondiffpatch](https://github.com/benjamine/jsondiffpatch).
+* [nmce-pipes](https://www.npmjs.com/package/nmce-pipes): Common simple Angular pipes.
+* [nmce-directives](https://www.npmjs.com/package/nmce-directives): Common simple Angular directives.
 * demoapp: A demo application demonstrating features of all above.
 
-## Designs
+# Designs
 
 The UI design conforms to Material Design, and the visual components are constructed through composing, bridging and wrapping of existing Angular Material Components.
 
@@ -26,10 +26,9 @@ When considering use cases and making design trade-off, the priority is:
 TV screen is not considered.
 
 Remarks:
-* This repository has started with a lot functions, pipes, directives and components since 2017 however overtime as Angular and Angular Material UI Component Library have grown more matured and comprehensive, many has gone in favor of the built-ins one of the frameworks and libraries which include the following:
+* This repository began with a rich collection of functions, pipes, directives, and components dating back to 2017. However, over time, as Angular and the Angular Material UI Component Library have become more mature and comprehensive, many of these utilities have been deprecated in favor of the built-in features provided by the frameworks and libraries, which include the following:
     * MomentJS then luxon for date time handling.
     * dinerojs for monetary calculations.
-
 
 ## Design Approaches
 
@@ -38,6 +37,8 @@ Remarks:
 * Minimum CSS crafting is used.
 * Extensions to already comprehensive frameworks and libraries.
 * Once respective frameworks and libraries evolve overlapping or surpassing what offered in this repository, the respective codes of this repository will then be deprecated and removed later.
+
+# Maintenance
 
 ## Development server
 
@@ -76,13 +77,7 @@ then `cd dist/myProject`, and
 
 `npm publish`
 
-And in the root, a few bp_nmce*.bat files make it easier to publish.
-
-# Alternative or Complementary
-There are a few similar open source projects:
-
-* [Angular Material Extensions](https://ng-matero.github.io/extensions/).
-* [angular-material-extensions](https://github.com/angular-material-extensions), most repositories are up to date as of 2023.
+And in the root, a few bp_nmce*.ps1 files make it easier to publish.
 
 ## I18N
 
@@ -103,8 +98,34 @@ References:
 
 Then run locales/`Translate.ps1` to translate new or updated items.
 
+
 ### For libraries
 
-As of Angular 19, extra works ave to be done:
+As of Angular 19, extra works are to be done:
 1. To ensure `$localize` strings in TS files to be included, in tsconfig.json of the root and project nmce, add `"types": ["@angular/localize"]` to "compilerOptions".
 1. To avoid build error, in tsconfig.json of project nmce, add `"types": ["@angular/localize"]` to "compilerOptions".
+
+## Documentation
+
+### Install Compodoc
+```bash
+npm install -g @compodoc/compodoc
+# or for local use
+npm install --save-dev @compodoc/compodoc
+```
+
+### tsconfig.doc.json
+
+### Generate or Serve
+```bash
+npx compodoc -p tsconfig.doc.json
+# or serve
+npx compodoc -p tsconfig.doc.json -s
+
+```
+
+# Alternative or Complementary
+There are a few similar open source projects:
+
+* [Angular Material Extensions](https://ng-matero.github.io/extensions/).
+* [angular-material-extensions](https://github.com/angular-material-extensions), most repositories are up to date as of 2023.
