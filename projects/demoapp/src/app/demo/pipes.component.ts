@@ -15,8 +15,7 @@ export class PipesComponent implements OnInit {
 	future: Date;
 	amount=12345.67;
 	amountInCent=987199;
-	constructor(
-		
+	constructor(		
 	) {
 		this.currentDateTime = new Date();
 		this.yesterday= DateTime.fromJSDate(this.currentDateTime).plus({days: -1}).toJSDate();

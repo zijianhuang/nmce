@@ -4,6 +4,5 @@
 /// <reference types="@angular/localize" />
 
 export * from './_directives/autofocus';
-export * from './_directives/dataComponent.directive';
 export * from './_directives/scrollInto.directive';
 

@@ -22,5 +22,4 @@ export class DemoIndexComponent implements OnInit {
 	get defaultActive(): boolean {
 		return this.router.url === '/inputDialogs';
 	}
-
 }

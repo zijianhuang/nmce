@@ -1,11 +1,11 @@
 import { AfterViewInit, Component, Inject, Injectable, Input, OnDestroy, Type, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
-import { DataComponentDirective } from 'nmce-directives';
 import { Observable } from 'rxjs';
 import { DataComponent } from '../_types/DataComponent';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { DataComponentDirective } from '../_types/dataComponent.directive';
 
 /**
  * This is to host another component which implements interface DataComponent. 

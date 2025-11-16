@@ -13,7 +13,7 @@ import { DIALOG_ACTIONS_ALIGN } from '../_ui_services/baseTypes';
 import { DataComponentDialog } from '../_ui_services/dataComponentDialog.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { DataComponentDirective } from 'nmce-directives';
+import { DataComponentDirective } from '../_types/dataComponent.directive';
 
 /**
  * This is to host another component which has implemented interface DataComponent. 
