@@ -1,0 +1,1547 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>amcesource documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">amcesource documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ItemListDialogComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>projects/nmce/src/_ui_services/itemListDialog.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Display a list of items to select one.
+This will be shown by a concrete service of ItemListDialogServiceBase<T>.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ReactiveFormsModule</code>
+                            <code>MatButtonModule</code>
+                            <code>MatDialogModule</code>
+                            <code>MatListModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>../nmcestyles.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./itemListDialog.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Public</span>
+                                <a href="#actionsAlign" >actionsAlign</a>
+                            </li>
+                            <li>
+                                <a href="#items" >items</a>
+                            </li>
+                            <li>
+                                <a href="#title" >title</a>
+                            </li>
+                            <li>
+                                <a href="#toString" >toString</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cancel" >cancel</a>
+                            </li>
+                            <li>
+                                <a href="#itemSelectionChange" >itemSelectionChange</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(data: literal type, actionsAlign: "start" | "center" | "end", dialogRef: <a href="../components/ItemListDialogComponent.html" target="_self">MatDialogRef&lt;ItemListDialogComponent&gt;</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/nmce/src/_ui_services/itemListDialog.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                  
+                                                        <td>
+                                                                    <code>literal type</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>data.items type should be array. data.toStringCallback is to conver an item in the array into string for displaying.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>actionsAlign</td>
+                                                  
+                                                        <td>
+                                                                    <code>&quot;start&quot; | &quot;center&quot; | &quot;end&quot;</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogRef</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../components/ItemListDialogComponent.html" target="_self" >MatDialogRef&lt;ItemListDialogComponent&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancel"></a>
+                    <span class="name">
+                        <span ><b>cancel</b></span>
+                        <a href="#cancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cancel()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">projects/nmce/src/_ui_services/itemListDialog.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>the observable returned is empty string &quot;&quot;.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="itemSelectionChange"></a>
+                    <span class="name">
+                        <span ><b>itemSelectionChange</b></span>
+                        <a href="#itemSelectionChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>itemSelectionChange(e: MatSelectionListChange)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">projects/nmce/src/_ui_services/itemListDialog.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>e</td>
+                                            <td>
+                                                        <code>MatSelectionListChange</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actionsAlign"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Public</span>
+                        <span ><b>actionsAlign</b></span>
+                        <a href="#actionsAlign"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;start&quot; | &quot;center&quot; | &quot;end&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Inject(DIALOG_ACTIONS_ALIGN)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/nmce/src/_ui_services/itemListDialog.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="items"></a>
+                    <span class="name">
+                        <span ><b>items</b></span>
+                        <a href="#items"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/nmce/src/_ui_services/itemListDialog.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Must be an array type</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="title"></a>
+                    <span class="name">
+                        <span ><b>title</b></span>
+                        <a href="#title"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/nmce/src/_ui_services/itemListDialog.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toString"></a>
+                    <span class="name">
+                        <span ><b>toString</b></span>
+                        <a href="#toString"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/nmce/src/_ui_services/itemListDialog.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject } from &#x27;@angular/core&#x27;;
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from &#x27;@angular/material/dialog&#x27;;
+import { MatListModule, MatSelectionListChange } from &#x27;@angular/material/list&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { DIALOG_ACTIONS_ALIGN } from &#x27;./baseTypes&#x27;;
+import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+
+/**
+ * Display a list of items to select one.
+ * This will be shown by a concrete service of ItemListDialogServiceBase&lt;T&gt;.
+ */
+@Component({
+    templateUrl: &#x27;./itemListDialog.component.html&#x27;,
+    styleUrls: [&#x27;../nmcestyles.css&#x27;],
+    standalone: true,
+	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatListModule]
+})
+export class ItemListDialogComponent {
+	title: string;
+
+	/**
+	 * Must be an array type
+	 */
+	items: any;
+
+	/*
+	 * Point to the actual implementation in the concrete class of ItemListDialogServiceBase&lt;T&gt;.
+	 * Item type must be the base type of the array type.
+	 */
+	toString: (item: any) &#x3D;&gt; string;
+
+	/**
+	 *
+	 * @param data data.items type should be array. data.toStringCallback is to conver an item in the array into string for displaying.
+	 * @param dialogRef
+	 */
+	constructor(@Inject(MAT_DIALOG_DATA) data: { title: string, items: any, toStringCallback: (item: any) &#x3D;&gt; string }, 
+	@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: &#x27;start&#x27; | &#x27;center&#x27; | &#x27;end&#x27;, 
+	private dialogRef: MatDialogRef&lt;ItemListDialogComponent&gt;,
+	) {
+		this.title &#x3D; data.title;
+		this.items &#x3D; data.items;
+		this.toString &#x3D; data.toStringCallback;
+	}
+
+	/**
+	 * the observable returned is empty string &quot;&quot;.
+	 */
+	cancel(): void {
+		this.dialogRef.close();
+	}
+
+	itemSelectionChange(e: MatSelectionListChange) {
+		this.dialogRef.close(e.options[0].value);
+	}
+}
+
+/**
+ * Show a list of object items and select one. T could be a string type, or any object type that could be presented as a literal description.
+ */
+export abstract class ItemListDialogServiceBase {
+	constructor(protected dialog: MatDialog) { }
+
+	/**
+	 * Display a list of options. With OptionsComponent, it will be a list of buttons labeled by the option texts.
+	 * @param title
+	 * @param items
+	 * @returns object item selected.
+	 */
+	open(title: string, items: { [k: string]: any }[] | string[]): Observable&lt;{ [k: string]: any } | string&gt; {
+		const modalRef &#x3D; this.dialog.open(ItemListDialogComponent, { disableClose: true, autoFocus: false, data: { title: title, items: items, toStringCallback: this.toString } });
+		return modalRef.afterClosed();
+	}
+
+	/**
+	 * Translate item into a string printed in the dialog.
+	 * @param item
+	 */
+	abstract toString(item: { [k: string]: any } | string): string;
+
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;h1 mat-dialog-title&gt;
+	&lt;strong&gt;{{ title }}&lt;/strong&gt;
+&lt;/h1&gt;
+&lt;mat-dialog-content&gt;
+	&lt;mat-selection-list [multiple]&#x3D;&quot;false&quot; (selectionChange)&#x3D;&quot;itemSelectionChange($event)&quot;&gt;
+		@for (p of items; track p) {
+&lt;mat-list-option togglePosition&#x3D;&quot;before&quot; [value]&#x3D;&quot;p&quot;&gt;
+			{{toString(p)}}
+		&lt;/mat-list-option&gt;
+}
+
+	&lt;/mat-selection-list&gt;
+&lt;/mat-dialog-content&gt;
+&lt;mat-dialog-actions [align]&#x3D;&quot;actionsAlign&quot;&gt;
+	&lt;button type&#x3D;&quot;button&quot; mat-raised-button matDialogClose i18n&gt;Cancel&lt;/button&gt;
+&lt;/mat-dialog-actions&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>../nmcestyles.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* You can add global styles to this file, and also import other style files */
+.alert-success {
+	background-color: #dff0d8;
+	border-color: #d0e9c6;
+	color: #3c763d;
+}
+
+
+.alert-info {
+	background-color: #d9edf7;
+	border-color: #bcdff1;
+	color: #31708f;
+}
+
+
+.alert-warning {
+	background-color: #fcf8e3;
+	border-color: #faf2cc;
+	color: #8a6d3b;
+}
+
+.alert-danger {
+	background-color: #f2dede;
+	border-color: #ebcccc;
+	color: #a94442;
+}
+
+iframe.frame-dialog-content {
+	width: 75vw;
+	height: 45vh;
+}
+
+
+/* For block container such as mat-dialog-title which is at odd against flex. */
+.block-items-gap-1 &gt; * {
+	margin-left: 1em;
+}
+
+	.block-items-gap-1 &gt; *:first-child {
+		margin-left: 0em;
+	}
+
+.top-margin-half {
+	margin-top: 0.5em;
+}
+
+
+/* #region Replace fxFlexLayout */
+
+/* display: flex is with latest standard, while flexbox is older. flex may cause the label in buttons to wrap, however, this may be good.
+	https://stackoverflow.com/questions/16280040/css3-flexbox-display-box-vs-flexbox-vs-flex
+	If label wrapping happens, sometimes good to shorten, for example, &quot;Change Password&quot; to &quot;New Password&quot;.
+*/
+
+/* fxLayout&#x3D;&quot;row&quot; */
+.fx-layout-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.fx-layout-column {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.fx-layout-wrap {
+	flex-wrap: wrap;
+}
+
+/* flex row with fxLayoutGap&#x3D;1em */
+.fx-column-gap-1 {
+	display: flex;
+	flex-direction: row;
+	column-gap: 1em;
+}
+
+/* flex column with fxLayoutGap&#x3D;1em */
+.fx-row-gap-1 {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1em;
+}
+
+/*fxLayoutGap&#x3D;2em*/
+.fx-column-gap-2 {
+	display: flex;
+	flex-direction: row;
+	column-gap: 2em;
+}
+
+.fx-row-gap-2 {
+	display: flex;
+	flex-direction: column;
+	row-gap: 2em
+}
+
+/*fxLayoutGap&#x3D;0.5em*/
+.fx-column-gap-half {
+	display: flex;
+	flex-direction: row;
+	column-gap: 0.5em
+}
+
+.fx-row-gap-half {
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.5em
+}
+
+.fx-align-center-center {
+	justify-content: center;
+	align-content: center;
+}
+
+.fx-align-start {
+	justify-content: flex-start;
+}
+
+.fx-align-start-start {
+	justify-content: flex-start;
+	align-content: flex-start;
+}
+
+.fx-align-end {
+	justify-content: flex-end;
+}
+
+.fx-align-end-end {
+	justify-content: flex-end;
+	align-content: flex-end;
+}
+
+.fx-align-space-between {
+	justify-content: space-between;
+}
+
+.fx-grow-1 {
+	flex-grow: 1;
+}
+
+.fx-grow-2 {
+	flex-grow: 2;
+}
+
+.fx-shrink-1 {
+	flex-shrink: 1;
+}
+
+.flex-100pc {
+	flex: 100%;
+}
+
+.flex-95pc {
+	flex: 95%;
+}
+
+.flex-80pc {
+	flex: 80%;
+}
+
+/* fxFlexFill https://github.com/angular/flex-layout/wiki/fxFlexFill-API */
+.fx-full-width {
+	margin: 0;
+	width: 100%;
+	min-width: 100%;
+}
+
+.fx-95pc-width {
+	margin: 0;
+	width: 95%;
+	min-width: 95%;
+}
+
+.fx-80pc-width {
+	margin: 0;
+	width: 80%;
+	min-width: 80%;
+}
+
+.fx-50pc-width {
+	margin: 0;
+	width: 50%;
+	min-width: 50%;
+}
+
+.fx-offset-80px {
+	margin-left: 80px;
+}
+
+.line-ellipsis {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.line2-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+
+/* #endregion */
+
+/* #region flex 0 grow 0 shrink width */
+.flex-half {
+	flex: 0 0 0.5em;
+	flex-wrap: nowrap;
+}
+
+.flex-1 {
+	flex: 0 0 1em;
+}
+
+.flex-2 {
+	flex: 0 0 2em;
+}
+
+.flex-3 {
+	flex: 0 0 3em;
+}
+
+.flex-4 {
+	flex: 0 0 4em;
+}
+
+.flex-5 {
+	flex: 0 0 5em;
+}
+
+.flex-6 {
+	flex: 0 0 6em;
+}
+
+.flex-7 {
+	flex: 0 0 7em;
+}
+
+.flex-8 {
+	flex: 0 0 8em;
+}
+
+.flex-9 {
+	flex: 0 0 9em;
+}
+
+.flex-10 {
+	flex: 0 0 10em;
+}
+
+.flex-11 {
+	flex: 0 0 11em;
+}
+
+.flex-12 {
+	flex: 0 0 12em;
+}
+
+.flex-13 {
+	flex: 0 0 13em;
+}
+
+.flex-14 {
+	flex: 0 0 14em;
+}
+
+
+.flex-15 {
+	flex: 0 0 15em;
+}
+
+.flex-16 {
+	flex: 0 0 16em;
+}
+
+.flex-17 {
+	flex: 0 0 17em;
+}
+
+.flex-18 {
+	flex: 0 0 18em;
+}
+
+.flex-19 {
+	flex: 0 0 19em;
+}
+
+.flex-20 {
+	flex: 0 0 20em;
+}
+
+.flex-21 {
+	flex: 0 0 21em;
+}
+
+.flex-22 {
+	flex: 0 0 22em;
+}
+
+.flex-23 {
+	flex: 0 0 23em;
+}
+
+.flex-24 {
+	flex: 0 0 24em;
+}
+
+
+.flex-25 {
+	flex: 0 0 25em;
+}
+
+.flex-26 {
+	flex: 0 0 26em;
+}
+
+.flex-27 {
+	flex: 0 0 27em;
+}
+
+.flex-28 {
+	flex: 0 0 28em;
+}
+
+.flex-29 {
+	flex: 0 0 29em;
+}
+
+.flex-30 {
+	flex: 0 0 30em;
+}
+
+.flex-31 {
+	flex: 0 0 31em;
+}
+
+.flex-33 {
+	flex: 0 0 32em;
+}
+
+.flex-33 {
+	flex: 0 0 33em;
+}
+
+.flex-34 {
+	flex: 0 0 34em;
+}
+
+
+.flex-35 {
+	flex: 0 0 35em;
+}
+
+.flex-36 {
+	flex: 0 0 36em;
+}
+
+.flex-37 {
+	flex: 0 0 37em;
+}
+
+.flex-38 {
+	flex: 0 0 38em;
+}
+
+.flex-39 {
+	flex: 0 0 39em;
+}
+
+/* #endregion */
+
+/* #region flex grow 1 shrink 1 width while in flex, grow 1 and shrink 1 are defaults */
+/* https://github.com/angular/flex-layout/wiki/fxFlex-API */
+.flex11-half {
+	flex: 1 1 0.5em;
+}
+
+.flex11-1 {
+	flex: 1 1 1em;
+}
+
+.flex11-2 {
+	flex: 1 1 2em;
+}
+
+.flex11-3 {
+	flex: 1 1 3em;
+}
+
+.flex11-4 {
+	flex: 1 1 4em;
+}
+
+.flex11-5 {
+	flex: 1 1 5em;
+}
+
+.flex11-6 {
+	flex: 1 1 6em;
+}
+
+.flex11-7 {
+	flex: 1 1 7em;
+}
+
+.flex11-8 {
+	flex: 1 1 8em;
+}
+
+.flex11-9 {
+	flex: 1 1 9em;
+}
+
+.flex11-10 {
+	flex: 1 1 10em;
+}
+
+.flex11-11 {
+	flex: 1 1 11em;
+}
+
+.flex11-12 {
+	flex: 1 1 12em;
+}
+
+.flex11-13 {
+	flex: 1 1 13em;
+}
+
+.flex11-14 {
+	flex: 1 1 14em;
+}
+
+
+.flex11-15 {
+	flex: 1 1 15em;
+}
+
+.flex11-16 {
+	flex: 1 1 16em;
+}
+
+.flex11-17 {
+	flex: 1 1 17em;
+}
+
+.flex11-18 {
+	flex: 1 1 18em;
+}
+
+.flex11-19 {
+	flex: 1 1 19em;
+}
+
+.flex11-20 {
+	flex: 1 1 20em;
+}
+
+.flex11-21 {
+	flex: 1 1 21em;
+}
+
+.flex11-22 {
+	flex: 1 1 22em;
+}
+
+.flex11-23 {
+	flex: 1 1 23em;
+}
+
+.flex11-24 {
+	flex: 1 1 24em;
+}
+
+
+.flex11-25 {
+	flex: 1 1 25em;
+}
+
+.flex11-26 {
+	flex: 1 1 26em;
+}
+
+.flex11-27 {
+	flex: 1 1 27em;
+}
+
+.flex11-28 {
+	flex: 1 1 28em;
+}
+
+.flex11-29 {
+	flex: 1 1 29em;
+}
+
+.flex11-30 {
+	flex: 1 1 30em;
+}
+
+.flex11-31 {
+	flex: 1 1 31em;
+}
+
+.flex11-33 {
+	flex: 1 1 32em;
+}
+
+.flex11-33 {
+	flex: 1 1 33em;
+}
+
+.flex11-34 {
+	flex: 1 1 34em;
+}
+
+
+.flex11-35 {
+	flex: 1 1 35em;
+}
+
+.flex11-36 {
+	flex: 1 1 36em;
+}
+
+.flex11-37 {
+	flex: 1 1 37em;
+}
+
+.flex11-38 {
+	flex: 1 1 38em;
+}
+
+.flex11-39 {
+	flex: 1 1 39em;
+}
+
+/* #endregion */
+
+/* #region width */
+.width-half {
+	width: 0.5em;
+}
+
+.width-1 {
+	width: 1em;
+}
+
+.width-2 {
+	width: 2em;
+}
+
+.width-3 {
+	width: 3em;
+}
+
+.width-4 {
+	width: 4em;
+}
+
+.width-5 {
+	width: 5em;
+}
+
+.width-6 {
+	width: 6em;
+}
+
+.width-7 {
+	width: 7em;
+}
+
+.width-8 {
+	width: 8em;
+}
+
+.width-9 {
+	width: 9em;
+}
+
+.width-10 {
+	width: 10em;
+}
+
+.width-11 {
+	width: 11em;
+}
+
+.width-12 {
+	width: 12em;
+}
+
+.width-13 {
+	width: 13em;
+}
+
+.width-14 {
+	width: 14em;
+}
+
+
+.width-15 {
+	width: 15em;
+}
+
+.width-16 {
+	width: 16em;
+}
+
+.width-17 {
+	width: 17em;
+}
+
+.width-18 {
+	width: 18em;
+}
+
+.width-19 {
+	width: 19em;
+}
+
+.width-20 {
+	width: 20em;
+}
+
+.width-21 {
+	width: 21em;
+}
+
+.width-22 {
+	width: 22em;
+}
+
+.width-23 {
+	width: 23em;
+}
+
+.width-24 {
+	width: 24em;
+}
+
+
+.width-25 {
+	width: 25em;
+}
+
+.width-26 {
+	width: 26em;
+}
+
+.width-27 {
+	width: 27em;
+}
+
+.width-28 {
+	width: 28em;
+}
+
+.width-29 {
+	width: 29em;
+}
+
+.width-30 {
+	width: 30em;
+}
+
+.width-31 {
+	width: 31em;
+}
+
+.width-33 {
+	width: 32em;
+}
+
+.width-33 {
+	width: 33em;
+}
+
+.width-34 {
+	width: 34em;
+}
+
+
+.width-35 {
+	width: 35em;
+}
+
+.width-36 {
+	width: 36em;
+}
+
+.width-37 {
+	width: 37em;
+}
+
+.width-38 {
+	width: 38em;
+}
+
+.width-39 {
+	width: 39em;
+}
+
+/* #endregion */
+
+
+img.max-width-auto-height {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+img.original-size {
+	-webkit-user-select: none;
+	margin: auto;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><h1 mat-dialog-title>	<strong>{{ title }}</strong></h1><mat-dialog-content>	<mat-selection-list [multiple]="false" (selectionChange)="itemSelectionChange($event)">		@for (p of items; track p) {<mat-list-option togglePosition="before" [value]="p">			{{toString(p)}}		</mat-list-option>}	</mat-selection-list></mat-dialog-content><mat-dialog-actions [align]="actionsAlign">	<button type="button" mat-raised-button matDialogClose i18n>Cancel</button></mat-dialog-actions></div>'
+    var COMPONENTS = [{'name': 'AlertComponent', 'selector': 'alert, nmce-alert, nmceAlert'},{'name': 'ConfirmComponent', 'selector': 'confirm-content'},{'name': 'DataComponentDialog', 'selector': 'nmce-data-component-content'},{'name': 'DataComponentPrintDialog', 'selector': ''},{'name': 'DateHourRangePickerComponent', 'selector': 'DateHourRangePicker, nmce-date-hour-range-picker'},{'name': 'DateRangePickerComponent', 'selector': 'DateRangePicker, nmce-date-range-picker'},{'name': 'EmailConfirmComponent', 'selector': 'email-confirm'},{'name': 'HtmlDialogComponent', 'selector': 'html-dialog'},{'name': 'HtmlFrameDialogComponent', 'selector': 'html-frame-dialog'},{'name': 'HtmlFramePrintDialogComponent', 'selector': 'html-frame-print-dialog'},{'name': 'HtmlHRefDialogComponent', 'selector': 'html-ref-dialog'},{'name': 'HtmlHRefFrameDialogComponent', 'selector': 'html-href-frame-dialog'},{'name': 'HtmlHRefFramePrintDialogComponent', 'selector': 'html-href-frame-print-dialog'},{'name': 'HtmlHRefPrintDialogComponent', 'selector': 'html-href-print-dialog'},{'name': 'HtmlImgDialogComponent', 'selector': 'html-img-dialog'},{'name': 'HtmlImgPrintDialogComponent', 'selector': 'html-img-print-dialog'},{'name': 'HtmlPrintDialogComponent', 'selector': 'html-print-dialog'},{'name': 'ItemListDialogComponent', 'selector': ''},{'name': 'JsonDiffComponent', 'selector': 'json-diff-page'},{'name': 'LocalDocHtmlEditorDialogComponent', 'selector': ''},{'name': 'LocalTextEditorDialogComponent', 'selector': ''},{'name': 'LogDialogComponent', 'selector': ''},{'name': 'LogSnackComponent', 'selector': ''},{'name': 'MonthYearExpiryComponent', 'selector': 'month-year-expiry, nmce-month-year-expiry'},{'name': 'NotFoundComponent', 'selector': ''},{'name': 'NotificationsComponent', 'selector': ''},{'name': 'OptionsComponent', 'selector': 'options-content'},{'name': 'PasswordsInputComponent', 'selector': 'passwordsInput'},{'name': 'PrintComponent', 'selector': 'print-page, nmce-print-page, nmcePrintPage'},{'name': 'ProgressComponent', 'selector': ''},{'name': 'TextDialogComponent', 'selector': 'text-dialog'},{'name': 'TextHRefDialogComponent', 'selector': 'text-href-dialog'},{'name': 'TextInputComponent', 'selector': 'textInput'},{'name': 'TimePickerComponent', 'selector': 'timePicker'},{'name': 'WaitComponent', 'selector': 'wait, nmce-wait, nmceWait'},{'name': 'WaitProgressComponent', 'selector': 'waitProgress, nmce-wait-progress, nmceWaitProgress'},{'name': 'WIPComponent', 'selector': ''}];
+    var DIRECTIVES = [{'name': 'AutofocusDirective', 'selector': '[autofocus]'},{'name': 'DataComponentDirective', 'selector': '[dataComponentHost]'},{'name': 'HtmlDocEditorDialogBaseComponent', 'selector': ''},{'name': 'ScrollIntoDirective', 'selector': '[scrollInto]'},{'name': 'TextEditorDialogComponentBase', 'selector': ''}];
+    var ACTUAL_COMPONENT = {'name': 'ItemListDialogComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ItemListDialogComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

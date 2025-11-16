@@ -1,0 +1,1337 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>amcesource documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">amcesource documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >StringAusFunc</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/nmce-func/src/_func/stringAusFunc.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>String functions specific to Australia</p>
+
+            </p>
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#acnWeights" >acnWeights</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#suggestLookup" >suggestLookup</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#weights" >weights</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#addAcnWeighted" >addAcnWeighted</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#addWeighted" >addWeighted</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#generateLookup" >generateLookup</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#validateABN" >validateABN</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#validateACN" >validateACN</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#validateDVAFileNumber" >validateDVAFileNumber</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#validateMedicare" >validateMedicare</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#validateMedicareProviderNumber" >validateMedicareProviderNumber</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#validateTFN" >validateTFN</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="acnWeights"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                        <span ><b>acnWeights</b></span>
+                        <a href="#acnWeights"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[8, 7, 6, 5, 4, 3, 2, 1]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">projects/nmce-func/src/_func/stringAusFunc.ts:7</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="suggestLookup"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                        <span ><b>suggestLookup</b></span>
+                        <a href="#suggestLookup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>StringAusFunc.generateLookup()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/nmce-func/src/_func/stringAusFunc.ts:10</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="weights"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                        <span ><b>weights</b></span>
+                        <a href="#weights"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[10, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">projects/nmce-func/src/_func/stringAusFunc.ts:8</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addAcnWeighted"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                        <span ><b>addAcnWeighted</b></span>
+                        <a href="#addAcnWeighted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addAcnWeighted(p: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, v: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, i: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="166"
+                                    class="link-to-prism">projects/nmce-func/src/_func/stringAusFunc.ts:166</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>v</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>i</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addWeighted"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                        <span ><b>addWeighted</b></span>
+                        <a href="#addWeighted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addWeighted(p: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, v: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, i: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="162"
+                                    class="link-to-prism">projects/nmce-func/src/_func/stringAusFunc.ts:162</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>v</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>i</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateLookup"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                        <span ><b>generateLookup</b></span>
+                        <a href="#generateLookup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generateLookup()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="170"
+                                    class="link-to-prism">projects/nmce-func/src/_func/stringAusFunc.ts:170</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>number[]</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateABN"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>validateABN</b></span>
+                        <a href="#validateABN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validateABN(abn: string | null | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="179"
+                                    class="link-to-prism">projects/nmce-func/src/_func/stringAusFunc.ts:179</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>abn</td>
+                                            <td>
+                                                        <code>string | null | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>literal type | null</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateACN"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>validateACN</b></span>
+                        <a href="#validateACN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validateACN(acn: string | null | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="223"
+                                    class="link-to-prism">projects/nmce-func/src/_func/stringAusFunc.ts:223</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>acn</td>
+                                            <td>
+                                                        <code>string | null | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>literal type | null</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateDVAFileNumber"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>validateDVAFileNumber</b></span>
+                        <a href="#validateDVAFileNumber"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validateDVAFileNumber(dva: string | null | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">projects/nmce-func/src/_func/stringAusFunc.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dva</td>
+                                            <td>
+                                                        <code>string | null | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>literal type | null</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateMedicare"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>validateMedicare</b></span>
+                        <a href="#validateMedicare"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validateMedicare(n: string | null | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="17"
+                                    class="link-to-prism">projects/nmce-func/src/_func/stringAusFunc.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Validate medicare number</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>n</td>
+                                            <td>
+                                                        <code>string | null | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>literal type | null</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>validation error message</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateMedicareProviderNumber"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>validateMedicareProviderNumber</b></span>
+                        <a href="#validateMedicareProviderNumber"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validateMedicareProviderNumber(providerNumber: string | null | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">projects/nmce-func/src/_func/stringAusFunc.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>providerNumber</td>
+                                            <td>
+                                                        <code>string | null | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>literal type | null</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateTFN"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>validateTFN</b></span>
+                        <a href="#validateTFN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validateTFN(n: string | null | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="122"
+                                    class="link-to-prism">projects/nmce-func/src/_func/stringAusFunc.ts:122</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>n</td>
+                                            <td>
+                                                        <code>string | null | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>literal type | null</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class StringAusFunc {
+
+	//thanks to https://github.com/sidorares/australian-business-number/blob/0591475f5978fd122b472edcdc7efe6d96d56f26/index.js
+	private static acnWeights &#x3D; [8, 7, 6, 5, 4, 3, 2, 1];
+	private static weights &#x3D; [10, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
+
+	private static suggestLookup: number[] &#x3D; StringAusFunc.generateLookup();
+
+	/**
+	 * Validate medicare number
+	 * @param n
+	 * @returns validation error message
+	 */
+	static validateMedicare(n: string | null | undefined): { code: number, message: string } | null {
+		if (!n) {
+			return null;
+		}
+
+		if (n &amp;&amp; n.length &#x3D;&#x3D;&#x3D; 10) {
+			const matches &#x3D; n.match(/^(\d{8})(\d)/);
+
+			if (!matches) {
+				return {
+					code: 2, message: &#x27;Medicare number should be all digit.&#x27;
+				};
+			}
+
+			const base &#x3D; matches[1];
+			const checkDigit &#x3D; matches[2];
+			const weights &#x3D; [1, 3, 7, 9, 1, 3, 7, 9];
+
+			let sum &#x3D; 0;
+			for (let i &#x3D; 0; i &lt; weights.length; i++) {
+				sum +&#x3D; parseInt(base[i], 10) * weights[i];
+			}
+
+			//console.debug(&#x60;sum: ${sum}  checkDigits: ${checkDigit}&#x60;);
+			const isValid &#x3D; sum % 10 &#x3D;&#x3D;&#x3D; parseInt(checkDigit, 10);
+			if (!isValid) {
+				return {
+					code: 3, message: &#x27;Checksum is incorrect.&#x27;
+				};
+			}
+		} else {
+			return { code: 1, message: &#x27;Length should be 10.&#x27; };
+		}
+
+		return null;
+	}
+
+	static validateMedicareProviderNumber(providerNumber: string | null | undefined): { code: number, message: string } | null {
+		if (!providerNumber) {
+			return null;
+		}
+
+		if (!/^[0-9]{6}[0-9ABCDEFGHJKLMNPQRTUVWXY][ABFHJKLTWXY]/.test(providerNumber)) {
+			return { code: 1, message: &#x27;Not matching provider number format.&#x27; };
+		}
+
+		const practiceLocationValues &#x3D; [&#x27;0&#x27;, &#x27;1&#x27;, &#x27;2&#x27;, &#x27;3&#x27;, &#x27;4&#x27;, &#x27;5&#x27;, &#x27;6&#x27;, &#x27;7&#x27;, &#x27;8&#x27;, &#x27;9&#x27;, &#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;, &#x27;E&#x27;, &#x27;F&#x27;, &#x27;G&#x27;, &#x27;H&#x27;, &#x27;J&#x27;, &#x27;K&#x27;, &#x27;L&#x27;, &#x27;M&#x27;, &#x27;N&#x27;, &#x27;P&#x27;, &#x27;Q&#x27;, &#x27;R&#x27;, &#x27;T&#x27;, &#x27;U&#x27;, &#x27;V&#x27;, &#x27;W&#x27;, &#x27;X&#x27;, &#x27;Y&#x27;];
+		const remainderValues &#x3D; [&#x27;Y&#x27;, &#x27;X&#x27;, &#x27;W&#x27;, &#x27;T&#x27;, &#x27;L&#x27;, &#x27;K&#x27;, &#x27;J&#x27;, &#x27;H&#x27;, &#x27;F&#x27;, &#x27;B&#x27;, &#x27;A&#x27;];
+		const stemWeights &#x3D; [3, 5, 8, 4, 2, 1];
+
+		const stemNumbers &#x3D; providerNumber.substr(0, 6).split(&#x27;&#x27;).map((char) &#x3D;&gt; parseInt(char));
+		const practiceLoc &#x3D; practiceLocationValues.findIndex((e) &#x3D;&gt; e &#x3D;&#x3D;&#x3D; providerNumber[6]);
+		const checksum &#x3D; providerNumber[7];
+
+		const zipped &#x3D; stemWeights.map((x, i) &#x3D;&gt; [x, stemNumbers[i]]);
+		const sumWeights &#x3D; zipped.map((y) &#x3D;&gt; y[1] * y[0]).reduce((total, num) &#x3D;&gt; total + num);
+		const remainder &#x3D; (sumWeights + practiceLoc * 6) % 11;
+
+		const result &#x3D; remainderValues[remainder];
+
+		const valid &#x3D; result &#x3D;&#x3D;&#x3D; checksum;
+		if (!valid) {
+			return { code: 2, message: &#x27;Checksum is incorrect.&#x27; };
+		}
+
+		return null;
+	}
+
+	static validateDVAFileNumber(dva: string | null | undefined): { code: number, message: string } | null {
+		if (!dva) {
+			return null;
+		}
+
+		const states &#x3D; [&#x27;N&#x27;, &#x27;V&#x27;, &#x27;Q&#x27;, &#x27;S&#x27;, &#x27;W&#x27;, &#x27;T&#x27;];
+		const warCodes &#x3D; [&#x27; &#x27;, &#x27;X&#x27;, &#x27;KM&#x27;, &#x27;SR&#x27;, &#x27;SS&#x27;, &#x27;SM&#x27;, &#x27;SWP&#x27;, &#x27;AGX&#x27;, &#x27;BW&#x27;, &#x27;GW&#x27;, &#x27;CGW&#x27;, //Australian Forces
+			&#x27;P&#x27;, &#x27;PX&#x27;, &#x27;PAD&#x27;, &#x27;PAM&#x27;, &#x27;PCA&#x27;, &#x27;PCR&#x27;, &#x27;PCV&#x27;, &#x27;PMS&#x27;, &#x27;PSW&#x27;, &#x27;PWO&#x27;, &#x27;HKX&#x27;, &#x27;MAL&#x27;, //British Administration Group
+			&#x27;CN&#x27;, &#x27;CNX&#x27;, &#x27;IV&#x27;, &#x27;NF&#x27;, &#x27;NG&#x27;, &#x27;RD&#x27;, &#x27;RDX&#x27;, &#x27;SA&#x27;, &#x27;SAX&#x27;, &#x27;A&#x27;, //Other Overseas Forces
+			&#x27;N&#x27;, &#x27;NX&#x27;, &#x27;NSW&#x27;, &#x27;NSM&#x27;, //New Zealand Administration Group
+			&#x27;BUR&#x27;, &#x27;CNK&#x27;, &#x27;CNS&#x27;, &#x27;FIJ&#x27;, &#x27;GHA&#x27;, &#x27;HKS&#x27;, &#x27;IND&#x27;, &#x27;KYA&#x27;, &#x27;MAU&#x27;, &#x27;MLS&#x27;, &#x27;MTX&#x27;, &#x27;MWI&#x27;, &#x27;NK&#x27;, &#x27;NGR&#x27;, &#x27;NRD&#x27;, &#x27;NSS&#x27;, &#x27;PK&#x27;]//British Commonwealth Countries - SP Eligibility
+
+		if (!states.includes(dva.charAt(0))) {
+			return { code: 1, message: &#x27;State incorrect.&#x27; };
+		}
+
+		const ns &#x3D; dva.match(/\d+/);
+		if (!ns) {
+			return { code: 2, message: &#x27;No number.&#x27; };
+		}
+
+		const n &#x3D; ns[0];
+		const idxOfN &#x3D; dva.indexOf(n);
+		const warCode &#x3D; dva.substring(1, idxOfN);
+		if (!warCodes.includes(warCode)) {
+			return { code: 3, message: &#x27;War code invalid.&#x27; }
+		}
+
+		const lenOfN &#x3D; n.length;
+		const lenOfWc &#x3D; warCode.length;
+		if (lenOfN + lenOfWc &gt; 7) {
+			return { code: 4, message: &#x27;File number length should not be greater 7.&#x27; }
+		}
+
+		return null;
+	}
+
+	static validateTFN(n: string | null | undefined): { code: number, message: string } | null {
+		if (!n) {
+			return null;
+		}
+
+		const tfn &#x3D; n.replace(/\s+/g, &#x27;&#x27;).replace(/[-]/g, &#x27;&#x27;);
+
+		const isNumber &#x3D; /^[0-9]+$/.test(tfn);
+		if (!isNumber) {
+			return { code: 1, message: &#x27;Invalid TFN, only numbers are allowed.&#x27; };
+		}
+
+		const length &#x3D; tfn.length;
+		if (length !&#x3D;&#x3D; 9) {
+			return {
+				code: 2, message: &#x27;Invalid TFN, must have 9 digits.&#x27;
+			};
+		}
+
+		const digits &#x3D; tfn.split(&#x27;&#x27;).map(d &#x3D;&gt; parseInt(d));
+
+		const sum &#x3D; (digits[0] * 1)
+			+ (digits[1] * 4)
+			+ (digits[2] * 3)
+			+ (digits[3] * 7)
+			+ (digits[4] * 5)
+			+ (digits[5] * 8)
+			+ (digits[6] * 6)
+			+ (digits[7] * 9)
+			+ (digits[8] * 10);
+
+		const remainder &#x3D; sum % 11;
+		const valid &#x3D; remainder &#x3D;&#x3D;&#x3D; 0;
+		if (!valid) {
+			return { code: 3, message: &#x27;Checksum is incorrect.&#x27; };
+		}
+
+		return null;
+	}
+
+	private static addWeighted(p: number, v: number, i: number) {
+		return p + v * StringAusFunc.weights[i];
+	}
+
+	private static addAcnWeighted(p: number, v: number, i: number) {
+		return p + v * StringAusFunc.acnWeights[i];
+	}
+
+	private static generateLookup(): number[] {
+		const ns: number[] &#x3D; [];
+		for (let i &#x3D; 0; i &lt; 10; ++i) {
+			ns[i * 19 % 89] &#x3D; i;
+		}
+
+		return ns;
+	}
+
+	static validateABN(abn: string | null | undefined): { code: number, message: string } | null {
+		if (!abn) {
+			return null;
+		}
+
+		const digits &#x3D; abn.replace(/[^\d]/g, &#x27;&#x27;).split(&#x27;&#x27;).map(Number);
+		if (digits.length !&#x3D;&#x3D; 11) {
+			return { code: 1, message: &#x27;Expect 11-digit.&#x27; };
+		}
+
+		digits[0] -&#x3D; 1;
+
+		const sum &#x3D; digits.reduce(StringAusFunc.addWeighted, 0);
+
+		if (sum % 89 &#x3D;&#x3D;&#x3D; 0) {
+			return null;
+		}
+
+		digits[0] +&#x3D; 1;
+
+		let sum1 &#x3D; sum - digits[10] * StringAusFunc.weights[10];
+		let digit &#x3D; StringAusFunc.suggestLookup[89 - sum1 % 89];
+		if (digit !&#x3D;&#x3D; undefined) {
+			return {
+				code: 2,
+				message: &#x27;Checksum1 is incorrect.&#x27;
+			}
+		} else {
+			const sum2 &#x3D; sum1 - digits[9] * StringAusFunc.weights[9];
+			for (let i &#x3D; 0; i &lt; 10; ++i) {
+				sum1 &#x3D; sum2 + i * StringAusFunc.weights[9];
+				digit &#x3D; StringAusFunc.suggestLookup[89 - sum1 % 89];
+				if (digit !&#x3D;&#x3D; undefined) {
+					return {
+						code: 3,
+						message: &#x27;Checksum2 is incorrect.&#x27;
+					}
+				}
+			}
+		}
+
+		return null
+	}
+
+	static validateACN(acn: string | null | undefined): { code: number, message: string } | null {
+		if (!acn) {
+			return null;
+		}
+
+		const digits &#x3D; acn.replace(/[^\d]/g, &#x27;&#x27;).split(&#x27;&#x27;).map(Number);
+		console.log(digits);
+		if (digits.length !&#x3D;&#x3D; 9) {
+			return { code: 1, message: &#x27;Expect 9-digit.&#x27; };
+		}
+
+
+		const sum &#x3D; digits.slice(0, 8).reduce(StringAusFunc.addAcnWeighted, 0);
+		const lastDigit &#x3D; 10 - sum % 10;
+		if (lastDigit &#x3D;&#x3D;&#x3D; digits[8]) {
+			return null;
+		}
+
+		return {
+			code: 2,
+			message: &#x27;Checksum is incorrect.&#x27;
+		};
+	}
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'StringAusFunc.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

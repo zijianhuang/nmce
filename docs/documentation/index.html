@@ -1,0 +1,289 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>amcesource documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">amcesource documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content readme">
+                   <div class="content-data">
+
+
+<h1>NMCE Projects</h1>
+<p>The projects of Angular Material Components Extensions are to deliver a set of reusable Angular codes and Extensions of <a href="https://material.angular.io/">Angular Material UI Component Library</a>, targeting complex business applications with rich data structures, intensive GUI and complex workflows.</p>
+<h2>Demo</h2>
+<p><a href="https://zijianhuang.github.io/nmce/en/">Demo Sites</a> in <a href="https://zijianhuang.github.io/nmce/">various locales</a>.</p>
+<h2>Projects</h2>
+<ul>
+<li><a href="https://www.npmjs.com/package/nmce-func">nmce-func</a>: Common functions used in business applications, as well as the components and the services in this NMCE libraries.</li>
+<li><a href="https://www.npmjs.com/package/nmce">nmce</a>: A few sets of components and services based on <a href="https://material.angular.io/components/categories">Angular Material Components</a>.</li>
+<li><a href="https://www.npmjs.com/package/nmce-html-editor">nmce-html-editor</a>: A few dialog services based on <a href="https://github.com/kolkov/angular-editor">@kolkov/angular-editor</a>, present a HTML editor in a dialog.</li>
+<li><a href="https://www.npmjs.com/package/nmce-json-diff">nmce-json-diff</a>: A simple dialog service based on <a href="https://github.com/benjamine/jsondiffpatch">jsondiffpatch</a>.</li>
+<li><a href="https://www.npmjs.com/package/nmce-pipes">nmce-pipes</a>: Common simple Angular pipes.</li>
+<li><a href="https://www.npmjs.com/package/nmce-directives">nmce-directives</a>: Common simple Angular directives.</li>
+<li>demoapp: A demo application demonstrating features of all above.</li>
+</ul>
+<h1>Designs</h1>
+<p>The UI design conforms to Material Design, and the visual components are constructed through composing, bridging and wrapping of existing Angular Material Components.</p>
+<p>When considering use cases and making design trade-off, the priority is:</p>
+<ol>
+<li>Desktop with big monitors, mouse and keyboard</li>
+<li>Tablet</li>
+<li>Smartphone</li>
+</ol>
+<p>TV screen is not considered.</p>
+<p>Remarks:</p>
+<ul>
+<li>This repository began with a rich collection of functions, pipes, directives, and components dating back to 2017. However, over time, as Angular and the Angular Material UI Component Library have become more mature and comprehensive, many of these utilities have been deprecated in favor of the built-in features provided by the frameworks and libraries, which include the following:<ul>
+<li>MomentJS then luxon for date time handling.</li>
+<li>dinerojs for monetary calculations.</li>
+</ul>
+</li>
+</ul>
+<h2>Design Approaches</h2>
+<ul>
+<li>The UI design is optimized for desktop PC and tablet devices.</li>
+<li>Components are based on <a href="https://material.angular.io/components/categories">Angular Material Components</a>.</li>
+<li>Minimum CSS crafting is used.</li>
+<li>Extensions to already comprehensive frameworks and libraries.</li>
+<li>Once respective frameworks and libraries evolve overlapping or surpassing what offered in this repository, the respective codes of this repository will then be deprecated and removed later.</li>
+</ul>
+<h1>Maintenance</h1>
+<h2>Development server</h2>
+<p>Run <code>ng serve demoapp</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The app will automatically reload if you change any of the source files in demoapp.</p>
+<p>Additionally, you may execute <code>startAppDev.ps1</code> or <code>startAppProd.ps1</code> to run the app using the build.</p>
+<h2>Code scaffolding</h2>
+<p>Run <code>ng generate component component-name</code> to generate a new component. You can also use <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>.</p>
+<h2>Build</h2>
+<p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <code>dist/</code> directory. Use the <code>--prod</code> flag for a production build. For examples:</p>
+<p><code>ng build nmce</code></p>
+<h2>Running unit tests</h2>
+<p>Run <code>ng test</code> to execute the unit tests via <a href="https://karma-runner.github.io">Karma</a>.</p>
+<p><code>ng test nmce-func</code></p>
+<h2>Running end-to-end tests</h2>
+<p>Run <code>ng e2e</code> to execute the end-to-end tests via <a href="http://www.protractortest.org/">Protractor</a>.</p>
+<h2>Publish</h2>
+<p>Follow <a href="https://jasonwatmore.com/post/2020/06/16/angular-npm-how-to-publish-an-angular-component-to-npm">https://jasonwatmore.com/post/2020/06/16/angular-npm-how-to-publish-an-angular-component-to-npm</a></p>
+<p>Particularly, after increasing the version number in each package.json, run:
+<code>ng build myProject --configuration production</code></p>
+<p>then <code>cd dist/myProject</code>, and</p>
+<p><code>npm publish</code></p>
+<p>And in the root, a few bp_nmce*.ps1 files make it easier to publish.</p>
+<h2>I18N</h2>
+<p>The translations done within the libraries of this project are to verify if i18n is properly done, while the app projects utilizing the libraries will pickup translation units annotated in the lib codes. This is, the translation resource files (XLF) won&#39;t be utilized directly in the app projects, since <code>ng extract-i18n</code> can scan the i18n annotations in 3rd party libraries. </p>
+<p>After updating i18n tagging in HTML and TS codes, run:</p>
+<p><code>ng extract-i18n</code></p>
+<p>This will create or update messages.xlf, and merge with existing translations, since this command had been replaced what mentioned in: <a href="https://stackoverflow.com/questions/71775495/update-merge-i18n-translation-files-in-angular">https://stackoverflow.com/questions/71775495/update-merge-i18n-translation-files-in-angular</a>, that is <code>ng add ng-extract-i18n-merge</code> from <a href="https://github.com/daniel-sc/ng-extract-i18n-merge">https://github.com/daniel-sc/ng-extract-i18n-merge</a> .</p>
+<p>Remarks:</p>
+<ul>
+<li>Sometimes I have to run <code>ng add ng-extract-i18n-merge</code> first after defining new languages in angular.json, and then run <code>ng extract-i18n</code> to generate new xlf files.</li>
+<li>Before running <code>extract-i18n</code>, better to run &quot;buildComponents.ps1&quot; to ensure all being built successfully. since <code>extract-i18n</code> or what behind could just fail to find updated tran units but without reporting build error.</li>
+</ul>
+<p>References:</p>
+<ul>
+<li><a href="https://angular.dev/guide/i18n/merge">https://angular.dev/guide/i18n/merge</a></li>
+</ul>
+<p>Then run locales/<code>Translate.ps1</code> to translate new or updated items.</p>
+<h3>For libraries</h3>
+<p>As of Angular 19, extra works are to be done:</p>
+<ol>
+<li>To ensure <code>$localize</code> strings in TS files to be included, in tsconfig.json of the root and project nmce, add <code>&quot;types&quot;: [&quot;@angular/localize&quot;]</code> to &quot;compilerOptions&quot;.</li>
+<li>To avoid build error, in tsconfig.json of project nmce, add <code>&quot;types&quot;: [&quot;@angular/localize&quot;]</code> to &quot;compilerOptions&quot;.</li>
+</ol>
+<h2>Documentation</h2>
+<h3>Install Compodoc</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm install -g &#64;compodoc/compodoc
+# or for local use
+npm install --save-dev &#64;compodoc/compodoc</code></pre></div><h3>tsconfig.doc.json</h3>
+<h3>Generate or Serve</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npx compodoc -p tsconfig.doc.json
+# or serve
+npx compodoc -p tsconfig.doc.json -s</code></pre></div><h1>Alternative or Complementary</h1>
+<p>There are a few similar open source projects:</p>
+<ul>
+<li><a href="https://ng-matero.github.io/extensions/">Angular Material Extensions</a>.</li>
+<li><a href="https://github.com/angular-material-extensions">angular-material-extensions</a>, most repositories are up to date as of 2023.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'readme';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
