@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressBar, MatProgressBarModule } from '@angular/material/progress-bar';
@@ -13,12 +13,11 @@ import { DateTime } from 'luxon';
 	templateUrl: 'monthYearExpiry.component.html',
 	standalone: true,
 	imports: [
-		CommonModule,
-		FormsModule,
-		ReactiveFormsModule,
-		MatProgressBarModule,
-		MatSelectModule,
-	]
+    FormsModule,
+    ReactiveFormsModule,
+    MatProgressBarModule,
+    MatSelectModule
+]
 })
 export class MonthYearExpiryComponent implements OnInit {
 	yearSlots: { value: number | undefined, display: string }[] = [{ value: undefined, display: '' }];

@@ -1,4 +1,4 @@
-import { CommonModule, Location } from '@angular/common';
+import { Location } from '@angular/common';
 import {
 	Component,
 	ElementRef, Inject, Injectable,
@@ -24,7 +24,7 @@ import { DataComponentDirective } from '../_types/dataComponent.directive';
 	templateUrl: 'dataComponentPrintDialog.component.html',
 	styleUrls: ['../nmcestyles.css'],
 	standalone: true,
-	imports: [MatButtonModule, MatDialogModule, CommonModule, MatIconModule, DataComponentDirective]
+	imports: [MatButtonModule, MatDialogModule, MatIconModule, DataComponentDirective]
 })
 export class DataComponentPrintDialog extends DataComponentDialog {
 	@ViewChild('htmlPrintContent', { static: true }) htmlContentElement: ElementRef;

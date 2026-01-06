@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, Input} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { WaitMessage, WaitProgressService } from '../_ui_services/index';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { CommonModule} from '@angular/common';
+
 
 /**
  * Display wait with mat-progress-bar, controllable by mode and value.
@@ -13,9 +13,8 @@ import { CommonModule} from '@angular/common';
     templateUrl: 'waitProgress.component.html',
     standalone: true,
 	imports: [
-		CommonModule,
-		MatProgressBarModule,
-	]
+    MatProgressBarModule
+]
 })
 export class WaitProgressComponent implements OnInit, OnDestroy {
 	message: WaitMessage;

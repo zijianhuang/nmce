@@ -1,4 +1,4 @@
-import { CommonModule, Location } from '@angular/common';
+import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, Injectable, Renderer2 } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
@@ -19,7 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
     templateUrl: 'htmlFramePrintDialog.component.html',
     styleUrls: ['../nmcestyles.css'],
      standalone: true,
-	imports: [MatButtonModule,MatDialogModule, CommonModule, MatIconModule]
+	imports: [MatButtonModule, MatDialogModule, MatIconModule]
 })
 export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
 	constructor(
@@ -45,7 +45,7 @@ export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
     templateUrl: 'htmlFramePrintDialog.component.html',
     styleUrls: ['../nmcestyles.css'],
     standalone: true,
-	imports: [MatButtonModule,MatDialogModule, CommonModule, MatIconModule]
+	imports: [MatButtonModule, MatDialogModule, MatIconModule]
 })
 export class HtmlHRefFramePrintDialogComponent extends HtmlHRefFrameDialogComponent {
 	/**

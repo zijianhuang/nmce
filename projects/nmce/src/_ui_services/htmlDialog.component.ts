@@ -9,7 +9,7 @@ import { DialogSize } from './types';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { CommonModule } from '@angular/common';
+
 
 /**
  * Contain HTML content, used in HtmlDialogService.
@@ -137,7 +137,7 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
     templateUrl: 'htmlImgDialog.component.html',
     styleUrls: ['../nmcestyles.css'],
     standalone: true,
-	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule, CommonModule,]
+	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule]
 })
 export class HtmlImgDialogComponent {
 	title: string;

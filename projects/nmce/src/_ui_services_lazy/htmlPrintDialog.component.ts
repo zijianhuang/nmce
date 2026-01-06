@@ -1,4 +1,4 @@
-import { CommonModule, Location } from '@angular/common';
+import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, Injectable, Renderer2 } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
@@ -22,7 +22,7 @@ import { FormsModule } from '@angular/forms';
     templateUrl: 'htmlPrintDialog.component.html',
     styleUrls: ['../nmcestyles.css'],
      standalone: true,
-	imports: [MatButtonModule,MatDialogModule, CommonModule, MatIconModule, MatCheckboxModule, FormsModule]
+	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule]
 })
 export class HtmlPrintDialogComponent extends HtmlDialogComponent {
 	constructor(
@@ -51,7 +51,7 @@ export class HtmlPrintDialogComponent extends HtmlDialogComponent {
     templateUrl: 'htmlPrintDialog.component.html',
     styleUrls: ['../nmcestyles.css'],
     standalone: true,
-	imports: [MatButtonModule,MatDialogModule, CommonModule, MatIconModule, MatCheckboxModule, FormsModule]
+	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule]
 })
 export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 	/**
@@ -83,7 +83,7 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
     templateUrl: 'htmlImgPrintDialog.component.html',
     styleUrls: ['../nmcestyles.css'],
     standalone: true,
-	imports: [MatButtonModule,MatDialogModule, CommonModule, MatIconModule, MatCheckboxModule, FormsModule]
+	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule]
 })
 export class HtmlImgPrintDialogComponent extends HtmlImgDialogComponent {
 	constructor(
