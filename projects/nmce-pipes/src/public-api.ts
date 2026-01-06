@@ -6,3 +6,4 @@
 export * from './_pipes/bankRound.pipe';
 export * from './_pipes/date.pipe';
 export * from './_pipes/pad.pipe';
+export * from './nmce-pipes.module';
