@@ -695,7 +695,7 @@ import { Injectable } from &#x27;@angular/core&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { MatProgressBarModule, ProgressBarMode } from &#x27;@angular/material/progress-bar&#x27;;
 import { DIALOG_ACTIONS_ALIGN, TransmitProgress } from &#x27;../public-api&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
+
 import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
 
 /**
@@ -705,7 +705,7 @@ import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
 @Component({
     templateUrl: &#x27;progress.component.html&#x27;,
     standalone: true,
-	imports: [MatButtonModule,MatDialogModule, CommonModule, MatProgressBarModule]
+	imports: [MatButtonModule, MatDialogModule, MatProgressBarModule]
 })
 export class ProgressComponent {
 	@Input()

@@ -189,7 +189,6 @@
             <tr>
                 <td class="col-md-3">imports</td>
                 <td class="col-md-9">
-                            <code>CommonModule</code>
                             <code>MatProgressBarModule</code>
                 </td>
             </tr>
@@ -296,7 +295,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -357,7 +356,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:31</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -383,7 +382,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:28</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -417,8 +416,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="52"
-                                    class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:52</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:51</a></div>
                         </td>
                     </tr>
 
@@ -454,8 +453,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="36"
-                                    class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:36</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -497,7 +496,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:21</a></div>
                         </td>
                     </tr>
 
@@ -528,7 +527,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -554,7 +553,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -585,7 +584,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/nmce/src/_components/waitProgress.component.ts:33</a></div>
                         </td>
                     </tr>
 
@@ -600,9 +599,9 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, OnDestroy, Input} from &#x27;@angular/core&#x27;;
 import { Subscription } from &#x27;rxjs&#x27;;
-import { WaitMessage, WaitProgressService } from &#x27;../_ui_services/index&#x27;;
 import { MatProgressBarModule } from &#x27;@angular/material/progress-bar&#x27;;
-import { CommonModule} from &#x27;@angular/common&#x27;;
+import { WaitMessage, WaitProgressService } from &#x27;../_ui_services/wait.service&#x27;;
+
 
 /**
  * Display wait with mat-progress-bar, controllable by mode and value.
@@ -613,9 +612,8 @@ import { CommonModule} from &#x27;@angular/common&#x27;;
     templateUrl: &#x27;waitProgress.component.html&#x27;,
     standalone: true,
 	imports: [
-		CommonModule,
-		MatProgressBarModule,
-	]
+    MatProgressBarModule
+]
 })
 export class WaitProgressComponent implements OnInit, OnDestroy {
 	message: WaitMessage;
@@ -696,7 +694,7 @@ export class WaitProgressComponent implements OnInit, OnDestroy {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div>﻿<div style="height:1em">    @if (loading) {<mat-progress-bar [mode]="mode" [value]="value" [bufferValue]="bufferValue"></mat-progress-bar>}</div><!-- the 1em height does not really limit the size the the spinner, but make sure the toolbar won\'t be expanding. --></div>'
-    var COMPONENTS = [{'name': 'AlertComponent', 'selector': 'alert, nmce-alert, nmceAlert'},{'name': 'ConfirmComponent', 'selector': 'confirm-content'},{'name': 'DataComponentDialog', 'selector': 'nmce-data-component-content'},{'name': 'DataComponentPrintDialog', 'selector': ''},{'name': 'DateHourRangePickerComponent', 'selector': 'DateHourRangePicker, nmce-date-hour-range-picker'},{'name': 'DateRangePickerComponent', 'selector': 'DateRangePicker, nmce-date-range-picker'},{'name': 'EmailConfirmComponent', 'selector': 'email-confirm'},{'name': 'HtmlDialogComponent', 'selector': 'html-dialog'},{'name': 'HtmlFrameDialogComponent', 'selector': 'html-frame-dialog'},{'name': 'HtmlFramePrintDialogComponent', 'selector': 'html-frame-print-dialog'},{'name': 'HtmlHRefDialogComponent', 'selector': 'html-ref-dialog'},{'name': 'HtmlHRefFrameDialogComponent', 'selector': 'html-href-frame-dialog'},{'name': 'HtmlHRefFramePrintDialogComponent', 'selector': 'html-href-frame-print-dialog'},{'name': 'HtmlHRefPrintDialogComponent', 'selector': 'html-href-print-dialog'},{'name': 'HtmlImgDialogComponent', 'selector': 'html-img-dialog'},{'name': 'HtmlImgPrintDialogComponent', 'selector': 'html-img-print-dialog'},{'name': 'HtmlPrintDialogComponent', 'selector': 'html-print-dialog'},{'name': 'ItemListDialogComponent', 'selector': ''},{'name': 'JsonDiffComponent', 'selector': 'json-diff-page'},{'name': 'LocalDocHtmlEditorDialogComponent', 'selector': ''},{'name': 'LocalTextEditorDialogComponent', 'selector': ''},{'name': 'LogDialogComponent', 'selector': ''},{'name': 'LogSnackComponent', 'selector': ''},{'name': 'MonthYearExpiryComponent', 'selector': 'month-year-expiry, nmce-month-year-expiry'},{'name': 'NotFoundComponent', 'selector': ''},{'name': 'NotificationsComponent', 'selector': ''},{'name': 'OptionsComponent', 'selector': 'options-content'},{'name': 'PasswordsInputComponent', 'selector': 'passwordsInput'},{'name': 'PrintComponent', 'selector': 'print-page, nmce-print-page, nmcePrintPage'},{'name': 'ProgressComponent', 'selector': ''},{'name': 'TextDialogComponent', 'selector': 'text-dialog'},{'name': 'TextHRefDialogComponent', 'selector': 'text-href-dialog'},{'name': 'TextInputComponent', 'selector': 'textInput'},{'name': 'TimePickerComponent', 'selector': 'timePicker'},{'name': 'WaitComponent', 'selector': 'wait, nmce-wait, nmceWait'},{'name': 'WaitProgressComponent', 'selector': 'waitProgress, nmce-wait-progress, nmceWaitProgress'},{'name': 'WIPComponent', 'selector': ''}];
+    var COMPONENTS = [{'name': 'AlertComponent', 'selector': 'alert, nmce-alert, nmceAlert'},{'name': 'ConfirmComponent', 'selector': 'confirm-content'},{'name': 'DataComponentDialog', 'selector': 'nmce-data-component-content'},{'name': 'DataComponentPrintDialog', 'selector': ''},{'name': 'DateHourRangePickerComponent', 'selector': 'DateHourRangePicker, nmce-date-hour-range-picker'},{'name': 'DateRangePickerComponent', 'selector': 'DateRangePicker, nmce-date-range-picker'},{'name': 'EmailConfirmComponent', 'selector': 'email-confirm'},{'name': 'HtmlDialogComponent', 'selector': 'html-dialog'},{'name': 'HtmlDialogComponent', 'selector': 'html-dialog'},{'name': 'HtmlFrameDialogComponent', 'selector': 'html-frame-dialog'},{'name': 'HtmlFramePrintDialogComponent', 'selector': 'html-frame-print-dialog'},{'name': 'HtmlHRefDialogComponent', 'selector': 'html-ref-dialog'},{'name': 'HtmlHRefDialogComponent', 'selector': 'html-ref-dialog'},{'name': 'HtmlHRefFrameDialogComponent', 'selector': 'html-href-frame-dialog'},{'name': 'HtmlHRefFramePrintDialogComponent', 'selector': 'html-href-frame-print-dialog'},{'name': 'HtmlHRefPrintDialogComponent', 'selector': 'html-href-print-dialog'},{'name': 'HtmlImgDialogComponent', 'selector': 'html-img-dialog'},{'name': 'HtmlImgDialogComponent', 'selector': 'html-img-dialog'},{'name': 'HtmlImgPrintDialogComponent', 'selector': 'html-img-print-dialog'},{'name': 'HtmlPrintDialogComponent', 'selector': 'html-print-dialog'},{'name': 'ItemListDialogComponent', 'selector': ''},{'name': 'JsonDiffComponent', 'selector': 'json-diff-page'},{'name': 'LocalDocHtmlEditorDialogComponent', 'selector': ''},{'name': 'LocalTextEditorDialogComponent', 'selector': ''},{'name': 'LogDialogComponent', 'selector': ''},{'name': 'LogSnackComponent', 'selector': ''},{'name': 'MonthYearExpiryComponent', 'selector': 'month-year-expiry, nmce-month-year-expiry'},{'name': 'NotFoundComponent', 'selector': ''},{'name': 'NotificationsComponent', 'selector': ''},{'name': 'OptionsComponent', 'selector': 'options-content'},{'name': 'PasswordsInputComponent', 'selector': 'passwordsInput'},{'name': 'PrintComponent', 'selector': 'print-page, nmce-print-page, nmcePrintPage'},{'name': 'ProgressComponent', 'selector': ''},{'name': 'TextDialogComponent', 'selector': 'text-dialog'},{'name': 'TextHRefDialogComponent', 'selector': 'text-href-dialog'},{'name': 'TextInputComponent', 'selector': 'textInput'},{'name': 'TimePickerComponent', 'selector': 'timePicker'},{'name': 'WaitComponent', 'selector': 'wait, nmce-wait, nmceWait'},{'name': 'WaitProgressComponent', 'selector': 'waitProgress, nmce-wait-progress, nmceWaitProgress'},{'name': 'WIPComponent', 'selector': ''}];
     var DIRECTIVES = [{'name': 'AutofocusDirective', 'selector': '[autofocus]'},{'name': 'DataComponentDirective', 'selector': '[dataComponentHost]'},{'name': 'HtmlDocEditorDialogBaseComponent', 'selector': ''},{'name': 'ScrollIntoDirective', 'selector': '[scrollInto]'},{'name': 'TextEditorDialogComponentBase', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'WaitProgressComponent'};
 </script>

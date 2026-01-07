@@ -436,10 +436,13 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
 import { NgModule } from &#x27;@angular/core&#x27;;
 import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
-import {
-	AlertComponent, MonthYearExpiryComponent, NotFoundComponent,
-	PrintComponent, WaitComponent, WaitProgressComponent, WIPComponent
-} from &#x27;./index&#x27;;
+import { AlertComponent } from &#x27;./alert.component&#x27;;
+import { MonthYearExpiryComponent } from &#x27;./monthYearExpiry.component&#x27;;
+import { NotFoundComponent } from &#x27;./notFound.component&#x27;;
+import { PrintComponent } from &#x27;./print.component&#x27;;
+import { WaitComponent } from &#x27;./wait.component&#x27;;
+import { WaitProgressComponent } from &#x27;./waitProgress.component&#x27;;
+import { WIPComponent } from &#x27;./wip.component&#x27;;
 
 /**
  * Contain components for apps preferring importing module.
@@ -463,7 +466,7 @@ import {
 		WaitComponent,
 		WaitProgressComponent,
 		MonthYearExpiryComponent,
-		AlertComponent, //need to export the entry component
+		AlertComponent,
 		PrintComponent,
 	]
 })

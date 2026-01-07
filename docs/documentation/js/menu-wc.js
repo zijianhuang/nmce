@@ -68,10 +68,53 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/NmceComponentsModule.html" data-type="entity-link" >NmceComponentsModule</a>
                             </li>
                             <li class="link">
+                                <a href="modules/NmceDirectivesModule.html" data-type="entity-link" >NmceDirectivesModule</a>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                        'data-bs-target="#directives-links-module-NmceDirectivesModule-e141a1a9928a13a7c59eac5229e44db9fa74d9de9b4c5a2b151eee34b0866f203ceaec762dbe00c2929b216404eb36dbf8be3d6ce0e6e4eee32fb4ebc2f8415d"' : 'data-bs-target="#xs-directives-links-module-NmceDirectivesModule-e141a1a9928a13a7c59eac5229e44db9fa74d9de9b4c5a2b151eee34b0866f203ceaec762dbe00c2929b216404eb36dbf8be3d6ce0e6e4eee32fb4ebc2f8415d"' }>
+                                        <span class="icon ion-md-code-working"></span>
+                                        <span>Directives</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-NmceDirectivesModule-e141a1a9928a13a7c59eac5229e44db9fa74d9de9b4c5a2b151eee34b0866f203ceaec762dbe00c2929b216404eb36dbf8be3d6ce0e6e4eee32fb4ebc2f8415d"' :
+                                        'id="xs-directives-links-module-NmceDirectivesModule-e141a1a9928a13a7c59eac5229e44db9fa74d9de9b4c5a2b151eee34b0866f203ceaec762dbe00c2929b216404eb36dbf8be3d6ce0e6e4eee32fb4ebc2f8415d"' }>
+                                        <li class="link">
+                                            <a href="directives/AutofocusDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AutofocusDirective</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="directives/ScrollIntoDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ScrollIntoDirective</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </li>
+                            <li class="link">
                                 <a href="modules/NmceHtmlEditorModule.html" data-type="entity-link" >NmceHtmlEditorModule</a>
                             </li>
                             <li class="link">
                                 <a href="modules/NmceJsonDiffModule.html" data-type="entity-link" >NmceJsonDiffModule</a>
+                            </li>
+                            <li class="link">
+                                <a href="modules/NmcePipesModule.html" data-type="entity-link" >NmcePipesModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#pipes-links-module-NmcePipesModule-3a78aca350c754d40e92a79eb844fc3e7ba97384d07134cf6ac3e02bf7af9f4823566241ae8418e86e8e39c3240c68671e13db1450176bba3569bf9edffa5fb1"' : 'data-bs-target="#xs-pipes-links-module-NmcePipesModule-3a78aca350c754d40e92a79eb844fc3e7ba97384d07134cf6ac3e02bf7af9f4823566241ae8418e86e8e39c3240c68671e13db1450176bba3569bf9edffa5fb1"' }>
+                                            <span class="icon ion-md-add"></span>
+                                            <span>Pipes</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-NmcePipesModule-3a78aca350c754d40e92a79eb844fc3e7ba97384d07134cf6ac3e02bf7af9f4823566241ae8418e86e8e39c3240c68671e13db1450176bba3569bf9edffa5fb1"' :
+                                            'id="xs-pipes-links-module-NmcePipesModule-3a78aca350c754d40e92a79eb844fc3e7ba97384d07134cf6ac3e02bf7af9f4823566241ae8418e86e8e39c3240c68671e13db1450176bba3569bf9edffa5fb1"' }>
+                                            <li class="link">
+                                                <a href="pipes/BankerRoundPipe.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >BankerRoundPipe</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="pipes/LiteralDatePipe.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >LiteralDatePipe</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="pipes/PadPipe.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >PadPipe</a>
+                                            </li>
+                                        </ul>
+                                    </li>
                             </li>
                 </ul>
                 </li>
@@ -108,6 +151,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/HtmlDialogComponent.html" data-type="entity-link" >HtmlDialogComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/HtmlDialogComponent-1.html" data-type="entity-link" >HtmlDialogComponent</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/HtmlFrameDialogComponent.html" data-type="entity-link" >HtmlFrameDialogComponent</a>
                             </li>
                             <li class="link">
@@ -115,6 +161,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="components/HtmlHRefDialogComponent.html" data-type="entity-link" >HtmlHRefDialogComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/HtmlHRefDialogComponent-1.html" data-type="entity-link" >HtmlHRefDialogComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/HtmlHRefFrameDialogComponent.html" data-type="entity-link" >HtmlHRefFrameDialogComponent</a>
@@ -127,6 +176,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="components/HtmlImgDialogComponent.html" data-type="entity-link" >HtmlImgDialogComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/HtmlImgDialogComponent-1.html" data-type="entity-link" >HtmlImgDialogComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/HtmlImgPrintDialogComponent.html" data-type="entity-link" >HtmlImgPrintDialogComponent</a>
@@ -318,6 +370,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/HtmlDialogService.html" data-type="entity-link" >HtmlDialogService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/HtmlDialogService-1.html" data-type="entity-link" >HtmlDialogService</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/HtmlFrameDialogService.html" data-type="entity-link" >HtmlFrameDialogService</a>
                                 </li>
                                 <li class="link">
@@ -325,6 +380,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/HtmlHRefDialogService.html" data-type="entity-link" >HtmlHRefDialogService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/HtmlHRefDialogService-1.html" data-type="entity-link" >HtmlHRefDialogService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/HtmlHRefFrameDialogService.html" data-type="entity-link" >HtmlHRefFrameDialogService</a>
@@ -337,6 +395,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/HtmlImgDialogService.html" data-type="entity-link" >HtmlImgDialogService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/HtmlImgDialogService-1.html" data-type="entity-link" >HtmlImgDialogService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/HtmlImgPrintDialogService.html" data-type="entity-link" >HtmlImgPrintDialogService</a>

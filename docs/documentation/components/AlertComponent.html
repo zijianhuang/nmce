@@ -297,7 +297,7 @@ And alert message is also written into console with respective alert type.</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/nmce/src/_components/alert.component.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/nmce/src/_components/alert.component.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -376,8 +376,8 @@ And alert message is also written into console with respective alert type.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="64"
-                                    class="link-to-prism">projects/nmce/src/_components/alert.component.ts:64</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">projects/nmce/src/_components/alert.component.ts:65</a></div>
                         </td>
                     </tr>
 
@@ -413,8 +413,8 @@ And alert message is also written into console with respective alert type.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="42"
-                                    class="link-to-prism">projects/nmce/src/_components/alert.component.ts:42</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">projects/nmce/src/_components/alert.component.ts:43</a></div>
                         </td>
                     </tr>
 
@@ -461,7 +461,7 @@ And alert message is also written into console with respective alert type.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/nmce/src/_components/alert.component.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/nmce/src/_components/alert.component.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -492,7 +492,7 @@ And alert message is also written into console with respective alert type.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/nmce/src/_components/alert.component.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/nmce/src/_components/alert.component.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -521,7 +521,7 @@ And alert message is also written into console with respective alert type.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/nmce/src/_components/alert.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/nmce/src/_components/alert.component.ts:28</a></div>
                                 </td>
                             </tr>
 
@@ -534,9 +534,10 @@ And alert message is also written into console with respective alert type.</p>
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectorRef, Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
 import { takeWhile } from &#x27;rxjs/operators&#x27;;
-import { AlertSubjectMessage, LocalAlertService } from &#x27;../_ui_services/index&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { LocalAlertService } from &#x27;../_ui_services/localAlert.service&#x27;;
+import { AlertSubjectMessage } from &#x27;../_ui_services/types&#x27;;
 
 /**
  * Alert to render element alert in a component through LocalAlertService.
@@ -1362,7 +1363,7 @@ img.original-size {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div>﻿@if (hasContent) {<div>    <div [ngClass]="{ \'alert-success\': message.type === \'success\', \'alert-danger\': message.type === \'error\', \'alert-info\':message.type===\'info\', \'alert-warning\':message.type===\'warning\'}"        role="alert">{{ message.text }}</div></div>}</div>'
-    var COMPONENTS = [{'name': 'AlertComponent', 'selector': 'alert, nmce-alert, nmceAlert'},{'name': 'ConfirmComponent', 'selector': 'confirm-content'},{'name': 'DataComponentDialog', 'selector': 'nmce-data-component-content'},{'name': 'DataComponentPrintDialog', 'selector': ''},{'name': 'DateHourRangePickerComponent', 'selector': 'DateHourRangePicker, nmce-date-hour-range-picker'},{'name': 'DateRangePickerComponent', 'selector': 'DateRangePicker, nmce-date-range-picker'},{'name': 'EmailConfirmComponent', 'selector': 'email-confirm'},{'name': 'HtmlDialogComponent', 'selector': 'html-dialog'},{'name': 'HtmlFrameDialogComponent', 'selector': 'html-frame-dialog'},{'name': 'HtmlFramePrintDialogComponent', 'selector': 'html-frame-print-dialog'},{'name': 'HtmlHRefDialogComponent', 'selector': 'html-ref-dialog'},{'name': 'HtmlHRefFrameDialogComponent', 'selector': 'html-href-frame-dialog'},{'name': 'HtmlHRefFramePrintDialogComponent', 'selector': 'html-href-frame-print-dialog'},{'name': 'HtmlHRefPrintDialogComponent', 'selector': 'html-href-print-dialog'},{'name': 'HtmlImgDialogComponent', 'selector': 'html-img-dialog'},{'name': 'HtmlImgPrintDialogComponent', 'selector': 'html-img-print-dialog'},{'name': 'HtmlPrintDialogComponent', 'selector': 'html-print-dialog'},{'name': 'ItemListDialogComponent', 'selector': ''},{'name': 'JsonDiffComponent', 'selector': 'json-diff-page'},{'name': 'LocalDocHtmlEditorDialogComponent', 'selector': ''},{'name': 'LocalTextEditorDialogComponent', 'selector': ''},{'name': 'LogDialogComponent', 'selector': ''},{'name': 'LogSnackComponent', 'selector': ''},{'name': 'MonthYearExpiryComponent', 'selector': 'month-year-expiry, nmce-month-year-expiry'},{'name': 'NotFoundComponent', 'selector': ''},{'name': 'NotificationsComponent', 'selector': ''},{'name': 'OptionsComponent', 'selector': 'options-content'},{'name': 'PasswordsInputComponent', 'selector': 'passwordsInput'},{'name': 'PrintComponent', 'selector': 'print-page, nmce-print-page, nmcePrintPage'},{'name': 'ProgressComponent', 'selector': ''},{'name': 'TextDialogComponent', 'selector': 'text-dialog'},{'name': 'TextHRefDialogComponent', 'selector': 'text-href-dialog'},{'name': 'TextInputComponent', 'selector': 'textInput'},{'name': 'TimePickerComponent', 'selector': 'timePicker'},{'name': 'WaitComponent', 'selector': 'wait, nmce-wait, nmceWait'},{'name': 'WaitProgressComponent', 'selector': 'waitProgress, nmce-wait-progress, nmceWaitProgress'},{'name': 'WIPComponent', 'selector': ''}];
+    var COMPONENTS = [{'name': 'AlertComponent', 'selector': 'alert, nmce-alert, nmceAlert'},{'name': 'ConfirmComponent', 'selector': 'confirm-content'},{'name': 'DataComponentDialog', 'selector': 'nmce-data-component-content'},{'name': 'DataComponentPrintDialog', 'selector': ''},{'name': 'DateHourRangePickerComponent', 'selector': 'DateHourRangePicker, nmce-date-hour-range-picker'},{'name': 'DateRangePickerComponent', 'selector': 'DateRangePicker, nmce-date-range-picker'},{'name': 'EmailConfirmComponent', 'selector': 'email-confirm'},{'name': 'HtmlDialogComponent', 'selector': 'html-dialog'},{'name': 'HtmlDialogComponent', 'selector': 'html-dialog'},{'name': 'HtmlFrameDialogComponent', 'selector': 'html-frame-dialog'},{'name': 'HtmlFramePrintDialogComponent', 'selector': 'html-frame-print-dialog'},{'name': 'HtmlHRefDialogComponent', 'selector': 'html-ref-dialog'},{'name': 'HtmlHRefDialogComponent', 'selector': 'html-ref-dialog'},{'name': 'HtmlHRefFrameDialogComponent', 'selector': 'html-href-frame-dialog'},{'name': 'HtmlHRefFramePrintDialogComponent', 'selector': 'html-href-frame-print-dialog'},{'name': 'HtmlHRefPrintDialogComponent', 'selector': 'html-href-print-dialog'},{'name': 'HtmlImgDialogComponent', 'selector': 'html-img-dialog'},{'name': 'HtmlImgDialogComponent', 'selector': 'html-img-dialog'},{'name': 'HtmlImgPrintDialogComponent', 'selector': 'html-img-print-dialog'},{'name': 'HtmlPrintDialogComponent', 'selector': 'html-print-dialog'},{'name': 'ItemListDialogComponent', 'selector': ''},{'name': 'JsonDiffComponent', 'selector': 'json-diff-page'},{'name': 'LocalDocHtmlEditorDialogComponent', 'selector': ''},{'name': 'LocalTextEditorDialogComponent', 'selector': ''},{'name': 'LogDialogComponent', 'selector': ''},{'name': 'LogSnackComponent', 'selector': ''},{'name': 'MonthYearExpiryComponent', 'selector': 'month-year-expiry, nmce-month-year-expiry'},{'name': 'NotFoundComponent', 'selector': ''},{'name': 'NotificationsComponent', 'selector': ''},{'name': 'OptionsComponent', 'selector': 'options-content'},{'name': 'PasswordsInputComponent', 'selector': 'passwordsInput'},{'name': 'PrintComponent', 'selector': 'print-page, nmce-print-page, nmcePrintPage'},{'name': 'ProgressComponent', 'selector': ''},{'name': 'TextDialogComponent', 'selector': 'text-dialog'},{'name': 'TextHRefDialogComponent', 'selector': 'text-href-dialog'},{'name': 'TextInputComponent', 'selector': 'textInput'},{'name': 'TimePickerComponent', 'selector': 'timePicker'},{'name': 'WaitComponent', 'selector': 'wait, nmce-wait, nmceWait'},{'name': 'WaitProgressComponent', 'selector': 'waitProgress, nmce-wait-progress, nmceWaitProgress'},{'name': 'WIPComponent', 'selector': ''}];
     var DIRECTIVES = [{'name': 'AutofocusDirective', 'selector': '[autofocus]'},{'name': 'DataComponentDirective', 'selector': '[dataComponentHost]'},{'name': 'HtmlDocEditorDialogBaseComponent', 'selector': ''},{'name': 'ScrollIntoDirective', 'selector': '[scrollInto]'},{'name': 'TextEditorDialogComponentBase', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'AlertComponent'};
 </script>

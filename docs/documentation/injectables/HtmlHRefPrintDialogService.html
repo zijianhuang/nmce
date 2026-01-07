@@ -212,7 +212,7 @@ Otherwise if the file is not found, the program may treat the url as a legitimat
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.ts:129</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.ts:131</a></div>
                             </td>
                         </tr>
 
@@ -275,8 +275,8 @@ Otherwise if the file is not found, the program may treat the url as a legitimat
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="137"
-                                    class="link-to-prism">projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.ts:137</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="139"
+                                    class="link-to-prism">projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.ts:139</a></div>
                         </td>
                     </tr>
 
@@ -474,12 +474,14 @@ import { HtmlPrintFunc } from &#x27;nmce-func&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { DIALOG_ACTIONS_ALIGN } from &#x27;../_ui_services/baseTypes&#x27;;
 import { HtmlBaseDialogService } from &#x27;../_ui_services/htmlBaseDialogService&#x27;;
-import { HtmlDialogComponent, HtmlHRefDialogComponent, HtmlImgDialogComponent } from &#x27;../_ui_services/htmlDialog.component&#x27;;
+import { HtmlDialogComponent } from &#x27;../_ui_services/htmlDialog.component&#x27;;
 import { DialogSize } from &#x27;../_ui_services/types&#x27;;
 import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
 import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
 import { MatCheckboxModule } from &#x27;@angular/material/checkbox&#x27;;
 import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { HtmlHRefDialogComponent } from &#x27;../_ui_services/htmlHRefDialog.component&#x27;;
+import { HtmlImgDialogComponent } from &#x27;../_ui_services/htmlImgDialog.component&#x27;;
 
 /**
  * Contain HTML content, used in HtmlDialogService.
@@ -489,7 +491,7 @@ import { FormsModule } from &#x27;@angular/forms&#x27;;
     templateUrl: &#x27;htmlPrintDialog.component.html&#x27;,
     styleUrls: [&#x27;../nmcestyles.css&#x27;],
      standalone: true,
-	imports: [MatButtonModule,MatDialogModule, CommonModule, MatIconModule, MatCheckboxModule, FormsModule]
+	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule, CommonModule]
 })
 export class HtmlPrintDialogComponent extends HtmlDialogComponent {
 	constructor(
@@ -518,7 +520,7 @@ export class HtmlPrintDialogComponent extends HtmlDialogComponent {
     templateUrl: &#x27;htmlPrintDialog.component.html&#x27;,
     styleUrls: [&#x27;../nmcestyles.css&#x27;],
     standalone: true,
-	imports: [MatButtonModule,MatDialogModule, CommonModule, MatIconModule, MatCheckboxModule, FormsModule]
+	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule, CommonModule]
 })
 export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 	/**
@@ -550,7 +552,7 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
     templateUrl: &#x27;htmlImgPrintDialog.component.html&#x27;,
     styleUrls: [&#x27;../nmcestyles.css&#x27;],
     standalone: true,
-	imports: [MatButtonModule,MatDialogModule, CommonModule, MatIconModule, MatCheckboxModule, FormsModule]
+	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule, CommonModule]
 })
 export class HtmlImgPrintDialogComponent extends HtmlImgDialogComponent {
 	constructor(

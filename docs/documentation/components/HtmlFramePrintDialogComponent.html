@@ -190,7 +190,6 @@
                 <td class="col-md-9">
                             <code>MatButtonModule</code>
                             <code>MatDialogModule</code>
-                            <code>CommonModule</code>
                             <code>MatIconModule</code>
                 </td>
             </tr>
@@ -745,7 +744,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule, Location } from &#x27;@angular/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Location } from &#x27;@angular/common&#x27;;
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { Component, Inject, Injectable, Renderer2 } from &#x27;@angular/core&#x27;;
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from &#x27;@angular/material/dialog&#x27;;
@@ -766,7 +765,7 @@ import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
     templateUrl: &#x27;htmlFramePrintDialog.component.html&#x27;,
     styleUrls: [&#x27;../nmcestyles.css&#x27;],
      standalone: true,
-	imports: [MatButtonModule,MatDialogModule, CommonModule, MatIconModule]
+	imports: [MatButtonModule, MatDialogModule, MatIconModule]
 })
 export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
 	constructor(
@@ -792,7 +791,7 @@ export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
     templateUrl: &#x27;htmlFramePrintDialog.component.html&#x27;,
     styleUrls: [&#x27;../nmcestyles.css&#x27;],
     standalone: true,
-	imports: [MatButtonModule,MatDialogModule, CommonModule, MatIconModule]
+	imports: [MatButtonModule, MatDialogModule, MatIconModule]
 })
 export class HtmlHRefFramePrintDialogComponent extends HtmlHRefFrameDialogComponent {
 	/**
@@ -1640,7 +1639,7 @@ img.original-size {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><h1 mat-dialog-title class="block-items-gap-1 line-ellipsis">	@if (useBackButton) {<button type="button" mat-mini-fab color="any" matDialogClose aria-label="Close">		<mat-icon>arrow_back</mat-icon>	</button>}	<button mat-mini-fab (click)="print()">		<mat-icon>print</mat-icon>	</button>	<span>{{title}}</span></h1><mat-dialog-content>	<html>	<head>		<base target="_blank" />		<!-- Ensure all href are opened in new tab, as described in https://stackoverflow.com/questions/17281486/use-target-blank-in-css -->	</head>	<body>		<iframe #htmlContent class="frame-dialog-content"></iframe>	</body>	</html></mat-dialog-content>@if (!useBackButton) {<mat-dialog-actions [align]="actionsAlign">	<button type="button" mat-raised-button matDialogClose>Close</button></mat-dialog-actions>}</div>'
-    var COMPONENTS = [{'name': 'AlertComponent', 'selector': 'alert, nmce-alert, nmceAlert'},{'name': 'ConfirmComponent', 'selector': 'confirm-content'},{'name': 'DataComponentDialog', 'selector': 'nmce-data-component-content'},{'name': 'DataComponentPrintDialog', 'selector': ''},{'name': 'DateHourRangePickerComponent', 'selector': 'DateHourRangePicker, nmce-date-hour-range-picker'},{'name': 'DateRangePickerComponent', 'selector': 'DateRangePicker, nmce-date-range-picker'},{'name': 'EmailConfirmComponent', 'selector': 'email-confirm'},{'name': 'HtmlDialogComponent', 'selector': 'html-dialog'},{'name': 'HtmlFrameDialogComponent', 'selector': 'html-frame-dialog'},{'name': 'HtmlFramePrintDialogComponent', 'selector': 'html-frame-print-dialog'},{'name': 'HtmlHRefDialogComponent', 'selector': 'html-ref-dialog'},{'name': 'HtmlHRefFrameDialogComponent', 'selector': 'html-href-frame-dialog'},{'name': 'HtmlHRefFramePrintDialogComponent', 'selector': 'html-href-frame-print-dialog'},{'name': 'HtmlHRefPrintDialogComponent', 'selector': 'html-href-print-dialog'},{'name': 'HtmlImgDialogComponent', 'selector': 'html-img-dialog'},{'name': 'HtmlImgPrintDialogComponent', 'selector': 'html-img-print-dialog'},{'name': 'HtmlPrintDialogComponent', 'selector': 'html-print-dialog'},{'name': 'ItemListDialogComponent', 'selector': ''},{'name': 'JsonDiffComponent', 'selector': 'json-diff-page'},{'name': 'LocalDocHtmlEditorDialogComponent', 'selector': ''},{'name': 'LocalTextEditorDialogComponent', 'selector': ''},{'name': 'LogDialogComponent', 'selector': ''},{'name': 'LogSnackComponent', 'selector': ''},{'name': 'MonthYearExpiryComponent', 'selector': 'month-year-expiry, nmce-month-year-expiry'},{'name': 'NotFoundComponent', 'selector': ''},{'name': 'NotificationsComponent', 'selector': ''},{'name': 'OptionsComponent', 'selector': 'options-content'},{'name': 'PasswordsInputComponent', 'selector': 'passwordsInput'},{'name': 'PrintComponent', 'selector': 'print-page, nmce-print-page, nmcePrintPage'},{'name': 'ProgressComponent', 'selector': ''},{'name': 'TextDialogComponent', 'selector': 'text-dialog'},{'name': 'TextHRefDialogComponent', 'selector': 'text-href-dialog'},{'name': 'TextInputComponent', 'selector': 'textInput'},{'name': 'TimePickerComponent', 'selector': 'timePicker'},{'name': 'WaitComponent', 'selector': 'wait, nmce-wait, nmceWait'},{'name': 'WaitProgressComponent', 'selector': 'waitProgress, nmce-wait-progress, nmceWaitProgress'},{'name': 'WIPComponent', 'selector': ''}];
+    var COMPONENTS = [{'name': 'AlertComponent', 'selector': 'alert, nmce-alert, nmceAlert'},{'name': 'ConfirmComponent', 'selector': 'confirm-content'},{'name': 'DataComponentDialog', 'selector': 'nmce-data-component-content'},{'name': 'DataComponentPrintDialog', 'selector': ''},{'name': 'DateHourRangePickerComponent', 'selector': 'DateHourRangePicker, nmce-date-hour-range-picker'},{'name': 'DateRangePickerComponent', 'selector': 'DateRangePicker, nmce-date-range-picker'},{'name': 'EmailConfirmComponent', 'selector': 'email-confirm'},{'name': 'HtmlDialogComponent', 'selector': 'html-dialog'},{'name': 'HtmlDialogComponent', 'selector': 'html-dialog'},{'name': 'HtmlFrameDialogComponent', 'selector': 'html-frame-dialog'},{'name': 'HtmlFramePrintDialogComponent', 'selector': 'html-frame-print-dialog'},{'name': 'HtmlHRefDialogComponent', 'selector': 'html-ref-dialog'},{'name': 'HtmlHRefDialogComponent', 'selector': 'html-ref-dialog'},{'name': 'HtmlHRefFrameDialogComponent', 'selector': 'html-href-frame-dialog'},{'name': 'HtmlHRefFramePrintDialogComponent', 'selector': 'html-href-frame-print-dialog'},{'name': 'HtmlHRefPrintDialogComponent', 'selector': 'html-href-print-dialog'},{'name': 'HtmlImgDialogComponent', 'selector': 'html-img-dialog'},{'name': 'HtmlImgDialogComponent', 'selector': 'html-img-dialog'},{'name': 'HtmlImgPrintDialogComponent', 'selector': 'html-img-print-dialog'},{'name': 'HtmlPrintDialogComponent', 'selector': 'html-print-dialog'},{'name': 'ItemListDialogComponent', 'selector': ''},{'name': 'JsonDiffComponent', 'selector': 'json-diff-page'},{'name': 'LocalDocHtmlEditorDialogComponent', 'selector': ''},{'name': 'LocalTextEditorDialogComponent', 'selector': ''},{'name': 'LogDialogComponent', 'selector': ''},{'name': 'LogSnackComponent', 'selector': ''},{'name': 'MonthYearExpiryComponent', 'selector': 'month-year-expiry, nmce-month-year-expiry'},{'name': 'NotFoundComponent', 'selector': ''},{'name': 'NotificationsComponent', 'selector': ''},{'name': 'OptionsComponent', 'selector': 'options-content'},{'name': 'PasswordsInputComponent', 'selector': 'passwordsInput'},{'name': 'PrintComponent', 'selector': 'print-page, nmce-print-page, nmcePrintPage'},{'name': 'ProgressComponent', 'selector': ''},{'name': 'TextDialogComponent', 'selector': 'text-dialog'},{'name': 'TextHRefDialogComponent', 'selector': 'text-href-dialog'},{'name': 'TextInputComponent', 'selector': 'textInput'},{'name': 'TimePickerComponent', 'selector': 'timePicker'},{'name': 'WaitComponent', 'selector': 'wait, nmce-wait, nmceWait'},{'name': 'WaitProgressComponent', 'selector': 'waitProgress, nmce-wait-progress, nmceWaitProgress'},{'name': 'WIPComponent', 'selector': ''}];
     var DIRECTIVES = [{'name': 'AutofocusDirective', 'selector': '[autofocus]'},{'name': 'DataComponentDirective', 'selector': '[dataComponentHost]'},{'name': 'HtmlDocEditorDialogBaseComponent', 'selector': ''},{'name': 'ScrollIntoDirective', 'selector': '[scrollInto]'},{'name': 'TextEditorDialogComponentBase', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'HtmlFramePrintDialogComponent'};
 </script>

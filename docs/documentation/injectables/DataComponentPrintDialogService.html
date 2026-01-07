@@ -384,7 +384,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule, Location } from &#x27;@angular/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Location } from &#x27;@angular/common&#x27;;
 import {
 	Component,
 	ElementRef, Inject, Injectable,
@@ -410,7 +410,7 @@ import { DataComponentDirective } from &#x27;../_types/dataComponent.directive&#
 	templateUrl: &#x27;dataComponentPrintDialog.component.html&#x27;,
 	styleUrls: [&#x27;../nmcestyles.css&#x27;],
 	standalone: true,
-	imports: [MatButtonModule, MatDialogModule, CommonModule, MatIconModule, DataComponentDirective]
+	imports: [MatButtonModule, MatDialogModule, MatIconModule, DataComponentDirective]
 })
 export class DataComponentPrintDialog extends DataComponentDialog {
 	@ViewChild(&#x27;htmlPrintContent&#x27;, { static: true }) htmlContentElement: ElementRef;
