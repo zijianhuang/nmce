@@ -1,6 +1,20 @@
-# [Nmce=Html-Editor](https://www.npmjs.com/package/nmce-html-editor)
+# [Nmce-Html-Editor](https://www.npmjs.com/package/nmce-html-editor)
 
 Based on [@kolkov/angular-editor](https://www.npmjs.com/package/@kolkov/angular-editor), LocalDocHtmlEditorDialogComponent and EmailConfirmComponent are exported.
+
+Since version 3 of @kolkov/angular-editor, you need to include some settings for icons in angular.json for your application though your app does not need to import:
+1. Under `architect/build/options/assets`, add:
+```json
+    {
+        "glob": "**/*",
+        "input": "node_modules/@kolkov/angular-editor/assets/icons",
+        "output": "assets/ae-icons/"
+    }
+```
+2. Under `architect/build/options/styles`, add:
+```json
+    "node_modules/@kolkov/angular-editor/themes/default.scss"
+```
 
 ## Code scaffolding
 
