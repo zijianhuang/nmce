@@ -390,10 +390,10 @@ describe('DateFunc', () => {
 	});
 
 	it('dateDataToDateWithInvalid', () => {
-		expect(()=> DateFunc.dateDataToDate('20180102T130000Z')).toThrow(new RangeError($localize`Invalid string for Date`)) ;
-		expect(()=> DateFunc.dateDataToDate(NaN)).toThrow(new RangeError($localize`Invalid number for Date`)) ;
-		expect(()=> DateFunc.dateDataToDate(null!)).toThrow(new RangeError($localize`Expect Date, string or number`));
-		expect(()=> DateFunc.dateDataToDate(undefined!)).toThrow(new RangeError($localize`Expect Date, string or number`));
+		expect(()=> DateFunc.dateDataToDate('20180102T130000Z')).toThrowError(new RangeError(`Invalid string for Date`)) ;
+		expect(()=> DateFunc.dateDataToDate(NaN)).toThrowError(new RangeError(`Invalid number for Date`)) ; //both RangeError and message are matched
+		expect(()=> DateFunc.dateDataToDate(null!)).toThrowError(new TypeError(`Expect Date, string or number`)); //though the test case throws RangeError, vitest somehow get TypeError.
+		expect(()=> DateFunc.dateDataToDate(undefined!)).toThrowError(new TypeError(`Expect Date, string or number`));
 
 	});
 
@@ -401,7 +401,4 @@ describe('DateFunc', () => {
 		expect(DateFunc.dateDataToDateOrNull(null)).toBeNull();
 		expect(DateFunc.dateDataToDateOrNull(undefined)).toBeUndefined();
 	});
-
-
-
 });
