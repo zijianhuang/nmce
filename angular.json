@@ -22,11 +22,9 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "main": "projects/nmce/src/test.ts",
-            "tsConfig": "projects/nmce/tsconfig.spec.json",
-            "karmaConfig": "projects/nmce/karma.conf.js"
+            "browsers": ["chrome"]
           }
         },
         "lint": {
@@ -82,8 +80,7 @@
             },
             "index": "projects/demoapp/src/index.html",
             "polyfills": [
-              "projects/demoapp/src/polyfills.ts",
-              "zone.js"
+              "projects/demoapp/src/polyfills.ts"
             ],
             "tsConfig": "projects/demoapp/tsconfig.app.json",
             "aot": true,
@@ -189,22 +186,9 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "main": "projects/demoapp/src/test.ts",
-            "polyfills": [
-              "zone.js"
-            ],
-            "tsConfig": "projects/demoapp/tsconfig.spec.json",
-            "karmaConfig": "projects/demoapp/karma.conf.js",
-            "assets": [
-              "projects/demoapp/src/favicon.ico",
-              "projects/demoapp/src/assets"
-            ],
-            "styles": [
-              "projects/demoapp/src/styles.css"
-            ],
-            "scripts": []
+            "browsers": ["chrome"]
           }
         },
         "lint": {
@@ -253,11 +237,9 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "main": "projects/nmce-html-editor/src/test.ts",
-            "tsConfig": "projects/nmce-html-editor/tsconfig.spec.json",
-            "karmaConfig": "projects/nmce-html-editor/karma.conf.js"
+            "browsers": ["chrome"]
           }
         },
         "lint": {
@@ -293,13 +275,9 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "tsConfig": "projects/nmce-func/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "browsers": ["chrome"]
           }
         },
         "lint": {
@@ -335,14 +313,9 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "tsConfig": "projects/nmce-pipes/tsconfig.spec.json",
-            "karmaConfig": "projects/nmce-pipes/karma.conf.js",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "browsers": ["chrome"]
           }
         },
         "lint": {
@@ -378,11 +351,9 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "main": "projects/nmce-directives/src/test.ts",
-            "tsConfig": "projects/nmce-directives/tsconfig.spec.json",
-            "karmaConfig": "projects/nmce-directives/karma.conf.js"
+            "browsers": ["chrome"]
           }
         },
         "lint": {
@@ -418,11 +389,9 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "main": "projects/nmce-json-diff/src/test.ts",
-            "tsConfig": "projects/nmce-json-diff/tsconfig.spec.json",
-            "karmaConfig": "projects/nmce-json-diff/karma.conf.js"
+            "browsers": ["chrome"]
           }
         },
         "lint": {

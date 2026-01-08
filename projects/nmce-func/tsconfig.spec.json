@@ -6,7 +6,7 @@
     "declaration": true,
     "outDir": "../../out-tsc/spec",
     "types": [
-      "jasmine",
+      "vitest/globals",
       "@angular/localize"
     ]
   },

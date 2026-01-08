@@ -6,7 +6,7 @@
     "skipLibCheck": false,
     "outDir": "../../out-tsc/spec",
     "types": [
-      "jasmine"
+      "vitest/globals"
     ]
   },
   "files": [
