@@ -79,6 +79,12 @@ then `cd dist/myProject`, and
 
 And in the root, a few bp_nmce*.ps1 files make it easier to publish.
 
+Hints:
+* Since December 2025, npmjs has changed the security models as described on https://github.blog/changelog/2025-12-09-npm-classic-tokens-revoked-session-based-auth-and-cli-token-management-now-available/.
+* For publishing packages from a dev machine, "granular access token with bypass 2FA" is used.
+    1. Generate an access token in the account, which will expires in 90 days.
+    2. Update what in %users%myAccount/.npmrc with the token.
+
 ## I18N
 
 The translations done within the libraries of this project are to verify if i18n is properly done, while the app projects utilizing the libraries will pickup translation units annotated in the lib codes. This is, the translation resource files (XLF) won't be utilized directly in the app projects, since `ng extract-i18n` can scan the i18n annotations in 3rd party libraries. 
@@ -126,5 +132,15 @@ npx compodoc -p tsconfig.doc.json -s
 # Alternative or Complementary
 There are a few similar open source projects:
 
+## Based on [Angular Material Design Components](https://material.angular.dev/)
+
+Just like NMCE, these component suites are relevant when you have already been using Angular Material Design Components.
 * [Angular Material Extensions](https://ng-matero.github.io/extensions/).
 * [angular-material-extensions](https://github.com/angular-material-extensions), most repositories are up to date as of 2023.
+
+## Based on [Angular](https://angular.dev/)
+* [primeng](https://primeng.org/)
+* [NG Bootstrap](https://ng-bootstrap.github.io/#/home)
+* [Nebular](https://akveo.github.io/nebular/)
+* [Angular implementation of the Carbon Design System for IBM](https://github.com/carbon-design-system/carbon-components-angular)
+* [Ant Design of Angular](https://ng.ant.design/docs/introduce/en)

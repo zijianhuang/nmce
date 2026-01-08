@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Input} from '@angular/core';
 import { Subscription } from 'rxjs';
-import { WaitMessage, WaitProgressService } from '../_ui_services/index';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { WaitMessage, WaitProgressService } from '../_ui_services/wait.service';
 
 
 /**

@@ -7,12 +7,14 @@ import { HtmlPrintFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from '../_ui_services/baseTypes';
 import { HtmlBaseDialogService } from '../_ui_services/htmlBaseDialogService';
-import { HtmlDialogComponent, HtmlHRefDialogComponent, HtmlImgDialogComponent } from '../_ui_services/htmlDialog.component';
+import { HtmlDialogComponent } from '../_ui_services/htmlDialog.component';
 import { DialogSize } from '../_ui_services/types';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
+import { HtmlHRefDialogComponent } from '../_ui_services/htmlHRefDialog.component';
+import { HtmlImgDialogComponent } from '../_ui_services/htmlImgDialog.component';
 
 /**
  * Contain HTML content, used in HtmlDialogService.

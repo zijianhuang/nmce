@@ -1,8 +1,9 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { takeWhile } from 'rxjs/operators';
-import { AlertSubjectMessage, LocalAlertService } from '../_ui_services/index';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LocalAlertService } from '../_ui_services/localAlert.service';
+import { AlertSubjectMessage } from '../_ui_services/types';
 
 /**
  * Alert to render element alert in a component through LocalAlertService.

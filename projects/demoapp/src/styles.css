@@ -1,19 +1,22 @@
 .mat-icon.material-symbols-outlined {
-  vertical-align: middle;
-  line-height: 1;
+	font-family: 'Material Symbols Outlined' !important;
+	font-size: 24px;
+	vertical-align: middle;
+	line-height: 1;
+	font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
 }
 
-.material-symbols-outlined {
-    font-family: 'Material Symbols Outlined';
-    font-size: 24px;
-    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+.filled {
+	font-variation-settings:
+		'FILL' 1  !important;
 }
+
 
 /* #region sticky things */
 
 div.table-sticky {
 	display: inline-block;
-	height: calc(100vh - 11.2em );
+	height: calc(100vh - 11.2em);
 	width: 95vw;
 	overflow: auto
 }
@@ -236,22 +239,24 @@ input:-moz-read-only {
 	background-color: #ffc107;
 }
 
-	.badge-warning[href]:hover, .badge-warning[href]:focus {
-		color: #212529;
-		text-decoration: none;
-		background-color: #d39e00;
-	}
+.badge-warning[href]:hover,
+.badge-warning[href]:focus {
+	color: #212529;
+	text-decoration: none;
+	background-color: #d39e00;
+}
 
 .badge-danger {
 	color: #fff;
 	background-color: #dc3545;
 }
 
-	.badge-danger[href]:hover, .badge-danger[href]:focus {
-		color: #fff;
-		text-decoration: none;
-		background-color: #bd2130;
-	}
+.badge-danger[href]:hover,
+.badge-danger[href]:focus {
+	color: #fff;
+	text-decoration: none;
+	background-color: #bd2130;
+}
 
 .badge-light {
 	color: #212529;
@@ -306,9 +311,9 @@ input:-moz-read-only {
 	pointer-events: none;
 }
 
-	.cal-disabled .cal-day-number {
-		opacity: 0.3;
-	}
+.cal-disabled .cal-day-number {
+	opacity: 0.3;
+}
 
 
 .external-link {
@@ -324,7 +329,8 @@ input:-moz-read-only {
 	font-style: italic;
 }
 
-div.doc-highlight, span.doc-highlight {
+div.doc-highlight,
+span.doc-highlight {
 	background-color: lightyellow;
 }
 
@@ -425,7 +431,8 @@ body {
 }
 
 /* for calendar event title in line with the X icon. Good for 15 minutes event */
-.cal-event-title, .cal-event {
+.cal-event-title,
+.cal-event {
 	vertical-align: top;
 }
 
@@ -635,7 +642,8 @@ div.func-title {
 }
 
 
-button.margin-top-small, div.margin-top-small {
+button.margin-top-small,
+div.margin-top-small {
 	margin-top: 0.5em;
 }
 
@@ -704,13 +712,13 @@ ul.list-style-alpha {
 
 
 /* For block container such as mat-dialog-title which is at odd against flex. */
-.block-items-gap-1 > * {
+.block-items-gap-1>* {
 	margin-left: 1em;
 }
 
-	.block-items-gap-1 > *:first-child {
-		margin-left: 0em;
-	}
+.block-items-gap-1>*:first-child {
+	margin-left: 0em;
+}
 
 .top-margin-half {
 	margin-top: 0.5em;
@@ -751,13 +759,13 @@ iframe.frame-dialog-content {
 
 
 /* For block container such as mat-dialog-title which is at odd against flex. */
-.block-items-gap-1 > * {
+.block-items-gap-1>* {
 	margin-left: 1em;
 }
 
-	.block-items-gap-1 > *:first-child {
-		margin-left: 0em;
-	}
+.block-items-gap-1>*:first-child {
+	margin-left: 0em;
+}
 
 .top-margin-half {
 	margin-top: 0.5em;

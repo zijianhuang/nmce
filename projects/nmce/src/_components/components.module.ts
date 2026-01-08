@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {
-	AlertComponent, MonthYearExpiryComponent, NotFoundComponent,
-	PrintComponent, WaitComponent, WaitProgressComponent, WIPComponent
-} from './index';
+import { AlertComponent } from './alert.component';
+import { MonthYearExpiryComponent } from './monthYearExpiry.component';
+import { NotFoundComponent } from './notFound.component';
+import { PrintComponent } from './print.component';
+import { WaitComponent } from './wait.component';
+import { WaitProgressComponent } from './waitProgress.component';
+import { WIPComponent } from './wip.component';
 
 /**
  * Contain components for apps preferring importing module.
@@ -28,7 +31,7 @@ import {
 		WaitComponent,
 		WaitProgressComponent,
 		MonthYearExpiryComponent,
-		AlertComponent, //need to export the entry component
+		AlertComponent,
 		PrintComponent,
 	]
 })
