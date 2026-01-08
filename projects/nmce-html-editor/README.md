@@ -2,7 +2,7 @@
 
 Based on [@kolkov/angular-editor](https://www.npmjs.com/package/@kolkov/angular-editor), LocalDocHtmlEditorDialogComponent and EmailConfirmComponent are exported.
 
-Since version 3 of @kolkov/angular-editor, you need to include some settings for icons in angular.json for your application though your app does not need to import:
+Since version 3 of @kolkov/angular-editor, you need to include some settings for icons in angular.json for your application and your app needs to import @kolkov/angular-editor explicitly in package.json. And:
 1. Under `architect/build/options/assets`, add:
 ```json
     {
