@@ -16,7 +16,6 @@ export class DateFunc {
 		if (typeof dt === 'string'){
 			const r = Date.parse(dt);
 			if (isNaN(r)){
-				console.debug('1111111');
 				throw new RangeError($localize`Invalid string for Date`);
 			}
 
@@ -26,14 +25,12 @@ export class DateFunc {
 		if (typeof dt === 'number'){
 			const rd = new Date(dt)
 			if (Number.isNaN(rd.valueOf())){
-				console.debug('222222');
 				throw new RangeError($localize`Invalid number for Date`);
 			}
 
 			return rd;
 		}
 
-		console.debug('333333');
 		throw new TypeError($localize`Expect Date, string or number`);
 	}
 

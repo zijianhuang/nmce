@@ -1,12 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 import {   LiteralDatePipe, } from './date.pipe';
 import { DATE_PIPE_DEFAULT_OPTIONS, DatePipe } from '@angular/common';
+import { platformBrowserTesting, BrowserTestingModule } 
+  from '@angular/platform-browser/testing';
+
 
 import { DateFunc } from 'nmce-func';
 
 describe('DatePipeMinus10', () => {
 	let datePipe: DatePipe;
 	beforeEach(() => {
+		TestBed.initTestEnvironment(BrowserTestingModule, platformBrowserTesting());
+
 		TestBed.configureTestingModule({
 			providers: [
 				DatePipe,
@@ -22,10 +27,10 @@ describe('DatePipeMinus10', () => {
 
 	it('transformCrossTimezones', () => {
 		const dt = Date.parse('2023-12-28T15:33:44Z');
-		expect(datePipe.transform(dt)).toEqual('5:33 AM');
+		expect(datePipe.transform(dt)).toEqual('5:33 AM'); //NNBSP is returned by datePipe mostly
 
 		const dt2 = Date.parse('2023-12-28T09:33:44Z');
-		expect(datePipe.transform(dt2)).toEqual('11:33 PM');
+		expect(datePipe.transform(dt2)).toEqual('11:33 PM');
 
 		const datePipe2 = new DatePipe('en-au', '-1000', { dateFormat: 'HH:mm' });
 		expect(datePipe2.transform(dt2)).toEqual('23:33');
