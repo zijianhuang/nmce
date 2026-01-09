@@ -37,4 +37,13 @@ jobs:
 
     - run: ./buildComponents.ps1
     #- run: npm run test:ci nmce-func some tests work only when running on +10 timezone
-    - run: npx vitest nmce-pipes
+  test:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Australia/Brisbane
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npx vitest --run
