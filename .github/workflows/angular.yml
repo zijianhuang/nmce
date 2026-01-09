@@ -38,4 +38,5 @@ jobs:
       run: npm install -g @angular/cli
 
     - run: ./buildComponents.ps1
+    - run: npx vitest nmce-func --run
     - run: npx vitest nmce-pipes --run
