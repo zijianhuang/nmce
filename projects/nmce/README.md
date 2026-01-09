@@ -17,10 +17,6 @@ Run `ng build nmce` to build the project. The build artifacts will be stored in 
 
 After building your library with `ng build nmce`, go to the dist folder `cd dist/nmce` and run `npm publish`.
 
-## Running unit tests
-
-Run `ng test nmce` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

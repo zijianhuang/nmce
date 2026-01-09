@@ -29,10 +29,6 @@ Run `ng build nmce-html-editor` to build the project. The build artifacts will b
 
 After building your library with `ng build nmce-html-editor`, go to the dist folder `cd dist/nmce-html-editor` and run `npm publish`.
 
-## Running unit tests
-
-Run `ng test nmce-html-editor` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

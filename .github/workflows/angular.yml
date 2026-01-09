@@ -37,4 +37,4 @@ jobs:
 
     - run: ./buildComponents.ps1
     #- run: npm run test:ci nmce-func some tests work only when running on +10 timezone
-    - run: npm run test:ci nmce-pipes
+    - run: npx vitest nmce-pipes
