@@ -3,7 +3,8 @@ import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
 /**
  * Use as a parameterized input parameter in html element.
  * When used inside a material dialog, this directive may be at odd against the autofocus config parameter of MatDialogConfig, 
- * if the autofocus config is not false. Generally speaking, no need to use this directive in a component presented in a material dialog.
+ * if the autofocus config is not false.
+ * For auto focus features in Angular Material dialog, CDK focus directives are preferred: https://material.angular.dev/cdk/a11y/overview
  */
 @Directive({
 	selector: '[autofocus]',
@@ -12,12 +13,14 @@ import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
 export class AutofocusDirective implements AfterViewInit {
 	@Input('autofocus') autofocus = false;
 
-	constructor(private el: ElementRef) {
+	constructor(private el: ElementRef<HTMLElement>) {
 	}
 
 	ngAfterViewInit() {
 		if (this.autofocus) {
-			this.el.nativeElement.focus();
+			queueMicrotask(() => {
+				this.el.nativeElement.focus({ preventScroll: true });
+			});
 		}
 	}
 }

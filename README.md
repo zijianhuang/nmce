@@ -16,7 +16,7 @@ The projects of Angular Material Components Extensions are to deliver a set of r
 
 # Designs
 
-The UI design conforms to Material Design, and the visual components are constructed through composing, bridging and wrapping of existing Angular Material Components.
+The UI design conforms to Material Design, and the visual components are constructed through composing, bridging and wrapping of existing Angular Material Components and CDK.
 
 When considering use cases and making design trade-off, the priority is:
 1. Desktop with big monitors, mouse and keyboard
@@ -26,7 +26,7 @@ When considering use cases and making design trade-off, the priority is:
 TV screen is not considered.
 
 Remarks:
-* This repository began with a rich collection of functions, pipes, directives, and components dating back to 2017. However, over time, as Angular and the Angular Material UI Component Library have become more mature and comprehensive, many of these utilities have been deprecated in favor of the built-in features provided by the frameworks and libraries, which include the following:
+* This repository began with a rich collection of functions, pipes, directives, and components dating back to 2017. However, over time, as Angular and the Angular Material UI Component Library have become more mature and comprehensive, many of these utilities have been deprecated then removed in favor of the built-in features provided by the frameworks and libraries which include the following:
     * MomentJS then luxon for date time handling.
     * dinerojs for monetary calculations.
 
@@ -134,3 +134,4 @@ Just like NMCE, these component suites are relevant when you have already been u
 * [Nebular](https://akveo.github.io/nebular/)
 * [Angular implementation of the Carbon Design System for IBM](https://github.com/carbon-design-system/carbon-components-angular)
 * [Ant Design of Angular](https://ng.ant.design/docs/introduce/en)
+* [Angular Aria](https://angular.dev/guide/aria)

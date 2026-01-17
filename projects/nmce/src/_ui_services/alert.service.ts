@@ -11,7 +11,7 @@ import { AlertSubjectMessage, MessageContentType, MessageType } from './types';
 
 /**
  * Similar to JavaScript's alert() function, to display message in a dialog with LogDialogComponent,
- * or optionally a snackbar if message content type is text. 
+ * or optionally a snackbar if the message content type is text. 
  * The message could be of type info, error, warn and success and response.
  * Browser console also write a copy of the message. The snackBar parameter is effective only when contentType is text.
  * When contentType is html, you MUST make sure the HTML content won't be harming the health of DOM managed by Angular. 
@@ -56,7 +56,16 @@ export class AlertService extends RootInjectorGuard {
 
 				if (message.contentType === 'text' &&
 					(message.snackBar || ((message.type === 'success') && message.text.length <= maxLenForSuccessSnackBar && message.snackBar == null))) {
-					this.snackBarService.openFromComponent(LogSnackComponent, { duration: 3000, data: { message: message } });
+					this.snackBarService.openFromComponent(LogSnackComponent, { //duration: 3000, 
+						data: { message: message } });
+					// const snackbarRef = this.snackBarService.open(message.text, undefined);
+					// snackbarRef.afterOpened().subscribe(()=>{
+					// const surface= this.snackBarService.snackBarContainerComponent.prototype._elementRef.nativeElement.querySelector('mat-mdc-snackbar-surface');
+					// if (surface){
+					// 	surface.classList.add('alert-background-'+message.type);
+					// }
+					// });
+
 				} else {
 					this.dialog.open(LogDialogComponent, {
 						data: {

@@ -13,13 +13,13 @@
 <mat-dialog-content>
 	@if (!message?.status && message?.contentType==='text') {
 <div
-		[ngClass]="{ 'alert': message, 'alert-success': messageType === 'success', 'alert-danger': messageType === 'error', 'alert-info':messageType==='info', 'alert-warning':messageType==='warning'}"
+		[ngClass]="{ 'alert': message, 'alert-success': messageType === 'success', 'alert-error': messageType === 'error', 'alert-info':messageType==='info', 'alert-warning':messageType==='warning'}"
 		role="alert">{{ message?.text }}
 	</div>
 }
 	@if (message?.status! >= 0) {
 <div
-		[ngClass]="{ 'alert': message, 'alert-success': messageType === 'success', 'alert-danger': messageType === 'error', 'alert-info':messageType==='info', 'alert-warning':messageType==='warning'}"
+		[ngClass]="{ 'alert': message, 'alert-success': messageType === 'success', 'alert-error': messageType === 'error', 'alert-info':messageType==='info', 'alert-warning':messageType==='warning'}"
 		role="alert">HTTP Status: {{message?.status}} {{message?.statusText}}
 	</div>
 }

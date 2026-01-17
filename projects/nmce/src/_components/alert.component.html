@@ -1,6 +1,6 @@
 ﻿@if (hasContent) {
 <div>
-    <div [ngClass]="{ 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error', 'alert-info':message.type==='info', 'alert-warning':message.type==='warning'}"
+    <div [ngClass]="{ 'alert-success': message.type === 'success', 'alert-error': message.type === 'error', 'alert-info':message.type==='info', 'alert-warning':message.type==='warning'}"
         role="alert">{{ message.text }}</div>
 </div>
 }

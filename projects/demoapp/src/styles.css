@@ -89,6 +89,10 @@ table.sticky-footer tfoot th {
 	margin-left: auto;
 }
 
+.alert-background-success {
+	background-color: #dff0d8 !important;
+}
+
 .bg-info {
 	background-color: #5bc0de !important;
 }
@@ -722,34 +726,6 @@ ul.list-style-alpha {
 
 .top-margin-half {
 	margin-top: 0.5em;
-}
-
-
-/* You can add global styles to this file, and also import other style files */
-.alert-success {
-	background-color: #dff0d8;
-	border-color: #d0e9c6;
-	color: #3c763d;
-}
-
-
-.alert-info {
-	background-color: #d9edf7;
-	border-color: #bcdff1;
-	color: #31708f;
-}
-
-
-.alert-warning {
-	background-color: #fcf8e3;
-	border-color: #faf2cc;
-	color: #8a6d3b;
-}
-
-.alert-danger {
-	background-color: #f2dede;
-	border-color: #ebcccc;
-	color: #a94442;
 }
 
 iframe.frame-dialog-content {
