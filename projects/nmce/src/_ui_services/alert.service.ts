@@ -8,7 +8,6 @@ import { LogDialogComponent } from './logDialog.component';
 import { LogSnackComponent } from './logSnack.component';
 import { AlertSubjectMessage, MessageContentType, MessageType } from './types';
 
-
 /**
  * Similar to JavaScript's alert() function, to display message in a dialog with LogDialogComponent,
  * or optionally a snackbar if the message content type is text. 
@@ -56,16 +55,9 @@ export class AlertService extends RootInjectorGuard {
 
 				if (message.contentType === 'text' &&
 					(message.snackBar || ((message.type === 'success') && message.text.length <= maxLenForSuccessSnackBar && message.snackBar == null))) {
-					this.snackBarService.openFromComponent(LogSnackComponent, { //duration: 3000, 
+					this.snackBarService.openFromComponent(LogSnackComponent, { 
+						duration: 3000, 
 						data: { message: message } });
-					// const snackbarRef = this.snackBarService.open(message.text, undefined);
-					// snackbarRef.afterOpened().subscribe(()=>{
-					// const surface= this.snackBarService.snackBarContainerComponent.prototype._elementRef.nativeElement.querySelector('mat-mdc-snackbar-surface');
-					// if (surface){
-					// 	surface.classList.add('alert-background-'+message.type);
-					// }
-					// });
-
 				} else {
 					this.dialog.open(LogDialogComponent, {
 						data: {
@@ -73,7 +65,6 @@ export class AlertService extends RootInjectorGuard {
 						}
 					});
 				}
-
 			}
 		});
 
