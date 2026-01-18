@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, Inject, InjectionToken, Renderer2
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 import { AlertSubjectMessage } from './types';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
@@ -69,13 +69,9 @@ export class LogDialogComponent implements AfterViewInit {
 					} else {
 						this.renderer.setProperty(this.htmlContentElement.nativeElement, 'innerHTML', this.message.text);
 					}
-
-					//this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', this.message.text);//good for normal insert
 				} else if (this.message.contentType === 'json' && this.message.status! >= 0) {
 					this.htmlContentElement.nativeElement.srcdoc = '<pre>' + this.message.text + '</pre>'; //good for iframe
-					//this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', '<pre>' + this.message.text + '</pre>');
 				} else if (this.message.contentType === 'text') {
-					//this.renderer.setProperty(this.htmlContentElement.nativeElement, 'innerHTML', '<pre>' + this.message.text + '</pre>');
 					this.htmlContentElement.nativeElement.srcdoc = '<pre>' + this.message.text + '</pre>';
 				}
 			}
@@ -153,5 +149,4 @@ export class LogDialogComponent implements AfterViewInit {
 
 		return this.message.type ?? '';
 	}
-
 }

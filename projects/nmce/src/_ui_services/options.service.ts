@@ -18,7 +18,9 @@ export class OptionsService {
 	 * @returns the selected option
 	 */
 	open(title: string, body: string, options: string[]): Observable<string> {
-		const modalRef = this.dialog.open(OptionsComponent, { disableClose: true, data: {title: title, body: body, options: options} });
+		const modalRef = this.dialog.open(OptionsComponent, { 
+			data: {title: title, body: body, options: options} 
+		});
 		return modalRef.afterClosed();
 	}
 

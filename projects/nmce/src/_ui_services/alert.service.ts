@@ -148,7 +148,6 @@ export class AlertService extends RootInjectorGuard {
 				}
 			} else {
 				if (error.error) {
-					//console.debug('error.error: ' + error.error); // Sometimes if content type is application/json but without charset=UTF-8, error.error is actuall text rather than object, likely because the text contains some invalid character.
 					errMsg = contentType === 'json' && (error.error instanceof Object) ? JSON.stringify(error.error, null, '\t') : error.error; // error is actually the response body, while message could be the text wrapper of the response body with some extra thing like Http failure response for https://apsmdngcli.localhost/WebApi/token: 500 OK " \n \n \n \n \n \n \n \n
 				} else {
 					errMsg = `${error.status} - ${error.statusText}`;

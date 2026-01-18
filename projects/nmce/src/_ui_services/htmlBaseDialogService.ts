@@ -29,7 +29,6 @@ export class HtmlBaseDialogService<T> {
 		}
 
 		this.modalRef = this.dialog.open(component, {
-			disableClose: true,
 			minWidth: DialogSizeToSize(data.size, data.useBackButton, 'vw'),
 			minHeight: DialogSizeToSize(data.size, data.useBackButton, 'vh'),
 			panelClass: (data.size === DialogSize.Large) ? 'dialog-full-content-height' : undefined,

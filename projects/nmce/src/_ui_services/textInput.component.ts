@@ -60,7 +60,6 @@ export class TextInputService {
 	 */
 	open(title?: string, label?: string, text?: string, small = false): Observable<string> {
 		const modalRef = this.dialog.open(TextInputComponent, {
-			disableClose: true,
 			autoFocus: true,
 			minWidth: small ? undefined : '98vw',
 			data: {

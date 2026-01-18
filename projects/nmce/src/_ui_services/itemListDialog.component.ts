@@ -69,7 +69,9 @@ export abstract class ItemListDialogServiceBase {
 	 * @returns object item selected.
 	 */
 	open(title: string, items: { [k: string]: any }[] | string[]): Observable<{ [k: string]: any } | string> {
-		const modalRef = this.dialog.open(ItemListDialogComponent, { disableClose: true, autoFocus: false, data: { title: title, items: items, toStringCallback: this.toString } });
+		const modalRef = this.dialog.open(ItemListDialogComponent, { 
+			autoFocus: false, 
+			data: { title: title, items: items, toStringCallback: this.toString } });
 		return modalRef.afterClosed();
 	}
 

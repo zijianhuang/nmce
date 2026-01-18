@@ -78,7 +78,7 @@ export class ProgressDialogService {
 
 	open(title: string, body: string, progressBarMode: ProgressBarMode, progressBarBufferValue?: number): Observable<boolean> {
 		this.modalRef = this.dialog.open(ProgressComponent, {
-			disableClose: true,
+			disableClose: true,//intentional
 			hasBackdrop: true,
 			width: '70%',
 			data: {

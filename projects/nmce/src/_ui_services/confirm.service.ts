@@ -25,7 +25,6 @@ export class ConfirmService {
 
 	open(title: string, body: string, action = $localize`Yes`, cancel = $localize`No`): Observable<boolean> {
 		this.modalRef = this.dialog.open(ConfirmComponent, {
-			disableClose: true,
 			data: {
 				title: title,
 				body: body,
