@@ -10,11 +10,13 @@ import { AlertSubjectMessage, MessageContentType, MessageType } from './types';
 
 /**
  * Similar to JavaScript's alert() function, to display message in a dialog with LogDialogComponent,
- * or optionally a snackbar if the message content type is text. 
+ * or optionally a snackbar if the message content type is text with less than 50 bytes, and the message type is success. 
  * The message could be of type info, error, warn and success and response.
  * Browser console also write a copy of the message. The snackBar parameter is effective only when contentType is text.
  * When contentType is html, you MUST make sure the HTML content won't be harming the health of DOM managed by Angular. 
  * For example, a href link without _blank, and malicious codes may damage Angular rendering.
+ * While the message has its own text color and background color, however, Angular Material has full control of the background color of the whole snackbar, 
+ * since version 15 of the component suite. There's no feasible way to alter the background at runtime.
  */
 @Injectable({
 	providedIn: 'root',
