@@ -391,7 +391,7 @@ export class LocalDocEditorDialogService {
 	 */
 	open(data: { [k: string]: any }): Observable&lt;{ [k: string]: string }&gt; {
 		const modalRef &#x3D; this.dialog.open(LocalDocHtmlEditorDialogComponent, {
-			disableClose: true,
+			disableClose: true, //intentional
 			autoFocus: false,
 			minWidth: &#x27;98vw&#x27;,
 			minHeight: &#x27;98vh&#x27;,

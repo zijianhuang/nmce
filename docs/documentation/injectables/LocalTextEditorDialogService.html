@@ -390,7 +390,6 @@ export class LocalTextEditorDialogService {
 	 */
 	open(data: { [k: string]: string }): Observable&lt;{ [k: string]: string }&gt; {
 		const modalRef &#x3D; this.dialog.open(LocalTextEditorDialogComponent, {
-			disableClose: true,
 			autoFocus: false,
 			minWidth: &#x27;98vw&#x27;,
 			minHeight: &#x27;98vh&#x27;,

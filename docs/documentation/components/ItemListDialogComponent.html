@@ -666,7 +666,9 @@ export abstract class ItemListDialogServiceBase {
 	 * @returns object item selected.
 	 */
 	open(title: string, items: { [k: string]: any }[] | string[]): Observable&lt;{ [k: string]: any } | string&gt; {
-		const modalRef &#x3D; this.dialog.open(ItemListDialogComponent, { disableClose: true, autoFocus: false, data: { title: title, items: items, toStringCallback: this.toString } });
+		const modalRef &#x3D; this.dialog.open(ItemListDialogComponent, { 
+			autoFocus: false, 
+			data: { title: title, items: items, toStringCallback: this.toString } });
 		return modalRef.afterClosed();
 	}
 
@@ -707,29 +709,40 @@ export abstract class ItemListDialogServiceBase {
                 </p>
                 <pre class="line-numbers"><code class="language-scss">/* You can add global styles to this file, and also import other style files */
 .alert-success {
-	background-color: #dff0d8;
 	border-color: #d0e9c6;
 	color: #3c763d;
 }
 
+.alert-background-success {
+	background-color: #dff0d8 !important;
+}
 
 .alert-info {
-	background-color: #d9edf7;
 	border-color: #bcdff1;
 	color: #31708f;
 }
 
+.alert-background-info {
+	background-color: #d9edf7;
+}
+
 
 .alert-warning {
-	background-color: #fcf8e3;
 	border-color: #faf2cc;
 	color: #8a6d3b;
 }
 
-.alert-danger {
-	background-color: #f2dede;
+.alert-background-warning {
+	background-color: #fcf8e3;
+}
+
+.alert-error {
 	border-color: #ebcccc;
 	color: #a94442;
+}
+
+.alert-background-error {
+	background-color: #f2dede;
 }
 
 iframe.frame-dialog-content {
@@ -1452,7 +1465,7 @@ img.original-size {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><h1 mat-dialog-title>	<strong>{{ title }}</strong></h1><mat-dialog-content>	<mat-selection-list [multiple]="false" (selectionChange)="itemSelectionChange($event)">		@for (p of items; track p) {<mat-list-option togglePosition="before" [value]="p">			{{toString(p)}}		</mat-list-option>}	</mat-selection-list></mat-dialog-content><mat-dialog-actions [align]="actionsAlign">	<button type="button" mat-raised-button matDialogClose i18n>Cancel</button></mat-dialog-actions></div>'
-    var COMPONENTS = [{'name': 'AlertComponent', 'selector': 'alert, nmce-alert, nmceAlert'},{'name': 'ConfirmComponent', 'selector': 'confirm-content'},{'name': 'DataComponentDialog', 'selector': 'nmce-data-component-content'},{'name': 'DataComponentPrintDialog', 'selector': ''},{'name': 'DateHourRangePickerComponent', 'selector': 'DateHourRangePicker, nmce-date-hour-range-picker'},{'name': 'DateRangePickerComponent', 'selector': 'DateRangePicker, nmce-date-range-picker'},{'name': 'EmailConfirmComponent', 'selector': 'email-confirm'},{'name': 'HtmlDialogComponent', 'selector': 'html-dialog'},{'name': 'HtmlDialogComponent', 'selector': 'html-dialog'},{'name': 'HtmlFrameDialogComponent', 'selector': 'html-frame-dialog'},{'name': 'HtmlFramePrintDialogComponent', 'selector': 'html-frame-print-dialog'},{'name': 'HtmlHRefDialogComponent', 'selector': 'html-ref-dialog'},{'name': 'HtmlHRefDialogComponent', 'selector': 'html-ref-dialog'},{'name': 'HtmlHRefFrameDialogComponent', 'selector': 'html-href-frame-dialog'},{'name': 'HtmlHRefFramePrintDialogComponent', 'selector': 'html-href-frame-print-dialog'},{'name': 'HtmlHRefPrintDialogComponent', 'selector': 'html-href-print-dialog'},{'name': 'HtmlImgDialogComponent', 'selector': 'html-img-dialog'},{'name': 'HtmlImgDialogComponent', 'selector': 'html-img-dialog'},{'name': 'HtmlImgPrintDialogComponent', 'selector': 'html-img-print-dialog'},{'name': 'HtmlPrintDialogComponent', 'selector': 'html-print-dialog'},{'name': 'ItemListDialogComponent', 'selector': ''},{'name': 'JsonDiffComponent', 'selector': 'json-diff-page'},{'name': 'LocalDocHtmlEditorDialogComponent', 'selector': ''},{'name': 'LocalTextEditorDialogComponent', 'selector': ''},{'name': 'LogDialogComponent', 'selector': ''},{'name': 'LogSnackComponent', 'selector': ''},{'name': 'MonthYearExpiryComponent', 'selector': 'month-year-expiry, nmce-month-year-expiry'},{'name': 'NotFoundComponent', 'selector': ''},{'name': 'NotificationsComponent', 'selector': ''},{'name': 'OptionsComponent', 'selector': 'options-content'},{'name': 'PasswordsInputComponent', 'selector': 'passwordsInput'},{'name': 'PrintComponent', 'selector': 'print-page, nmce-print-page, nmcePrintPage'},{'name': 'ProgressComponent', 'selector': ''},{'name': 'TextDialogComponent', 'selector': 'text-dialog'},{'name': 'TextHRefDialogComponent', 'selector': 'text-href-dialog'},{'name': 'TextInputComponent', 'selector': 'textInput'},{'name': 'TimePickerComponent', 'selector': 'timePicker'},{'name': 'WaitComponent', 'selector': 'wait, nmce-wait, nmceWait'},{'name': 'WaitProgressComponent', 'selector': 'waitProgress, nmce-wait-progress, nmceWaitProgress'},{'name': 'WIPComponent', 'selector': ''}];
+    var COMPONENTS = [{'name': 'AlertComponent', 'selector': 'alert, nmce-alert, nmceAlert'},{'name': 'ConfirmComponent', 'selector': 'confirm-content'},{'name': 'DataComponentDialog', 'selector': 'nmce-data-component-content'},{'name': 'DataComponentPrintDialog', 'selector': ''},{'name': 'DateHourRangePickerComponent', 'selector': 'DateHourRangePicker, nmce-date-hour-range-picker'},{'name': 'DateRangePickerComponent', 'selector': 'DateRangePicker, nmce-date-range-picker'},{'name': 'EmailConfirmComponent', 'selector': 'email-confirm'},{'name': 'HtmlDialogComponent', 'selector': 'html-dialog'},{'name': 'HtmlFrameDialogComponent', 'selector': 'html-frame-dialog'},{'name': 'HtmlFramePrintDialogComponent', 'selector': 'html-frame-print-dialog'},{'name': 'HtmlHRefDialogComponent', 'selector': 'html-ref-dialog'},{'name': 'HtmlHRefFrameDialogComponent', 'selector': 'html-href-frame-dialog'},{'name': 'HtmlHRefFramePrintDialogComponent', 'selector': 'html-href-frame-print-dialog'},{'name': 'HtmlHRefPrintDialogComponent', 'selector': 'html-href-print-dialog'},{'name': 'HtmlImgDialogComponent', 'selector': 'html-img-dialog'},{'name': 'HtmlImgPrintDialogComponent', 'selector': 'html-img-print-dialog'},{'name': 'HtmlPrintDialogComponent', 'selector': 'html-print-dialog'},{'name': 'ItemListDialogComponent', 'selector': ''},{'name': 'JsonDiffComponent', 'selector': 'json-diff-page'},{'name': 'LocalDocHtmlEditorDialogComponent', 'selector': ''},{'name': 'LocalTextEditorDialogComponent', 'selector': ''},{'name': 'LogDialogComponent', 'selector': ''},{'name': 'LogSnackComponent', 'selector': ''},{'name': 'MonthYearExpiryComponent', 'selector': 'month-year-expiry, nmce-month-year-expiry'},{'name': 'NotFoundComponent', 'selector': ''},{'name': 'NotificationsComponent', 'selector': ''},{'name': 'OptionsComponent', 'selector': 'options-content'},{'name': 'PasswordsInputComponent', 'selector': 'passwordsInput'},{'name': 'PrintComponent', 'selector': 'print-page, nmce-print-page, nmcePrintPage'},{'name': 'ProgressComponent', 'selector': ''},{'name': 'TextDialogComponent', 'selector': 'text-dialog'},{'name': 'TextHRefDialogComponent', 'selector': 'text-href-dialog'},{'name': 'TextInputComponent', 'selector': 'textInput'},{'name': 'TimePickerComponent', 'selector': 'timePicker'},{'name': 'WaitComponent', 'selector': 'wait, nmce-wait, nmceWait'},{'name': 'WaitProgressComponent', 'selector': 'waitProgress, nmce-wait-progress, nmceWaitProgress'},{'name': 'WIPComponent', 'selector': ''}];
     var DIRECTIVES = [{'name': 'AutofocusDirective', 'selector': '[autofocus]'},{'name': 'DataComponentDirective', 'selector': '[dataComponentHost]'},{'name': 'HtmlDocEditorDialogBaseComponent', 'selector': ''},{'name': 'ScrollIntoDirective', 'selector': '[scrollInto]'},{'name': 'TextEditorDialogComponentBase', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'ItemListDialogComponent'};
 </script>

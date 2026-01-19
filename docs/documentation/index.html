@@ -112,7 +112,7 @@
 <li>demoapp: A demo application demonstrating features of all above.</li>
 </ul>
 <h1>Designs</h1>
-<p>The UI design conforms to Material Design, and the visual components are constructed through composing, bridging and wrapping of existing Angular Material Components.</p>
+<p>The UI design conforms to Material Design, and the visual components are constructed through composing, bridging and wrapping of existing Angular Material Components and CDK.</p>
 <p>When considering use cases and making design trade-off, the priority is:</p>
 <ol>
 <li>Desktop with big monitors, mouse and keyboard</li>
@@ -122,7 +122,7 @@
 <p>TV screen is not considered.</p>
 <p>Remarks:</p>
 <ul>
-<li>This repository began with a rich collection of functions, pipes, directives, and components dating back to 2017. However, over time, as Angular and the Angular Material UI Component Library have become more mature and comprehensive, many of these utilities have been deprecated in favor of the built-in features provided by the frameworks and libraries, which include the following:<ul>
+<li>This repository began with a rich collection of functions, pipes, directives, and components dating back to 2017. However, over time, as Angular and the Angular Material UI Component Library have become more mature and comprehensive, many of these utilities have been deprecated then removed in favor of the built-in features provided by the frameworks and libraries which include the following:<ul>
 <li>MomentJS then luxon for date time handling.</li>
 <li>dinerojs for monetary calculations.</li>
 </ul>
@@ -139,17 +139,13 @@
 <h1>Maintenance</h1>
 <h2>Development server</h2>
 <p>Run <code>ng serve demoapp</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The app will automatically reload if you change any of the source files in demoapp.</p>
-<p>Additionally, you may execute <code>startAppDev.ps1</code> or <code>startAppProd.ps1</code> to run the app using the build.</p>
+<p>Additionally, you may execute <code>startAppDev.ps1</code> for the build of <code>buildAppDev.ps1</code> or <code>startAppProd.ps1</code> for the build of <code>buildAppProd.ps1</code>.</p>
 <h2>Code scaffolding</h2>
 <p>Run <code>ng generate component component-name</code> to generate a new component. You can also use <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>.</p>
 <h2>Build</h2>
 <p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <code>dist/</code> directory. Use the <code>--prod</code> flag for a production build. For examples:</p>
 <p><code>ng build nmce</code></p>
-<h2>Running unit tests</h2>
-<p>Run <code>ng test</code> to execute the unit tests via <a href="https://karma-runner.github.io">Karma</a>.</p>
-<p><code>ng test nmce-func</code></p>
-<h2>Running end-to-end tests</h2>
-<p>Run <code>ng e2e</code> to execute the end-to-end tests via <a href="http://www.protractortest.org/">Protractor</a>.</p>
+<p>However, do not run <code>ng build demoapp</code>, otherwise, the builds for libraries will be deleted, and the build for the app may fail. Instead, using <code>buildAppDev.ps1</code> or <code>buildAppProd.ps1</code>.</p>
 <h2>Publish</h2>
 <p>Follow <a href="https://jasonwatmore.com/post/2020/06/16/angular-npm-how-to-publish-an-angular-component-to-npm">https://jasonwatmore.com/post/2020/06/16/angular-npm-how-to-publish-an-angular-component-to-npm</a></p>
 <p>Particularly, after increasing the version number in each package.json, run:
@@ -157,6 +153,15 @@
 <p>then <code>cd dist/myProject</code>, and</p>
 <p><code>npm publish</code></p>
 <p>And in the root, a few bp_nmce*.ps1 files make it easier to publish.</p>
+<p>Hints:</p>
+<ul>
+<li>Since December 2025, npmjs has changed the security models as described on <a href="https://github.blog/changelog/2025-12-09-npm-classic-tokens-revoked-session-based-auth-and-cli-token-management-now-available/">https://github.blog/changelog/2025-12-09-npm-classic-tokens-revoked-session-based-auth-and-cli-token-management-now-available/</a>.</li>
+<li>For publishing packages from a dev machine, &quot;granular access token with bypass 2FA&quot; is used.<ol>
+<li>Generate an access token in the account, which will expires in 90 days.</li>
+<li>Update what in %users%myAccount/.npmrc with the token.</li>
+</ol>
+</li>
+</ul>
 <h2>I18N</h2>
 <p>The translations done within the libraries of this project are to verify if i18n is properly done, while the app projects utilizing the libraries will pickup translation units annotated in the lib codes. This is, the translation resource files (XLF) won&#39;t be utilized directly in the app projects, since <code>ng extract-i18n</code> can scan the i18n annotations in 3rd party libraries. </p>
 <p>After updating i18n tagging in HTML and TS codes, run:</p>
@@ -183,6 +188,7 @@
 <b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm install -g &#64;compodoc/compodoc
 # or for local use
 npm install --save-dev &#64;compodoc/compodoc</code></pre></div><h3>tsconfig.doc.json</h3>
+<p>Compodoc may use this to scan sub projects for doc comments.</p>
 <h3>Generate or Serve</h3>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npx compodoc -p tsconfig.doc.json
 # or serve
@@ -201,6 +207,7 @@ npx compodoc -p tsconfig.doc.json -s</code></pre></div><h1>Alternative or Comple
 <li><a href="https://akveo.github.io/nebular/">Nebular</a></li>
 <li><a href="https://github.com/carbon-design-system/carbon-components-angular">Angular implementation of the Carbon Design System for IBM</a></li>
 <li><a href="https://ng.ant.design/docs/introduce/en">Ant Design of Angular</a></li>
+<li><a href="https://angular.dev/guide/aria">Angular Aria</a></li>
 </ul>
 
 

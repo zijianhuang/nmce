@@ -133,7 +133,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/nmce/src/_ui_services/htmlDialog.component copy 5.ts</code>
+            <code>projects/nmce/src/_ui_services/htmlImgDialog.component.ts</code>
         </p>
 
 
@@ -210,7 +210,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="234" class="link-to-prism">projects/nmce/src/_ui_services/htmlDialog.component copy 5.ts:234</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">projects/nmce/src/_ui_services/htmlImgDialog.component.ts:70</a></div>
                             </td>
                         </tr>
 
@@ -273,8 +273,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="242"
-                                    class="link-to-prism">projects/nmce/src/_ui_services/htmlDialog.component copy 5.ts:242</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">projects/nmce/src/_ui_services/htmlImgDialog.component.ts:78</a></div>
                         </td>
                     </tr>
 
@@ -463,8 +463,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient, HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
-import { AfterViewInit, Component, ElementRef, Inject, Injectable, Renderer2, ViewChild } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef, Inject, Injectable, ViewChild } from &#x27;@angular/core&#x27;;
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from &#x27;@angular/material/dialog&#x27;;
 import { SafeUrl } from &#x27;@angular/platform-browser&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
@@ -475,128 +474,6 @@ import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
 import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
 import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
-
-
-/**
- * Contain HTML content, used in HtmlDialogService.
- * The content is contained inside another html tag, and all href linkes will be opened in new browser tab.
- */
-@Component({
-    selector: &#x27;html-dialog&#x27;,
-    templateUrl: &#x27;htmlDialog.component.html&#x27;,
-    standalone: true,
-	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule]
-})
-export class HtmlDialogComponent {
-	title: string;
-
-	htmlContent: string;
-
-	useBackButton: boolean;
-	toConfirm?: boolean;
-	yes?: string;
-	no?: string;
-
-	constructor(
-		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean, toConfirm?: boolean, yes?: string, no?: string },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: &#x27;start&#x27; | &#x27;center&#x27; | &#x27;end&#x27;, 
-		public dialogRef: MatDialogRef&lt;HtmlDialogComponent&gt;,
-		protected renderer: Renderer2) {
-		this.title &#x3D; data.title;
-		this.htmlContent &#x3D; data.htmlContent;
-		this.useBackButton &#x3D; data.useBackButton;
-		this.toConfirm&#x3D;data.toConfirm;
-		this.yes&#x3D;data.yes;
-		this.no&#x3D;data.no;
-	}
-
-	confirm(){
-		this.dialogRef.close(true);
-	}
-}
-
-/**
- * Contain HTML content loaded from a url, used in HtmlHReflDialogService. If there&#x27;s an error during loading, the error will be displayed n the dialog body.
- */
-@Component({
-    selector: &#x27;html-ref-dialog&#x27;,
-    templateUrl: &#x27;htmlDialog.component.html&#x27;,
-    standalone: true,
-	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule]
-})
-export class HtmlHRefDialogComponent implements AfterViewInit {
-	title: string;
-
-	/**
-	 * URL is passed by a service
-	 */
-	url: string;
-
-	useBackButton: boolean;
-	toConfirm?: boolean;
-	yes?: string;
-	no?: string;
-
-	htmlContent: string;
-
-	constructor(
-		@Inject(MAT_DIALOG_DATA) protected data: { title: string, url: string, useBackButton: boolean, toConfirm?: boolean, yes?: string, no?: string },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: &#x27;start&#x27; | &#x27;center&#x27; | &#x27;end&#x27;, 
-		public dialogRef: MatDialogRef&lt;HtmlHRefDialogComponent&gt;, protected httpClient: HttpClient,
-		protected renderer: Renderer2) {
-		this.title &#x3D; data.title;
-		this.url &#x3D; data.url;
-		this.useBackButton &#x3D; data.useBackButton;
-		this.toConfirm&#x3D;data.toConfirm;
-		this.yes&#x3D;data.yes;
-		this.no&#x3D;data.no;
-	}
-
-	// /**
-	//  * HTML placeholder
-	//  */
-	// @ViewChild(&#x27;htmlContent&#x27;, { static: false }) htmlContentElement?: ElementRef;
-
-	ngAfterViewInit() {
-		this.httpClient.get(this.url, { responseType: &#x27;text&#x27; }).subscribe(
-			response &#x3D;&gt; {
-				this.htmlContent &#x3D; response;
-				//this.renderer.setProperty(this.htmlContentElement?.nativeElement, &#x27;innerHTML&#x27;, response);
-			},
-			(error: HttpErrorResponse | any) &#x3D;&gt; {
-				this.title &#x3D; &#x27;Cannot retrieve &#x27; + this.title;
-
-				let errMsg: string;
-				if (error instanceof HttpErrorResponse) {
-					if (error.status &#x3D;&#x3D;&#x3D; 0) {
-						if (error.url) {
-							const host &#x3D; new URL(error.url).host;
-							errMsg &#x3D; $localize&#x60;No response from backend ${host}. Connection is unavailable.&#x60;;
-						} else {
-							errMsg &#x3D; $localize&#x60;No response from backend. Connection is unavailable.&#x60;
-						}
-					} else {
-						if (error.message) {
-							errMsg &#x3D; &#x60;${error.status} - ${error.statusText}: ${error.message}&#x60;;
-						} else {
-							errMsg &#x3D; &#x60;${error.status} - ${error.statusText}&#x60;;
-						}
-					}
-
-					errMsg +&#x3D; error.error ? (&#x27; &#x27; + JSON.stringify(error.error)) : &#x27;&#x27;;
-				} else {
-					errMsg &#x3D; error.message ? error.message : error.toString();
-				}
-
-				this.htmlContent&#x3D;errMsg;
-			});
-
-	}
-
-	confirm(){
-		this.dialogRef.close(true);
-	}
-}
 
 @Component({
     selector: &#x27;html-img-dialog&#x27;,
@@ -647,47 +524,6 @@ export class HtmlImgDialogComponent {
 
 	confirm(){
 		this.dialogRef.close(true);
-	}
-}
-
-
-
-/**
- * Display HTML content in a dialog.  Use this only when you are sure the HTML content does not contain naughty styling that could do graffiti all over the NG2 page.
- */
-@Injectable({ providedIn: &#x27;root&#x27; })
-export class HtmlDialogService extends HtmlBaseDialogService&lt;HtmlDialogComponent&gt; {
-	constructor(protected dialog: MatDialog) { super(dialog); }
-
-	/**
-	* Display html content in a dialog
-	* @param title title of the dialog
-	* @param htmlContent html content to be rendered in the dialog body
-	*/
-	open(data: { title?: string, htmlContent?: string, size?: DialogSize, useBackButton?: boolean, toConfirm?: boolean, yes?: string, no?: string }): Observable&lt;any&gt; {
-		return super.displayComponent(HtmlDialogComponent, data);
-	}
-}
-
-/**
- * Display HTML content from URL in a dialog. Use this only when you are sure the HTML content does not contain naughty styling that could  do graffiti all over the NG2 page.
- * If the URL is under the same url root of NG2 app, make sure thee content directory is with a rewrite rule like &lt;add input&#x3D;&quot;{REQUEST_URI}&quot; pattern&#x3D;&quot;^/(content)&quot; negate&#x3D;&quot;true&quot;/&gt;
- * Otherwise if the file is not found, the program may treat the url as a legitimate NG2 route, because of other rewrite rules; and then various warnings or errors may be appearing
- * in browser console because of missing resources or conflicting stylings.
- * Warning: You should provide url which will not return HTML that may jeopardize the health of the Angular SPA. If you really want to show a random but not too malicious Web page inside the SPA,
- * you may use HtmlHRefFrameDialogService which will put the Web content inside a frame.
- */
-@Injectable({ providedIn: &#x27;root&#x27; })
-export class HtmlHRefDialogService extends HtmlBaseDialogService&lt;HtmlHRefDialogComponent&gt; {
-	constructor(protected dialog: MatDialog) { super(dialog); }
-
-	/**
-	 * Display html from url.  If there&#x27;s an error during loading, the error will be displayed n the dialog body.
-	 * @param title
-	 * @param url to be rendered in the dialog body
-	 */
-	open(data: { title?: string, url?: string, size?: DialogSize, useBackButton?: boolean, toConfirm?: boolean, yes?: string, no?: string }): Observable&lt;any&gt; {
-		return super.displayComponent(HtmlHRefDialogComponent, data);
 	}
 }
 

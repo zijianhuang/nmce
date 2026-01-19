@@ -483,7 +483,6 @@ export class DateHourRangePickerService {
 	open(start: Date | undefined, end: Date | undefined): Observable&lt;{ start: Date, end: Date }&gt; {
 		const modalRef &#x3D; this.isHandsetPortrait ?
 			this.dialog.open(DateHourRangePickerComponent, {
-				disableClose: true,
 				minWidth: &#x27;98vw&#x27;,
 				maxHeight: &#x27;95vh&#x27;,
 				data: {
@@ -492,7 +491,6 @@ export class DateHourRangePickerService {
 				}
 			})
 			: this.dialog.open(DateHourRangePickerComponent, {
-				disableClose: true,
 				data: {
 					start: start,
 					end: end

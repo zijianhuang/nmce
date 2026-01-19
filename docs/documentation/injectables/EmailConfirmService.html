@@ -514,7 +514,8 @@ export class EmailConfirmService {
 	open(emailMessage: EmailMessage, emailAddressesCallback?: EmailListDialog): Observable&lt;EmailMessage&gt; {
 		const isSmallScreen &#x3D; window.innerWidth &lt; 640 || window.innerHeight &lt; 640;
 		const modalRef &#x3D; this.dialog.open(EmailConfirmComponent, {
-			width: &#x27;61em&#x27;, disableClose: true,
+			width: &#x27;61em&#x27;, 
+			disableClose: true, //intentional
 			minWidth: isSmallScreen ? &#x27;98vw&#x27; : undefined,
 			autoFocus: true,
 			data: {

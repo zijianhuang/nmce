@@ -142,11 +142,13 @@
             </p>
             <p class="comment">
                 <p>Similar to JavaScript&#39;s alert() function, to display message in a dialog with LogDialogComponent,
-or optionally a snackbar if message content type is text.
+or optionally a snackbar if the message content type is text with less than 50 bytes, and the message type is success.
 The message could be of type info, error, warn and success and response.
 Browser console also write a copy of the message. The snackBar parameter is effective only when contentType is text.
 When contentType is html, you MUST make sure the HTML content won&#39;t be harming the health of DOM managed by Angular.
-For example, a href link without _blank, and malicious codes may damage Angular rendering.</p>
+For example, a href link without _blank, and malicious codes may damage Angular rendering.
+While the message has its own text color and background color, however, Angular Material has full control of the background color of the whole snackbar,
+since version 15 of the component suite. There&#39;s no feasible way to alter the background at runtime.</p>
 
             </p>
 
@@ -248,7 +250,7 @@ For example, a href link without _blank, and malicious codes may damage Angular 
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -323,8 +325,8 @@ For example, a href link without _blank, and malicious codes may damage Angular 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="193"
-                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:193</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="194"
+                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:194</a></div>
                         </td>
                     </tr>
 
@@ -360,8 +362,8 @@ For example, a href link without _blank, and malicious codes may damage Angular 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="102"
-                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:102</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="104"
+                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:104</a></div>
                         </td>
                     </tr>
 
@@ -461,8 +463,8 @@ For example, a href link without _blank, and malicious codes may damage Angular 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="185"
-                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:185</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="186"
+                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:186</a></div>
                         </td>
                     </tr>
 
@@ -564,8 +566,8 @@ For example, a href link without _blank, and malicious codes may damage Angular 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="120"
-                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:120</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="122"
+                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:122</a></div>
                         </td>
                     </tr>
 
@@ -679,8 +681,8 @@ For example, a href link without _blank, and malicious codes may damage Angular 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="189"
-                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:189</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="190"
+                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:190</a></div>
                         </td>
                     </tr>
 
@@ -716,8 +718,8 @@ For example, a href link without _blank, and malicious codes may damage Angular 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="92"
-                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:92</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:94</a></div>
                         </td>
                     </tr>
 
@@ -832,8 +834,8 @@ For example, a href link without _blank, and malicious codes may damage Angular 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="39"
-                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:39</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="40"
+                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:40</a></div>
                         </td>
                     </tr>
 
@@ -872,8 +874,8 @@ This should be called only once in the startup component like the app component.
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="116"
-                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:116</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="118"
+                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:118</a></div>
                         </td>
                     </tr>
 
@@ -971,8 +973,8 @@ This should be called only once in the startup component like the app component.
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="81"
-                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:81</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:83</a></div>
                         </td>
                     </tr>
 
@@ -1097,8 +1099,8 @@ This should be called only once in the startup component like the app component.
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="112"
-                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:112</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="114"
+                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:114</a></div>
                         </td>
                     </tr>
 
@@ -1198,8 +1200,8 @@ This should be called only once in the startup component like the app component.
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="175"
-                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:175</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="176"
+                                    class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:176</a></div>
                         </td>
                     </tr>
 
@@ -1305,7 +1307,7 @@ This should be called only once in the startup component like the app component.
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -1337,7 +1339,7 @@ This should be called only once in the startup component like the app component.
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/nmce/src/_ui_services/alert.service.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -1360,14 +1362,15 @@ import { LogDialogComponent } from &#x27;./logDialog.component&#x27;;
 import { LogSnackComponent } from &#x27;./logSnack.component&#x27;;
 import { AlertSubjectMessage, MessageContentType, MessageType } from &#x27;./types&#x27;;
 
-
 /**
  * Similar to JavaScript&#x27;s alert() function, to display message in a dialog with LogDialogComponent,
- * or optionally a snackbar if message content type is text. 
+ * or optionally a snackbar if the message content type is text with less than 50 bytes, and the message type is success. 
  * The message could be of type info, error, warn and success and response.
  * Browser console also write a copy of the message. The snackBar parameter is effective only when contentType is text.
  * When contentType is html, you MUST make sure the HTML content won&#x27;t be harming the health of DOM managed by Angular. 
  * For example, a href link without _blank, and malicious codes may damage Angular rendering.
+ * While the message has its own text color and background color, however, Angular Material has full control of the background color of the whole snackbar, 
+ * since version 15 of the component suite. There&#x27;s no feasible way to alter the background at runtime.
  */
 @Injectable({
 	providedIn: &#x27;root&#x27;,
@@ -1408,7 +1411,9 @@ export class AlertService extends RootInjectorGuard {
 
 				if (message.contentType &#x3D;&#x3D;&#x3D; &#x27;text&#x27; &amp;&amp;
 					(message.snackBar || ((message.type &#x3D;&#x3D;&#x3D; &#x27;success&#x27;) &amp;&amp; message.text.length &lt;&#x3D; maxLenForSuccessSnackBar &amp;&amp; message.snackBar &#x3D;&#x3D; null))) {
-					this.snackBarService.openFromComponent(LogSnackComponent, { duration: 3000, data: { message: message } });
+					this.snackBarService.openFromComponent(LogSnackComponent, { 
+						duration: 3000, 
+						data: { message: message } });
 				} else {
 					this.dialog.open(LogDialogComponent, {
 						data: {
@@ -1416,7 +1421,6 @@ export class AlertService extends RootInjectorGuard {
 						}
 					});
 				}
-
 			}
 		});
 
@@ -1498,7 +1502,6 @@ export class AlertService extends RootInjectorGuard {
 				}
 			} else {
 				if (error.error) {
-					//console.debug(&#x27;error.error: &#x27; + error.error); // Sometimes if content type is application/json but without charset&#x3D;UTF-8, error.error is actuall text rather than object, likely because the text contains some invalid character.
 					errMsg &#x3D; contentType &#x3D;&#x3D;&#x3D; &#x27;json&#x27; &amp;&amp; (error.error instanceof Object) ? JSON.stringify(error.error, null, &#x27;\t&#x27;) : error.error; // error is actually the response body, while message could be the text wrapper of the response body with some extra thing like Http failure response for https://apsmdngcli.localhost/WebApi/token: 500 OK &quot; \n \n \n \n \n \n \n \n
 				} else {
 					errMsg &#x3D; &#x60;${error.status} - ${error.statusText}&#x60;;

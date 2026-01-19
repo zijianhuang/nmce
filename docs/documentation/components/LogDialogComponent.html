@@ -695,7 +695,7 @@ Message from HTTP response, displayed in iFrame, regardless of content Type</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">projects/nmce/src/_ui_services/logDialog.component.ts:87</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">projects/nmce/src/_ui_services/logDialog.component.ts:83</a></div>
                                 </td>
                             </tr>
 
@@ -717,7 +717,7 @@ Message from HTTP response, displayed in iFrame, regardless of content Type</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">projects/nmce/src/_ui_services/logDialog.component.ts:103</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">projects/nmce/src/_ui_services/logDialog.component.ts:99</a></div>
                                 </td>
                             </tr>
 
@@ -739,7 +739,7 @@ Message from HTTP response, displayed in iFrame, regardless of content Type</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">projects/nmce/src/_ui_services/logDialog.component.ts:120</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">projects/nmce/src/_ui_services/logDialog.component.ts:116</a></div>
                                 </td>
                             </tr>
 
@@ -761,7 +761,7 @@ Message from HTTP response, displayed in iFrame, regardless of content Type</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">projects/nmce/src/_ui_services/logDialog.component.ts:137</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">projects/nmce/src/_ui_services/logDialog.component.ts:133</a></div>
                                 </td>
                             </tr>
 
@@ -783,7 +783,7 @@ Message from HTTP response, displayed in iFrame, regardless of content Type</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">projects/nmce/src/_ui_services/logDialog.component.ts:141</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">projects/nmce/src/_ui_services/logDialog.component.ts:137</a></div>
                                 </td>
                             </tr>
 
@@ -805,7 +805,7 @@ Message from HTTP response, displayed in iFrame, regardless of content Type</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">projects/nmce/src/_ui_services/logDialog.component.ts:145</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">projects/nmce/src/_ui_services/logDialog.component.ts:141</a></div>
                                 </td>
                             </tr>
 
@@ -827,7 +827,7 @@ Message from HTTP response, displayed in iFrame, regardless of content Type</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="149" class="link-to-prism">projects/nmce/src/_ui_services/logDialog.component.ts:149</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">projects/nmce/src/_ui_services/logDialog.component.ts:145</a></div>
                                 </td>
                             </tr>
 
@@ -842,7 +842,7 @@ Message from HTTP response, displayed in iFrame, regardless of content Type</p>
 import { MAT_DIALOG_DATA, MatDialogModule } from &#x27;@angular/material/dialog&#x27;;
 import { DIALOG_ACTIONS_ALIGN } from &#x27;./baseTypes&#x27;;
 import { AlertSubjectMessage } from &#x27;./types&#x27;;
-import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
 import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
 import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
@@ -909,13 +909,9 @@ export class LogDialogComponent implements AfterViewInit {
 					} else {
 						this.renderer.setProperty(this.htmlContentElement.nativeElement, &#x27;innerHTML&#x27;, this.message.text);
 					}
-
-					//this.htmlContentElement?.nativeElement.insertAdjacentHTML(&#x27;beforeend&#x27;, this.message.text);//good for normal insert
 				} else if (this.message.contentType &#x3D;&#x3D;&#x3D; &#x27;json&#x27; &amp;&amp; this.message.status! &gt;&#x3D; 0) {
 					this.htmlContentElement.nativeElement.srcdoc &#x3D; &#x27;&lt;pre&gt;&#x27; + this.message.text + &#x27;&lt;/pre&gt;&#x27;; //good for iframe
-					//this.htmlContentElement?.nativeElement.insertAdjacentHTML(&#x27;beforeend&#x27;, &#x27;&lt;pre&gt;&#x27; + this.message.text + &#x27;&lt;/pre&gt;&#x27;);
 				} else if (this.message.contentType &#x3D;&#x3D;&#x3D; &#x27;text&#x27;) {
-					//this.renderer.setProperty(this.htmlContentElement.nativeElement, &#x27;innerHTML&#x27;, &#x27;&lt;pre&gt;&#x27; + this.message.text + &#x27;&lt;/pre&gt;&#x27;);
 					this.htmlContentElement.nativeElement.srcdoc &#x3D; &#x27;&lt;pre&gt;&#x27; + this.message.text + &#x27;&lt;/pre&gt;&#x27;;
 				}
 			}
@@ -993,7 +989,6 @@ export class LogDialogComponent implements AfterViewInit {
 
 		return this.message.type ?? &#x27;&#x27;;
 	}
-
 }
 </code></pre>
     </div>
@@ -1014,13 +1009,13 @@ export class LogDialogComponent implements AfterViewInit {
 &lt;mat-dialog-content&gt;
 	@if (!message?.status &amp;&amp; message?.contentType&#x3D;&#x3D;&#x3D;&#x27;text&#x27;) {
 &lt;div
-		[ngClass]&#x3D;&quot;{ &#x27;alert&#x27;: message, &#x27;alert-success&#x27;: messageType &#x3D;&#x3D;&#x3D; &#x27;success&#x27;, &#x27;alert-danger&#x27;: messageType &#x3D;&#x3D;&#x3D; &#x27;error&#x27;, &#x27;alert-info&#x27;:messageType&#x3D;&#x3D;&#x3D;&#x27;info&#x27;, &#x27;alert-warning&#x27;:messageType&#x3D;&#x3D;&#x3D;&#x27;warning&#x27;}&quot;
+		[ngClass]&#x3D;&quot;{ &#x27;alert&#x27;: message, &#x27;alert-success&#x27;: messageType &#x3D;&#x3D;&#x3D; &#x27;success&#x27;, &#x27;alert-error&#x27;: messageType &#x3D;&#x3D;&#x3D; &#x27;error&#x27;, &#x27;alert-info&#x27;:messageType&#x3D;&#x3D;&#x3D;&#x27;info&#x27;, &#x27;alert-warning&#x27;:messageType&#x3D;&#x3D;&#x3D;&#x27;warning&#x27;}&quot;
 		role&#x3D;&quot;alert&quot;&gt;{{ message?.text }}
 	&lt;/div&gt;
 }
 	@if (message?.status! &gt;&#x3D; 0) {
 &lt;div
-		[ngClass]&#x3D;&quot;{ &#x27;alert&#x27;: message, &#x27;alert-success&#x27;: messageType &#x3D;&#x3D;&#x3D; &#x27;success&#x27;, &#x27;alert-danger&#x27;: messageType &#x3D;&#x3D;&#x3D; &#x27;error&#x27;, &#x27;alert-info&#x27;:messageType&#x3D;&#x3D;&#x3D;&#x27;info&#x27;, &#x27;alert-warning&#x27;:messageType&#x3D;&#x3D;&#x3D;&#x27;warning&#x27;}&quot;
+		[ngClass]&#x3D;&quot;{ &#x27;alert&#x27;: message, &#x27;alert-success&#x27;: messageType &#x3D;&#x3D;&#x3D; &#x27;success&#x27;, &#x27;alert-error&#x27;: messageType &#x3D;&#x3D;&#x3D; &#x27;error&#x27;, &#x27;alert-info&#x27;:messageType&#x3D;&#x3D;&#x3D;&#x27;info&#x27;, &#x27;alert-warning&#x27;:messageType&#x3D;&#x3D;&#x3D;&#x27;warning&#x27;}&quot;
 		role&#x3D;&quot;alert&quot;&gt;HTTP Status: {{message?.status}} {{message?.statusText}}
 	&lt;/div&gt;
 }
@@ -1058,29 +1053,40 @@ export class LogDialogComponent implements AfterViewInit {
                 </p>
                 <pre class="line-numbers"><code class="language-scss">/* You can add global styles to this file, and also import other style files */
 .alert-success {
-	background-color: #dff0d8;
 	border-color: #d0e9c6;
 	color: #3c763d;
 }
 
+.alert-background-success {
+	background-color: #dff0d8 !important;
+}
 
 .alert-info {
-	background-color: #d9edf7;
 	border-color: #bcdff1;
 	color: #31708f;
 }
 
+.alert-background-info {
+	background-color: #d9edf7;
+}
+
 
 .alert-warning {
-	background-color: #fcf8e3;
 	border-color: #faf2cc;
 	color: #8a6d3b;
 }
 
-.alert-danger {
-	background-color: #f2dede;
+.alert-background-warning {
+	background-color: #fcf8e3;
+}
+
+.alert-error {
 	border-color: #ebcccc;
 	color: #a94442;
+}
+
+.alert-background-error {
+	background-color: #f2dede;
 }
 
 iframe.frame-dialog-content {
@@ -1802,8 +1808,8 @@ img.original-size {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><h1 mat-dialog-title class="block-items-gap-1">	@if (useIcon) {<mat-icon [color]="iconColor">{{titleIcon}}</mat-icon>}	@if (useTitle) {<label class="fx-align-start">{{ title }}</label>}	&nbsp;&nbsp;&nbsp;&nbsp;	<label>		{{ subtitle }}	</label></h1><mat-dialog-content>	@if (!message?.status && message?.contentType===\'text\') {<div		[ngClass]="{ \'alert\': message, \'alert-success\': messageType === \'success\', \'alert-danger\': messageType === \'error\', \'alert-info\':messageType===\'info\', \'alert-warning\':messageType===\'warning\'}"		role="alert">{{ message?.text }}	</div>}	@if (message?.status! >= 0) {<div		[ngClass]="{ \'alert\': message, \'alert-success\': messageType === \'success\', \'alert-danger\': messageType === \'error\', \'alert-info\':messageType===\'info\', \'alert-warning\':messageType===\'warning\'}"		role="alert">HTTP Status: {{message?.status}} {{message?.statusText}}	</div>}	@if ([\'text\', \'html\', \'json\'].indexOf(message?.contentType!)>=0 && message?.text) {		<html>		<head>			<base target="_blank" />			<!-- Ensure all href are opened in new tab, as described in https://stackoverflow.com/questions/17281486/use-target-blank-in-css -->		</head>		<body>			@if (message?.status || message?.status ===0) {<iframe #htmlContent class="frame-dialog-content"></iframe>}			@if (!message?.status &&  message?.status !==0) {<div #htmlContent></div>}		</body>		</html>	}</mat-dialog-content><mat-dialog-actions [align]="actionsAlign">	<button type="button" mat-raised-button matDialogClose i18n>Close</button></mat-dialog-actions></div>'
-    var COMPONENTS = [{'name': 'AlertComponent', 'selector': 'alert, nmce-alert, nmceAlert'},{'name': 'ConfirmComponent', 'selector': 'confirm-content'},{'name': 'DataComponentDialog', 'selector': 'nmce-data-component-content'},{'name': 'DataComponentPrintDialog', 'selector': ''},{'name': 'DateHourRangePickerComponent', 'selector': 'DateHourRangePicker, nmce-date-hour-range-picker'},{'name': 'DateRangePickerComponent', 'selector': 'DateRangePicker, nmce-date-range-picker'},{'name': 'EmailConfirmComponent', 'selector': 'email-confirm'},{'name': 'HtmlDialogComponent', 'selector': 'html-dialog'},{'name': 'HtmlDialogComponent', 'selector': 'html-dialog'},{'name': 'HtmlFrameDialogComponent', 'selector': 'html-frame-dialog'},{'name': 'HtmlFramePrintDialogComponent', 'selector': 'html-frame-print-dialog'},{'name': 'HtmlHRefDialogComponent', 'selector': 'html-ref-dialog'},{'name': 'HtmlHRefDialogComponent', 'selector': 'html-ref-dialog'},{'name': 'HtmlHRefFrameDialogComponent', 'selector': 'html-href-frame-dialog'},{'name': 'HtmlHRefFramePrintDialogComponent', 'selector': 'html-href-frame-print-dialog'},{'name': 'HtmlHRefPrintDialogComponent', 'selector': 'html-href-print-dialog'},{'name': 'HtmlImgDialogComponent', 'selector': 'html-img-dialog'},{'name': 'HtmlImgDialogComponent', 'selector': 'html-img-dialog'},{'name': 'HtmlImgPrintDialogComponent', 'selector': 'html-img-print-dialog'},{'name': 'HtmlPrintDialogComponent', 'selector': 'html-print-dialog'},{'name': 'ItemListDialogComponent', 'selector': ''},{'name': 'JsonDiffComponent', 'selector': 'json-diff-page'},{'name': 'LocalDocHtmlEditorDialogComponent', 'selector': ''},{'name': 'LocalTextEditorDialogComponent', 'selector': ''},{'name': 'LogDialogComponent', 'selector': ''},{'name': 'LogSnackComponent', 'selector': ''},{'name': 'MonthYearExpiryComponent', 'selector': 'month-year-expiry, nmce-month-year-expiry'},{'name': 'NotFoundComponent', 'selector': ''},{'name': 'NotificationsComponent', 'selector': ''},{'name': 'OptionsComponent', 'selector': 'options-content'},{'name': 'PasswordsInputComponent', 'selector': 'passwordsInput'},{'name': 'PrintComponent', 'selector': 'print-page, nmce-print-page, nmcePrintPage'},{'name': 'ProgressComponent', 'selector': ''},{'name': 'TextDialogComponent', 'selector': 'text-dialog'},{'name': 'TextHRefDialogComponent', 'selector': 'text-href-dialog'},{'name': 'TextInputComponent', 'selector': 'textInput'},{'name': 'TimePickerComponent', 'selector': 'timePicker'},{'name': 'WaitComponent', 'selector': 'wait, nmce-wait, nmceWait'},{'name': 'WaitProgressComponent', 'selector': 'waitProgress, nmce-wait-progress, nmceWaitProgress'},{'name': 'WIPComponent', 'selector': ''}];
+        var COMPONENT_TEMPLATE = '<div><h1 mat-dialog-title class="block-items-gap-1">	@if (useIcon) {<mat-icon [color]="iconColor">{{titleIcon}}</mat-icon>}	@if (useTitle) {<label class="fx-align-start">{{ title }}</label>}	&nbsp;&nbsp;&nbsp;&nbsp;	<label>		{{ subtitle }}	</label></h1><mat-dialog-content>	@if (!message?.status && message?.contentType===\'text\') {<div		[ngClass]="{ \'alert\': message, \'alert-success\': messageType === \'success\', \'alert-error\': messageType === \'error\', \'alert-info\':messageType===\'info\', \'alert-warning\':messageType===\'warning\'}"		role="alert">{{ message?.text }}	</div>}	@if (message?.status! >= 0) {<div		[ngClass]="{ \'alert\': message, \'alert-success\': messageType === \'success\', \'alert-error\': messageType === \'error\', \'alert-info\':messageType===\'info\', \'alert-warning\':messageType===\'warning\'}"		role="alert">HTTP Status: {{message?.status}} {{message?.statusText}}	</div>}	@if ([\'text\', \'html\', \'json\'].indexOf(message?.contentType!)>=0 && message?.text) {		<html>		<head>			<base target="_blank" />			<!-- Ensure all href are opened in new tab, as described in https://stackoverflow.com/questions/17281486/use-target-blank-in-css -->		</head>		<body>			@if (message?.status || message?.status ===0) {<iframe #htmlContent class="frame-dialog-content"></iframe>}			@if (!message?.status &&  message?.status !==0) {<div #htmlContent></div>}		</body>		</html>	}</mat-dialog-content><mat-dialog-actions [align]="actionsAlign">	<button type="button" mat-raised-button matDialogClose i18n>Close</button></mat-dialog-actions></div>'
+    var COMPONENTS = [{'name': 'AlertComponent', 'selector': 'alert, nmce-alert, nmceAlert'},{'name': 'ConfirmComponent', 'selector': 'confirm-content'},{'name': 'DataComponentDialog', 'selector': 'nmce-data-component-content'},{'name': 'DataComponentPrintDialog', 'selector': ''},{'name': 'DateHourRangePickerComponent', 'selector': 'DateHourRangePicker, nmce-date-hour-range-picker'},{'name': 'DateRangePickerComponent', 'selector': 'DateRangePicker, nmce-date-range-picker'},{'name': 'EmailConfirmComponent', 'selector': 'email-confirm'},{'name': 'HtmlDialogComponent', 'selector': 'html-dialog'},{'name': 'HtmlFrameDialogComponent', 'selector': 'html-frame-dialog'},{'name': 'HtmlFramePrintDialogComponent', 'selector': 'html-frame-print-dialog'},{'name': 'HtmlHRefDialogComponent', 'selector': 'html-ref-dialog'},{'name': 'HtmlHRefFrameDialogComponent', 'selector': 'html-href-frame-dialog'},{'name': 'HtmlHRefFramePrintDialogComponent', 'selector': 'html-href-frame-print-dialog'},{'name': 'HtmlHRefPrintDialogComponent', 'selector': 'html-href-print-dialog'},{'name': 'HtmlImgDialogComponent', 'selector': 'html-img-dialog'},{'name': 'HtmlImgPrintDialogComponent', 'selector': 'html-img-print-dialog'},{'name': 'HtmlPrintDialogComponent', 'selector': 'html-print-dialog'},{'name': 'ItemListDialogComponent', 'selector': ''},{'name': 'JsonDiffComponent', 'selector': 'json-diff-page'},{'name': 'LocalDocHtmlEditorDialogComponent', 'selector': ''},{'name': 'LocalTextEditorDialogComponent', 'selector': ''},{'name': 'LogDialogComponent', 'selector': ''},{'name': 'LogSnackComponent', 'selector': ''},{'name': 'MonthYearExpiryComponent', 'selector': 'month-year-expiry, nmce-month-year-expiry'},{'name': 'NotFoundComponent', 'selector': ''},{'name': 'NotificationsComponent', 'selector': ''},{'name': 'OptionsComponent', 'selector': 'options-content'},{'name': 'PasswordsInputComponent', 'selector': 'passwordsInput'},{'name': 'PrintComponent', 'selector': 'print-page, nmce-print-page, nmcePrintPage'},{'name': 'ProgressComponent', 'selector': ''},{'name': 'TextDialogComponent', 'selector': 'text-dialog'},{'name': 'TextHRefDialogComponent', 'selector': 'text-href-dialog'},{'name': 'TextInputComponent', 'selector': 'textInput'},{'name': 'TimePickerComponent', 'selector': 'timePicker'},{'name': 'WaitComponent', 'selector': 'wait, nmce-wait, nmceWait'},{'name': 'WaitProgressComponent', 'selector': 'waitProgress, nmce-wait-progress, nmceWaitProgress'},{'name': 'WIPComponent', 'selector': ''}];
     var DIRECTIVES = [{'name': 'AutofocusDirective', 'selector': '[autofocus]'},{'name': 'DataComponentDirective', 'selector': '[dataComponentHost]'},{'name': 'HtmlDocEditorDialogBaseComponent', 'selector': ''},{'name': 'ScrollIntoDirective', 'selector': '[scrollInto]'},{'name': 'TextEditorDialogComponentBase', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'LogDialogComponent'};
 </script>

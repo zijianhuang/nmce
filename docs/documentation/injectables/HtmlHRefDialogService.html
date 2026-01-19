@@ -133,7 +133,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/nmce/src/_ui_services/htmlDialog.component copy 5.ts</code>
+            <code>projects/nmce/src/_ui_services/htmlHRefDialog.component.ts</code>
         </p>
 
 
@@ -215,7 +215,7 @@ you may use HtmlHRefFrameDialogService which will put the Web content inside a f
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="216" class="link-to-prism">projects/nmce/src/_ui_services/htmlDialog.component copy 5.ts:216</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">projects/nmce/src/_ui_services/htmlHRefDialog.component.ts:104</a></div>
                             </td>
                         </tr>
 
@@ -278,8 +278,8 @@ you may use HtmlHRefFrameDialogService which will put the Web content inside a f
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="224"
-                                    class="link-to-prism">projects/nmce/src/_ui_services/htmlDialog.component copy 5.ts:224</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="112"
+                                    class="link-to-prism">projects/nmce/src/_ui_services/htmlHRefDialog.component.ts:112</a></div>
                         </td>
                     </tr>
 
@@ -469,56 +469,15 @@ you may use HtmlHRefFrameDialogService which will put the Web content inside a f
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient, HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
-import { AfterViewInit, Component, ElementRef, Inject, Injectable, Renderer2, ViewChild } from &#x27;@angular/core&#x27;;
+import { AfterViewInit, Component, Inject, Injectable, Renderer2 } from &#x27;@angular/core&#x27;;
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from &#x27;@angular/material/dialog&#x27;;
-import { SafeUrl } from &#x27;@angular/platform-browser&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { DIALOG_ACTIONS_ALIGN } from &#x27;./baseTypes&#x27;;
 import { HtmlBaseDialogService } from &#x27;./htmlBaseDialogService&#x27;;
 import { DialogSize } from &#x27;./types&#x27;;
-import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
 import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
 import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
-
-
-/**
- * Contain HTML content, used in HtmlDialogService.
- * The content is contained inside another html tag, and all href linkes will be opened in new browser tab.
- */
-@Component({
-    selector: &#x27;html-dialog&#x27;,
-    templateUrl: &#x27;htmlDialog.component.html&#x27;,
-    standalone: true,
-	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule]
-})
-export class HtmlDialogComponent {
-	title: string;
-
-	htmlContent: string;
-
-	useBackButton: boolean;
-	toConfirm?: boolean;
-	yes?: string;
-	no?: string;
-
-	constructor(
-		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean, toConfirm?: boolean, yes?: string, no?: string },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: &#x27;start&#x27; | &#x27;center&#x27; | &#x27;end&#x27;, 
-		public dialogRef: MatDialogRef&lt;HtmlDialogComponent&gt;,
-		protected renderer: Renderer2) {
-		this.title &#x3D; data.title;
-		this.htmlContent &#x3D; data.htmlContent;
-		this.useBackButton &#x3D; data.useBackButton;
-		this.toConfirm&#x3D;data.toConfirm;
-		this.yes&#x3D;data.yes;
-		this.no&#x3D;data.no;
-	}
-
-	confirm(){
-		this.dialogRef.close(true);
-	}
-}
 
 /**
  * Contain HTML content loaded from a url, used in HtmlHReflDialogService. If there&#x27;s an error during loading, the error will be displayed n the dialog body.
@@ -603,77 +562,6 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 	}
 }
 
-@Component({
-    selector: &#x27;html-img-dialog&#x27;,
-    templateUrl: &#x27;htmlImgDialog.component.html&#x27;,
-    styleUrls: [&#x27;../nmcestyles.css&#x27;],
-    standalone: true,
-	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule, CommonModule]
-})
-export class HtmlImgDialogComponent {
-	title: string;
-
-	imageUrl: string | SafeUrl;
-
-	useBackButton: boolean;
-	toConfirm?: boolean;
-	yes?: string;
-	no?: string;
-
-	private _scaleToWidth &#x3D; true;
-	/**
-	 * Default true. value persisted with sessionStorage.
-	 */
-	get scaleToWidth() {
-		return this._scaleToWidth;
-	}
-	set scaleToWidth(v: boolean) {
-		this._scaleToWidth &#x3D; v;
-		sessionStorage[&#x27;HtmlImgDialogComponent.scaleToWidth&#x27;] &#x3D; v ? &#x27;true&#x27; : &#x27;false&#x27;;
-	}
-
-	@ViewChild(&#x27;htmlContent&#x27;, { static: false }) htmlContentElement?: ElementRef;
-
-	constructor(
-		@Inject(MAT_DIALOG_DATA) public data: { title: string, imageUrl: string | SafeUrl, useBackButton: boolean, toConfirm?: boolean, yes?: string, no?: string },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: &#x27;start&#x27; | &#x27;center&#x27; | &#x27;end&#x27;, 
-		public dialogRef: MatDialogRef&lt;HtmlImgDialogComponent&gt;) {
-		this.title &#x3D; data.title;
-		this.imageUrl &#x3D; data.imageUrl;
-		this.useBackButton &#x3D; data.useBackButton;
-		this.toConfirm&#x3D;data.toConfirm;
-		this.yes&#x3D;data.yes;
-		this.no&#x3D;data.no;
-		console.debug(&#x27;HtmlImgDialogComponent created with &#x27; + this.imageUrl);
-
-		const s &#x3D; sessionStorage[&#x27;HtmlImgDialogComponent.scaleToWidth&#x27;];
-		this._scaleToWidth &#x3D; (s &#x3D;&#x3D; null) || s &#x3D;&#x3D;&#x3D; &#x27;true&#x27;;
-	}
-
-	confirm(){
-		this.dialogRef.close(true);
-	}
-}
-
-
-
-/**
- * Display HTML content in a dialog.  Use this only when you are sure the HTML content does not contain naughty styling that could do graffiti all over the NG2 page.
- */
-@Injectable({ providedIn: &#x27;root&#x27; })
-export class HtmlDialogService extends HtmlBaseDialogService&lt;HtmlDialogComponent&gt; {
-	constructor(protected dialog: MatDialog) { super(dialog); }
-
-	/**
-	* Display html content in a dialog
-	* @param title title of the dialog
-	* @param htmlContent html content to be rendered in the dialog body
-	*/
-	open(data: { title?: string, htmlContent?: string, size?: DialogSize, useBackButton?: boolean, toConfirm?: boolean, yes?: string, no?: string }): Observable&lt;any&gt; {
-		return super.displayComponent(HtmlDialogComponent, data);
-	}
-}
-
 /**
  * Display HTML content from URL in a dialog. Use this only when you are sure the HTML content does not contain naughty styling that could  do graffiti all over the NG2 page.
  * If the URL is under the same url root of NG2 app, make sure thee content directory is with a rewrite rule like &lt;add input&#x3D;&quot;{REQUEST_URI}&quot; pattern&#x3D;&quot;^/(content)&quot; negate&#x3D;&quot;true&quot;/&gt;
@@ -694,27 +582,7 @@ export class HtmlHRefDialogService extends HtmlBaseDialogService&lt;HtmlHRefDial
 	open(data: { title?: string, url?: string, size?: DialogSize, useBackButton?: boolean, toConfirm?: boolean, yes?: string, no?: string }): Observable&lt;any&gt; {
 		return super.displayComponent(HtmlHRefDialogComponent, data);
 	}
-}
-
-/**
- * Display image with option scale to fit width or original resolution.
- *
- */
-@Injectable({ providedIn: &#x27;root&#x27; })
-export class HtmlImgDialogService extends HtmlBaseDialogService&lt;HtmlImgDialogComponent&gt; {
-	constructor(protected dialog: MatDialog) { super(dialog); }
-
-	/**
-	* Display html content in a dialog
-	* @param title title of the dialog
-	* @param imageUrl html content to be rendered in the dialog body
-	*/
-	open(data: { title?: string, imageUrl?: string | SafeUrl, size?: DialogSize, useBackButton?: boolean, toConfirm?: boolean, yes?: string, no?: string }): Observable&lt;any&gt; {
-		return super.displayComponent(HtmlImgDialogComponent, data);
-	}
-}
-
-</code></pre>
+}</code></pre>
     </div>
 
 </div>

@@ -472,7 +472,7 @@ export class DataComponentPrintDialogService {
 		const isSmallScreen &#x3D; window.innerWidth &lt; 640 || window.innerHeight &lt; 640;
 		this.modalRef &#x3D; this.dialog.open(DataComponentPrintDialog,
 			{
-				disableClose: true,
+				//,
 				minWidth: (config &amp;&amp; config.fullScreen) ? &#x27;98vw&#x27; : (isSmallScreen ? &#x27;98vw&#x27; : undefined),
 				minHeight: (config &amp;&amp; config.fullScreen) ? &#x27;98vh&#x27; : undefined,
 				panelClass: &#x27;dialog-full-content-height&#x27;,

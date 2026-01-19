@@ -151,9 +151,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/HtmlDialogComponent.html" data-type="entity-link" >HtmlDialogComponent</a>
                             </li>
                             <li class="link">
-                                <a href="components/HtmlDialogComponent-1.html" data-type="entity-link" >HtmlDialogComponent</a>
-                            </li>
-                            <li class="link">
                                 <a href="components/HtmlFrameDialogComponent.html" data-type="entity-link" >HtmlFrameDialogComponent</a>
                             </li>
                             <li class="link">
@@ -161,9 +158,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="components/HtmlHRefDialogComponent.html" data-type="entity-link" >HtmlHRefDialogComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/HtmlHRefDialogComponent-1.html" data-type="entity-link" >HtmlHRefDialogComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/HtmlHRefFrameDialogComponent.html" data-type="entity-link" >HtmlHRefFrameDialogComponent</a>
@@ -176,9 +170,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="components/HtmlImgDialogComponent.html" data-type="entity-link" >HtmlImgDialogComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/HtmlImgDialogComponent-1.html" data-type="entity-link" >HtmlImgDialogComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/HtmlImgPrintDialogComponent.html" data-type="entity-link" >HtmlImgPrintDialogComponent</a>
@@ -370,9 +361,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/HtmlDialogService.html" data-type="entity-link" >HtmlDialogService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/HtmlDialogService-1.html" data-type="entity-link" >HtmlDialogService</a>
-                                </li>
-                                <li class="link">
                                     <a href="injectables/HtmlFrameDialogService.html" data-type="entity-link" >HtmlFrameDialogService</a>
                                 </li>
                                 <li class="link">
@@ -380,9 +368,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/HtmlHRefDialogService.html" data-type="entity-link" >HtmlHRefDialogService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/HtmlHRefDialogService-1.html" data-type="entity-link" >HtmlHRefDialogService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/HtmlHRefFrameDialogService.html" data-type="entity-link" >HtmlHRefFrameDialogService</a>
@@ -395,9 +380,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/HtmlImgDialogService.html" data-type="entity-link" >HtmlImgDialogService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/HtmlImgDialogService-1.html" data-type="entity-link" >HtmlImgDialogService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/HtmlImgPrintDialogService.html" data-type="entity-link" >HtmlImgPrintDialogService</a>

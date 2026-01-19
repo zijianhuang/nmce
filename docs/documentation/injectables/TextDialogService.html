@@ -493,7 +493,6 @@ export class TextDialogService {
 		}
 
 		this.modalRef &#x3D; this.dialog.open(TextDialogComponent, {
-			disableClose: true,
 			minWidth: DialogSizeToSize(data.size, data.useBackButton, &#x27;vw&#x27;),
 			minHeight: DialogSizeToSize(data.size, data.useBackButton, &#x27;vh&#x27;),
 			panelClass: (data.size &#x3D;&#x3D;&#x3D; DialogSize.Large) ? &#x27;dialog-full-content-height&#x27; : undefined,
@@ -531,7 +530,6 @@ export class TextHReflDialogService {
 		}
 
 		this.modalRef &#x3D; this.dialog.open(TextHRefDialogComponent, {
-			disableClose: true,
 			minWidth: DialogSizeToSize(data.size, data.useBackButton, &#x27;vw&#x27;),
 			minHeight: DialogSizeToSize(data.size, data.useBackButton, &#x27;vh&#x27;),
 			panelClass: (data.size &#x3D;&#x3D;&#x3D; DialogSize.Large) ? &#x27;dialog-full-content-height&#x27; : undefined,
