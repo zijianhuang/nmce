@@ -1,0 +1,1 @@
+npx compodoc -p tsconfig.doc.json

@@ -44,7 +44,7 @@ Remarks:
 
 Run `ng serve demoapp` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files in demoapp.
 
-Additionally, you may execute `startAppDev.ps1` or `startAppProd.ps1` to run the app using the build.
+Additionally, you may execute `startAppDev.ps1` for the build of `buildAppDev.ps1` or `startAppProd.ps1` for the build of `buildAppProd.ps1`.
 
 ## Code scaffolding
 
@@ -55,6 +55,8 @@ Run `ng generate component component-name` to generate a new component. You can 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build. For examples:
 
 `ng build nmce`
+
+However, do not run `ng build demoapp`, otherwise, the builds for libraries will be deleted, and the build for the app may fail. Instead, using `buildAppDev.ps1` or `buildAppProd.ps1`.
 
 ## Publish
 
@@ -111,6 +113,8 @@ npm install --save-dev @compodoc/compodoc
 ```
 
 ### tsconfig.doc.json
+
+Compodoc may use this to scan sub projects for doc comments.
 
 ### Generate or Serve
 ```bash
