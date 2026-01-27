@@ -1,32 +1,32 @@
 # NMCE Projects
 
-The projects of Angular Material Components Extensions are to deliver a set of reusable Angular codes and Extensions of [Angular Material UI Component Library](https://material.angular.io/), targeting complex business applications with rich data structures, intensive GUI and complex workflows.
+The projects of Angular Material Components Extensions are to deliver a set of reusable Angular codes and Extensions of [Angular Material UI Component Library](https://material.angular.io/), targeting complex business applications with rich data structures, intensive GUI and complex workflows, and enabling Rapid Application Development.
 
 ## Demo
 [Demo Sites](https://zijianhuang.github.io/nmce/en/) in [various locales](https://zijianhuang.github.io/nmce/).
 
 ## Projects
-* [nmce-func](https://www.npmjs.com/package/nmce-func): Common functions used in business applications, as well as the components and the services in this NMCE libraries.
-* [nmce](https://www.npmjs.com/package/nmce): A few sets of components and services based on [Angular Material Components](https://material.angular.io/components/categories).
-* [nmce-html-editor](https://www.npmjs.com/package/nmce-html-editor): A few dialog services based on [@kolkov/angular-editor](https://github.com/kolkov/angular-editor), present a HTML editor in a dialog.
-* [nmce-json-diff](https://www.npmjs.com/package/nmce-json-diff): A simple dialog service based on [jsondiffpatch](https://github.com/benjamine/jsondiffpatch).
-* [nmce-pipes](https://www.npmjs.com/package/nmce-pipes): Common simple Angular pipes.
-* [nmce-directives](https://www.npmjs.com/package/nmce-directives): Common simple Angular directives.
-* demoapp: A demo application demonstrating features of all above.
+* [nmce <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/>](https://www.npmjs.com/package/nmce): A few sets of components and services based on [Angular Material Components](https://material.angular.io/components/categories).
+* [nmce-html-editor <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/>](https://www.npmjs.com/package/nmce-html-editor): A few dialog services based on [@kolkov/angular-editor](https://github.com/kolkov/angular-editor), present a HTML editor in a dialog.
+* [nmce-func <img src="docs/icons/npm-logo-red.svg" height="18" width="28" />](https://www.npmjs.com/package/nmce-func): Common functions used in business applications, as well as the components and the services in this NMCE libraries.
+* [nmce-json-diff <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/>](https://www.npmjs.com/package/nmce-json-diff): A simple dialog service based on [jsondiffpatch](https://github.com/benjamine/jsondiffpatch).
+* [nmce-pipes <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/>](https://www.npmjs.com/package/nmce-pipes): Common simple Angular pipes.
+* [nmce-directives <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/>](https://www.npmjs.com/package/nmce-directives): Common simple Angular directives.
+* [demoapp](https://github.com/zijianhuang/nmce/tree/master/projects/demoapp): A demo application demonstrating features of all above.
 
 # Designs
 
 The UI design conforms to Material Design, and the visual components are constructed through composing, bridging and wrapping of existing Angular Material Components and CDK.
 
-When considering use cases and making design trade-off, the priority is:
+When considering the use cases and making design trade-off, the priority is:
 1. Desktop with big monitors, mouse and keyboard
 1. Tablet
 1. Smartphone
 
-TV screen is not considered.
+TV screen is out of scope.
 
 Remarks:
-* This repository began with a rich collection of functions, pipes, directives, and components dating back to 2017. However, over time, as Angular and the Angular Material UI Component Library have become more mature and comprehensive, many of these utilities have been deprecated then removed in favor of the built-in features provided by the frameworks and libraries which include the following:
+* This repository had began with a rich collection of functions, pipes, directives, and components dating back to 2017. However, over time, as Angular and the Angular Material UI Component Library have become more mature and comprehensive, many of these utilities have been deprecated then removed in favor of the built-in features provided by the frameworks and libraries which include the following:
     * MomentJS then luxon for date time handling.
     * dinerojs for monetary calculations.
 
@@ -56,7 +56,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 `ng build nmce`
 
-However, do not run `ng build demoapp`, otherwise, the builds for libraries will be deleted, and the build for the app may fail. Instead, using `buildAppDev.ps1` or `buildAppProd.ps1`.
+However, **do not run** `ng build demoapp`, otherwise, the builds for libraries will be deleted, and the build for the app may fail. Instead, using `buildAppDev.ps1` or `buildAppProd.ps1`.
 
 ## Publish
 
@@ -131,6 +131,9 @@ There are a few similar open source projects:
 Just like NMCE, these component suites are relevant when you have already been using Angular Material Design Components.
 * [Angular Material Extensions](https://ng-matero.github.io/extensions/).
 * [angular-material-extensions](https://github.com/angular-material-extensions), most repositories are up to date as of 2023.
+
+Hints:
+* Mixing these 2 component suites along with NMCE in the same app is surely feasible and economical.
 
 ## Based on [Angular](https://angular.dev/)
 * [primeng](https://primeng.org/)
