@@ -1,4 +1,4 @@
-<button routerLink="/demo" value="demo"  mat-raised-button>
+<button routerLink="/demo" value="demo" mat-raised-button>
   <span>Demo</span>
   <mat-icon>playground</mat-icon>
 </button>
@@ -12,17 +12,23 @@
   <span>Repository</span>
   <mat-icon>star</mat-icon>
 </button>
+&nbsp;&nbsp;&nbsp;
+<button  mat-raised-button (click)="showAbout()">
+  <span>About</span>
+  <mat-icon>info</mat-icon>
+</button>
 
 <div class="container-fluid app-container">
-	<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
 
 @if (notificationsCount) {
 <div class="fixed-bottom">
-	<div class="fx-column-gap-half fx-align-end-end">
-		<button [@newNotificationComing]="notificationsState" type="button" mat-icon-button (click)="showNotifications()" matTooltip="Show notifications">
-			<mat-icon matBadge="{{notificationsCount}}" matBadgeColor="warn">notifications</mat-icon>
-		</button>
-	</div>
+  <div class="fx-column-gap-half fx-align-end-end">
+    <button [@newNotificationComing]="notificationsState" type="button" mat-icon-button (click)="showNotifications()"
+      matTooltip="Show notifications">
+      <mat-icon matBadge="{{notificationsCount}}" matBadgeColor="warn">notifications</mat-icon>
+    </button>
+  </div>
 </div>
 }

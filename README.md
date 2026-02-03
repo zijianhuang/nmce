@@ -2,8 +2,14 @@
 
 The projects of Angular Material Components Extensions are to deliver a set of reusable Angular codes and Extensions of [Angular Material UI Component Library](https://material.angular.io/), targeting complex business applications with rich data structures, intensive GUI and complex workflows, and enabling Rapid Application Development.
 
-## Demo
+## Showcase
+
+### Demo
 [Demo Sites](https://zijianhuang.github.io/nmce/en/) in [various locales](https://zijianhuang.github.io/nmce/).
+
+### Products Built with These Components
+
+
 
 ## Projects
 * [nmce <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/>](https://www.npmjs.com/package/nmce): A few sets of components and services based on [Angular Material Components](https://material.angular.io/components/categories).

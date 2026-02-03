@@ -1,5 +1,5 @@
 import { state, style, transition, trigger, useAnimation } from '@angular/animations';
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, VERSION } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { bounceInDown, flash } from 'ng-animate';
@@ -7,6 +7,9 @@ import { ActionSheetItemSubjectService, AlertService, NotificationsService } fro
 import { Subject } from 'rxjs';
 import {MatBadgeModule} from '@angular/material/badge';
 import { RouterModule } from '@angular/router';
+import packageJson from '../../../../package.json';
+
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -78,4 +81,10 @@ export class AppComponent implements OnDestroy {
     this.unsubscribe.next();
     this.unsubscribe.complete();
   }
+
+  showAbout(){
+    const materialVersion = packageJson.dependencies['@angular/material'].replace('^', '');
+    this.alertService.info(`Angular: ${VERSION.full}; Angular Material: ${materialVersion}`, false);
+  }
 }
+

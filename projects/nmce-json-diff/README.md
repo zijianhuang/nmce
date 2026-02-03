@@ -2,6 +2,7 @@
 
 Based on [jsondiffpatch](https://www.npmjs.com/package/jsondiffpatch), JsonDiffComponent and JsonDiffDialogService show the JSON diff result.
 
+---
 ## Code scaffolding
 
 Run `ng generate component component-name --project nmce-json-diff` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project nmce-json-diff`.

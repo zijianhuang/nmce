@@ -16,6 +16,7 @@ Since version 3 of @kolkov/angular-editor, you need to include some settings for
     "node_modules/@kolkov/angular-editor/themes/default.scss"
 ```
 
+---
 ## Code scaffolding
 
 Run `ng generate component component-name --project nmce-html-editor` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project nmce-html-editor`.
