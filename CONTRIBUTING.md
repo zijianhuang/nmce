@@ -4,7 +4,7 @@
 1. README.md files
 2. [API Doc](https://zijianhuang.github.io/nmce/documentation/)
 
-# Evolution of Product Design
+# Evolution of Product
 
 * The UI design is optimized for desktop PC and tablet devices.
 * Components are based on [Angular Material Components](https://material.angular.io/components/categories).
