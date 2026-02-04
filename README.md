@@ -9,7 +9,7 @@ The projects of Angular Material Components Extensions are to deliver a set of r
 
 ### Products Built with These Components
 
-* [JSON to Table](https://json2table.fonlow.com/)
+* [JSON to Table](https://zijianhuang.github.io/json2table/)
 * [Poetry Collection -- Personal Blog (Readonly Static Web)](https://zijianhuang.github.io/poets)
 * ...
 
