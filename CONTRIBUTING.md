@@ -56,6 +56,18 @@ Hints:
     1. Generate an access token in the account, which will expires in 90 days.
     2. Update what in %users%myAccount/.npmrc with the token.
 
+### Before publishing
+The package.json file of each library should declare dependencies. Because there are multiple libraries in a monorepo, which share a single root package.json, the fastest way to identify dependencies is to use `depcheck`. Run the following from time to time:
+
+```
+npx depcheck projects/nmce-func
+npx depcheck projects/nmce-directives
+...
+npx depcheck projects/nmce
+```
+
+Then update `package.json` and `ng-package.json` of each library accordingly.
+
 ## I18N
 
 The translations done within the libraries of this project are to verify if i18n is properly done, while the app projects utilizing the libraries will pickup translation units annotated in the lib codes. This is, the translation resource files (XLF) won't be utilized directly in the app projects, since `ng extract-i18n` can scan the i18n annotations in 3rd party libraries. 

@@ -3,5 +3,9 @@
   "dest": "../../dist/nmce-func",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "allowedNonPeerDependencies": [
+    "luxon",
+    "uuid"
+  ]
 }

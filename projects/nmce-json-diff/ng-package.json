@@ -3,5 +3,8 @@
   "dest": "../../dist/nmce-json-diff",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "allowedNonPeerDependencies": [
+    "jsondiffpatch"
+  ]
 }

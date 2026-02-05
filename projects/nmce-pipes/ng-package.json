@@ -3,5 +3,8 @@
   "dest": "../../dist/nmce-pipes",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "allowedNonPeerDependencies": [
+    "nmce-func"
+  ]
 }

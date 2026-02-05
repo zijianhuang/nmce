@@ -1,8 +1,15 @@
 {
   "name": "nmce",
-  "version": "2.0.0",
-  "author": {"name": "Z"},
+  "version": "2.0.1",
+  "author": {
+    "name": "Z"
+  },
   "description": "Common Angular Material extended components and services used in business applications.",
   "license": "MIT",
-  "repository": {"url": "git+https://github.com/zijianhuang/nmce.git"}
+  "repository": {
+    "url": "git+https://github.com/zijianhuang/nmce.git"
+  },
+  "dependencies": {
+    "nmce-func": "^1.7.1"
+  }
 }

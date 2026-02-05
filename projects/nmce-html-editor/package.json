@@ -1,8 +1,15 @@
 {
   "name": "nmce-html-editor",
-  "version": "1.9.1",
-  "author": {"name": "Z"},
+  "version": "1.9.2",
+  "author": {
+    "name": "Z"
+  },
   "description": "Angular Material extended components based on @kolkov/angular-editor.",
   "license": "MIT",
-  "repository": {"url": "git+https://github.com/zijianhuang/nmce.git"}
+  "repository": {
+    "url": "git+https://github.com/zijianhuang/nmce.git"
+  },
+  "dependencies": {
+    "nmce": "^2.0.1"
+  }
 }
