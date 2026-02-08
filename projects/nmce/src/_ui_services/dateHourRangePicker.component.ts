@@ -21,7 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 @Component({
 	selector: 'DateHourRangePicker, nmce-date-hour-range-picker',
 	templateUrl: 'dateHourRangePicker.component.html',
-	styleUrls: ['../nmcestyles.css'],
+	styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
 	standalone: true,
 	imports: [FormsModule, ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatIconModule, MatSelectModule, MatDatepickerModule, MatFormFieldModule]
 })
@@ -111,6 +111,8 @@ export class DateHourRangePickerService {
 				}
 			})
 			: this.dialog.open(DateHourRangePickerComponent, {
+				width: 'auto',
+				maxWidth: 'none',
 				data: {
 					start: start,
 					end: end

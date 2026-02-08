@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
  */
 @Component({
     templateUrl: './itemListDialog.component.html',
-    styleUrls: ['../nmcestyles.css'],
+    styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
     standalone: true,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatListModule]
 })

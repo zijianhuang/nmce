@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
     selector: 'options-content',
     templateUrl: 'options.component.html',
-    styleUrls: ['../nmcestyles.css'],
+    styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
     standalone: true,
 	imports: [MatButtonModule, MatDialogModule]
 })

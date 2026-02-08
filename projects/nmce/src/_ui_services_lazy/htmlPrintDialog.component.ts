@@ -22,7 +22,7 @@ import { HtmlImgDialogComponent } from '../_ui_services/htmlImgDialog.component'
 @Component({
     selector: 'html-print-dialog',
     templateUrl: 'htmlPrintDialog.component.html',
-    styleUrls: ['../nmcestyles.css'],
+    styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
      standalone: true,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule, CommonModule]
 })
@@ -51,7 +51,7 @@ export class HtmlPrintDialogComponent extends HtmlDialogComponent {
 @Component({
     selector: 'html-href-print-dialog',
     templateUrl: 'htmlPrintDialog.component.html',
-    styleUrls: ['../nmcestyles.css'],
+    styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
     standalone: true,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule, CommonModule]
 })
@@ -83,7 +83,7 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 @Component({
     selector: 'html-img-print-dialog',
     templateUrl: 'htmlImgPrintDialog.component.html',
-    styleUrls: ['../nmcestyles.css'],
+    styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
     standalone: true,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule, CommonModule]
 })

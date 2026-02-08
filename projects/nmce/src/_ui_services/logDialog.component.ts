@@ -29,7 +29,7 @@ export const LOG_DIALOG_OPTIONS = new InjectionToken<MessageDialogOptions>('Dial
  */
 @Component({
     templateUrl: 'logDialog.component.html',
-    styleUrls: ['../nmcestyles.css'],
+    styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
     standalone: true,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, CommonModule, MatIconModule]
 })

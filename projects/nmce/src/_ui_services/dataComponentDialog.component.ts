@@ -17,7 +17,7 @@ import { DataComponentDirective } from '../_types/dataComponent.directive';
 @Component({
     selector: 'nmce-data-component-content',
     templateUrl: 'dataComponentDialog.component.html',
-    styleUrls: ['../nmcestyles.css'],
+    styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
     standalone: true,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule, DataComponentDirective]
 })

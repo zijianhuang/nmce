@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 @Component({
     selector: 'html-img-dialog',
     templateUrl: 'htmlImgDialog.component.html',
-    styleUrls: ['../nmcestyles.css'],
+    styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
     standalone: true,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule, CommonModule]
 })

@@ -22,7 +22,7 @@ import { DataComponentDirective } from '../_types/dataComponent.directive';
  */
 @Component({
 	templateUrl: 'dataComponentPrintDialog.component.html',
-	styleUrls: ['../nmcestyles.css'],
+	styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
 	standalone: true,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule, DataComponentDirective]
 })

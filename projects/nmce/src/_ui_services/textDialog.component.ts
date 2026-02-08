@@ -14,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
 	selector: 'text-dialog',
 	templateUrl: 'textDialog.component.html',
-	styleUrls: ['../nmcestyles.css'],
+	styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
 	standalone: true,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule]
 })
@@ -51,7 +51,7 @@ export class TextDialogComponent implements AfterViewInit {
 @Component({
 	selector: 'text-href-dialog',
 	templateUrl: 'textDialog.component.html',
-	styleUrls: ['../nmcestyles.css'],
+	styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
 	standalone: true,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule,]
 })

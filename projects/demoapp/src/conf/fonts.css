@@ -1,0 +1,57 @@
+/* roboto-regular - latin */
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	/* Chrome 26+, Opera 23+, Firefox 39+ */
+	src: local(''), url('../assets/fonts/roboto-v30-latin/roboto-v30-latin-regular.woff2') format('woff2'),
+		/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+		url('../assets/fonts/') format('woff');
+
+}
+
+/* Default body in poem view*/
+.poem-text {
+	font-family: Roboto;
+	font-size: medium;
+	line-height: normal;
+}
+
+/* Highlighted poem lines */
+article.poem {
+	font-family: Roboto;
+	font-size: large;
+	color: darkblue;
+	line-height: normal;
+}
+
+/* Title in poem viewer */
+.poem-title-view {
+	font-family: Roboto;
+	font-size: large;
+	line-height: normal;
+}
+
+/* Poem title in side nav */
+.poem-title-list {
+	font-size: medium;
+}
+
+/* Title in album viewer */
+.album-title-view {
+	font-family: Roboto;
+	font-size: x-large;
+	line-height: normal;
+}
+
+/* Album description */
+.album-text {
+	font-family: Roboto;
+	font-size: medium;
+	line-height: normal;
+}
+
+/* Album title in side nav */
+.album-title-list {
+	font-size: medium;
+}

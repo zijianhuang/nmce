@@ -16,7 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 @Component({
     selector: 'timePicker',
     templateUrl: 'timePicker.component.html',
-    styleUrls: ['../nmcestyles.css'],
+    styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
     standalone: true,
 	imports: [FormsModule, ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatSelectModule]
 })

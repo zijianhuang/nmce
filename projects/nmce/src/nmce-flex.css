@@ -1,61 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
-.alert-success {
-	border-color: #d0e9c6;
-	color: #3c763d;
-}
-
-.alert-background-success {
-	background-color: #dff0d8 !important;
-}
-
-.alert-info {
-	border-color: #bcdff1;
-	color: #31708f;
-}
-
-.alert-background-info {
-	background-color: #d9edf7;
-}
-
-
-.alert-warning {
-	border-color: #faf2cc;
-	color: #8a6d3b;
-}
-
-.alert-background-warning {
-	background-color: #fcf8e3;
-}
-
-.alert-error {
-	border-color: #ebcccc;
-	color: #a94442;
-}
-
-.alert-background-error {
-	background-color: #f2dede;
-}
-
-iframe.frame-dialog-content {
-	width: 75vw;
-	height: 45vh;
-}
-
-
-/* For block container such as mat-dialog-title which is at odd against flex. */
-.block-items-gap-1 > * {
-	margin-left: 1em;
-}
-
-	.block-items-gap-1 > *:first-child {
-		margin-left: 0em;
-	}
-
-.top-margin-half {
-	margin-top: 0.5em;
-}
-
-
 /* #region Replace fxFlexLayout */
 
 /* display: flex is with latest standard, while flexbox is older. flex may cause the label in buttons to wrap, however, this may be good.
@@ -717,14 +659,3 @@ iframe.frame-dialog-content {
 }
 
 /* #endregion */
-
-
-img.max-width-auto-height {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-img.original-size {
-	-webkit-user-select: none;
-	margin: auto;
-}

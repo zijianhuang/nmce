@@ -1,30 +1,34 @@
 import { state, style, transition, trigger, useAnimation } from '@angular/animations';
-import { Component, OnDestroy, VERSION } from '@angular/core';
+import { Component, DOCUMENT, Inject, OnDestroy, VERSION } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { bounceInDown, flash } from 'ng-animate';
 import { ActionSheetItemSubjectService, AlertService, NotificationsService } from 'nmce';
 import { Subject } from 'rxjs';
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatBadgeModule } from '@angular/material/badge';
 import { RouterModule } from '@angular/router';
 import packageJson from '../../../../package.json';
+import { AppConfigConstants, ThemeDef } from '../environments/environment.common';
+import { APP_DI_CONFIG } from './app-config';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormField, MatLabel, MatOption, MatSelect, MatSelectChange } from '@angular/material/select';
 
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css'],
-    animations: [
-        trigger('newNotificationComing', [
-            state('zero', style({})),
-            state('more', style({})),
-            state('one', style({})),
-            transition('zero => *', useAnimation(bounceInDown, { delay: 500 })),
-            transition('* => *', useAnimation(flash, { delay: 200 })),
-        ])
-    ],
-    standalone: true,
-    imports: [MatIconModule, MatButtonModule, MatBadgeModule, RouterModule]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  animations: [
+    trigger('newNotificationComing', [
+      state('zero', style({})),
+      state('more', style({})),
+      state('one', style({})),
+      transition('zero => *', useAnimation(bounceInDown, { delay: 500 })),
+      transition('* => *', useAnimation(flash, { delay: 200 })),
+    ])
+  ],
+  standalone: true,
+  imports: [MatIconModule, MatButtonModule, MatBadgeModule, RouterModule, MatFormField, MatSelect, MatLabel, MatOption]
 })
 export class AppComponent implements OnDestroy {
   title = 'demoapp';
@@ -40,12 +44,37 @@ export class AppComponent implements OnDestroy {
     return this.notificationsService.items.length;
   }
 
+  themes?: ThemeDef[];
+
+  get selectedTheme(): string | null {
+    return APP_DI_CONFIG.selectedTheme;
+  }
+  set selectedTheme(v: string) {
+    APP_DI_CONFIG.selectedTheme = v;
+  }
+
+  startupTheme?: string; // init during startup only.
+  currentTheme?: string;
   constructor(private alertService: AlertService,
     private notificationsService: NotificationsService,
     private actionSheetItemSubjectService: ActionSheetItemSubjectService,
-    private iconRegistry: MatIconRegistry,
+    iconRegistry: MatIconRegistry,
+    @Inject(DOCUMENT) private doc: Document,
+
   ) {
     iconRegistry.setDefaultFontSetClass('material-symbols-outlined');
+    this.checkStartupTheme();
+		this.loadTheme(this.selectedTheme);
+		this.themes = AppConfigConstants.themesDic ? Object.keys(AppConfigConstants.themesDic).map(k => {
+			const c = AppConfigConstants.themesDic![k];
+			const obj: ThemeDef = {
+				name: c.name,
+				fileName: k,
+				dark: c.dark
+			};
+			return obj;
+		}) : undefined;
+
     this.alertService.initOnce();
     this.actionSheetItemSubjectService.getMessage().subscribe(
       d => this.showNotifications()
@@ -82,9 +111,68 @@ export class AppComponent implements OnDestroy {
     this.unsubscribe.complete();
   }
 
-  showAbout(){
+  showAbout() {
     const materialVersion = packageJson.dependencies['@angular/material'].replace('^', '');
     this.alertService.info(`Angular: ${VERSION.full}; Angular Material: ${materialVersion}`, false);
+  }
+
+  /**
+ * Load optionally
+ * @param picked 
+ * @returns 
+ */
+  loadTheme(picked: string | null) {
+    if (!picked) {
+      return;
+    }
+
+    let themeLink = this.doc.getElementById(
+      'theme'
+    ) as HTMLLinkElement;
+
+    if (themeLink) {
+      this.currentTheme = themeLink.href.substring(themeLink.href.lastIndexOf('/') + 1);
+
+      const notToLoad = picked == this.currentTheme;
+      if (notToLoad) {
+        return;
+      }
+
+      if (AppConfigConstants.themesDic) {
+        const r = AppConfigConstants.themesDic[picked!];
+        if (!r) {
+          return;
+        }
+
+        themeLink.href = `assets/themes/${picked}`;
+        let customLink = this.doc.getElementById(
+          'app-colors'
+        ) as HTMLLinkElement;
+
+        const customFile = r.dark ? 'colorsdark.css' : 'colors.css';
+        if (customLink) {
+          customLink.href = `assets/themes/${customFile}`;
+        }
+
+        this.selectedTheme = picked!;
+        this.currentTheme = picked;
+
+      }
+    }
+  }
+
+  private checkStartupTheme() {
+    let themeLink = this.doc.getElementById(
+      'theme'
+    ) as HTMLLinkElement;
+
+    this.startupTheme = themeLink.href.substring(themeLink.href.lastIndexOf('/') + 1);
+    this.currentTheme = this.startupTheme;
+    this.selectedTheme = this.startupTheme;
+  }
+
+  themeSelectionChang(e: MatSelectChange) {
+    this.loadTheme(e.value);
   }
 }
 

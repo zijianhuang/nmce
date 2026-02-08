@@ -12,11 +12,20 @@
   <span>Repository</span>
   <mat-icon>star</mat-icon>
 </button>
+<mat-form-field>
+  <mat-label>Favorite food</mat-label>
+  <mat-select (selectionChange)="themeSelectionChang($event)">
+    @for (item of themes; track $index) {
+    <mat-option [value]="item.fileName">{{item.name}}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
 &nbsp;&nbsp;&nbsp;
-<button  mat-raised-button (click)="showAbout()">
+<button mat-raised-button (click)="showAbout()">
   <span>About</span>
   <mat-icon>info</mat-icon>
 </button>
+
 
 <div class="container-fluid app-container">
   <router-outlet></router-outlet>

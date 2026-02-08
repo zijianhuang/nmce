@@ -41,7 +41,7 @@ class NotificationsCache { //not exported intentionally
  */
 @Component({
     templateUrl: 'notifications.component.html',
-    styleUrls: ['../nmcestyles.css'],
+    styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
     standalone: true,
 	imports: [MatButtonModule, MatListModule, MatIconModule]
 })

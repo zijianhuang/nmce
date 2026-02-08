@@ -1,0 +1,38 @@
+.string-node {
+	color: antiquewhite;
+}
+
+.number-node {
+	color: lightgreen;
+}
+
+.date-node {
+	color: deepskyblue;
+}
+
+.bigint-node {
+	color: lawngreen;
+}
+
+.bool-node {
+	color: sandybrown;
+}
+
+.any-node {
+	color: lightgray;
+}
+
+table {
+	background-color: #1e1e1e;
+	border-color: lightyellow !important;
+	color: white;
+}
+
+tbody {
+	border-color: whitesmoke !important;
+}
+
+.data-area {
+	background-color: #292727;
+	color: white;
+}

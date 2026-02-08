@@ -14,7 +14,7 @@ The projects of Angular Material Components Extensions are to deliver a set of r
 * ...
 
 ## Projects
-* [nmce <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/>](https://www.npmjs.com/package/nmce): A few sets of components and services based on [Angular Material Components](https://material.angular.io/components/categories).
+* **[nmce <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/>](https://www.npmjs.com/package/nmce): A few sets of components and services based on [Angular Material Components](https://material.angular.io/components/categories).**
 * [nmce-html-editor <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/>](https://www.npmjs.com/package/nmce-html-editor): A few dialog services based on [@kolkov/angular-editor](https://github.com/kolkov/angular-editor), present a HTML editor in a dialog.
 * [nmce-func <img src="docs/icons/npm-logo-red.svg" height="18" width="28" />](https://www.npmjs.com/package/nmce-func): Common functions used in business applications, as well as the components and the services in this NMCE libraries.
 * [nmce-json-diff <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/>](https://www.npmjs.com/package/nmce-json-diff): A simple dialog service based on [jsondiffpatch](https://github.com/benjamine/jsondiffpatch).
@@ -32,6 +32,18 @@ When considering the use cases and making design trade-off, the priority is:
 1. Smartphone
 
 TV screen is out of scope.
+
+# Installation
+
+Most app programmers may just need to install [nmce <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/>](https://www.npmjs.com/package/nmce) .
+
+## Internationalization (I18N)
+
+The libraries use Angular’s `$localize` for translatable messages.  
+If your application uses Angular i18n, make sure the `$localize` runtime is loaded by importing the following in apps's main entry point (e.g., polyfills.ts or main.ts):
+```ts
+import '@angular/localize/init';
+```
 
 # Alternative or Complementary
 There are a few similar open source projects:

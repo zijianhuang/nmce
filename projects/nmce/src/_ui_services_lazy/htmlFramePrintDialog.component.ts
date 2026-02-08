@@ -17,7 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
     selector: 'html-frame-print-dialog',
     templateUrl: 'htmlFramePrintDialog.component.html',
-    styleUrls: ['../nmcestyles.css'],
+    styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
      standalone: true,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule]
 })
@@ -43,7 +43,7 @@ export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
 @Component({
     selector: 'html-href-frame-print-dialog',
     templateUrl: 'htmlFramePrintDialog.component.html',
-    styleUrls: ['../nmcestyles.css'],
+    styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
     standalone: true,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule]
 })

@@ -1,0 +1,280 @@
+.filled {
+	font-variation-settings:
+		'FILL' 1  !important;
+}
+
+
+/* #region sticky things */
+
+div.table-sticky {
+	display: inline-block;
+	height: calc(100vh - 11.2em);
+	width: 95vw;
+	overflow: auto
+}
+
+table.sticky thead th {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0px;
+	background-color: lightcyan;
+	z-index: 20;
+}
+
+table.sticky-footer tfoot,
+table.sticky-footer tfoot th {
+	position: -webkit-sticky;
+	position: sticky;
+	bottom: 0px;
+	background-color: lightyellow;
+	z-index: 10;
+}
+
+/*Overwrite Bootstrap classes to live well with Material Design css which as the max z-index:1000, while the bootstrap one is 1030. */
+.fixed-top {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 990;
+}
+
+.fixed-top-above {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 995;
+}
+
+/*For 2nd fixed top. 980 to ensure the popover or menu from fixed-top won't hide behind the 2nd fixed top*/
+.fixed-top-2 {
+	position: fixed;
+	top: 4.6em;
+	right: 0;
+	left: 0;
+	z-index: 980;
+}
+
+.fixed-bottom {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 990;
+}
+
+.fixed-bottom-narrow {
+	position: fixed;
+	bottom: 0;
+	z-index: 990;
+}
+
+
+/* #endregion */
+
+/* #region Bootstrap 4 Alpha 6 good stuffs. Ready to get rid of Bootstrap*/
+
+.container-fluid {
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/* #endregion */
+
+
+/* #region app layout */
+
+body {
+	overscroll-behavior-y: contain;
+}
+
+
+/* #endregion*/
+
+
+/* #region layout shared with print */
+
+.full-width {
+	width: 100%;
+}
+
+.strike {
+	text-decoration: line-through;
+}
+
+.deleted {
+	text-decoration: line-through dashed;
+}
+
+.table {
+	border-collapse: collapse;
+}
+
+
+.app-container {
+	padding-top: 4.5em;
+	padding-bottom: 0.5em;
+}
+
+.content-top-padding-relative {
+	position: relative;
+	margin-top: 4.5em;
+}
+
+.content-left-padding-relative {
+	margin-left: 1.5em;
+}
+
+.flex-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.basic-width {
+	width: 25em;
+}
+
+.date-width {
+	width: 5em;
+}
+
+
+.ellipsis-line {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	box-sizing: border-box;
+}
+
+.inline {
+	display: inline-block;
+}
+
+.block {
+	display: block;
+}
+
+
+.mat-mdc-raised-button {
+	text-transform: uppercase;
+	background-color: #e5eff2;
+}
+
+.readonly-area {
+	background-color: #d1f5d1;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+
+.sidenav-container {
+	flex: 1;
+	top: 0.3em;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.sidenav {
+	display: flex;
+}
+
+.sidenav-container-container {
+	display: flex;
+	flex-direction: column;
+	bottom: 0;
+}
+
+.href {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/*growing list in the tab client area of a dialog with 95vh */
+.dialog-content-list-in-tab {
+	max-height: 50vh;
+	overflow: auto;
+}
+
+
+.two-line {
+	height: 2em;
+}
+
+.three-line {
+	height: 3em;
+}
+
+
+#tyro-logo-horizontal-svg {
+	width: 79px;
+	max-width: 100%;
+	height: 37px;
+	margin-top: 11px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+/* Add this to img, so the following text could be aligned together at the middle. https://stackoverflow.com/questions/25414091/how-to-center-the-image-both-horizontally-and-vertically-in-span-tag*/
+.v-middle {
+	vertical-align: middle;
+}
+
+.input-hint {
+	font-style: italic;
+}
+
+
+.small-rounded {
+	border-radius: 5px;
+}
+
+
+button.margin-top-small,
+div.margin-top-small {
+	margin-top: 0.5em;
+}
+
+.align-items-horizontal {
+	display: flex;
+	align-content: center;
+	align-items: center;
+}
+
+
+.total-line {
+	border-top: 2px solid;
+	border-top-color: black;
+	border-bottom: 2px solid;
+	border-bottom-color: black;
+}
+
+.header {
+	background-color: lightcyan;
+	font-weight: bold;
+}
+
+.footer {
+	background-color: lightyellow;
+	font-weight: bold;
+}
+
+td {
+	vertical-align: middle;
+}
+
+table.for-print tbody td {
+	vertical-align: top;
+}
+
+/* #endregion */
+

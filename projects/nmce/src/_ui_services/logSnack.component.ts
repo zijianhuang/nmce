@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
  */
 @Component({
     templateUrl: 'logSnack.component.html',
-    styleUrls: ['../nmcestyles.css'],
+    styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
     standalone: true,
 	imports: [CommonModule]
 })

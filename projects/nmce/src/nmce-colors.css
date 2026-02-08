@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+.alert-success {
+	border-color: #d0e9c6;
+	color: #3c763d;
+}
+
+.alert-background-success {
+	background-color: #dff0d8 !important;
+}
+
+.alert-info {
+	border-color: #bcdff1;
+	color: #31708f;
+}
+
+.alert-background-info {
+	background-color: #d9edf7;
+}
+
+
+.alert-warning {
+	border-color: #faf2cc;
+	color: #8a6d3b;
+}
+
+.alert-background-warning {
+	background-color: #fcf8e3;
+}
+
+.alert-error {
+	border-color: #ebcccc;
+	color: #a94442;
+}
+
+.alert-background-error {
+	background-color: #f2dede;
+}
