@@ -15,9 +15,12 @@ interface Site_Config {
 	themesDic?: ThemesDic
 }
 
+declare const SITE_CONFIG: AppConfigConstantsType
+
+
 interface AppConfigConstantsType extends Site_Config {
 }
 
 export const AppConfigConstants: AppConfigConstantsType = {
-
+	...(typeof SITE_CONFIG === 'undefined' ? {} : SITE_CONFIG),
 }

@@ -1,33 +1,34 @@
-<button routerLink="/demo" value="demo" mat-raised-button>
-  <span>Demo</span>
-  <mat-icon>playground</mat-icon>
-</button>
-&nbsp;&nbsp;&nbsp;
-<button mat-raised-button onclick="window.open('https://zijianhuang.github.io/nmce/documentation/', '_blank')">
-  <span>Documentation</span>
-  <mat-icon>book_2</mat-icon>
-</button>
-&nbsp;&nbsp;&nbsp;
-<button mat-raised-button onclick="window.open('https://github.com/zijianhuang/nmce', '_blank')">
-  <span>Repository</span>
-  <mat-icon>star</mat-icon>
-</button>
-<mat-form-field>
-  <mat-label>Favorite food</mat-label>
-  <mat-select (selectionChange)="themeSelectionChang($event)">
-    @for (item of themes; track $index) {
-    <mat-option [value]="item.fileName">{{item.name}}</mat-option>
-    }
-  </mat-select>
-</mat-form-field>
-&nbsp;&nbsp;&nbsp;
-<button mat-raised-button (click)="showAbout()">
-  <span>About</span>
-  <mat-icon>info</mat-icon>
-</button>
+<div class="fx-column-gap-1">
+  <button routerLink="/demo" value="demo" mat-raised-button>
+    <span>Demo</span>
+    <mat-icon>playground</mat-icon>
+  </button>
 
+  <button mat-raised-button onclick="window.open('https://zijianhuang.github.io/nmce/documentation/', '_blank')">
+    <span>Documentation</span>
+    <mat-icon>book_2</mat-icon>
+  </button>
 
-<div class="container-fluid app-container">
+  <button mat-raised-button onclick="window.open('https://github.com/zijianhuang/nmce', '_blank')">
+    <span>Repository</span>
+    <mat-icon>star</mat-icon>
+  </button>
+  <mat-form-field>
+    <mat-label>Favorite food</mat-label>
+    <mat-select #themeSelect (selectionChange)="themeSelectionChang($event)" [value]="currentTheme">
+      @for (item of themes; track $index) {
+      <mat-option [value]="item.fileName">{{item.name}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button (click)="showAbout()">
+    <span>About</span>
+    <mat-icon>info</mat-icon>
+  </button>
+</div>
+
+<div class="container-fluid app-container data-area">
   <router-outlet></router-outlet>
 </div>
 

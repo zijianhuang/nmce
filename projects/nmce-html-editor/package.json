@@ -1,6 +1,6 @@
 {
   "name": "nmce-html-editor",
-  "version": "1.9.2",
+  "version": "1.10.0",
   "author": {
     "name": "Z"
   },
@@ -10,6 +10,6 @@
     "url": "git+https://github.com/zijianhuang/nmce.git"
   },
   "dependencies": {
-    "nmce": "^2.0.1"
+    "nmce": "^2.1.0"
   }
 }

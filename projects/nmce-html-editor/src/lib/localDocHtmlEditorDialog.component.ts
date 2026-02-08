@@ -15,8 +15,9 @@ import { MatInputModule } from '@angular/material/input';
  * This component is used by multiple functions via different routes, or by HTML tempalte so noteLabel and modelChanged will be used.
  */
 @Component({
-    templateUrl: './htmlDocEditorDialogBase.directive.html',
-     standalone: true,
+	templateUrl: './htmlDocEditorDialogBase.directive.html',
+	standalone: true,
+    styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
 	imports: [MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatIconModule, FormsModule, ReactiveFormsModule,
 		AngularEditorModule,
 	]
@@ -24,7 +25,7 @@ import { MatInputModule } from '@angular/material/input';
 export class LocalDocHtmlEditorDialogComponent extends HtmlDocEditorDialogBaseComponent implements OnInit {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { [k: string]: any },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
 		public dialogRef: MatDialogRef<LocalDocHtmlEditorDialogComponent>,
 		@Inject(HTML_EDITOR_UPLOADURL) protected uploadUrl: string | undefined = undefined,
 		protected alertService: AlertService,

@@ -1,5 +1,5 @@
 import { state, style, transition, trigger, useAnimation } from '@angular/animations';
-import { Component, DOCUMENT, Inject, OnDestroy, VERSION } from '@angular/core';
+import { Component, DOCUMENT, Inject, OnDestroy, OnInit, VERSION, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { bounceInDown, flash } from 'ng-animate';
@@ -30,7 +30,7 @@ import { MatFormField, MatLabel, MatOption, MatSelect, MatSelectChange } from '@
   standalone: true,
   imports: [MatIconModule, MatButtonModule, MatBadgeModule, RouterModule, MatFormField, MatSelect, MatLabel, MatOption]
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnDestroy, OnInit {
   title = 'demoapp';
 
   notificationsState = 'zero';
@@ -55,6 +55,9 @@ export class AppComponent implements OnDestroy {
 
   startupTheme?: string; // init during startup only.
   currentTheme?: string;
+
+  @ViewChild('themeSelect') themeSelect: MatSelect;
+
   constructor(private alertService: AlertService,
     private notificationsService: NotificationsService,
     private actionSheetItemSubjectService: ActionSheetItemSubjectService,
@@ -64,21 +67,25 @@ export class AppComponent implements OnDestroy {
   ) {
     iconRegistry.setDefaultFontSetClass('material-symbols-outlined');
     this.checkStartupTheme();
-		this.loadTheme(this.selectedTheme);
-		this.themes = AppConfigConstants.themesDic ? Object.keys(AppConfigConstants.themesDic).map(k => {
-			const c = AppConfigConstants.themesDic![k];
-			const obj: ThemeDef = {
-				name: c.name,
-				fileName: k,
-				dark: c.dark
-			};
-			return obj;
-		}) : undefined;
+    this.loadTheme(this.selectedTheme);
+    this.themes = AppConfigConstants.themesDic ? Object.keys(AppConfigConstants.themesDic).map(k => {
+      const c = AppConfigConstants.themesDic![k];
+      const obj: ThemeDef = {
+        name: c.name,
+        fileName: k,
+        dark: c.dark
+      };
+      return obj;
+    }) : undefined;
 
     this.alertService.initOnce();
     this.actionSheetItemSubjectService.getMessage().subscribe(
       d => this.showNotifications()
     );
+  }
+
+  ngOnInit(): void {
+    
   }
 
   /**
@@ -149,9 +156,9 @@ export class AppComponent implements OnDestroy {
           'app-colors'
         ) as HTMLLinkElement;
 
-        const customFile = r.dark ? 'colorsdark.css' : 'colors.css';
+        const customFile = r.dark ? 'colors-dark.css' : 'colors.css';
         if (customLink) {
-          customLink.href = `assets/themes/${customFile}`;
+          customLink.href = `conf/${customFile}`;
         }
 
         this.selectedTheme = picked!;
@@ -168,7 +175,6 @@ export class AppComponent implements OnDestroy {
 
     this.startupTheme = themeLink.href.substring(themeLink.href.lastIndexOf('/') + 1);
     this.currentTheme = this.startupTheme;
-    this.selectedTheme = this.startupTheme;
   }
 
   themeSelectionChang(e: MatSelectChange) {

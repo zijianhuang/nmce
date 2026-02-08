@@ -56,7 +56,7 @@ export class HtmlFrameDialogComponent implements AfterViewInit {
 @Component({
     selector: 'html-href-frame-dialog',
     templateUrl: 'htmlFrameDialog.component.html',
-    styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
+    styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
     standalone: true,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule,]
 })

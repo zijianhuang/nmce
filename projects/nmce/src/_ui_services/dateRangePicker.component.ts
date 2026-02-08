@@ -19,7 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 @Component({
 	selector: 'DateRangePicker, nmce-date-range-picker',
 	templateUrl: 'dateRangePicker.component.html',
-	styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
+	styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
 	standalone: true,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatDatepickerModule, MatFormFieldModule, MatInputModule, FormsModule,]
 })

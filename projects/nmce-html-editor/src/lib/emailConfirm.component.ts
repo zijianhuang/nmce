@@ -31,6 +31,7 @@ export interface EmailMessage {
     selector: 'email-confirm',
     templateUrl: 'emailConfirm.component.html',
     standalone: true,
+    styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
 	imports: [MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatIconModule, FormsModule, ReactiveFormsModule,
 		AngularEditorModule,
 	]

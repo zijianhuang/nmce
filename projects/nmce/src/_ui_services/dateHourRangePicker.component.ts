@@ -21,7 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 @Component({
 	selector: 'DateHourRangePicker, nmce-date-hour-range-picker',
 	templateUrl: 'dateHourRangePicker.component.html',
-	styleUrls: ['../nmce-styles.css', '../nmce-colors.css', '../nmce-flex.css'],
+	styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
 	standalone: true,
 	imports: [FormsModule, ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatIconModule, MatSelectModule, MatDatepickerModule, MatFormFieldModule]
 })
