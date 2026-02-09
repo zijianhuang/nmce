@@ -1,18 +1,20 @@
-
+/**
+ * Determine dialog startup size.
+ */
 export enum DialogSize { Auto, Large, Medium, Smart }
 
 /**
- * When smart, return useBackButton ? '98' + hw : undefined.
+ * When smart, return (useBackButton ? '98' + hw : undefined).
  * @param size
  * @param useBackButton
  * @param vwvh vw or vh
  */
-export const DialogSizeToSize = (size?: DialogSize, useBackButton?: boolean, vwvh?: string) => {
+export const DialogSizeToSize = (size?: DialogSize, useBackButton?: boolean, vwvh?: 'vw' | 'vh') => {
 	switch (size) {
 		case DialogSize.Auto: return undefined;
 		case DialogSize.Large: return '98' + vwvh;
 		case DialogSize.Medium: return '50' + vwvh;
-		case DialogSize.Smart: return useBackButton ? '98' + vwvh : undefined;
+		case DialogSize.Smart: return useBackButton ? ('98' + vwvh) : undefined;
 		default:
 			return undefined;
 	};

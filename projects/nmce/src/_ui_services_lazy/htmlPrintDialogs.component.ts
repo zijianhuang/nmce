@@ -2,7 +2,6 @@ import { CommonModule, Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, Injectable, Renderer2 } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
-import { SafeUrl } from '@angular/platform-browser';
 import { HtmlPrintFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from '../_ui_services/baseTypes';
@@ -14,7 +13,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { HtmlHRefDialogComponent } from '../_ui_services/htmlHRefDialog.component';
-import { HtmlImgDialogComponent } from '../_ui_services/htmlImgDialog.component';
 
 /**
  * Contain HTML content, used in HtmlDialogService.
@@ -37,7 +35,6 @@ export class HtmlPrintDialogComponent extends HtmlDialogComponent {
 
 	print() {
 		if (this.htmlContent) {
-			//HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(this.cssUrl));
 			HtmlPrintFunc.printWithCSS(this.htmlContent, this.location.prepareExternalUrl(this.cssUrl));
 		} else {
 			console.error($localize`this.htmlContentElement does not exist.`);
@@ -80,31 +77,6 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 
 }
 
-@Component({
-    selector: 'html-img-print-dialog',
-    templateUrl: 'htmlImgPrintDialog.component.html',
-    styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
-    standalone: true,
-	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule, CommonModule]
-})
-export class HtmlImgPrintDialogComponent extends HtmlImgDialogComponent {
-	constructor(
-		@Inject(MAT_DIALOG_DATA) public data: { title: string, imageUrl: string | SafeUrl, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
-		public dialogRef: MatDialogRef<HtmlImgDialogComponent>, private location: Location, @Inject('print.cssUrl') private cssUrl: string) {
-		super(data, actionsAlign, dialogRef);
-	}
-
-	print() {
-		if (this.htmlContentElement) {
-			HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(this.cssUrl));
-		} else {
-			console.error($localize`this.htmlContentElement does not exist.`);
-		}
-	}
-}
-
-
 /**
  * Display HTML content in the dialog.
  */
@@ -141,18 +113,3 @@ export class HtmlHRefPrintDialogService extends HtmlBaseDialogService<HtmlHRefPr
 	}
 
 }
-
-@Injectable({ providedIn: 'root' })
-export class HtmlImgPrintDialogService extends HtmlBaseDialogService<HtmlImgPrintDialogComponent> {
-	constructor(protected dialog: MatDialog) { super(dialog); }
-
-	/**
-	* Display html content in a dialog
-	* @param title title of the dialog
-	* @param htmlContent html content to be rendered in the dialog body
-	*/
-	open(data: { title: string, imageUrl: string | SafeUrl, size: DialogSize, useBackButton?: boolean }): Observable<any> {
-		return super.displayComponent(HtmlImgPrintDialogComponent, data);
-	}
-}
-

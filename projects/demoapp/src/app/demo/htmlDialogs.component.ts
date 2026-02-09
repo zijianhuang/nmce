@@ -180,6 +180,7 @@ export class HtmlDialogsComponent implements DataComponent {
 			size: this.sizeSelectedControl.value,
 			useBackButton: this.useBackButton
 		});
+		console.debug('sizeSelectedControl.value: '+ this.sizeSelectedControl.value);
 	}
 
 

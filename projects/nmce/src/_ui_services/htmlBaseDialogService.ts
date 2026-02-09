@@ -5,7 +5,7 @@ import { DialogSize, DialogSizeToSize } from './types';
 
 /**
  * Common behaviors of HTML content dialogs.
- * useBackButton determine whether to use a Back button on the top left cornor of the dialog, or a Close button at the bottom of the dialog.
+ * useBackButton determine whether to use a Back button on the top left corner of the dialog, or a Close button at the bottom of the dialog.
  * If useBackButton is undefined, when size is Large or current screen is small screen, useBackButton is always true.
  */
 export class HtmlBaseDialogService<T> {

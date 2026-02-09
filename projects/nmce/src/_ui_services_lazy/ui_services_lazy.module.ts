@@ -5,8 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProgressComponent } from './progress.component';
 import { DataComponentPrintDialog } from './dataComponentPrintDialog.component';
 import { HtmlFramePrintDialogComponent, HtmlHRefFramePrintDialogComponent } from './htmlFramePrintDialog.component';
-import { HtmlPrintDialogComponent, HtmlHRefPrintDialogComponent, HtmlImgPrintDialogComponent } from './htmlPrintDialog.component';
-
+import { HtmlPrintDialogComponent, HtmlHRefPrintDialogComponent } from './htmlPrintDialogs.component';
+import { HtmlImgPrintDialogComponent } from './htmlImgPrintDialog.component';
 
 /**
  * Contain components for apps preferring importing module.

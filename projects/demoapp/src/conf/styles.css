@@ -199,12 +199,6 @@ body {
 	cursor: pointer;
 }
 
-/*growing list in the tab client area of a dialog with 95vh */
-.dialog-content-list-in-tab {
-	max-height: 50vh;
-	overflow: auto;
-}
-
 
 .two-line {
 	height: 2em;

@@ -6,33 +6,31 @@ iframe.frame-dialog-content {
 
 
 /* For block container such as mat-dialog-title which is at odd against flex. */
-.block-items-gap-1 > * {
+.block-items-gap-1>* {
 	margin-left: 1em;
 }
 
-	.block-items-gap-1 > *:first-child {
-		margin-left: 0em;
-	}
+.block-items-gap-1>*:first-child {
+	margin-left: 0em;
+}
 
 .top-margin-half {
 	margin-top: 0.5em;
 }
 
 /* Used by panelClass of matDialog to define the mat dialog content height. */
-.dialog-full-content-height .mat-mdc-dialog-content {
+.dialog-full-content-height mat-dialog-content {
 	max-height: calc(95vh - 5em);
 }
 
-/* for dialog with 2 row on the top */
-.dialog-full-content-height2 .mat-mdc-dialog-content {
-	max-height: calc(95vh - 7em);
+.full-width .mat-mdc-dialog-container {
+	max-width: none;
+	width: 100vw;
 }
 
-.dialog-full-content-height-wait {
+/* for dialog with 2 row on the top */
+.dialog-full-content-height2 mat-dialog-content {
 	max-height: calc(95vh - 7em);
-	height: calc(95vh - 7em);
-	max-width: calc(95vw);
-	width: calc(95vw);
 }
 
 .frame-dialog-content {
