@@ -4,10 +4,10 @@
 <mat-dialog-content>
 	<mat-selection-list [multiple]="false" (selectionChange)="itemSelectionChange($event)">
 		@for (p of items; track p) {
-<mat-list-option togglePosition="before" [value]="p">
+		<mat-list-option togglePosition="before" [value]="p">
 			{{toString(p)}}
 		</mat-list-option>
-}
+		}
 
 	</mat-selection-list>
 </mat-dialog-content>

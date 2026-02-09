@@ -19,7 +19,9 @@ import { MatInputModule } from '@angular/material/input';
 @Component({
     templateUrl: '../_ui_services/textEditorDialogBase.component.html',
     standalone: true,
-    styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
+    styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css',
+		'../../styles/nmce-dialog.css'
+	],
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatIconModule, TextFieldModule]
 })
 export class LocalTextEditorDialogComponent extends TextEditorDialogComponentBase implements OnInit {

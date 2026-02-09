@@ -2,8 +2,18 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/nmce",
   "lib": {
-    "entryFile": "src/public-api.ts"
+    "entryFile": "src/public-api.ts",
+    "styleIncludePaths": [
+      "../components-styles"
+    ]
   },
+  "assets": [
+    {
+      "input": "styles",
+      "glob": "nmce-dialog.css",
+      "output": "styles"
+    }
+  ],
   "allowedNonPeerDependencies": [
     "nmce-func"
   ]

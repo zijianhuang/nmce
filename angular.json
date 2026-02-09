@@ -95,7 +95,8 @@
 							}
             ],
             "styles": [
-							"node_modules/@kolkov/angular-editor/themes/default.scss"
+							"node_modules/@kolkov/angular-editor/themes/default.scss",
+              "dist/nmce/styles/nmce-dialog.css"
             ],
             "scripts": [],
             "browser": "projects/demoapp/src/main.ts"

@@ -14,7 +14,9 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
 	selector: 'text-dialog',
 	templateUrl: 'textDialog.component.html',
-	styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
+	styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css',
+		'../../styles/nmce-dialog.css'
+	],
 	standalone: true,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule]
 })
@@ -51,7 +53,9 @@ export class TextDialogComponent implements AfterViewInit {
 @Component({
 	selector: 'text-href-dialog',
 	templateUrl: 'textDialog.component.html',
-	styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
+	styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css',
+		'../../styles/nmce-dialog.css'
+	],
 	standalone: true,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule,]
 })
