@@ -12,6 +12,7 @@ import { AppConfigConstants, ThemeDef } from '../environments/environment.common
 import { APP_DI_CONFIG } from './app-config';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormField, MatLabel, MatOption, MatSelect, MatSelectChange } from '@angular/material/select';
+import { ThemeLoader } from './themeLoader';
 
 
 @Component({
@@ -53,21 +54,19 @@ export class AppComponent implements OnDestroy, OnInit {
     APP_DI_CONFIG.selectedTheme = v;
   }
 
-  startupTheme?: string; // init during startup only.
-  currentTheme?: string;
-
   @ViewChild('themeSelect') themeSelect: MatSelect;
+
+  get currentTheme(){
+    return ThemeLoader.selectedTheme;
+  }
 
   constructor(private alertService: AlertService,
     private notificationsService: NotificationsService,
     private actionSheetItemSubjectService: ActionSheetItemSubjectService,
     iconRegistry: MatIconRegistry,
-    @Inject(DOCUMENT) private doc: Document,
 
   ) {
     iconRegistry.setDefaultFontSetClass('material-symbols-outlined');
-    this.checkStartupTheme();
-    this.loadTheme(this.selectedTheme);
     this.themes = AppConfigConstants.themesDic ? Object.keys(AppConfigConstants.themesDic).map(k => {
       const c = AppConfigConstants.themesDic![k];
       const obj: ThemeDef = {
@@ -123,62 +122,8 @@ export class AppComponent implements OnDestroy, OnInit {
     this.alertService.info(`Angular: ${VERSION.full}; Angular Material: ${materialVersion}`, false);
   }
 
-  /**
- * Load optionally
- * @param picked 
- * @returns 
- */
-  loadTheme(picked: string | null) {
-    if (!picked) {
-      return;
-    }
-
-    let themeLink = this.doc.getElementById(
-      'theme'
-    ) as HTMLLinkElement;
-
-    if (themeLink) {
-      this.currentTheme = themeLink.href.substring(themeLink.href.lastIndexOf('/') + 1);
-
-      const notToLoad = picked == this.currentTheme;
-      if (notToLoad) {
-        return;
-      }
-
-      if (AppConfigConstants.themesDic) {
-        const r = AppConfigConstants.themesDic[picked!];
-        if (!r) {
-          return;
-        }
-
-        themeLink.href = `assets/themes/${picked}`;
-        let customLink = this.doc.getElementById(
-          'app-colors'
-        ) as HTMLLinkElement;
-
-        const customFile = r.dark ? 'colors-dark.css' : 'colors.css';
-        if (customLink) {
-          customLink.href = `conf/${customFile}`;
-        }
-
-        this.selectedTheme = picked!;
-        this.currentTheme = picked;
-
-      }
-    }
-  }
-
-  private checkStartupTheme() {
-    let themeLink = this.doc.getElementById(
-      'theme'
-    ) as HTMLLinkElement;
-
-    this.startupTheme = themeLink.href.substring(themeLink.href.lastIndexOf('/') + 1);
-    this.currentTheme = this.startupTheme;
-  }
-
   themeSelectionChang(e: MatSelectChange) {
-    this.loadTheme(e.value);
+    ThemeLoader.loadTheme(e.value, 'conf/');
   }
 }
 

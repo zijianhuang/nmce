@@ -3,7 +3,6 @@ const SITE_CONFIG = {
 		"rose-red.css":{name: "Roes & Red", dark:false},
 		"azure-blue.css":{name: "Azure & Blue", dark:false},
 		"magenta-violet.css":{name: "Magenta & Violet", dark:true},
-		"cyan-orange.css":{name: "Cyan & Orange", dark:true},
-		"pink-bluegrey.css":{name: "Pink Bluegrey", dark:true},
+		"cyan-orange.css":{name: "Cyan & Orange", dark:true}
 	}
 }

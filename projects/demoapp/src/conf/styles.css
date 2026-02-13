@@ -17,7 +17,6 @@ table.sticky thead th {
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0px;
-	background-color: lightcyan;
 	z-index: 20;
 }
 
@@ -26,7 +25,6 @@ table.sticky-footer tfoot th {
 	position: -webkit-sticky;
 	position: sticky;
 	bottom: 0px;
-	background-color: lightyellow;
 	z-index: 10;
 }
 
@@ -158,15 +156,6 @@ body {
 }
 
 
-.mat-mdc-raised-button {
-	text-transform: uppercase;
-	background-color: #e5eff2;
-}
-
-.readonly-area {
-	background-color: #d1f5d1;
-}
-
 .float-left {
 	float: left;
 }
@@ -242,32 +231,6 @@ div.margin-top-small {
 	display: flex;
 	align-content: center;
 	align-items: center;
-}
-
-
-.total-line {
-	border-top: 2px solid;
-	border-top-color: black;
-	border-bottom: 2px solid;
-	border-bottom-color: black;
-}
-
-.header {
-	background-color: lightcyan;
-	font-weight: bold;
-}
-
-.footer {
-	background-color: lightyellow;
-	font-weight: bold;
-}
-
-td {
-	vertical-align: middle;
-}
-
-table.for-print tbody td {
-	vertical-align: top;
 }
 
 /* #endregion */
