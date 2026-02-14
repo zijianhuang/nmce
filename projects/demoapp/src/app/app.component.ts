@@ -8,9 +8,10 @@ import { Subject } from 'rxjs';
 import { MatBadgeModule } from '@angular/material/badge';
 import { RouterModule } from '@angular/router';
 import packageJson from '../../../../package.json';
-import { AppConfigConstants, ThemeDef } from '../environments/environment.common';
+import { AppConfigConstants } from '../environments/environment.common';
 import { MatFormField, MatLabel, MatOption, MatSelect, MatSelectChange } from '@angular/material/select';
 import { ThemeLoader } from './themeLoader';
+import { ThemeDef } from '../environments/themeDef';
 
 @Component({
   selector: 'app-root',
@@ -44,11 +45,11 @@ export class AppComponent implements OnDestroy, OnInit {
 
   themes?: ThemeDef[];
 
-  @ViewChild('themeSelect') themeSelect: MatSelect;
-
   get currentTheme(){
     return ThemeLoader.selectedTheme;
   }
+
+  @ViewChild('themeSelect') themeSelect: MatSelect;
 
   constructor(private alertService: AlertService,
     private notificationsService: NotificationsService,
@@ -60,8 +61,8 @@ export class AppComponent implements OnDestroy, OnInit {
     this.themes = AppConfigConstants.themesDic ? Object.keys(AppConfigConstants.themesDic).map(k => {
       const c = AppConfigConstants.themesDic![k];
       const obj: ThemeDef = {
-        name: c.name,
-        fileName: k,
+        display: c.display,
+        filePath: k,
         dark: c.dark
       };
       return obj;

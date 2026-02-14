@@ -1,17 +1,4 @@
-export interface ThemeDef {
-	fileName: string;
-	/** Display name */
-	name?: string;
-	/** Dark them or not */
-	dark?: boolean;
-}
-
-export interface ThemesDic {
-	[fileName: string]: {
-		name?: string,
-		dark?: boolean
-	}
-}
+import { ThemesDic } from "./themeDef"
 
 interface Site_Config {
 	themesDic?: ThemesDic

@@ -10,7 +10,6 @@ export class ThemeLoader {
   private static readonly key = 'app.theme'; //the key for storing selected theme filename. Generally no need to change
   private static readonly themeLinkId = 'theme';
   private static readonly appColorsLinkId = 'app-colors';
-  private static readonly localThemeDir = 'assets/themes/';
   private static readonly colorsCss = 'colors.css';
   private static readonly colorsDarkCss = 'colors-dark.css'; // if your app use light only or dark only, just make colorsCss and colorsDarkCss the same filename.
 
@@ -29,8 +28,9 @@ export class ThemeLoader {
    * @param picked one of the prebuilt themes, typically used with the app's theme picker.
    * or null for the first one in themesDic, typically used before calling `bootstrapApplication()`.
    * @param appColorsDir if the app is using prebuilt theme only for all color styling, this parameter could be ignore. 
-   * Otherwise, null means that colors.css or colors-dark.css is in the root, or a value like 'conf/' for the directory under root.
-   * @returns 
+   * Otherwise, null means that colors.css or colors-dark.css is in the root, 
+   * or a value like 'conf/' is for the directory under root,
+   * or undefined means the app uses theme only for color.
    */
   static loadTheme(picked: string | null, appColorsDir?: string | null) {
     if (!AppConfigConstants.themesDic || Object.keys(AppConfigConstants.themesDic).length === 0) {
@@ -51,14 +51,14 @@ export class ThemeLoader {
         return;
       }
 
-      themeLink.href = this.localThemeDir + picked;
+      themeLink.href = picked!;
       this.selectedTheme = picked!;
       console.info(`theme altered to ${picked}.`);
 
       if (appColorsDir === undefined) {
         return;
       }
-      
+
       let appColorsLink = document.getElementById(this.appColorsLinkId) as HTMLLinkElement;
       if (appColorsLink) {
         const customFile = r.dark ? this.colorsDarkCss : this.colorsCss;
@@ -69,8 +69,8 @@ export class ThemeLoader {
       themeLink = document.createElement('link');
       themeLink.id = this.themeLinkId;
       themeLink.rel = 'stylesheet';
-      const firstTheme = Object.keys(AppConfigConstants.themesDic!)[0];
-      themeLink.href = this.localThemeDir + firstTheme;
+      const firstTheme = picked ?? Object.keys(AppConfigConstants.themesDic!)[0];
+      themeLink.href = firstTheme;
       document.head.appendChild(themeLink);
       this.selectedTheme = firstTheme;
       console.info(`Initially loaded theme ${firstTheme}`);

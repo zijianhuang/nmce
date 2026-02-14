@@ -7,11 +7,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 
+/**
+ * Style of LogDialogComponent
+ */
 export interface MessageDialogOptions {
 	useIcon?: boolean;
 	useTitle?: boolean;
 }
 
+/**
+ * Globally set the style of LogDialogComponent, typically in app.config.ts
+ */
 export const LOG_DIALOG_OPTIONS = new InjectionToken<MessageDialogOptions>('Dialog Options', {
 	providedIn: 'root',
 	factory: () => {
