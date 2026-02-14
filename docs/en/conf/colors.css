@@ -1,0 +1,23 @@
+.string-node{
+	color: darkblue;
+}
+
+.number-node{
+	color: darkgreen;
+}
+
+.date-node{
+	color: blue;
+}
+
+.bigint-node{
+	color: forestgreen;
+}
+
+.bool-node{
+	color: brown;
+}
+
+.any-node{
+	color: black;
+}
