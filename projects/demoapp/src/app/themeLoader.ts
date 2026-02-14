@@ -86,6 +86,5 @@ export class ThemeLoader {
       appColorsLink.href = (appColorsDir === null) ? customFile : appColorsDir + customFile;
       document.head.appendChild(appColorsLink);
     }
-
   }
 }

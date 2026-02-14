@@ -1,5 +1,5 @@
 import { state, style, transition, trigger, useAnimation } from '@angular/animations';
-import { Component, DOCUMENT, Inject, OnDestroy, OnInit, VERSION, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, VERSION, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { bounceInDown, flash } from 'ng-animate';
@@ -9,11 +9,8 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { RouterModule } from '@angular/router';
 import packageJson from '../../../../package.json';
 import { AppConfigConstants, ThemeDef } from '../environments/environment.common';
-import { APP_DI_CONFIG } from './app-config';
-import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormField, MatLabel, MatOption, MatSelect, MatSelectChange } from '@angular/material/select';
 import { ThemeLoader } from './themeLoader';
-
 
 @Component({
   selector: 'app-root',
@@ -46,13 +43,6 @@ export class AppComponent implements OnDestroy, OnInit {
   }
 
   themes?: ThemeDef[];
-
-  get selectedTheme(): string | null {
-    return APP_DI_CONFIG.selectedTheme;
-  }
-  set selectedTheme(v: string) {
-    APP_DI_CONFIG.selectedTheme = v;
-  }
 
   @ViewChild('themeSelect') themeSelect: MatSelect;
 
