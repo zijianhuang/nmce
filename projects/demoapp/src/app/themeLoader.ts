@@ -19,7 +19,7 @@ export class ThemeLoader {
   static get selectedTheme(): string | null {
     return localStorage.getItem(this.key);
   };
-  static set selectedTheme(v: string) {
+  private static set selectedTheme(v: string) {
     localStorage.setItem(this.key, v);
   };
 

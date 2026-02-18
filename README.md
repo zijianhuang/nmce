@@ -1,6 +1,6 @@
 # NMCE Projects
 
-The projects of Angular Material Components Extensions are to deliver a set of reusable Angular codes and Extensions of [Angular Material UI Component Library](https://material.angular.io/), targeting complex business applications with rich data structures, intensive GUI and complex workflows, and enabling Rapid Application Development.
+The projects of Angular Material Components Extensions are to deliver a set of reusable Angular codes and Extensions of [Angular Material UI Component Library](https://material.angular.io/), aggregating common design patterns of utilizing Angular Material Components, targeting complex business applications with rich data structures, intensive GUI and complex workflows, and enabling Rapid Application Development.
 
 ## Showcase
 
