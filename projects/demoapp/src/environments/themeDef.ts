@@ -25,6 +25,11 @@ export interface ThemeLoaderMeta {
 	 * use tools to flip colors for dark or light, while keeping app colors neutral to dark or light.
 	 */
 	appColorsLinkId?: string;
+
+	/**
+	 * If undefined
+	 */
+	appColorsDir?: string;
 	
 	/** 
 	 * Optionally the app may has an app level colors CSS declaring colors adapting to the light theme. 

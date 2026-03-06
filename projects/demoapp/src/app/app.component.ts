@@ -114,7 +114,7 @@ export class AppComponent implements OnDestroy, OnInit {
   }
 
   themeSelectionChang(e: MatSelectChange) {
-    ThemeLoader.loadTheme(e.value, 'conf/');
+    ThemeLoader.loadTheme(e.value);
   }
 }
 

@@ -11,7 +11,7 @@ if (environment.production) {
 }
 
 console.info(`Main Startup selectedTheme: ${ThemeLoader.selectedTheme}`);
-ThemeLoader.loadTheme(ThemeLoader.selectedTheme, 'conf/');
+ThemeLoader.loadTheme(ThemeLoader.selectedTheme);
 
 bootstrapApplication(AppComponent, appConfig)
   .catch(err => console.error(err));

@@ -10,6 +10,7 @@ const SITE_CONFIG = {
 		themeLinkId: 'theme',
 		appColorsLinkId: 'app-colors',
 		colorsCss: 'colors.css',
-		colorsDarkCss: 'colors-dark.css'
+		colorsDarkCss: 'colors-dark.css',
+		appColorsDir: 'conf/'
 	}
 }

@@ -19,21 +19,24 @@ export class ThemeLoader {
 		}
 	};
 
+	private static readonly appColorsDir = AppConfigConstants.themeLoaderSettings?.appColorsDir;
+
 	/**
 	 * 
 	 * @param picked one of the prebuilt themes, typically used with the app's theme picker.
 	 * or null for the first one in themesDic, typically used before calling `bootstrapApplication()`.
-	 * @param appColorsDir if the app is using prebuilt theme only for all color styling, this parameter could be ignore. 
+	 * @param this.appColorsDir if the app is using prebuilt theme only for all color styling, this parameter could be ignore. 
 	 * Otherwise, null means that colors.css or colors-dark.css is in the root, 
 	 * or a value like 'conf/' is for the directory under root,
 	 * or undefined means the app uses theme only for color.
 	 */
-	static loadTheme(picked: string | null, appColorsDir?: string | null) {
+	static loadTheme(picked: string | null) {
 		if (!AppConfigConstants.themesDic || !AppConfigConstants.themeLoaderSettings || Object.keys(AppConfigConstants.themesDic).length === 0) {
 			console.error('AppConfigConstants need to have themesDic with at least 1 item, and themeKeys.');
 			return;
 		}
 
+		const appColorsDirUndefined = this.appColorsDir === undefined;
 		let themeLink = document.getElementById(AppConfigConstants.themeLoaderSettings.themeLinkId) as HTMLLinkElement;
 		if (themeLink) { // app has been loaded in the browser page/tab.
 			const currentTheme = themeLink.href.substring(themeLink.href.lastIndexOf('/') + 1);
@@ -51,18 +54,14 @@ export class ThemeLoader {
 			this.selectedTheme = picked!;
 			console.info(`theme altered to ${picked}.`);
 
-			if (appColorsDir === undefined) {
-				return;
-			}
-
 			if (AppConfigConstants.themeLoaderSettings.appColorsLinkId) {
 				let appColorsLink = document.getElementById(AppConfigConstants.themeLoaderSettings.appColorsLinkId) as HTMLLinkElement;
 				if (appColorsLink) {
 					if (themeValue.dark != null && AppConfigConstants.themeLoaderSettings.colorsDarkCss && AppConfigConstants.themeLoaderSettings.colorsCss) {
 						const customFile = themeValue.dark ? AppConfigConstants.themeLoaderSettings.colorsDarkCss : AppConfigConstants.themeLoaderSettings.colorsCss;
-						appColorsLink.href = (appColorsDir === null) ? customFile : appColorsDir + customFile;
+						appColorsLink.href = this.appColorsDir ? this.appColorsDir + customFile : customFile;
 					} else if (AppConfigConstants.themeLoaderSettings.colorsCss) {
-						appColorsLink.href = (appColorsDir === null) ? AppConfigConstants.themeLoaderSettings.colorsCss : appColorsDir + AppConfigConstants.themeLoaderSettings.colorsCss;
+						appColorsLink.href = this.appColorsDir ? this.appColorsDir + AppConfigConstants.themeLoaderSettings.colorsCss : AppConfigConstants.themeLoaderSettings.colorsCss;
 					}
 				}
 			}
@@ -76,10 +75,6 @@ export class ThemeLoader {
 			this.selectedTheme = themeDicKey;
 			console.info(`Initially loaded theme ${themeDicKey}`);
 
-			if (appColorsDir === undefined) {
-				return;
-			}
-
 			if (AppConfigConstants.themeLoaderSettings.appColorsLinkId) {
 				const appColorsLink = document.createElement('link');
 				appColorsLink.id = AppConfigConstants.themeLoaderSettings.appColorsLinkId;
@@ -87,13 +82,14 @@ export class ThemeLoader {
 				const themeValue = AppConfigConstants.themesDic[themeDicKey];
 				if (themeValue.dark != null && AppConfigConstants.themeLoaderSettings.colorsDarkCss && AppConfigConstants.themeLoaderSettings.colorsCss) {
 					const customFile = themeValue.dark ? AppConfigConstants.themeLoaderSettings.colorsDarkCss : AppConfigConstants.themeLoaderSettings.colorsCss;
-					appColorsLink.href = (appColorsDir === null) ? customFile : appColorsDir + customFile;
+					appColorsLink.href = this.appColorsDir ? this.appColorsDir + customFile : customFile;
 				} else if (AppConfigConstants.themeLoaderSettings.colorsCss) {
-					appColorsLink.href = (appColorsDir === null) ? AppConfigConstants.themeLoaderSettings.colorsCss : appColorsDir + AppConfigConstants.themeLoaderSettings.colorsCss;
+					appColorsLink.href = this.appColorsDir ? this.appColorsDir + AppConfigConstants.themeLoaderSettings.colorsCss : AppConfigConstants.themeLoaderSettings.colorsCss;
 				}
 
 				if (appColorsLink.href) {
 					document.head.appendChild(appColorsLink);
+					console.info(`appColors ${appColorsLink} loaded.`)
 				} else {
 					console.warn(`With appColorsLinkId declared, dark&colorsCss&colorDarkCss or colorsCss should be declared`)
 				}
