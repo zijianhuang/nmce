@@ -10,7 +10,7 @@ if (environment.production) {
   enableProdMode();
 }
 
-console.info(`Startup selectedTheme: ${ThemeLoader.selectedTheme}`);
+console.info(`Main Startup selectedTheme: ${ThemeLoader.selectedTheme}`);
 ThemeLoader.loadTheme(ThemeLoader.selectedTheme, 'conf/');
 
 bootstrapApplication(AppComponent, appConfig)

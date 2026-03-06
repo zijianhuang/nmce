@@ -1,4 +1,4 @@
-import { AppConfigConstants } from "../environments/environment.common";
+import { AppConfigConstants } from "../environments/environment.common"; //just for typed
 
 /**
  * Helper class to load default theme or selected theme among themes stored together with the app's deployment, rather than external links.
@@ -7,20 +7,22 @@ import { AppConfigConstants } from "../environments/environment.common";
  * And the dark one should be `colors-dark.css` and the light one should be `colors.css`.
  */
 export class ThemeLoader {
-  private static readonly key = 'app.theme'; //the key for storing selected theme filename. Generally no need to change
-  private static readonly themeLinkId = 'theme';
-  private static readonly appColorsLinkId = 'app-colors';
-  private static readonly colorsCss = 'colors.css';
-  private static readonly colorsDarkCss = 'colors-dark.css'; // if your app use light only or dark only, just make colorsCss and colorsDarkCss the same filename.
+  // private static readonly key = AppConfigConstants.themeKeys.storageKey; //the key for storing selected theme filename. Generally no need to change
+  // private static readonly themeLinkId = AppConfigConstants.themeKeys.themeLinkId; // 'theme';
+  // private static readonly appColorsLinkId = AppConfigConstants.themeKeys.appColorsLinkId;// 'app-colors';
+  // private static readonly colorsCss = AppConfigConstants.themeKeys.colorsCss;// 'colors.css';
+  // private static readonly colorsDarkCss = AppConfigConstants.themeKeys.colorsDarkCss;// 'colors-dark.css'; // if your app use light only or dark only, just make colorsCss and colorsDarkCss the same filename.
 
   /**
    * selected theme file name saved in localStorage.
    */
   static get selectedTheme(): string | null {
-    return localStorage.getItem(this.key);
+    return AppConfigConstants.themeKeys ? localStorage.getItem(AppConfigConstants.themeKeys.storageKey) : null;
   };
   private static set selectedTheme(v: string) {
-    localStorage.setItem(this.key, v);
+    if (AppConfigConstants.themeKeys) {
+      localStorage.setItem(AppConfigConstants.themeKeys.storageKey, v);
+    }
   };
 
   /**
@@ -33,12 +35,12 @@ export class ThemeLoader {
    * or undefined means the app uses theme only for color.
    */
   static loadTheme(picked: string | null, appColorsDir?: string | null) {
-    if (!AppConfigConstants.themesDic || Object.keys(AppConfigConstants.themesDic).length === 0) {
-      console.error('Need AppConfigConstants.themesDic with at least 1 item');
+    if (!AppConfigConstants.themesDic || !AppConfigConstants.themeKeys || Object.keys(AppConfigConstants.themesDic).length === 0) {
+      console.error('AppConfigConstants need to have themesDic with at least 1 item, and themeKeys.');
       return;
     }
 
-    let themeLink = document.getElementById(this.themeLinkId) as HTMLLinkElement;
+    let themeLink = document.getElementById(AppConfigConstants.themeKeys.themeLinkId) as HTMLLinkElement;
     if (themeLink) { // app has been loaded in the browser page/tab.
       const currentTheme = themeLink.href.substring(themeLink.href.lastIndexOf('/') + 1);
       const notToLoad = picked == currentTheme;
@@ -46,8 +48,8 @@ export class ThemeLoader {
         return;
       }
 
-      const r = AppConfigConstants.themesDic[picked!];
-      if (!r) {
+      const themeValue = AppConfigConstants.themesDic[picked!];
+      if (!themeValue) {
         return;
       }
 
@@ -59,32 +61,41 @@ export class ThemeLoader {
         return;
       }
 
-      let appColorsLink = document.getElementById(this.appColorsLinkId) as HTMLLinkElement;
-      if (appColorsLink) {
-        const customFile = r.dark ? this.colorsDarkCss : this.colorsCss;
-        appColorsLink.href = (appColorsDir === null) ? customFile : appColorsDir + customFile;
+      if (AppConfigConstants.themeKeys.appColorsLinkId) {
+        let appColorsLink = document.getElementById(AppConfigConstants.themeKeys.appColorsLinkId) as HTMLLinkElement;
+        if (appColorsLink) {
+          if (themeValue.dark != null && AppConfigConstants.themeKeys.colorsDarkCss && AppConfigConstants.themeKeys.colorsCss) {
+            const customFile = themeValue.dark ? AppConfigConstants.themeKeys.colorsDarkCss : AppConfigConstants.themeKeys.colorsCss;
+            appColorsLink.href = (appColorsDir === null) ? customFile : appColorsDir + customFile;
+          }
+        }
       }
-
     } else { // app loaded for the first time, then create 
       themeLink = document.createElement('link');
-      themeLink.id = this.themeLinkId;
+      themeLink.id = AppConfigConstants.themeKeys.themeLinkId;
       themeLink.rel = 'stylesheet';
-      const firstTheme = picked ?? Object.keys(AppConfigConstants.themesDic!)[0];
-      themeLink.href = firstTheme;
+      const themeKey = picked ?? Object.keys(AppConfigConstants.themesDic!)[0];
+      themeLink.href = themeKey;
       document.head.appendChild(themeLink);
-      this.selectedTheme = firstTheme;
-      console.info(`Initially loaded theme ${firstTheme}`);
+      this.selectedTheme = themeKey;
+      console.info(`Initially loaded theme ${themeKey}`);
 
       if (appColorsDir === undefined) {
         return;
       }
 
-      const appColorsLink = document.createElement('link');
-      appColorsLink.id = this.appColorsLinkId;
-      appColorsLink.rel = 'stylesheet';
-      const customFile = AppConfigConstants.themesDic[firstTheme].dark ? this.colorsDarkCss : this.colorsCss;
-      appColorsLink.href = (appColorsDir === null) ? customFile : appColorsDir + customFile;
-      document.head.appendChild(appColorsLink);
+      if (AppConfigConstants.themeKeys.appColorsLinkId) {
+        const appColorsLink = document.createElement('link');
+        appColorsLink.id = AppConfigConstants.themeKeys.appColorsLinkId;
+        appColorsLink.rel = 'stylesheet';
+        const themeValue = AppConfigConstants.themesDic[themeKey];
+        if (themeValue.dark != null && AppConfigConstants.themeKeys.colorsDarkCss && AppConfigConstants.themeKeys.colorsCss) {
+          const customFile = themeValue.dark ? AppConfigConstants.themeKeys.colorsDarkCss : AppConfigConstants.themeKeys.colorsCss;
+          appColorsLink.href = (appColorsDir === null) ? customFile : appColorsDir + customFile;
+        }
+
+        document.head.appendChild(appColorsLink);
+      }
     }
   }
 }

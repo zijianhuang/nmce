@@ -1,7 +1,9 @@
-import { ThemesDic } from "./themeDef"
+import { ThemeKeys, ThemesDic } from "./themeDef"
 
 interface Site_Config {
-	themesDic?: ThemesDic
+	themesDic?: ThemesDic,
+
+	themeKeys?: ThemeKeys
 }
 
 interface AppConfigConstantsType extends Site_Config {
