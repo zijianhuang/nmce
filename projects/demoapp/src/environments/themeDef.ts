@@ -15,7 +15,7 @@ export interface ThemesDic {
 	[filePath: string]: ThemeValue
 }
 
-export interface ThemeKeys {
+export interface ThemeLoaderMeta {
 	storageKey: string;
 	themeLinkId: string;
 
@@ -26,9 +26,15 @@ export interface ThemeKeys {
 	 */
 	appColorsLinkId?: string;
 	
-	/** Optionally the app may has an app level colors CSS declaring colors adapting to the light theme */
+	/** 
+	 * Optionally the app may has an app level colors CSS declaring colors adapting to the light theme. 
+	 * If the app uses only light or dark theme, for example ThemeValue.dark is not declared, this alone is enough, not needing colorsDarkCss. 
+	*/
 	colorsCss?: string;
 
-	/** Optionally the app may has an app level colors CSS declaring colors adapting to the dark theme */
+	/** 
+	 * Optionally the app may has an app level colors CSS declaring colors adapting to the dark theme. 
+	 * If the app uses only light or dark theme, there's no need to declare this. 
+	 */
 	colorsDarkCss?: string;
 }

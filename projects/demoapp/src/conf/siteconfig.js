@@ -5,7 +5,7 @@ const SITE_CONFIG = {
 		"assets/themes/magenta-violet.css":{display: "Magenta & Violet", dark:true},
 		"assets/themes/cyan-orange.css":{display: "Cyan & Orange", dark:true}
 	},
-	themeKeys: {
+	themeLoaderSettings: {
 		storageKey: 'app.theme',
 		themeLinkId: 'theme',
 		appColorsLinkId: 'app-colors',

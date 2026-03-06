@@ -1,9 +1,9 @@
-import { ThemeKeys, ThemesDic } from "./themeDef"
+import { ThemeLoaderMeta as ThemeLoaderSettings, ThemesDic } from "./themeDef"
 
 interface Site_Config {
 	themesDic?: ThemesDic,
 
-	themeKeys?: ThemeKeys
+	themeLoaderSettings?: ThemeLoaderSettings
 }
 
 interface AppConfigConstantsType extends Site_Config {

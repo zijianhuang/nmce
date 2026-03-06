@@ -45,9 +45,7 @@ export class AppComponent implements OnDestroy, OnInit {
 
   themes?: ThemeDef[];
 
-  get currentTheme(){
-    return ThemeLoader.selectedTheme;
-  }
+  currentTheme: string | null;
 
   @ViewChild('themeSelect') themeSelect: MatSelect;
 
@@ -68,6 +66,8 @@ export class AppComponent implements OnDestroy, OnInit {
       return obj;
     }) : undefined;
 
+	this.currentTheme= ThemeLoader.selectedTheme;
+	
     this.alertService.initOnce();
     this.actionSheetItemSubjectService.getMessage().subscribe(
       d => this.showNotifications()
