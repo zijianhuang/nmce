@@ -21,19 +21,20 @@ export interface ThemeLoaderMeta {
 
 	/** 
 	 * Optionally the app may has an app level colors CSS declaring colors neutral to the light or dark theme, in addition to a prebuilt theme
-	 * If some colors need to adapt the light or dark theme, having those colors declared in colorsCss and colorsDarkCss is convenient for SDLC, since you can
-	 * use tools to flip colors for dark or light, while keeping app colors neutral to dark or light.
+	 * If some colors need to adapt the light or dark theme, having those colors defined in colorsCss and colorsDarkCss is convenient for SDLC, since you can
+	 * use tools to flip colors to dark or light.
 	 */
 	appColorsLinkId?: string;
 
 	/**
-	 * If undefined
+	 * If undefined or null, app colors css is in root.
+	 * Effected only when appColorsLinkId is defined.
 	 */
 	appColorsDir?: string;
-	
+
 	/** 
 	 * Optionally the app may has an app level colors CSS declaring colors adapting to the light theme. 
-	 * If the app uses only light or dark theme, for example ThemeValue.dark is not declared, this alone is enough, not needing colorsDarkCss. 
+	 * If the app uses only light or dark theme, for example ThemeValue.dark is not defined, this alone is enough, not needing colorsDarkCss. 
 	*/
 	colorsCss?: string;
 

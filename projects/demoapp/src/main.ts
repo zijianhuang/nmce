@@ -11,7 +11,7 @@ if (environment.production) {
 }
 
 console.info(`Main Startup selectedTheme: ${ThemeLoader.selectedTheme}`);
-ThemeLoader.loadTheme(ThemeLoader.selectedTheme);
+ThemeLoader.loadTheme(ThemeLoader.selectedTheme); // could be null or what stored in localStorage.
 
 bootstrapApplication(AppComponent, appConfig)
   .catch(err => console.error(err));
