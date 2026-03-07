@@ -22,9 +22,15 @@ export class ThemeLoader {
 	};
 
 	/**
-	 * Load theme during app startup or operation.
+	 * Load default or previously selected theme during app startup, typically used before calling `bootstrapApplication()`.
+	 */
+	static init(){
+		this.loadTheme(this.selectedTheme);
+	}
+
+	/**
+	 * Load theme during operation through `ThemeLoader.loadTheme(themeDicKey);`.
 	 * @param picked one of the prebuilt themes, typically used with the app's theme picker.
-	 * or null for the first one in themesDic, typically used before calling `bootstrapApplication()`.
 	 */
 	static loadTheme(picked: string | null) {
 		if (!AppConfigConstants.themesDic || !this.settings || Object.keys(AppConfigConstants.themesDic).length === 0) {

@@ -1,4 +1,4 @@
-import { ThemeLoaderMeta as ThemeLoaderSettings, ThemesDic } from "./themeDef"
+import { ThemeLoaderSettings, ThemesDic } from "./themeDef"
 
 interface Site_Config {
 	themesDic?: ThemesDic,

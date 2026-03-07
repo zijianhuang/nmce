@@ -15,7 +15,7 @@ export interface ThemesDic {
 	[filePath: string]: ThemeValue
 }
 
-export interface ThemeLoaderMeta {
+export interface ThemeLoaderSettings {
 	storageKey: string;
 	themeLinkId: string;
 

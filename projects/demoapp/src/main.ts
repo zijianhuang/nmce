@@ -10,8 +10,8 @@ if (environment.production) {
   enableProdMode();
 }
 
-console.info(`Main Startup selectedTheme: ${ThemeLoader.selectedTheme}`);
-ThemeLoader.loadTheme(ThemeLoader.selectedTheme); // could be null or what stored in localStorage.
+console.debug(`Main Startup selectedTheme: ${ThemeLoader.selectedTheme}`);
+ThemeLoader.init();
 
 bootstrapApplication(AppComponent, appConfig)
   .catch(err => console.error(err));
