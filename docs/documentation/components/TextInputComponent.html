@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>amcesource documentation</title>
+        <title>nmcesource documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -78,7 +78,7 @@
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
-                    <a href="../" class="navbar-brand">amcesource documentation</a>
+                    <a href="../" class="navbar-brand">nmcesource documentation</a>
                     <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
                </div>
         </div>
@@ -193,7 +193,7 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>../nmcestyles.css</code></td>
+                <td class="col-md-9"><code>../../../components-styles/nmce-styles.css,<br>../../../components-styles/nmce-colors.css,<br>../../../components-styles/nmce-flex.css</code></td>
             </tr>
 
 
@@ -639,7 +639,7 @@ import { MatInputModule } from &#x27;@angular/material/input&#x27;;
 @Component({
     selector: &#x27;textInput&#x27;,
     templateUrl: &#x27;textInput.component.html&#x27;,
-    styleUrls: [&#x27;../nmcestyles.css&#x27;],
+    styleUrls: [&#x27;../../../components-styles/nmce-styles.css&#x27;, &#x27;../../../components-styles/nmce-colors.css&#x27;, &#x27;../../../components-styles/nmce-flex.css&#x27;],
     standalone: true,
 	imports: [FormsModule, ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule]
 })
@@ -729,7 +729,30 @@ export class TextInputService {
 
     <div class="tab-pane fade " id="styleData">
                 <p class="comment">
-                    <code>../nmcestyles.css</code>
+                    <code>../../../components-styles/nmce-styles.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* You can add global styles to this file, and also import other style files */
+iframe.frame-dialog-content {
+	width: 75vw;
+	height: 45vh;
+}
+
+
+.top-margin-half {
+	margin-top: 0.5em;
+}
+
+img.max-width-auto-height {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+img.original-size {
+	-webkit-user-select: none;
+	margin: auto;
+}</code></pre>
+                <p class="comment">
+                    <code>../../../components-styles/nmce-colors.css</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">/* You can add global styles to this file, and also import other style files */
 .alert-success {
@@ -768,28 +791,11 @@ export class TextInputService {
 .alert-background-error {
 	background-color: #f2dede;
 }
-
-iframe.frame-dialog-content {
-	width: 75vw;
-	height: 45vh;
-}
-
-
-/* For block container such as mat-dialog-title which is at odd against flex. */
-.block-items-gap-1 &gt; * {
-	margin-left: 1em;
-}
-
-	.block-items-gap-1 &gt; *:first-child {
-		margin-left: 0em;
-	}
-
-.top-margin-half {
-	margin-top: 0.5em;
-}
-
-
-/* #region Replace fxFlexLayout */
+</code></pre>
+                <p class="comment">
+                    <code>../../../components-styles/nmce-flex.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* #region Replace fxFlexLayout */
 
 /* display: flex is with latest standard, while flexbox is older. flex may cause the label in buttons to wrap, however, this may be good.
 	https://stackoverflow.com/questions/16280040/css3-flexbox-display-box-vs-flexbox-vs-flex
@@ -1450,17 +1456,7 @@ iframe.frame-dialog-content {
 }
 
 /* #endregion */
-
-
-img.max-width-auto-height {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-img.original-size {
-	-webkit-user-select: none;
-	margin: auto;
-}</code></pre>
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="tree">

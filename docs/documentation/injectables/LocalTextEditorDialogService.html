@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>amcesource documentation</title>
+        <title>nmcesource documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -78,7 +78,7 @@
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
-                    <a href="../" class="navbar-brand">amcesource documentation</a>
+                    <a href="../" class="navbar-brand">nmcesource documentation</a>
                     <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
                </div>
         </div>
@@ -179,7 +179,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">projects/nmce/src/_ui_services/localTextEditorDialog.component.ts:80</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">projects/nmce/src/_ui_services/localTextEditorDialog.component.ts:83</a></div>
                             </td>
                         </tr>
 
@@ -242,8 +242,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="87"
-                                    class="link-to-prism">projects/nmce/src/_ui_services/localTextEditorDialog.component.ts:87</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="90"
+                                    class="link-to-prism">projects/nmce/src/_ui_services/localTextEditorDialog.component.ts:90</a></div>
                         </td>
                     </tr>
 
@@ -323,6 +323,9 @@ import { MatInputModule } from &#x27;@angular/material/input&#x27;;
 @Component({
     templateUrl: &#x27;../_ui_services/textEditorDialogBase.component.html&#x27;,
     standalone: true,
+    styleUrls: [&#x27;../../../components-styles/nmce-styles.css&#x27;, &#x27;../../../components-styles/nmce-colors.css&#x27;, &#x27;../../../components-styles/nmce-flex.css&#x27;,
+		&#x27;../../styles/nmce-dialog.css&#x27;
+	],
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatIconModule, TextFieldModule]
 })
 export class LocalTextEditorDialogComponent extends TextEditorDialogComponentBase implements OnInit {

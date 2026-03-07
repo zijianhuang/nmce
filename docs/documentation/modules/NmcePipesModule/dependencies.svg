@@ -24,13 +24,13 @@
 <title>cluster_NmcePipesModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="66,-70 66,-268 430,-268 430,-70 66,-70"/>
 </g>
-<g id="clust4" class="cluster">
-<title>cluster_NmcePipesModule_exports</title>
-<polygon fill="none" stroke="black" points="74,-208 74,-260 422,-260 422,-208 74,-208"/>
-</g>
 <g id="clust3" class="cluster">
 <title>cluster_NmcePipesModule_imports</title>
 <polygon fill="none" stroke="black" points="80,-78 80,-130 417,-130 417,-78 80,-78"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_NmcePipesModule_exports</title>
+<polygon fill="none" stroke="black" points="74,-208 74,-260 422,-260 422,-208 74,-208"/>
 </g>
 <!-- BankerRoundPipe -->
 <g id="node1" class="node">

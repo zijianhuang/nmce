@@ -15,7 +15,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
         <nav>
             <ul class="list">
                 <li class="title">
-                    <a href="index.html" data-type="index-link">amcesource documentation</a>
+                    <a href="index.html" data-type="index-link">nmcesource documentation</a>
                 </li>
 
                 <li class="divider"></li>
@@ -35,6 +35,11 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         README
                                 </a>
                             </li>
+                        <li class="link">
+                            <a href="contributing.html"  data-type="chapter-link">
+                                <span class="icon ion-ios-paper"></span>CONTRIBUTING
+                            </a>
+                        </li>
                                 <li class="link">
                                     <a href="dependencies.html" data-type="chapter-link">
                                         <span class="icon ion-ios-list"></span>Dependencies

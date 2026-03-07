@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>amcesource documentation</title>
+        <title>nmcesource documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -78,7 +78,7 @@
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
-                    <a href="../" class="navbar-brand">amcesource documentation</a>
+                    <a href="../" class="navbar-brand">nmcesource documentation</a>
                     <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
                </div>
         </div>
@@ -188,7 +188,7 @@ This will be shown by a concrete service of ItemListDialogServiceBase<T>.</p>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>../nmcestyles.css</code></td>
+                <td class="col-md-9"><code>../../../components-styles/nmce-styles.css,<br>../../../components-styles/nmce-colors.css,<br>../../../components-styles/nmce-flex.css</code></td>
             </tr>
 
 
@@ -609,7 +609,7 @@ import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
  */
 @Component({
     templateUrl: &#x27;./itemListDialog.component.html&#x27;,
-    styleUrls: [&#x27;../nmcestyles.css&#x27;],
+    styleUrls: [&#x27;../../../components-styles/nmce-styles.css&#x27;, &#x27;../../../components-styles/nmce-colors.css&#x27;, &#x27;../../../components-styles/nmce-flex.css&#x27;],
     standalone: true,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatListModule]
 })
@@ -690,22 +690,44 @@ export abstract class ItemListDialogServiceBase {
 &lt;mat-dialog-content&gt;
 	&lt;mat-selection-list [multiple]&#x3D;&quot;false&quot; (selectionChange)&#x3D;&quot;itemSelectionChange($event)&quot;&gt;
 		@for (p of items; track p) {
-&lt;mat-list-option togglePosition&#x3D;&quot;before&quot; [value]&#x3D;&quot;p&quot;&gt;
+		&lt;mat-list-option togglePosition&#x3D;&quot;before&quot; [value]&#x3D;&quot;p&quot;&gt;
 			{{toString(p)}}
 		&lt;/mat-list-option&gt;
-}
+		}
 
 	&lt;/mat-selection-list&gt;
 &lt;/mat-dialog-content&gt;
 &lt;mat-dialog-actions [align]&#x3D;&quot;actionsAlign&quot;&gt;
 	&lt;button type&#x3D;&quot;button&quot; mat-raised-button matDialogClose i18n&gt;Cancel&lt;/button&gt;
-&lt;/mat-dialog-actions&gt;
-</code></pre>
+&lt;/mat-dialog-actions&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="styleData">
                 <p class="comment">
-                    <code>../nmcestyles.css</code>
+                    <code>../../../components-styles/nmce-styles.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* You can add global styles to this file, and also import other style files */
+iframe.frame-dialog-content {
+	width: 75vw;
+	height: 45vh;
+}
+
+
+.top-margin-half {
+	margin-top: 0.5em;
+}
+
+img.max-width-auto-height {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+img.original-size {
+	-webkit-user-select: none;
+	margin: auto;
+}</code></pre>
+                <p class="comment">
+                    <code>../../../components-styles/nmce-colors.css</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">/* You can add global styles to this file, and also import other style files */
 .alert-success {
@@ -744,28 +766,11 @@ export abstract class ItemListDialogServiceBase {
 .alert-background-error {
 	background-color: #f2dede;
 }
-
-iframe.frame-dialog-content {
-	width: 75vw;
-	height: 45vh;
-}
-
-
-/* For block container such as mat-dialog-title which is at odd against flex. */
-.block-items-gap-1 &gt; * {
-	margin-left: 1em;
-}
-
-	.block-items-gap-1 &gt; *:first-child {
-		margin-left: 0em;
-	}
-
-.top-margin-half {
-	margin-top: 0.5em;
-}
-
-
-/* #region Replace fxFlexLayout */
+</code></pre>
+                <p class="comment">
+                    <code>../../../components-styles/nmce-flex.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* #region Replace fxFlexLayout */
 
 /* display: flex is with latest standard, while flexbox is older. flex may cause the label in buttons to wrap, however, this may be good.
 	https://stackoverflow.com/questions/16280040/css3-flexbox-display-box-vs-flexbox-vs-flex
@@ -1426,17 +1431,7 @@ iframe.frame-dialog-content {
 }
 
 /* #endregion */
-
-
-img.max-width-auto-height {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-img.original-size {
-	-webkit-user-select: none;
-	margin: auto;
-}</code></pre>
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="tree">
@@ -1464,7 +1459,7 @@ img.original-size {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><h1 mat-dialog-title>	<strong>{{ title }}</strong></h1><mat-dialog-content>	<mat-selection-list [multiple]="false" (selectionChange)="itemSelectionChange($event)">		@for (p of items; track p) {<mat-list-option togglePosition="before" [value]="p">			{{toString(p)}}		</mat-list-option>}	</mat-selection-list></mat-dialog-content><mat-dialog-actions [align]="actionsAlign">	<button type="button" mat-raised-button matDialogClose i18n>Cancel</button></mat-dialog-actions></div>'
+        var COMPONENT_TEMPLATE = '<div><h1 mat-dialog-title>	<strong>{{ title }}</strong></h1><mat-dialog-content>	<mat-selection-list [multiple]="false" (selectionChange)="itemSelectionChange($event)">		@for (p of items; track p) {		<mat-list-option togglePosition="before" [value]="p">			{{toString(p)}}		</mat-list-option>		}	</mat-selection-list></mat-dialog-content><mat-dialog-actions [align]="actionsAlign">	<button type="button" mat-raised-button matDialogClose i18n>Cancel</button></mat-dialog-actions></div>'
     var COMPONENTS = [{'name': 'AlertComponent', 'selector': 'alert, nmce-alert, nmceAlert'},{'name': 'ConfirmComponent', 'selector': 'confirm-content'},{'name': 'DataComponentDialog', 'selector': 'nmce-data-component-content'},{'name': 'DataComponentPrintDialog', 'selector': ''},{'name': 'DateHourRangePickerComponent', 'selector': 'DateHourRangePicker, nmce-date-hour-range-picker'},{'name': 'DateRangePickerComponent', 'selector': 'DateRangePicker, nmce-date-range-picker'},{'name': 'EmailConfirmComponent', 'selector': 'email-confirm'},{'name': 'HtmlDialogComponent', 'selector': 'html-dialog'},{'name': 'HtmlFrameDialogComponent', 'selector': 'html-frame-dialog'},{'name': 'HtmlFramePrintDialogComponent', 'selector': 'html-frame-print-dialog'},{'name': 'HtmlHRefDialogComponent', 'selector': 'html-ref-dialog'},{'name': 'HtmlHRefFrameDialogComponent', 'selector': 'html-href-frame-dialog'},{'name': 'HtmlHRefFramePrintDialogComponent', 'selector': 'html-href-frame-print-dialog'},{'name': 'HtmlHRefPrintDialogComponent', 'selector': 'html-href-print-dialog'},{'name': 'HtmlImgDialogComponent', 'selector': 'html-img-dialog'},{'name': 'HtmlImgPrintDialogComponent', 'selector': 'html-img-print-dialog'},{'name': 'HtmlPrintDialogComponent', 'selector': 'html-print-dialog'},{'name': 'ItemListDialogComponent', 'selector': ''},{'name': 'JsonDiffComponent', 'selector': 'json-diff-page'},{'name': 'LocalDocHtmlEditorDialogComponent', 'selector': ''},{'name': 'LocalTextEditorDialogComponent', 'selector': ''},{'name': 'LogDialogComponent', 'selector': ''},{'name': 'LogSnackComponent', 'selector': ''},{'name': 'MonthYearExpiryComponent', 'selector': 'month-year-expiry, nmce-month-year-expiry'},{'name': 'NotFoundComponent', 'selector': ''},{'name': 'NotificationsComponent', 'selector': ''},{'name': 'OptionsComponent', 'selector': 'options-content'},{'name': 'PasswordsInputComponent', 'selector': 'passwordsInput'},{'name': 'PrintComponent', 'selector': 'print-page, nmce-print-page, nmcePrintPage'},{'name': 'ProgressComponent', 'selector': ''},{'name': 'TextDialogComponent', 'selector': 'text-dialog'},{'name': 'TextHRefDialogComponent', 'selector': 'text-href-dialog'},{'name': 'TextInputComponent', 'selector': 'textInput'},{'name': 'TimePickerComponent', 'selector': 'timePicker'},{'name': 'WaitComponent', 'selector': 'wait, nmce-wait, nmceWait'},{'name': 'WaitProgressComponent', 'selector': 'waitProgress, nmce-wait-progress, nmceWaitProgress'},{'name': 'WIPComponent', 'selector': ''}];
     var DIRECTIVES = [{'name': 'AutofocusDirective', 'selector': '[autofocus]'},{'name': 'DataComponentDirective', 'selector': '[dataComponentHost]'},{'name': 'HtmlDocEditorDialogBaseComponent', 'selector': ''},{'name': 'ScrollIntoDirective', 'selector': '[scrollInto]'},{'name': 'TextEditorDialogComponentBase', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'ItemListDialogComponent'};

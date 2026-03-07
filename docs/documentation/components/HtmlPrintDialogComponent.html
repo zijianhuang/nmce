@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>amcesource documentation</title>
+        <title>nmcesource documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -78,7 +78,7 @@
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
-                    <a href="../" class="navbar-brand">amcesource documentation</a>
+                    <a href="../" class="navbar-brand">nmcesource documentation</a>
                     <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
                </div>
         </div>
@@ -138,7 +138,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.ts</code>
+    <code>projects/nmce/src/_ui_services_lazy/htmlPrintDialogs.component.ts</code>
 </p>
 
 
@@ -199,7 +199,7 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>../nmcestyles.css</code></td>
+                <td class="col-md-9"><code>../../../components-styles/nmce-styles.css,<br>../../../components-styles/nmce-colors.css,<br>../../../components-styles/nmce-flex.css</code></td>
             </tr>
 
 
@@ -308,7 +308,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/nmce/src/_ui_services_lazy/htmlPrintDialogs.component.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -435,8 +435,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="38"
-                                    class="link-to-prism">projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.ts:38</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">projects/nmce/src/_ui_services_lazy/htmlPrintDialogs.component.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -537,7 +537,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../components/HtmlDialogComponent.html#source" target="_self" >HtmlDialogComponent:32</a></code>
+                                <div class="io-line">Defined in         <code><a href="../components/HtmlDialogComponent.html#source" target="_self" >HtmlDialogComponent:30</a></code>
 </div>
                         </td>
                     </tr>
@@ -581,7 +581,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../components/HtmlDialogComponent.html#source" target="_self" >HtmlDialogComponent:31</a></code>
+                                <div class="io-line">Defined in         <code><a href="../components/HtmlDialogComponent.html#source" target="_self" >HtmlDialogComponent:29</a></code>
 </div>
                         </td>
                     </tr>
@@ -615,7 +615,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../components/HtmlDialogComponent.html#source" target="_self" >HtmlDialogComponent:33</a></code>
+                                <div class="io-line">Defined in         <code><a href="../components/HtmlDialogComponent.html#source" target="_self" >HtmlDialogComponent:31</a></code>
 </div>
                         </td>
                     </tr>
@@ -834,7 +834,6 @@
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { Component, Inject, Injectable, Renderer2 } from &#x27;@angular/core&#x27;;
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from &#x27;@angular/material/dialog&#x27;;
-import { SafeUrl } from &#x27;@angular/platform-browser&#x27;;
 import { HtmlPrintFunc } from &#x27;nmce-func&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { DIALOG_ACTIONS_ALIGN } from &#x27;../_ui_services/baseTypes&#x27;;
@@ -846,7 +845,6 @@ import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
 import { MatCheckboxModule } from &#x27;@angular/material/checkbox&#x27;;
 import { FormsModule } from &#x27;@angular/forms&#x27;;
 import { HtmlHRefDialogComponent } from &#x27;../_ui_services/htmlHRefDialog.component&#x27;;
-import { HtmlImgDialogComponent } from &#x27;../_ui_services/htmlImgDialog.component&#x27;;
 
 /**
  * Contain HTML content, used in HtmlDialogService.
@@ -854,7 +852,7 @@ import { HtmlImgDialogComponent } from &#x27;../_ui_services/htmlImgDialog.compo
 @Component({
     selector: &#x27;html-print-dialog&#x27;,
     templateUrl: &#x27;htmlPrintDialog.component.html&#x27;,
-    styleUrls: [&#x27;../nmcestyles.css&#x27;],
+    styleUrls: [&#x27;../../../components-styles/nmce-styles.css&#x27;, &#x27;../../../components-styles/nmce-colors.css&#x27;, &#x27;../../../components-styles/nmce-flex.css&#x27;],
      standalone: true,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule, CommonModule]
 })
@@ -869,7 +867,6 @@ export class HtmlPrintDialogComponent extends HtmlDialogComponent {
 
 	print() {
 		if (this.htmlContent) {
-			//HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(this.cssUrl));
 			HtmlPrintFunc.printWithCSS(this.htmlContent, this.location.prepareExternalUrl(this.cssUrl));
 		} else {
 			console.error($localize&#x60;this.htmlContentElement does not exist.&#x60;);
@@ -883,7 +880,7 @@ export class HtmlPrintDialogComponent extends HtmlDialogComponent {
 @Component({
     selector: &#x27;html-href-print-dialog&#x27;,
     templateUrl: &#x27;htmlPrintDialog.component.html&#x27;,
-    styleUrls: [&#x27;../nmcestyles.css&#x27;],
+    styleUrls: [&#x27;../../../components-styles/nmce-styles.css&#x27;, &#x27;../../../components-styles/nmce-colors.css&#x27;, &#x27;../../../components-styles/nmce-flex.css&#x27;],
     standalone: true,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule, CommonModule]
 })
@@ -911,31 +908,6 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 	}
 
 }
-
-@Component({
-    selector: &#x27;html-img-print-dialog&#x27;,
-    templateUrl: &#x27;htmlImgPrintDialog.component.html&#x27;,
-    styleUrls: [&#x27;../nmcestyles.css&#x27;],
-    standalone: true,
-	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule, CommonModule]
-})
-export class HtmlImgPrintDialogComponent extends HtmlImgDialogComponent {
-	constructor(
-		@Inject(MAT_DIALOG_DATA) public data: { title: string, imageUrl: string | SafeUrl, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: &#x27;start&#x27; | &#x27;center&#x27; | &#x27;end&#x27;, 
-		public dialogRef: MatDialogRef&lt;HtmlImgDialogComponent&gt;, private location: Location, @Inject(&#x27;print.cssUrl&#x27;) private cssUrl: string) {
-		super(data, actionsAlign, dialogRef);
-	}
-
-	print() {
-		if (this.htmlContentElement) {
-			HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(this.cssUrl));
-		} else {
-			console.error($localize&#x60;this.htmlContentElement does not exist.&#x60;);
-		}
-	}
-}
-
 
 /**
  * Display HTML content in the dialog.
@@ -973,21 +945,6 @@ export class HtmlHRefPrintDialogService extends HtmlBaseDialogService&lt;HtmlHRe
 	}
 
 }
-
-@Injectable({ providedIn: &#x27;root&#x27; })
-export class HtmlImgPrintDialogService extends HtmlBaseDialogService&lt;HtmlImgPrintDialogComponent&gt; {
-	constructor(protected dialog: MatDialog) { super(dialog); }
-
-	/**
-	* Display html content in a dialog
-	* @param title title of the dialog
-	* @param htmlContent html content to be rendered in the dialog body
-	*/
-	open(data: { title: string, imageUrl: string | SafeUrl, size: DialogSize, useBackButton?: boolean }): Observable&lt;any&gt; {
-		return super.displayComponent(HtmlImgPrintDialogComponent, data);
-	}
-}
-
 </code></pre>
     </div>
 
@@ -1024,7 +981,30 @@ export class HtmlImgPrintDialogService extends HtmlBaseDialogService&lt;HtmlImgP
 
     <div class="tab-pane fade " id="styleData">
                 <p class="comment">
-                    <code>../nmcestyles.css</code>
+                    <code>../../../components-styles/nmce-styles.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* You can add global styles to this file, and also import other style files */
+iframe.frame-dialog-content {
+	width: 75vw;
+	height: 45vh;
+}
+
+
+.top-margin-half {
+	margin-top: 0.5em;
+}
+
+img.max-width-auto-height {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+img.original-size {
+	-webkit-user-select: none;
+	margin: auto;
+}</code></pre>
+                <p class="comment">
+                    <code>../../../components-styles/nmce-colors.css</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">/* You can add global styles to this file, and also import other style files */
 .alert-success {
@@ -1063,28 +1043,11 @@ export class HtmlImgPrintDialogService extends HtmlBaseDialogService&lt;HtmlImgP
 .alert-background-error {
 	background-color: #f2dede;
 }
-
-iframe.frame-dialog-content {
-	width: 75vw;
-	height: 45vh;
-}
-
-
-/* For block container such as mat-dialog-title which is at odd against flex. */
-.block-items-gap-1 &gt; * {
-	margin-left: 1em;
-}
-
-	.block-items-gap-1 &gt; *:first-child {
-		margin-left: 0em;
-	}
-
-.top-margin-half {
-	margin-top: 0.5em;
-}
-
-
-/* #region Replace fxFlexLayout */
+</code></pre>
+                <p class="comment">
+                    <code>../../../components-styles/nmce-flex.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* #region Replace fxFlexLayout */
 
 /* display: flex is with latest standard, while flexbox is older. flex may cause the label in buttons to wrap, however, this may be good.
 	https://stackoverflow.com/questions/16280040/css3-flexbox-display-box-vs-flexbox-vs-flex
@@ -1745,17 +1708,7 @@ iframe.frame-dialog-content {
 }
 
 /* #endregion */
-
-
-img.max-width-auto-height {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-img.original-size {
-	-webkit-user-select: none;
-	margin: auto;
-}</code></pre>
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="tree">

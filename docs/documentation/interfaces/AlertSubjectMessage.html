@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>amcesource documentation</title>
+        <title>nmcesource documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -78,7 +78,7 @@
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
-                    <a href="../" class="navbar-brand">amcesource documentation</a>
+                    <a href="../" class="navbar-brand">nmcesource documentation</a>
                     <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
                </div>
         </div>
@@ -516,17 +516,17 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export enum DialogSize { Auto, Large, Medium, Smart }
 
 /**
- * When smart, return useBackButton ? &#x27;98&#x27; + hw : undefined.
+ * When smart, return (useBackButton ? &#x27;98&#x27; + hw : undefined).
  * @param size
  * @param useBackButton
  * @param vwvh vw or vh
  */
-export const DialogSizeToSize &#x3D; (size?: DialogSize, useBackButton?: boolean, vwvh?: string) &#x3D;&gt; {
+export const DialogSizeToSize &#x3D; (size?: DialogSize, useBackButton?: boolean, vwvh?: &#x27;vw&#x27; | &#x27;vh&#x27;) &#x3D;&gt; {
 	switch (size) {
 		case DialogSize.Auto: return undefined;
 		case DialogSize.Large: return &#x27;98&#x27; + vwvh;
 		case DialogSize.Medium: return &#x27;50&#x27; + vwvh;
-		case DialogSize.Smart: return useBackButton ? &#x27;98&#x27; + vwvh : undefined;
+		case DialogSize.Smart: return useBackButton ? (&#x27;98&#x27; + vwvh) : undefined;
 		default:
 			return undefined;
 	};

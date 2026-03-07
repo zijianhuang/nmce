@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>amcesource documentation</title>
+        <title>nmcesource documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -78,7 +78,7 @@
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
-                    <a href="../" class="navbar-brand">amcesource documentation</a>
+                    <a href="../" class="navbar-brand">nmcesource documentation</a>
                     <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
                </div>
         </div>
@@ -179,7 +179,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">projects/nmce-html-editor/src/lib/localDocHtmlEditorDialog.component.ts:86</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">projects/nmce-html-editor/src/lib/localDocHtmlEditorDialog.component.ts:87</a></div>
                             </td>
                         </tr>
 
@@ -242,8 +242,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="93"
-                                    class="link-to-prism">projects/nmce-html-editor/src/lib/localDocHtmlEditorDialog.component.ts:93</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">projects/nmce-html-editor/src/lib/localDocHtmlEditorDialog.component.ts:94</a></div>
                         </td>
                     </tr>
 
@@ -314,8 +314,9 @@ import { MatInputModule } from &#x27;@angular/material/input&#x27;;
  * This component is used by multiple functions via different routes, or by HTML tempalte so noteLabel and modelChanged will be used.
  */
 @Component({
-    templateUrl: &#x27;./htmlDocEditorDialogBase.directive.html&#x27;,
-     standalone: true,
+	templateUrl: &#x27;./htmlDocEditorDialogBase.directive.html&#x27;,
+	standalone: true,
+    styleUrls: [&#x27;../../../components-styles/nmce-styles.css&#x27;, &#x27;../../../components-styles/nmce-colors.css&#x27;, &#x27;../../../components-styles/nmce-flex.css&#x27;],
 	imports: [MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatIconModule, FormsModule, ReactiveFormsModule,
 		AngularEditorModule,
 	]
@@ -323,7 +324,7 @@ import { MatInputModule } from &#x27;@angular/material/input&#x27;;
 export class LocalDocHtmlEditorDialogComponent extends HtmlDocEditorDialogBaseComponent implements OnInit {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { [k: string]: any },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: &#x27;start&#x27; | &#x27;center&#x27; | &#x27;end&#x27;, 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: &#x27;start&#x27; | &#x27;center&#x27; | &#x27;end&#x27;,
 		public dialogRef: MatDialogRef&lt;LocalDocHtmlEditorDialogComponent&gt;,
 		@Inject(HTML_EDITOR_UPLOADURL) protected uploadUrl: string | undefined &#x3D; undefined,
 		protected alertService: AlertService,

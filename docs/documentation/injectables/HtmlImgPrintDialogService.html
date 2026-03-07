@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>amcesource documentation</title>
+        <title>nmcesource documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -78,7 +78,7 @@
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
-                    <a href="../" class="navbar-brand">amcesource documentation</a>
+                    <a href="../" class="navbar-brand">nmcesource documentation</a>
                     <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
                </div>
         </div>
@@ -133,7 +133,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.ts</code>
+            <code>projects/nmce/src/_ui_services_lazy/htmlImgPrintDialog.component.ts</code>
         </p>
 
 
@@ -203,7 +203,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="146" class="link-to-prism">projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.ts:146</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/nmce/src/_ui_services_lazy/htmlImgPrintDialog.component.ts:41</a></div>
                             </td>
                         </tr>
 
@@ -266,8 +266,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="154"
-                                    class="link-to-prism">projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.ts:154</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">projects/nmce/src/_ui_services_lazy/htmlImgPrintDialog.component.ts:49</a></div>
                         </td>
                     </tr>
 
@@ -457,91 +457,24 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule, Location } from &#x27;@angular/common&#x27;;
-import { HttpClient } from &#x27;@angular/common/http&#x27;;
-import { Component, Inject, Injectable, Renderer2 } from &#x27;@angular/core&#x27;;
+import { Component, Inject, Injectable } from &#x27;@angular/core&#x27;;
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from &#x27;@angular/material/dialog&#x27;;
 import { SafeUrl } from &#x27;@angular/platform-browser&#x27;;
 import { HtmlPrintFunc } from &#x27;nmce-func&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { DIALOG_ACTIONS_ALIGN } from &#x27;../_ui_services/baseTypes&#x27;;
 import { HtmlBaseDialogService } from &#x27;../_ui_services/htmlBaseDialogService&#x27;;
-import { HtmlDialogComponent } from &#x27;../_ui_services/htmlDialog.component&#x27;;
 import { DialogSize } from &#x27;../_ui_services/types&#x27;;
 import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
 import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
 import { MatCheckboxModule } from &#x27;@angular/material/checkbox&#x27;;
 import { FormsModule } from &#x27;@angular/forms&#x27;;
-import { HtmlHRefDialogComponent } from &#x27;../_ui_services/htmlHRefDialog.component&#x27;;
 import { HtmlImgDialogComponent } from &#x27;../_ui_services/htmlImgDialog.component&#x27;;
-
-/**
- * Contain HTML content, used in HtmlDialogService.
- */
-@Component({
-    selector: &#x27;html-print-dialog&#x27;,
-    templateUrl: &#x27;htmlPrintDialog.component.html&#x27;,
-    styleUrls: [&#x27;../nmcestyles.css&#x27;],
-     standalone: true,
-	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule, CommonModule]
-})
-export class HtmlPrintDialogComponent extends HtmlDialogComponent {
-	constructor(
-		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: &#x27;start&#x27; | &#x27;center&#x27; | &#x27;end&#x27;, 
-		public dialogRef: MatDialogRef&lt;HtmlDialogComponent&gt;, private location: Location, @Inject(&#x27;print.cssUrl&#x27;) private cssUrl: string,
-		protected renderer: Renderer2) {
-		super(data, actionsAlign, dialogRef, renderer);
-	}
-
-	print() {
-		if (this.htmlContent) {
-			//HtmlPrintFunc.printWithCSS(this.htmlContentElement.nativeElement.innerHTML, this.location.prepareExternalUrl(this.cssUrl));
-			HtmlPrintFunc.printWithCSS(this.htmlContent, this.location.prepareExternalUrl(this.cssUrl));
-		} else {
-			console.error($localize&#x60;this.htmlContentElement does not exist.&#x60;);
-		}
-	}
-}
-
-/**
- * Contain HTML content loaded from a url, used in HtmlHReflDialogService. If there&#x27;s an error during loading, the error will be displayed inn the dialog body.
- */
-@Component({
-    selector: &#x27;html-href-print-dialog&#x27;,
-    templateUrl: &#x27;htmlPrintDialog.component.html&#x27;,
-    styleUrls: [&#x27;../nmcestyles.css&#x27;],
-    standalone: true,
-	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule, CommonModule]
-})
-export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
-	/**
-	 * Constructor
-	 * @param data If useBackButton&#x3D;true, the dialog will be 98% width and height of the viewport.
-	 * @param dialogRef
-	 * @param httpClient
-	 */
-	constructor(
-		@Inject(MAT_DIALOG_DATA) public data: { title: string, url: string, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: &#x27;start&#x27; | &#x27;center&#x27; | &#x27;end&#x27;, 
-		public dialogRef: MatDialogRef&lt;HtmlHRefDialogComponent&gt;, protected httpClient: HttpClient, private location: Location,
-		protected renderer: Renderer2) {
-		super(data, actionsAlign, dialogRef, httpClient, renderer);
-	}
-
-	print() {
-		if (this.htmlContent) {
-			HtmlPrintFunc.print(this.htmlContent);
-		} else {
-			console.error($localize&#x60;this.htmlContentElement does not exist.&#x60;);
-		}
-	}
-
-}
 
 @Component({
     selector: &#x27;html-img-print-dialog&#x27;,
     templateUrl: &#x27;htmlImgPrintDialog.component.html&#x27;,
-    styleUrls: [&#x27;../nmcestyles.css&#x27;],
+    styleUrls: [&#x27;../../../components-styles/nmce-styles.css&#x27;, &#x27;../../../components-styles/nmce-colors.css&#x27;, &#x27;../../../components-styles/nmce-flex.css&#x27;],
     standalone: true,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule, CommonModule]
 })
@@ -560,44 +493,6 @@ export class HtmlImgPrintDialogComponent extends HtmlImgDialogComponent {
 			console.error($localize&#x60;this.htmlContentElement does not exist.&#x60;);
 		}
 	}
-}
-
-
-/**
- * Display HTML content in the dialog.
- */
-@Injectable({ providedIn: &#x27;root&#x27; })
-export class HtmlPrintDialogService extends HtmlBaseDialogService&lt;HtmlPrintDialogComponent&gt; {
-	constructor(protected dialog: MatDialog) { super(dialog); }
-
-	/**
-	* Display html content in a dialog
-	* @param title title of the dialog
-	* @param htmlContent html content to be rendered in the dialog body
-	*/
-	open(data: { title: string, htmlContent: string, size: DialogSize, useBackButton?: boolean }): Observable&lt;any&gt; {
-		return super.displayComponent(HtmlPrintDialogComponent, data);
-	}
-}
-
-/**
- * Display HTML content from URL in the dialog.
- * If the URL is under the same url root of NG2 app, make sure thee content directory is with a rewrite rule like &lt;add input&#x3D;&quot;{REQUEST_URI}&quot; pattern&#x3D;&quot;^/(content)&quot; negate&#x3D;&quot;true&quot;/&gt;
- * Otherwise if the file is not found, the program may treat the url as a legitimate NG2 route, because of other rewrite rules.
- */
-@Injectable({ providedIn: &#x27;root&#x27; })
-export class HtmlHRefPrintDialogService extends HtmlBaseDialogService&lt;HtmlHRefPrintDialogComponent&gt; {
-	constructor(protected dialog: MatDialog) { super(dialog); }
-
-	/**
-	 * Display html from url.  If there&#x27;s an error during loading, the error will be displayed n the dialog body.
-	 * @param title
-	 * @param url to be rendered in the dialog body
-	 */
-	open(data: { title: string, url: string, size: DialogSize, useBackButton?: boolean }): Observable&lt;any&gt; {
-		return super.displayComponent(HtmlHRefPrintDialogComponent, data);
-	}
-
 }
 
 @Injectable({ providedIn: &#x27;root&#x27; })

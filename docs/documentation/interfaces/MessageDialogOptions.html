@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>amcesource documentation</title>
+        <title>nmcesource documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -78,7 +78,7 @@
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
-                    <a href="../" class="navbar-brand">amcesource documentation</a>
+                    <a href="../" class="navbar-brand">nmcesource documentation</a>
                     <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
                </div>
         </div>
@@ -144,6 +144,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Style of LogDialogComponent</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -273,11 +280,17 @@ import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
 import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 
+/**
+ * Style of LogDialogComponent
+ */
 export interface MessageDialogOptions {
 	useIcon?: boolean;
 	useTitle?: boolean;
 }
 
+/**
+ * Globally set the style of LogDialogComponent, typically in app.config.ts
+ */
 export const LOG_DIALOG_OPTIONS &#x3D; new InjectionToken&lt;MessageDialogOptions&gt;(&#x27;Dialog Options&#x27;, {
 	providedIn: &#x27;root&#x27;,
 	factory: () &#x3D;&gt; {
@@ -295,7 +308,7 @@ export const LOG_DIALOG_OPTIONS &#x3D; new InjectionToken&lt;MessageDialogOption
  */
 @Component({
     templateUrl: &#x27;logDialog.component.html&#x27;,
-    styleUrls: [&#x27;../nmcestyles.css&#x27;],
+    styleUrls: [&#x27;../../../components-styles/nmce-styles.css&#x27;, &#x27;../../../components-styles/nmce-colors.css&#x27;, &#x27;../../../components-styles/nmce-flex.css&#x27;],
     standalone: true,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, CommonModule, MatIconModule]
 })

@@ -93,45 +93,96 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content readme">
+               <div class="content contributing">
                    <div class="content-data">
 
 
-<h1>NMCE Projects</h1>
-<p>The projects of Angular Material Components Extensions are to deliver a set of reusable Angular codes and Extensions of <a href="https://material.angular.io/">Angular Material UI Component Library</a>, aggregating common design patterns of utilizing Angular Material Components, targeting complex business applications with rich data structures, intensive GUI and complex workflows, and enabling Rapid Application Development.</p>
-<h2>Showcase</h2>
-<h3>Demo</h3>
-<p><a href="https://zijianhuang.github.io/nmce/en/">Demo Sites</a> in <a href="https://zijianhuang.github.io/nmce/">various locales</a>.</p>
-<h3>Products Built with These Components</h3>
-<ul>
-<li><a href="https://zijianhuang.github.io/json2table/">JSON to Table</a></li>
-<li><a href="https://zijianhuang.github.io/poets">Poetry Collection -- Personal Blog (Readonly Static Web)</a></li>
-<li>...</li>
-</ul>
-<h2>Projects</h2>
-<ul>
-<li><strong><a href="https://www.npmjs.com/package/nmce">nmce <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/></a>: A few sets of components and services based on <a href="https://material.angular.io/components/categories">Angular Material Components</a>.</strong></li>
-<li><a href="https://www.npmjs.com/package/nmce-html-editor">nmce-html-editor <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/></a>: A few dialog services based on <a href="https://github.com/kolkov/angular-editor">@kolkov/angular-editor</a>, present a HTML editor in a dialog.</li>
-<li><a href="https://www.npmjs.com/package/nmce-func">nmce-func <img src="docs/icons/npm-logo-red.svg" height="18" width="28" /></a>: Common functions used in business applications, as well as the components and the services in this NMCE libraries.</li>
-<li><a href="https://www.npmjs.com/package/nmce-json-diff">nmce-json-diff <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/></a>: A simple dialog service based on <a href="https://github.com/benjamine/jsondiffpatch">jsondiffpatch</a>.</li>
-<li><a href="https://www.npmjs.com/package/nmce-pipes">nmce-pipes <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/></a>: Common simple Angular pipes.</li>
-<li><a href="https://www.npmjs.com/package/nmce-directives">nmce-directives <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/></a>: Common simple Angular directives.</li>
-<li><a href="https://github.com/zijianhuang/nmce/tree/master/projects/demoapp">demoapp</a>: A demo application demonstrating features of all above.</li>
-</ul>
-<h1>Designs</h1>
-<p>The UI design conforms to Material Design, and the visual components are constructed through composing, bridging and wrapping of existing Angular Material Components and CDK.</p>
-<p>When considering the use cases and making design trade-off, the priority is:</p>
+
+
+<h2>Tech Doc</h2>
 <ol>
-<li>Desktop with big monitors, mouse and keyboard</li>
-<li>Tablet</li>
-<li>Smartphone</li>
+<li>README.md files</li>
+<li><a href="https://zijianhuang.github.io/nmce/documentation/">API Doc</a></li>
 </ol>
-<p>TV screen is out of scope.</p>
-<h1>Installation</h1>
-<p>Most app programmers may just need to install <a href="https://www.npmjs.com/package/nmce">nmce <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/></a> .</p>
-<h2>Internationalization (I18N)</h2>
-<p>The libraries use Angular’s <code>$localize</code> for translatable messages.<br>If your application uses Angular i18n, make sure the <code>$localize</code> runtime is loaded by importing the following in apps&#39;s main entry point (e.g., polyfills.ts or main.ts):</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import &#39;&#64;angular/localize/init&#39;;</code></pre></div><h1>Alternative or Complementary</h1>
+<h1>Evolution of Product</h1>
+<ul>
+<li>The UI design is optimized for desktop PC and tablet devices.</li>
+<li>Components are based on <a href="https://material.angular.io/components/categories">Angular Material Components</a>.</li>
+<li>Minimum CSS crafting is used.</li>
+<li>Extensions to already comprehensive frameworks and libraries.</li>
+<li>Once respective frameworks and libraries evolve overlapping or surpassing what offered in this repository, the respective codes of this repository will then be deprecated and removed later.</li>
+</ul>
+<p>Remarks:</p>
+<ul>
+<li>This repository had began with a rich collection of functions, pipes, directives, and components dating back to 2017. However, over time, as Angular and the Angular Material UI Component Library have become more mature and comprehensive, many of these utilities have been deprecated then removed in favor of the built-in features provided by the frameworks and libraries which include the following:<ul>
+<li>MomentJS then luxon for date time handling.</li>
+<li>dinerojs for monetary calculations.</li>
+</ul>
+</li>
+</ul>
+<h1>Maintenance</h1>
+<h2>Development server</h2>
+<p>Run <code>ng serve demoapp</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The app will automatically reload if you change any of the source files in demoapp.</p>
+<p>Additionally, you may execute <code>startAppDev.ps1</code> for the build of <code>buildAppDev.ps1</code> or <code>startAppProd.ps1</code> for the build of <code>buildAppProd.ps1</code>.</p>
+<h2>Code scaffolding</h2>
+<p>Run <code>ng generate component component-name</code> to generate a new component. You can also use <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>.</p>
+<h2>Build</h2>
+<p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <code>dist/</code> directory. Use the <code>--prod</code> flag for a production build. For examples:</p>
+<p><code>ng build nmce</code></p>
+<p>However, <strong>do not run</strong> <code>ng build demoapp</code>, otherwise, the builds for libraries will be deleted, and the build for the app may fail. Instead, using <code>buildAppDev.ps1</code> or <code>buildAppProd.ps1</code>.</p>
+<h2>Publish</h2>
+<p>Follow <a href="https://jasonwatmore.com/post/2020/06/16/angular-npm-how-to-publish-an-angular-component-to-npm">https://jasonwatmore.com/post/2020/06/16/angular-npm-how-to-publish-an-angular-component-to-npm</a></p>
+<p>Particularly, after increasing the version number in each package.json, run:
+<code>ng build myProject --configuration production</code></p>
+<p>then <code>cd dist/myProject</code>, and</p>
+<p><code>npm publish</code></p>
+<p>And in the root, a few bp_nmce*.ps1 files make it easier to publish.</p>
+<p>Hints:</p>
+<ul>
+<li>Since December 2025, npmjs has changed the security models as described on <a href="https://github.blog/changelog/2025-12-09-npm-classic-tokens-revoked-session-based-auth-and-cli-token-management-now-available/">https://github.blog/changelog/2025-12-09-npm-classic-tokens-revoked-session-based-auth-and-cli-token-management-now-available/</a>.</li>
+<li>For publishing packages from a dev machine, &quot;granular access token with bypass 2FA&quot; is used.<ol>
+<li>Generate an access token in the account, which will expires in 90 days.</li>
+<li>Update what in %users%myAccount/.npmrc with the token.</li>
+</ol>
+</li>
+</ul>
+<h3>Before publishing</h3>
+<p>The package.json file of each library should declare dependencies. Because there are multiple libraries in a monorepo, which share a single root package.json, the fastest way to identify dependencies is to use <code>depcheck</code>. Run the following from time to time:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npx depcheck projects/nmce-func
+npx depcheck projects/nmce-directives
+...
+npx depcheck projects/nmce</code></pre></div><p>Then update <code>package.json</code> and <code>ng-package.json</code> of each library accordingly.</p>
+<h2>I18N</h2>
+<p>The translations done within the libraries of this project are to verify if i18n is properly done, while the app projects utilizing the libraries will pickup translation units annotated in the lib codes. This is, the translation resource files (XLF) won&#39;t be utilized directly in the app projects, since <code>ng extract-i18n</code> can scan the i18n annotations in 3rd party libraries. </p>
+<p>After updating i18n tagging in HTML and TS codes, run:</p>
+<p><code>ng extract-i18n</code></p>
+<p>This will create or update messages.xlf, and merge with existing translations, since this command had been replaced what mentioned in: <a href="https://stackoverflow.com/questions/71775495/update-merge-i18n-translation-files-in-angular">https://stackoverflow.com/questions/71775495/update-merge-i18n-translation-files-in-angular</a>, that is <code>ng add ng-extract-i18n-merge</code> from <a href="https://github.com/daniel-sc/ng-extract-i18n-merge">https://github.com/daniel-sc/ng-extract-i18n-merge</a> .</p>
+<p>Remarks:</p>
+<ul>
+<li>Sometimes I have to run <code>ng add ng-extract-i18n-merge</code> first after defining new languages in angular.json, and then run <code>ng extract-i18n</code> to generate new xlf files.</li>
+<li>Before running <code>extract-i18n</code>, better to run &quot;buildComponents.ps1&quot; to ensure all being built successfully. since <code>extract-i18n</code> or what behind could just fail to find updated tran units but without reporting build error.</li>
+</ul>
+<p>References:</p>
+<ul>
+<li><a href="https://angular.dev/guide/i18n/merge">https://angular.dev/guide/i18n/merge</a></li>
+</ul>
+<p>Then run locales/<code>Translate.ps1</code> to translate new or updated items.</p>
+<h3>For libraries</h3>
+<p>As of Angular 19, extra works are to be done:</p>
+<ol>
+<li>To ensure <code>$localize</code> strings in TS files to be included, in tsconfig.json of the root and project nmce, add <code>&quot;types&quot;: [&quot;@angular/localize&quot;]</code> to &quot;compilerOptions&quot;.</li>
+<li>To avoid build error, in tsconfig.json of project nmce, add <code>&quot;types&quot;: [&quot;@angular/localize&quot;]</code> to &quot;compilerOptions&quot;.</li>
+</ol>
+<h2>Documentation</h2>
+<h3>Install Compodoc</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm install -g &#64;compodoc/compodoc
+# or for local use
+npm install --save-dev &#64;compodoc/compodoc</code></pre></div><h3>tsconfig.doc.json</h3>
+<p>Compodoc may use this to scan sub projects for doc comments.</p>
+<h3>Generate or Serve</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npx compodoc -p tsconfig.doc.json
+# or serve
+npx compodoc -p tsconfig.doc.json -s</code></pre></div><h1>Alternative or Complementary</h1>
 <p>There are a few similar open source projects:</p>
 <h2>Based on <a href="https://material.angular.dev/">Angular Material Design Components</a></h2>
 <p>Just like NMCE, these component suites are relevant when you have already been using Angular Material Design Components.</p>
@@ -152,9 +203,6 @@
 <li><a href="https://ng.ant.design/docs/introduce/en">Ant Design of Angular</a></li>
 <li><a href="https://angular.dev/guide/aria">Angular Aria</a></li>
 </ul>
-<h1><a href="CONTRIBUTING.md">CONTRIBUTING</a></h1>
-
-
 
 
 
@@ -202,8 +250,8 @@
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'readme';
-            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'contributing';
+            var COMPODOC_CURRENT_PAGE_URL = 'contributing.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
