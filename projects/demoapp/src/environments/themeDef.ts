@@ -1,5 +1,5 @@
 export interface ThemeValue {
-	/** Display name */
+	/** Display name used in the UI like menu or dropdown */
 	display: string;
 
 	/** Dark them or not. Optionally to tell which optional app level colors CSS to use, if some app level colors need to adapt the light or dark theme. */
@@ -16,11 +16,18 @@ export interface ThemesDic {
 }
 
 export interface ThemeLoaderSettings {
+	/**
+	 * The key of themeDic to store the selected theme in local storage of browser. Each app or site must have a unique key to avoid conflict with other apps or sites.
+	 */
 	storageKey: string;
+
+	/**
+	 * The id of the link element in index.html for loading the theme CSS file dynamically during app startup and operation.
+	 */
 	themeLinkId: string;
 
 	/** 
-	 * Optionally the app may has an app level colors CSS declaring colors neutral to the light or dark theme, in addition to a prebuilt theme
+	 * Optionally the app may has an app level colors CSS declaring colors neutral to the light or dark theme, in addition to a prebuilt theme reused across apps. 
 	 * If some colors need to adapt the light or dark theme, having those colors defined in colorsCss and colorsDarkCss is convenient for SDLC, since you can
 	 * use tools to flip colors to dark or light.
 	 */
