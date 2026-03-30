@@ -12,6 +12,8 @@ import { AppConfigConstants } from '../environments/environment.common';
 import { MatFormField, MatLabel, MatOption, MatSelect, MatSelectChange } from '@angular/material/select';
 import { ThemeLoader } from './themeLoader';
 import { ThemeDef } from '../environments/themeDef';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +29,9 @@ import { ThemeDef } from '../environments/themeDef';
     ])
   ],
   standalone: true,
-  imports: [MatIconModule, MatButtonModule, MatBadgeModule, RouterModule, MatFormField, MatSelect, MatLabel, MatOption]
+  imports: [MatIconModule, MatButtonModule, MatBadgeModule, RouterModule, MatFormField, MatSelect, MatLabel, MatOption,
+	 MatTooltipModule, MatMenuModule
+  ]
 })
 export class AppComponent implements OnDestroy, OnInit {
   title = 'demoapp';
@@ -45,7 +49,9 @@ export class AppComponent implements OnDestroy, OnInit {
 
   themes?: ThemeDef[];
 
-  currentTheme: string | null;
+  get currentTheme(){
+	return ThemeLoader.selectedTheme;
+  }
 
   @ViewChild('themeSelect') themeSelect: MatSelect;
 
@@ -65,8 +71,6 @@ export class AppComponent implements OnDestroy, OnInit {
       };
       return obj;
     }) : undefined;
-
-	this.currentTheme= ThemeLoader.selectedTheme;
 	
     this.alertService.initOnce();
     this.actionSheetItemSubjectService.getMessage().subscribe(
@@ -115,6 +119,10 @@ export class AppComponent implements OnDestroy, OnInit {
 
   themeSelectionChang(e: MatSelectChange) {
     ThemeLoader.loadTheme(e.value);
+  }
+
+  selectTheme(themeUrl: string){
+    ThemeLoader.loadTheme(themeUrl);
   }
 }
 
