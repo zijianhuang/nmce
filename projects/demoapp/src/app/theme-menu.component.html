@@ -1,0 +1,19 @@
+@if (menuTriggerElement === 'Button') {
+<button mat-icon-button class="docs-theme-picker-trigger" [matMenuTriggerFor]="themesMenu" aria-label="Select a theme"
+	matTooltip="Select a theme">
+	<mat-icon>format_color_fill</mat-icon>
+</button>
+} @else if (menuTriggerElement === 'Menu') {
+<button mat-menu-item [matMenuTriggerFor]="themesMenu">Themes</button>
+}
+
+<mat-menu #themesMenu="matMenu">
+	@for (item of themes; track $index) {
+	<button mat-menu-item type="button" (click)="selectTheme(item.filePath)">
+		<span>{{item.display}} </span>
+		@if (item.filePath == currentTheme){
+		<span>&#x2713;</span>
+		}
+	</button>
+	}
+</mat-menu>

@@ -12,7 +12,8 @@ import { AppConfigConstants } from '../environments/environment.common';
 import { RouterModule } from '@angular/router';
 
 /**
- * Use material select to pick a theme.
+ * Simulate the theme menu of https://material.angular.dev/, just without the theme specific inline SVG icons.
+ * The html template is based on "theme-picker.html" of Angular Material docs, but adapted to use ThemeLoader.
  */
 @Component({
 	selector: 'theme-nm-menu',
@@ -23,7 +24,7 @@ import { RouterModule } from '@angular/router';
 		MatTooltipModule, MatMenuModule
 	]
 })
-export class ThemeNmMenu  {
+export class ThemeNmMenu {
 	themes?: ThemeDef[];
 
 	get currentTheme() {
@@ -42,7 +43,7 @@ export class ThemeNmMenu  {
 		}) : undefined;
 	}
 
-  selectTheme(themeUrl: string){
-    ThemeLoader.loadTheme(themeUrl);
-  }
+	selectTheme(themeUrl: string) {
+		ThemeLoader.loadTheme(themeUrl);
+	}
 }

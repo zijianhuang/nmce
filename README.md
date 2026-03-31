@@ -14,7 +14,7 @@ The projects of Angular Material Components Extensions are to deliver a set of r
 * ...
 
 ## Projects
-* **[nmce <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/>](https://www.npmjs.com/package/nmce): A few sets of components and services based on [Angular Material Components](https://material.angular.io/components/categories).**
+* **[nmce <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/>](https://www.npmjs.com/package/nmce): A few sets of components and services extending [Angular Material Components](https://material.angular.io/components/categories) for [Rapid Application Development](https://en.wikipedia.org/wiki/Rapid_application_development).**
 * [nmce-html-editor <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/>](https://www.npmjs.com/package/nmce-html-editor): A few dialog services based on [@kolkov/angular-editor](https://github.com/kolkov/angular-editor), present a HTML editor in a dialog.
 * [nmce-func <img src="docs/icons/npm-logo-red.svg" height="18" width="28" />](https://www.npmjs.com/package/nmce-func): Common functions used in business applications, as well as the components and the services in this NMCE libraries.
 * [nmce-json-diff <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/>](https://www.npmjs.com/package/nmce-json-diff): A simple dialog service based on [jsondiffpatch](https://github.com/benjamine/jsondiffpatch).

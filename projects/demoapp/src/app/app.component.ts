@@ -9,112 +9,111 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { RouterModule } from '@angular/router';
 import packageJson from '../../../../package.json';
 import { AppConfigConstants } from '../environments/environment.common';
-import { MatFormField, MatLabel, MatOption, MatSelect } from '@angular/material/select';
 import { ThemeLoader } from './themeLoader';
 import { ThemeDef } from '../environments/themeDef';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import { ThemeSelect } from "./theme-select.component";
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { ThemeNmMenu } from "./theme-nm.component";
+import { ThemeMenu } from './theme-menu.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  animations: [
-    trigger('newNotificationComing', [
-      state('zero', style({})),
-      state('more', style({})),
-      state('one', style({})),
-      transition('zero => *', useAnimation(bounceInDown, { delay: 500 })),
-      transition('* => *', useAnimation(flash, { delay: 200 })),
-    ])
-  ],
-  standalone: true,
-  imports: [MatIconModule, MatButtonModule, MatBadgeModule, RouterModule, MatFormField, MatSelect, MatLabel, MatOption,
-    MatTooltipModule, MatMenuModule, ThemeSelect, ThemeNmMenu]
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css'],
+	animations: [
+		trigger('newNotificationComing', [
+			state('zero', style({})),
+			state('more', style({})),
+			state('one', style({})),
+			transition('zero => *', useAnimation(bounceInDown, { delay: 500 })),
+			transition('* => *', useAnimation(flash, { delay: 200 })),
+		])
+	],
+	standalone: true,
+	imports: [MatIconModule, MatButtonModule, MatBadgeModule, RouterModule, 
+		MatTooltipModule, MatMenuModule, ThemeMenu, ThemeNmMenu]
 })
 export class AppComponent implements OnDestroy, OnInit {
-  title = 'demoapp';
+	title = 'demoapp';
 
-  notificationsState = 'zero';
-  private unsubscribe: Subject<void> = new Subject();
+	notificationsState = 'zero';
+	private unsubscribe: Subject<void> = new Subject();
 
-  get notificationsCount() {
-    if (this.notificationsService.items.length === 0) { //this count is associated to ngIf in html, so called frequently by NG runtime.
-      this.notificationsState = 'zero';
-    }
+	get notificationsCount() {
+		if (this.notificationsService.items.length === 0) { //this count is associated to ngIf in html, so called frequently by NG runtime.
+			this.notificationsState = 'zero';
+		}
 
-    return this.notificationsService.items.length;
-  }
+		return this.notificationsService.items.length;
+	}
 
-  themes?: ThemeDef[];
+	themes?: ThemeDef[];
 
-  get currentTheme(){
-	return ThemeLoader.selectedTheme;
-  }
+	get currentTheme() {
+		return ThemeLoader.selectedTheme;
+	}
 
-  constructor(private alertService: AlertService,
-    private notificationsService: NotificationsService,
-    private actionSheetItemSubjectService: ActionSheetItemSubjectService,
-    iconRegistry: MatIconRegistry,
+	constructor(private alertService: AlertService,
+		private notificationsService: NotificationsService,
+		private actionSheetItemSubjectService: ActionSheetItemSubjectService,
+		iconRegistry: MatIconRegistry,
 
-  ) {
-    iconRegistry.setDefaultFontSetClass('material-symbols-outlined');
-    this.themes = AppConfigConstants.themesDic ? Object.keys(AppConfigConstants.themesDic).map(k => {
-      const c = AppConfigConstants.themesDic![k];
-      const obj: ThemeDef = {
-        display: c.display,
-        filePath: k,
-        dark: c.dark
-      };
-      return obj;
-    }) : undefined;
-	
-    this.alertService.initOnce();
-    this.actionSheetItemSubjectService.getMessage().subscribe(
-      d => this.showNotifications()
-    );
-  }
+	) {
+		iconRegistry.setDefaultFontSetClass('material-symbols-outlined');
+		this.themes = AppConfigConstants.themesDic ? Object.keys(AppConfigConstants.themesDic).map(k => {
+			const c = AppConfigConstants.themesDic![k];
+			const obj: ThemeDef = {
+				display: c.display,
+				filePath: k,
+				dark: c.dark
+			};
+			return obj;
+		}) : undefined;
 
-  ngOnInit(): void {
-    
-  }
+		this.alertService.initOnce();
+		this.actionSheetItemSubjectService.getMessage().subscribe(
+			d => this.showNotifications()
+		);
+	}
 
-  /**
-   * Only app.component should call notificationsService.open(). All other parts of the SPA should use event handling to call showNotifications().
-   * This is also hooked to <button *ngIf="notificationsCount>0" [@newNotificationComing]="notificationsState" type="button" mat-raised-button (click)="showNotifications()"
-   */
-  showNotifications() {
-    this.notificationsService.open('Notifications').subscribe(actionItem => {
-      if (actionItem) {
-        switch (actionItem.actionType) {
-          case 'test':
-            if (actionItem.actionLabel) {
-              this.alertService.notify(actionItem.message!, actionItem.actionLabel);
-            } else {
-              this.alertService.notify(actionItem.message!);
-            }
-            break;
-          default:
-            break;
-        }
+	ngOnInit(): void {
 
-        this.notificationsService.remove(actionItem);
-      }
-    });
+	}
 
-  }
+	/**
+	 * Only app.component should call notificationsService.open(). All other parts of the SPA should use event handling to call showNotifications().
+	 * This is also hooked to <button *ngIf="notificationsCount>0" [@newNotificationComing]="notificationsState" type="button" mat-raised-button (click)="showNotifications()"
+	 */
+	showNotifications() {
+		this.notificationsService.open('Notifications').subscribe(actionItem => {
+			if (actionItem) {
+				switch (actionItem.actionType) {
+					case 'test':
+						if (actionItem.actionLabel) {
+							this.alertService.notify(actionItem.message!, actionItem.actionLabel);
+						} else {
+							this.alertService.notify(actionItem.message!);
+						}
+						break;
+					default:
+						break;
+				}
 
-  ngOnDestroy() {
-    this.unsubscribe.next();
-    this.unsubscribe.complete();
-  }
+				this.notificationsService.remove(actionItem);
+			}
+		});
 
-  showAbout() {
-    const materialVersion = packageJson.dependencies['@angular/material'].replace('^', '');
-    this.alertService.info(`Angular: ${VERSION.full}; Angular Material: ${materialVersion}`, false);
-  }
+	}
+
+	ngOnDestroy() {
+		this.unsubscribe.next();
+		this.unsubscribe.complete();
+	}
+
+	showAbout() {
+		const materialVersion = packageJson.dependencies['@angular/material'].replace('^', '');
+		this.alertService.info(`Angular: ${VERSION.full}; Angular Material: ${materialVersion}`, false);
+	}
 
 }
 
