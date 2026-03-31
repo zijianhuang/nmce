@@ -1,5 +1,5 @@
 import { state, style, transition, trigger, useAnimation } from '@angular/animations';
-import { Component, OnDestroy, OnInit, VERSION, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, VERSION } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { bounceInDown, flash } from 'ng-animate';
@@ -9,11 +9,13 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { RouterModule } from '@angular/router';
 import packageJson from '../../../../package.json';
 import { AppConfigConstants } from '../environments/environment.common';
-import { MatFormField, MatLabel, MatOption, MatSelect, MatSelectChange } from '@angular/material/select';
+import { MatFormField, MatLabel, MatOption, MatSelect } from '@angular/material/select';
 import { ThemeLoader } from './themeLoader';
 import { ThemeDef } from '../environments/themeDef';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { ThemeSelect } from "./theme-select.component";
+import { ThemeNmMenu } from "./theme-nm.component";
 
 @Component({
   selector: 'app-root',
@@ -30,8 +32,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
   ],
   standalone: true,
   imports: [MatIconModule, MatButtonModule, MatBadgeModule, RouterModule, MatFormField, MatSelect, MatLabel, MatOption,
-	 MatTooltipModule, MatMenuModule
-  ]
+    MatTooltipModule, MatMenuModule, ThemeSelect, ThemeNmMenu]
 })
 export class AppComponent implements OnDestroy, OnInit {
   title = 'demoapp';
@@ -52,8 +53,6 @@ export class AppComponent implements OnDestroy, OnInit {
   get currentTheme(){
 	return ThemeLoader.selectedTheme;
   }
-
-  @ViewChild('themeSelect') themeSelect: MatSelect;
 
   constructor(private alertService: AlertService,
     private notificationsService: NotificationsService,
@@ -117,12 +116,5 @@ export class AppComponent implements OnDestroy, OnInit {
     this.alertService.info(`Angular: ${VERSION.full}; Angular Material: ${materialVersion}`, false);
   }
 
-  themeSelectionChang(e: MatSelectChange) {
-    ThemeLoader.loadTheme(e.value);
-  }
-
-  selectTheme(themeUrl: string){
-    ThemeLoader.loadTheme(themeUrl);
-  }
 }
 
