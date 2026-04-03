@@ -1,7 +1,4 @@
-﻿Set-Location $PSScriptRoot
-$prod="nmce"
-ng build demoapp --configuration=production --output-path="./appdist/$prod/" --base-href=/$prod/
-copy-item ./OnBoardingIndex.html -Destination "./appdist/$prod/browser/index.html"
-# GitHub Pages 404 handling
-copy-item "./appdist/$prod/browser/en/index.html" "./appdist/$prod/browser/en/404.html"
-Write-Output "done $(Get-Date)"
+﻿$dest = "nmce-ghpages"
+./buildAppParams.ps1 "production" "nmce" "./appdist/$dest/"
+copy-item ./OnBoardingIndex.html -Destination "./appdist/$dest/browser/index.html"
+copy-item "./appdist/$dest/browser/en/index.html" "./appdist/$dest/browser/en/404.html"

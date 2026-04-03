@@ -111,9 +111,6 @@
                 }
               ],
               "optimization": true,
-              "outputPath": {
-                "base": "appdist/prod/"
-              },
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
@@ -132,9 +129,7 @@
               ]
             },
             "development": {
-              "outputPath": {
-                "base": "appdist/development/"
-              },
+
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,

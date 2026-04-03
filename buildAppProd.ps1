@@ -1,4 +1,1 @@
-﻿Set-Location $PSScriptRoot
-ng build demoapp --configuration=production
-copy-item ./OnBoardingIndex.html -Destination './appdist/prod/browser/index.html'
-Write-Output "done $(Get-Date)"
+﻿./buildAppParams.ps1 "production" -outputPath "./appdist/prod/"
