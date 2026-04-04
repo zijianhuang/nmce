@@ -7,9 +7,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { ThemeDef } from '../environments/themeDef';
+import { ThemeDef, ThemeConfigConstants } from './themeDef';
 import { ThemeLoader } from './themeLoader';
-import { AppConfigConstants } from '../environments/environment.common';
 import { RouterModule } from '@angular/router';
 
 /**
@@ -35,8 +34,8 @@ export class ThemeMenu {
 	menuTriggerElement: 'Button' | 'Menu' = 'Button';
 
 	constructor() {
-		this.themes = AppConfigConstants.themesDic ? Object.keys(AppConfigConstants.themesDic).map(k => {
-			const c = AppConfigConstants.themesDic![k];
+		this.themes = ThemeConfigConstants.themesDic ? Object.keys(ThemeConfigConstants.themesDic).map(k => {
+			const c = ThemeConfigConstants.themesDic![k];
 			const obj: ThemeDef = {
 				display: c.display,
 				filePath: k,

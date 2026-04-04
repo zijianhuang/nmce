@@ -51,3 +51,15 @@ export interface ThemeLoaderSettings {
 	 */
 	colorsDarkCss?: string;
 }
+
+interface Theme_Config {
+	themesDic?: ThemesDic,
+
+	themeLoaderSettings?: ThemeLoaderSettings
+}
+
+declare const THEME_CONFIG: Theme_Config
+
+export const ThemeConfigConstants: Theme_Config = {
+	...(typeof THEME_CONFIG === 'undefined' ? {} : THEME_CONFIG),
+}

@@ -1,4 +1,4 @@
-import { AppConfigConstants } from "../environments/environment.common"; //just for typed
+import { ThemeConfigConstants } from "./themeDef"; //just for typed
 
 /**
  * Helper class to load default theme or selected theme among themes defined in app startup settings.
@@ -7,7 +7,7 @@ import { AppConfigConstants } from "../environments/environment.common"; //just 
  * the app may optionally has its own app css file for colors.
  */
 export class ThemeLoader {
-	private static readonly settings = AppConfigConstants.themeLoaderSettings;
+	private static readonly settings = ThemeConfigConstants.themeLoaderSettings;
 
 	/**
 	 * selected theme file name saved in localStorage.
@@ -33,7 +33,7 @@ export class ThemeLoader {
 	 * @param picked one of the prebuilt themes, typically used with the app's theme picker.
 	 */
 	static loadTheme(picked: string | null) {
-		if (!AppConfigConstants.themesDic || !this.settings || Object.keys(AppConfigConstants.themesDic).length === 0) {
+		if (!ThemeConfigConstants.themesDic || !this.settings || Object.keys(ThemeConfigConstants.themesDic).length === 0) {
 			console.error('AppConfigConstants need to have themesDic with at least 1 item, and themeKeys.');
 			return;
 		}
@@ -46,7 +46,7 @@ export class ThemeLoader {
 				return;
 			}
 
-			const themeValue = AppConfigConstants.themesDic[picked!];
+			const themeValue = ThemeConfigConstants.themesDic[picked!];
 			if (!themeValue) {
 				return;
 			}
@@ -70,7 +70,7 @@ export class ThemeLoader {
 			themeLink = document.createElement('link');
 			themeLink.id = this.settings.themeLinkId;
 			themeLink.rel = 'stylesheet';
-			const themeDicKey = picked ?? Object.keys(AppConfigConstants.themesDic!)[0];
+			const themeDicKey = picked ?? Object.keys(ThemeConfigConstants.themesDic!)[0];
 			themeLink.href = themeDicKey;
 			document.head.appendChild(themeLink);
 			this.selectedTheme = themeDicKey;
@@ -80,7 +80,7 @@ export class ThemeLoader {
 				const appColorsLink = document.createElement('link');
 				appColorsLink.id = this.settings.appColorsLinkId;
 				appColorsLink.rel = 'stylesheet';
-				const themeValue = AppConfigConstants.themesDic[themeDicKey];
+				const themeValue = ThemeConfigConstants.themesDic[themeDicKey];
 				if (themeValue.dark != null && this.settings.colorsDarkCss && this.settings.colorsCss) {
 					const customFile = themeValue.dark ? this.settings.colorsDarkCss : this.settings.colorsCss;
 					appColorsLink.href = (this.settings.appColorsDir ?? '') + customFile;

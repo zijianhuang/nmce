@@ -8,9 +8,9 @@ import { Subject } from 'rxjs';
 import { MatBadgeModule } from '@angular/material/badge';
 import { RouterModule } from '@angular/router';
 import packageJson from '../../../../package.json';
-import { AppConfigConstants } from '../environments/environment.common';
+
 import { ThemeLoader } from './themeLoader';
-import { ThemeDef } from '../environments/themeDef';
+import { ThemeDef, ThemeConfigConstants } from './themeDef';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ThemeNmMenu } from "./theme-nm.component";
@@ -60,8 +60,8 @@ export class AppComponent implements OnDestroy, OnInit {
 
 	) {
 		iconRegistry.setDefaultFontSetClass('material-symbols-outlined');
-		this.themes = AppConfigConstants.themesDic ? Object.keys(AppConfigConstants.themesDic).map(k => {
-			const c = AppConfigConstants.themesDic![k];
+		this.themes = ThemeConfigConstants.themesDic ? Object.keys(ThemeConfigConstants.themesDic).map(k => {
+			const c = ThemeConfigConstants.themesDic![k];
 			const obj: ThemeDef = {
 				display: c.display,
 				filePath: k,
