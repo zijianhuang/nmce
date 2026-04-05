@@ -5,7 +5,6 @@
     "declarationMap": false
   },
   "angularCompilerOptions": {
-    "compilationMode": "partial",
-    "strictMetadataEmit": false
+    "compilationMode": "partial"
   }
 }

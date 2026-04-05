@@ -27,12 +27,15 @@ Remarks:
 ```
 
 ## Installation
-1. Install [theme-loader-api](https://www.npmjs.com/package/theme-loader-api).
+1. Install [theme-loader-api](https://www.npmjs.com/package/theme-loader-api):
+```
+npm install theme-loader-api
+```
 
 ## Integration
-1. Call `ThemeLoader.loadTheme()` before the [bootstrap of the Web app](https://github.com/zijianhuang/nmce/blob/master/projects/demoapp/src/main.ts).
-1. In the [UI component presenting the theme picker](https://github.com/zijianhuang/nmce/blob/master/projects/demoapp/src/app/app.component.ts), convert the themes dictionary to an array which will be used to present the list. And call `ThemeLoader.loadTheme()` when the picker picks a theme.
-1. Prepare [`siteconfig.js`](https://github.com/zijianhuang/nmce/blob/master/projects/demoapp/src/conf/siteconfig.js) and add `<script src="conf/siteconfig.js"></script>` to [index.html](https://github.com/zijianhuang/nmce/blob/master/projects/demoapp/src/index.html) if you want flexibility after build and deployment. Or, simply provide constant THEME_CONFIG in app code.
+1. Call `ThemeLoader.loadTheme()` before the [bootstrap of the Web app](https://github.com/zijianhuang/DemoCoreWeb/blob/master/AngularHeroes/src/main.ts).
+1. In the [UI component presenting the theme picker](https://github.com/zijianhuang/DemoCoreWeb/blob/master/AngularHeroes/src/app/theme-select.component.ts), convert the themes dictionary to an array which will be used to present the list. And call `ThemeLoader.loadTheme()` when the picker picks a theme.
+1. Prepare [`siteconfig.js`](https://zijianhuang.github.io/DemoCoreWeb/react/conf/siteconfig.js) and add `<script src="conf/siteconfig.js"></script>` to [index.html](https://github.com/zijianhuang/DemoCoreWeb/blob/master/ReactHeroes/index.html) if you want flexibility after build and deployment. Or, simply provide constant THEME_CONFIG in app code.
 
 ### [Angular Example](https://github.com/zijianhuang/DemoCoreWeb/blob/master/AngularHeroes/)
 
@@ -98,7 +101,7 @@ const THEME_CONFIG = {
 
 ### React Example
 
-[index.tsx](https://github.com/zijianhuang/DemoCoreWeb/blob/master/ReactHeroes/src/index.tsx)
+[main.tsx](https://github.com/zijianhuang/DemoCoreWeb/blob/master/ReactHeroes/src/main.tsx)
 ```ts
 ThemeLoader.init();
 
@@ -166,7 +169,7 @@ const THEME_CONFIG = {
 }
 ```
 
-[index.html](https://github.com/zijianhuang/DemoCoreWeb/blob/master/ReactHeroes/public/index.html)
+[index.html](https://github.com/zijianhuang/DemoCoreWeb/blob/master/ReactHeroes/index.html)
 ```html
     <script src="conf/siteconfig.js"></script>
 </head>
@@ -174,7 +177,7 @@ const THEME_CONFIG = {
 
 ### Respect prefers-color-scheme
 
-By default, this API will pick the first available theme in the dictionary during the first startup of the Web app, and use the last pick afterward. If you want to respect prefers-color-scheme during the initial load of the Web app, you may use the following in the app's bootstrap:
+By default, this API will pick the first available theme in the dictionary during the first startup of the Web app, and use last pick afterward. If you want to respect `prefers-color-scheme` during the initial load of the Web app, you may use the following in the app's bootstrap:
 ```ts
 const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 var r = findFirstTheme(isDark);
@@ -192,7 +195,6 @@ function findFirstTheme(dark: boolean): { filePath: string; theme: ThemeValue } 
 
 	return entry ? { filePath: entry[0], theme: entry[1] } : undefined;
 }
-
 ```
 
 ## How About I18N and L10N?
@@ -203,7 +205,7 @@ The only things need to be translated is the display name of each theme.
 
 You may extend `interface ThemeDef`, and make it contain some meta info of generating SVG icons presenting respective theme. And the icons will be inline with the HTML template. [Angular Material Components site](https://material.angular.dev/) uses [this approach](https://github.com/angular/components/blob/main/docs/src/app/shared/theme-picker/).
 
-Or you may just hand-draw some SVG icons and linked it in the HTML template.
+Or you may just hand-draw some SVG icons and linked them in the HTML template.
 
 ### Solution 2: Create Dictionary in App Code
 
@@ -211,6 +213,6 @@ Depending the framework like Angular or the library like React, there could be a
 
 ### Solution 3: Post Build Processing
 
-If you are using `siteconfig.js`, the JS file should not be included in the hash tables of the service worker for automatic update. 
+If you are using `siteconfig.js`, the JS file should not be included in the hash tables of the service worker for automatic app update. 
 
 In Angular, each locale has its own build, therefore, you may craft some post build script to inject the translated names into the `siteconfig.js` of each build.
