@@ -400,6 +400,32 @@
           }
         }
       }
+    },
+    "theme-loader-api": {
+      "projectType": "library",
+      "root": "projects/theme-loader-api",
+      "sourceRoot": "projects/theme-loader-api/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/theme-loader-api/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/theme-loader-api/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/theme-loader-api/tsconfig.spec.json"
+          }
+        }
+      }
     }
   },
   "cli": {

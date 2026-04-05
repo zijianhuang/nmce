@@ -1,0 +1,20 @@
+{
+	"name": "theme-loader-api",
+	"version": "1.0.0",
+	"author": {
+		"name": "Z"
+	},
+	"description": "Theme loader API independent of framework, lib and UI design of Web app.",
+	"license": "MIT",
+	"repository": {
+		"url": "git+https://github.com/zijianhuang/nmce.git"
+	},
+	"keywords": [
+		"theme", "angular", "react", "vue", "web"
+	],
+	"peerDependencies": {},
+	"dependencies": {
+		
+	},
+	"sideEffects": false
+}

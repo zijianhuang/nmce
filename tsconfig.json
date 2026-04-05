@@ -1,7 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -25,28 +24,31 @@
     ],
     "paths": {
       "nmce": [
-        "dist/nmce/nmce",
-        "dist/nmce"
+        "./dist/nmce/nmce",
+        "./dist/nmce"
       ],
       "nmce-directives": [
-        "dist/nmce-directives/nmce-directives",
-        "dist/nmce-directives"
+        "./dist/nmce-directives/nmce-directives",
+        "./dist/nmce-directives"
       ],
       "nmce-func": [
-        "dist/nmce-func/nmce-func",
-        "dist/nmce-func"
+        "./dist/nmce-func/nmce-func",
+        "./dist/nmce-func"
       ],
       "nmce-html-editor": [
-        "dist/nmce-html-editor/nmce-html-editor",
-        "dist/nmce-html-editor"
+        "./dist/nmce-html-editor/nmce-html-editor",
+        "./dist/nmce-html-editor"
       ],
       "nmce-json-diff": [
-        "dist/nmce-json-diff/nmce-json-diff",
-        "dist/nmce-json-diff"
+        "./dist/nmce-json-diff/nmce-json-diff",
+        "./dist/nmce-json-diff"
       ],
       "nmce-pipes": [
-        "dist/nmce-pipes/nmce-pipes",
-        "dist/nmce-pipes"
+        "./dist/nmce-pipes/nmce-pipes",
+        "./dist/nmce-pipes"
+      ],
+      "theme-loader-api": [
+        "./dist/theme-loader-api"
       ]
     }
   },
@@ -56,9 +58,20 @@
     "strictTemplates": true
   },
   "references": [
-    { "path": "projects/nmce-func/tsconfig.lib.json" },
-    { "path": "projects/nmce-func/tsconfig.spec.json" },
-    { "path": "projects/nmce-pipes/tsconfig.lib.json" },
-    { "path": "projects/nmce-pipes/tsconfig.spec.json" }
+    {
+      "path": "projects/nmce-func/tsconfig.lib.json"
+    },
+    {
+      "path": "projects/nmce-func/tsconfig.spec.json"
+    },
+    {
+      "path": "projects/nmce-pipes/tsconfig.lib.json"
+    },
+    {
+      "path": "projects/nmce-pipes/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/theme-loader-api/tsconfig.lib.json"
+    }
   ]
 }

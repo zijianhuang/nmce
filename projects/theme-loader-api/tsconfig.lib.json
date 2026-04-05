@@ -1,0 +1,22 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/lib",
+    "target": "es2024",
+    "declarationMap": true,
+    "inlineSources": true,
+    "composite": true,
+    "declaration": true,
+    "strict": true,
+    "types": [],
+    "lib": [
+      "dom",
+      "es2024"
+    ]
+  },
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts"
+  ]
+}
