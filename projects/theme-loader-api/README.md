@@ -1,3 +1,13 @@
+### Web Sites and Apps that Use This ThemeLoader
+
+* [Angular Material Components Extension](https://zijianhuang.github.io/nmce/en/)
+* [JsonToTable](https://zijianhuang.github.io/json2table/)
+* [Personal Blog](https://zijianhuang.github.io/poets)
+* [Angular Heroes](https://zijianhuang.github.io/DemoCoreWeb/angular/dashboard), and [Sourcecode](https://github.com/zijianhuang/DemoCoreWeb/tree/master/AngularHeroes)
+* [React Heroes](https://zijianhuang.github.io/DemoCoreWeb/react/) and [Sourcecode](https://github.com/zijianhuang/DemoCoreWeb/tree/master/ReactHeroes)
+
+![MatSelect](https://zijianhuang.github.io/articles/Web%20Theme%20Loader%20Tips/media/MatSelect.png)![ThemeMenu](https://zijianhuang.github.io/articles/Web%20Theme%20Loader%20Tips/media/themeMenu.png)![ThemeMenuNG](https://zijianhuang.github.io/articles/Web%20Theme%20Loader%20Tips/media/themeMenuNM.png)
+
 ## Summary
 
 The Web theme loader API exposes 3 contracts:
@@ -10,7 +20,7 @@ Because the theme should be loaded at startup before the Web app rendering, the 
 The GUI of theme selection is independent of the Web theme loader API. For example, in addition to Select and Menu for multiple themes, you may use Switch for switching between light and dark. 
 
 Remarks:
-* Modern browsers like Chrome, Edge, Safari, and Firefox support a built-in concept of light/dark preference. Depending on your UX design, if you would not provide UI component for changing theme, then CSS only solution works well:
+* Modern browsers like Chrome, Edge, Safari, and Firefox support a built-in concept of light/dark preference. Depending on your UX design, if you would want your Website or Webapp to adapt such preference automatically and do not expect users to change theme, then CSS only solution works well without using JavaScript code:
 ```css
 <link rel="stylesheet" href="my-light.css" media="(prefers-color-scheme: light)">
 <link rel="stylesheet" href="my-dark.css" media="(prefers-color-scheme: dark)">
@@ -35,8 +45,8 @@ bootstrapApplication(AppComponent, appConfig);
 [theme-select.component.ts](https://github.com/zijianhuang/DemoCoreWeb/blob/master/AngularHeroes/src/app/theme-select.component.ts)
 ```ts
 	constructor() {
-		this.themes = AppConfigConstants.themesDic ? Object.keys(AppConfigConstants.themesDic).map(k => {
-			const c = AppConfigConstants.themesDic![k];
+		this.themes = ThemeConfigConstants.themesDic ? Object.keys(ThemeConfigConstants.themesDic).map(k => {
+			const c = ThemeConfigConstants.themesDic![k];
 			const obj: ThemeDef = {
 				display: c.display,
 				filePath: k,
@@ -63,7 +73,6 @@ bootstrapApplication(AppComponent, appConfig);
 [siteconfig.js](https://github.com/zijianhuang/DemoCoreWeb/blob/master/docs/angular/conf/siteconfig.js)
 ```js
 const THEME_CONFIG = {
-	apiBaseUri: 'https://mybackend.com/',
 	themesDic: {
 		"assets/themes/azure-blue.css": { display: "Azure & Blue", dark: false },
 		"assets/themes/rose-red.css": { display: "Roes & Red", dark: false },
@@ -101,8 +110,8 @@ root.render(...
 
 [Home.tsx](https://github.com/zijianhuang/DemoCoreWeb/blob/master/ReactHeroes/src/Home.tsx)
 ```ts
-	const themes = AppConfigConstants.themesDic ? Object.keys(AppConfigConstants.themesDic).map(k => {
-		const c = AppConfigConstants.themesDic![k];
+	const themes = ThemeConfigConstants.themesDic ? Object.keys(ThemeConfigConstants.themesDic).map(k => {
+		const c = ThemeConfigConstants.themesDic![k];
 		const obj: ThemeDef = {
 			display: c.display,
 			filePath: k,
@@ -140,7 +149,6 @@ root.render(...
 [siteconfig.js](https://github.com/zijianhuang/DemoCoreWeb/blob/master/docs/react/conf/siteconfig.js)
 ```js
 const THEME_CONFIG = {
-	apiBaseUri: 'https://mybackend.com/',
 	themesDic: {
 		"assets/themes/azure-blue.css": { display: "Azure & Blue", dark: false },
 		"assets/themes/rose-red.css": { display: "Roes & Red", dark: false },
@@ -178,13 +186,11 @@ platformBrowser().bootstrapModule(AppModule, { applicationProviders: [provideZon
 	.catch(err => console.error(err));
 
 function findFirstTheme(dark: boolean): { filePath: string; theme: ThemeValue } | undefined {
-	const entry = Object.entries(AppConfigConstants.themesDic!).find(
+	const entry = Object.entries(ThemeConfigConstants.themesDic!).find(
 		([, theme]) => theme.dark === dark
 	);
 
-	return entry
-		? { filePath: entry[0], theme: entry[1] }
-		: undefined;
+	return entry ? { filePath: entry[0], theme: entry[1] } : undefined;
 }
 
 ```
