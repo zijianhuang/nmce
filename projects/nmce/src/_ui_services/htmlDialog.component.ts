@@ -1,4 +1,4 @@
-import { Component, Inject, Injectable, Renderer2 } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, Renderer2, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
@@ -7,22 +7,24 @@ import { DialogSize } from './types';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 /**
  * Contain HTML content, used in HtmlDialogService.
  * The content is contained inside another html tag, and all href linkes will be opened in new browser tab.
  */
 @Component({
-    selector: 'html-dialog',
-    templateUrl: 'htmlDialog.component.html',
-    standalone: true,
+	selector: 'html-dialog',
+	templateUrl: 'htmlDialog.component.html',
+	standalone: true,
+	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule]
 })
-export class HtmlDialogComponent {
+export class HtmlDialogComponent implements AfterViewInit {
 	title: string;
-
-	htmlContent: string;
-
+    safeHtml: SafeHtml='';
+    @ViewChild('htmlContent') htmlContentRef?: ElementRef;
+	
 	useBackButton: boolean;
 	toConfirm?: boolean;
 	yes?: string;
@@ -30,18 +32,30 @@ export class HtmlDialogComponent {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean, toConfirm?: boolean, yes?: string, no?: string },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
 		public dialogRef: MatDialogRef<HtmlDialogComponent>,
-		protected renderer: Renderer2) {
+		protected renderer: Renderer2,
+		protected sanitizer: DomSanitizer,
+		protected ref: ChangeDetectorRef,
+	) {
 		this.title = data.title;
-		this.htmlContent = data.htmlContent;
+        this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(data.htmlContent);
 		this.useBackButton = data.useBackButton;
-		this.toConfirm=data.toConfirm;
-		this.yes=data.yes;
-		this.no=data.no;
+		this.toConfirm = data.toConfirm;
+		this.yes = data.yes;
+		this.no = data.no;
 	}
 
-	confirm(){
+    ngAfterViewInit(): void {
+        if (this.htmlContentRef) {
+            const anchors: HTMLAnchorElement[] = this.htmlContentRef.nativeElement.querySelectorAll('a');
+            anchors.forEach(a => this.renderer.setAttribute(a, 'target', '_blank'));
+        }
+
+		this.ref.detectChanges();
+    }
+
+	confirm() {
 		this.dialogRef.close(true);
 	}
 }

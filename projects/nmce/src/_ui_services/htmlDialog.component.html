@@ -7,17 +7,7 @@
 	<span>{{title}}</span>
 </h1>
 <mat-dialog-content>
-	<html>
-
-	<head>
-		<base target="_blank" />
-		<!-- Ensure all href are opened in new tab, as described in https://stackoverflow.com/questions/17281486/use-target-blank-in-css -->
-	</head>
-
-	<body [innerHTML]="htmlContent">
-	</body>
-
-	</html>
+    <div #htmlContent class="html-content-wrapper" [innerHTML]="safeHtml"></div>
 </mat-dialog-content>
 @if (!useBackButton) {
 <mat-dialog-actions [align]="actionsAlign">

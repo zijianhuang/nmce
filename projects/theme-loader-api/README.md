@@ -153,10 +153,9 @@ root.render(...
 ```js
 const THEME_CONFIG = {
 	themesDic: {
-		"assets/themes/azure-blue.css": { display: "Azure & Blue", dark: false },
-		"assets/themes/rose-red.css": { display: "Roes & Red", dark: false },
-		"assets/themes/magenta-violet.css": { display: "Magenta & Violet", dark: true },
-		"assets/themes/cyan-orange.css": { display: "Cyan & Orange", dark: true }
+		"assets/themes/light-theme.css": { display: "Light", dark: false },
+		"assets/themes/dark-theme.css": { display: "Dark", dark: true },
+		"assets/themes/pink-theme.css": { display: "Pink", dark: false }
 	},
 	themeLoaderSettings: {
 		storageKey: 'app.theme',

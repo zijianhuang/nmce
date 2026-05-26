@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { AfterViewInit, Component, Inject, Injectable, Renderer2 } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, Renderer2, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
@@ -8,19 +8,22 @@ import { DialogSize } from './types';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 /**
  * Contain HTML content loaded from a url, used in HtmlHReflDialogService. If there's an error during loading, the error will be displayed n the dialog body.
  */
 @Component({
-    selector: 'html-ref-dialog',
-    templateUrl: 'htmlDialog.component.html',
-    standalone: true,
+	selector: 'html-ref-dialog',
+	templateUrl: 'htmlDialog.component.html',
+	standalone: true,
+	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule]
 })
 export class HtmlHRefDialogComponent implements AfterViewInit {
 	title: string;
-
+	safeHtml: SafeHtml = '';
+	@ViewChild('htmlContent') htmlContentRef?: ElementRef;
 	/**
 	 * URL is passed by a service
 	 */
@@ -31,19 +34,21 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 	yes?: string;
 	no?: string;
 
-	htmlContent: string;
+	//htmlContent: string;
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) protected data: { title: string, url: string, useBackButton: boolean, toConfirm?: boolean, yes?: string, no?: string },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
 		public dialogRef: MatDialogRef<HtmlHRefDialogComponent>, protected httpClient: HttpClient,
-		protected renderer: Renderer2) {
+		protected renderer: Renderer2,
+		protected sanitizer: DomSanitizer,
+		protected ref: ChangeDetectorRef,) {
 		this.title = data.title;
 		this.url = data.url;
 		this.useBackButton = data.useBackButton;
-		this.toConfirm=data.toConfirm;
-		this.yes=data.yes;
-		this.no=data.no;
+		this.toConfirm = data.toConfirm;
+		this.yes = data.yes;
+		this.no = data.no;
 	}
 
 	// /**
@@ -52,12 +57,12 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 	// @ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
 
 	ngAfterViewInit() {
-		this.httpClient.get(this.url, { responseType: 'text' }).subscribe(
-			response => {
-				this.htmlContent = response;
-				//this.renderer.setProperty(this.htmlContentElement?.nativeElement, 'innerHTML', response);
+		this.httpClient.get(this.url, { responseType: 'text' }).subscribe({
+			next: response => {
+				this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(response);
+				this.ref.detectChanges();
 			},
-			(error: HttpErrorResponse | any) => {
+			error: (error: HttpErrorResponse | any) => {
 				this.title = 'Cannot retrieve ' + this.title;
 
 				let errMsg: string;
@@ -82,12 +87,14 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 					errMsg = error.message ? error.message : error.toString();
 				}
 
-				this.htmlContent=errMsg;
-			});
+				this.safeHtml = errMsg;
+				this.ref.detectChanges();
+			}
+		});
 
 	}
 
-	confirm(){
+	confirm() {
 		this.dialogRef.close(true);
 	}
 }

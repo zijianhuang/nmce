@@ -1,6 +1,6 @@
 import { CommonModule, Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, Inject, Injectable, Renderer2 } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, Injectable, Renderer2, SecurityContext } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { HtmlPrintFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
@@ -13,29 +13,34 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { HtmlHRefDialogComponent } from '../_ui_services/htmlHRefDialog.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 /**
  * Contain HTML content, used in HtmlDialogService.
  */
 @Component({
-    selector: 'html-print-dialog',
-    templateUrl: 'htmlPrintDialog.component.html',
-    styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
-     standalone: true,
+	selector: 'html-print-dialog',
+	templateUrl: 'htmlPrintDialog.component.html',
+	styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
+	standalone: true,
+	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule, CommonModule]
 })
 export class HtmlPrintDialogComponent extends HtmlDialogComponent {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
 		public dialogRef: MatDialogRef<HtmlDialogComponent>, private location: Location, @Inject('print.cssUrl') private cssUrl: string,
-		protected renderer: Renderer2) {
-		super(data, actionsAlign, dialogRef, renderer);
+		protected renderer: Renderer2,
+		protected ref: ChangeDetectorRef,
+		protected sanitizer: DomSanitizer,) {
+		super(data, actionsAlign, dialogRef, renderer, sanitizer, ref);
 	}
 
 	print() {
-		if (this.htmlContent) {
-			HtmlPrintFunc.printWithCSS(this.htmlContent, this.location.prepareExternalUrl(this.cssUrl));
+		if (this.safeHtml) {
+			const s = this.sanitizer.sanitize(SecurityContext.HTML, this.safeHtml);
+			HtmlPrintFunc.printWithCSS(s!, this.location.prepareExternalUrl(this.cssUrl));
 		} else {
 			console.error($localize`this.htmlContentElement does not exist.`);
 		}
@@ -46,10 +51,11 @@ export class HtmlPrintDialogComponent extends HtmlDialogComponent {
  * Contain HTML content loaded from a url, used in HtmlHReflDialogService. If there's an error during loading, the error will be displayed inn the dialog body.
  */
 @Component({
-    selector: 'html-href-print-dialog',
-    templateUrl: 'htmlPrintDialog.component.html',
-    styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
-    standalone: true,
+	selector: 'html-href-print-dialog',
+	templateUrl: 'htmlPrintDialog.component.html',
+	styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
+	standalone: true,
+	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule, MatCheckboxModule, FormsModule, CommonModule]
 })
 export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
@@ -61,15 +67,18 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 	 */
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, url: string, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
 		public dialogRef: MatDialogRef<HtmlHRefDialogComponent>, protected httpClient: HttpClient, private location: Location,
-		protected renderer: Renderer2) {
-		super(data, actionsAlign, dialogRef, httpClient, renderer);
+		protected renderer: Renderer2,
+		protected sanitizer: DomSanitizer,
+		protected ref: ChangeDetectorRef,) {
+		super(data, actionsAlign, dialogRef, httpClient, renderer, sanitizer, ref);
 	}
 
 	print() {
-		if (this.htmlContent) {
-			HtmlPrintFunc.print(this.htmlContent);
+		if (this.safeHtml) {
+			const s = this.sanitizer.sanitize(SecurityContext.HTML, this.safeHtml);
+			HtmlPrintFunc.print(s!);
 		} else {
 			console.error($localize`this.htmlContentElement does not exist.`);
 		}

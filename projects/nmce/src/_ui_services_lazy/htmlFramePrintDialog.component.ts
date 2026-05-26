@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, Inject, Injectable, Renderer2 } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, Injectable, Renderer2 } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { HtmlPrintFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
@@ -45,6 +45,7 @@ export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
     templateUrl: 'htmlFramePrintDialog.component.html',
     styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
     standalone: true,
+	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule]
 })
 export class HtmlHRefFramePrintDialogComponent extends HtmlHRefFrameDialogComponent {
