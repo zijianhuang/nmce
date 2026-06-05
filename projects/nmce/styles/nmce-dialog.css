@@ -13,7 +13,7 @@
 
 /* Used by panelClass of matDialog to define the mat dialog content height. */
 .dialog-full-content-height mat-dialog-content {
-	max-height: calc(95vh - 5em);
+	max-height: calc(95vh - 7em);
 }
 
 .full-width .mat-mdc-dialog-container {
