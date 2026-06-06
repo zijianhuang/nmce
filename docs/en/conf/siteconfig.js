@@ -1,4 +1,4 @@
-const SITE_CONFIG = {
+const THEME_CONFIG = {
 	themesDic: {
 		"assets/themes/rose-red.css": { display: "Roes & Red", dark: false },
 		"assets/themes/azure-blue.css": { display: "Azure & Blue", dark: false },
