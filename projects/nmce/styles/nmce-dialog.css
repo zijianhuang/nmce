@@ -11,22 +11,22 @@
 	margin-top: 0.5em;
 }
 
-/* Used by panelClass of matDialog to define the mat dialog content height. */
+/* Used by panelClass of matDialog to define the mat dialog content height. 95dvh is the panel height, 7em is what offset for matDialogContent */
 .dialog-full-content-height mat-dialog-content {
-	max-height: calc(95vh - 7em);
+	max-height: calc(95dvh - 7em);
 }
 
 .full-width .mat-mdc-dialog-container {
 	max-width: none;
-	width: 100vw;
+	width: 100dvw;
 }
 
-/* for dialog with 2 row on the top */
+/* for dialog with 2 row on the top, or one row at the bottom */
 .dialog-full-content-height2 mat-dialog-content {
-	max-height: calc(95vh - 7em);
+	max-height: calc(95dvh - 9em);
 }
 
 .frame-dialog-content {
-	height: calc(95vh - 7em);
-	width: calc(98vw - 3em);
+	height: calc(95dvh - 7em);
+	width: calc(98dvw - 3em);
 }

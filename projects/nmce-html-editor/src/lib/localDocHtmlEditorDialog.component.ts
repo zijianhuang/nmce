@@ -95,8 +95,8 @@ export class LocalDocEditorDialogService {
 		const modalRef = this.dialog.open(LocalDocHtmlEditorDialogComponent, {
 			disableClose: true, //intentional
 			autoFocus: false,
-			minWidth: '98vw',
-			minHeight: '98vh',
+			minWidth: '98dvw',
+			minHeight: '98dvh',
 			panelClass: 'dialog-full-content-height',
 			data: data,
 		});

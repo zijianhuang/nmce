@@ -89,8 +89,8 @@ export class DataComponentPrintDialogService {
 		this.modalRef = this.dialog.open(DataComponentPrintDialog,
 			{
 				//,
-				minWidth: (config && config.fullScreen) ? '98vw' : (isSmallScreen ? '98vw' : undefined),
-				minHeight: (config && config.fullScreen) ? '98vh' : undefined,
+				minWidth: (config && config.fullScreen) ? '98dvw' : (isSmallScreen ? '98dvw' : undefined),
+				minHeight: (config && config.fullScreen) ? '98dvh' : undefined,
 				panelClass: 'dialog-full-content-height',
 				autoFocus: config && config.autofocus,
 				data: {

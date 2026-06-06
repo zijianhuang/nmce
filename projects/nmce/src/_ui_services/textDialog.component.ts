@@ -143,8 +143,8 @@ export class TextDialogService {
 		}
 
 		this.modalRef = this.dialog.open(TextDialogComponent, {
-			minWidth: DialogSizeToSize(data.size, data.useBackButton, 'vw'),
-			minHeight: DialogSizeToSize(data.size, data.useBackButton, 'vh'),
+			minWidth: DialogSizeToSize(data.size, data.useBackButton, 'dvw'),
+			minHeight: DialogSizeToSize(data.size, data.useBackButton, 'dvh'),
 			panelClass: (data.size === DialogSize.Large) ? 'dialog-full-content-height' : undefined,
 			data: data,
 		});
@@ -180,8 +180,8 @@ export class TextHReflDialogService {
 		}
 
 		this.modalRef = this.dialog.open(TextHRefDialogComponent, {
-			minWidth: DialogSizeToSize(data.size, data.useBackButton, 'vw'),
-			minHeight: DialogSizeToSize(data.size, data.useBackButton, 'vh'),
+			minWidth: DialogSizeToSize(data.size, data.useBackButton, 'dvw'),
+			minHeight: DialogSizeToSize(data.size, data.useBackButton, 'dvh'),
 			panelClass: (data.size === DialogSize.Large) ? 'dialog-full-content-height' : undefined,
 			data: data,
 		});

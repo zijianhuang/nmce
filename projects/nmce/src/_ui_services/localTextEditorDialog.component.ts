@@ -90,8 +90,8 @@ export class LocalTextEditorDialogService {
 	open(data: { [k: string]: string }): Observable<{ [k: string]: string }> {
 		const modalRef = this.dialog.open(LocalTextEditorDialogComponent, {
 			autoFocus: false,
-			minWidth: '98vw',
-			minHeight: '98vh',
+			minWidth: '98dvw',
+			minHeight: '98dvh',
 			panelClass: 'dialog-full-content-height',
 			data: data,
 		});

@@ -99,8 +99,8 @@ export class DataComponentDialogService {
 		const isSmallScreen = window.innerWidth < 640 || window.innerHeight < 640;
 		this.modalRef = this.dialog.open(DataComponentDialog,
 			{
-				minWidth: (config && config.fullScreen) ? '98vw' : (isSmallScreen ? '98vw' : undefined),
-				minHeight: (config && config.fullScreen) ? '98vh' : undefined,
+				minWidth: (config && config.fullScreen) ? '98dvw' : (isSmallScreen ? '98dvw' : undefined),
+				minHeight: (config && config.fullScreen) ? '98dvh' : undefined,
 				panelClass: 'dialog-full-content-height',
 				autoFocus: config && config.autofocus,
 				data: {

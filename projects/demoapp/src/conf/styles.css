@@ -8,8 +8,8 @@
 
 div.table-sticky {
 	display: inline-block;
-	height: calc(100vh - 11.2em);
-	width: 95vw;
+	height: calc(100dvh - 11.2em);
+	width: 95dvw;
 	overflow: auto
 }
 

@@ -29,9 +29,9 @@ export class HtmlBaseDialogService<T> {
 		}
 
 		this.modalRef = this.dialog.open(component, {
-			minWidth: DialogSizeToSize(data.size, data.useBackButton, 'vw'),
-			minHeight: DialogSizeToSize(data.size, data.useBackButton, 'vh'),
-			panelClass: (data.size === DialogSize.Large) ? 'dialog-full-content-height' : undefined,
+			minWidth: DialogSizeToSize(data.size, data.useBackButton, 'dvw'),
+			minHeight: DialogSizeToSize(data.size, data.useBackButton, 'dvh'),
+			panelClass: (data.size === DialogSize.Large) ? (data.useBackButton ? 'dialog-full-content-height' : 'dialog-full-content-height2') : undefined,
 			data: data,
 		});
 

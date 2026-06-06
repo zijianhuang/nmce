@@ -98,8 +98,8 @@ export class TimeService implements OnDestroy {
 
 		const modalRef = this.isHandsetPortrait ?
 			this.dialog.open(TimePickerComponent, {
-				minWidth: '98vw',
-				maxHeight: '95vh', 
+				minWidth: '98dvw',
+				maxHeight: '98dvh', 
 				data: data
 			})
 			: this.dialog.open(TimePickerComponent, {
