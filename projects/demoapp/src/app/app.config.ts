@@ -15,7 +15,6 @@ import { DateAdapter, MatRippleModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    //provideZoneChangeDetection({ eventCoalescing: true }),
     provideZonelessChangeDetection(),
 
     importProvidersFrom(

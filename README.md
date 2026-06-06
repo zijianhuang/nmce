@@ -11,6 +11,7 @@ The projects of Angular Material Components Extensions are to deliver a set of r
 
 * [JSON to Table](https://zijianhuang.github.io/json2table/)
 * [Poetry Collection -- Personal Blog (Readonly Static Web)](https://zijianhuang.github.io/poets)
+* [Ishihara Color Blind Test](https://visualacuity.info/color-blind-test)
 * ...
 
 ## Projects
@@ -21,6 +22,10 @@ The projects of Angular Material Components Extensions are to deliver a set of r
 * [nmce-pipes <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/>](https://www.npmjs.com/package/nmce-pipes): Common simple Angular pipes.
 * [nmce-directives <img src="docs/icons/npm-logo-red.svg" height="18" width="28"/>](https://www.npmjs.com/package/nmce-directives): Common simple Angular directives.
 * [demoapp](https://github.com/zijianhuang/nmce/tree/master/projects/demoapp): A demo application demonstrating features of all above.
+
+**Remarks:**
+* The libraries and the demo app are all zoneless.
+* As of Angular 21, signal-based approach is not yet considered in this project. Upon Angular 22.* or plus, AI may be able to transform the libraries for signal based CD.
 
 # Designs
 
