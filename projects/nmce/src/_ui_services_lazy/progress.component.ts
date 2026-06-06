@@ -102,7 +102,7 @@ export class ProgressDialogService {
 	}
 
 	set(p: TransmitProgress) {
-		if (this.modalRef) {
+		if (this.modalRef && this.modalRef.componentInstance) {
 			this.modalRef.componentInstance.body = p.message!;
 			if (p.loaded != undefined) {
 				this.modalRef.componentInstance.progressBarValue = p.loaded;
