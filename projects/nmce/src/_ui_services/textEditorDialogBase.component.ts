@@ -46,7 +46,7 @@ export abstract class TextEditorDialogComponentBase implements AfterViewInit {
 
 	readonly = false;
 
-	@ViewChild('textDetail', { static: false }) noteInput?: ElementRef;
+	@ViewChild('textDetail', { static: true }) noteInput?: ElementRef;
 
 	private viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 

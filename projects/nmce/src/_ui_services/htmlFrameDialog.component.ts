@@ -37,7 +37,7 @@ export class HtmlFrameDialogComponent implements AfterViewInit {
 	/**
 	 * iframe element to hold the HTML content
 	 */
-	@ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
+	@ViewChild('htmlContent', { static: true }) htmlContentElement?: ElementRef;
 
 	ngAfterViewInit() {
 		if (this.htmlContentElement) {
@@ -89,7 +89,7 @@ export class HtmlHRefFrameDialogComponent implements AfterViewInit {
 	/**
 	 * HTML placeholder
 	 */
-	@ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
+	@ViewChild('htmlContent', { static: true }) htmlContentElement?: ElementRef;
 
 	ngAfterViewInit() {
 		this.httpClient.get(this.url, { responseType: 'text' }).subscribe(

@@ -12,7 +12,7 @@ import  {format} from 'jsondiffpatch/formatters/html';
 export class JsonDiffComponent implements DataComponent, OnInit, AfterViewInit {
 	data: any;
 
-	@ViewChild('jsonPlace', { static: false }) jsonPlace: ElementRef;
+	@ViewChild('jsonPlace', { static: true }) jsonPlace: ElementRef;
 
 	constructor() { }
 

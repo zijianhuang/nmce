@@ -36,7 +36,7 @@ export class TextDialogComponent implements AfterViewInit {
 		this.useBackButton = data.useBackButton;
 	}
 
-	@ViewChild('htmlContent', { static: false }) htmlContentElement: ElementRef;
+	@ViewChild('htmlContent', { static: true }) htmlContentElement: ElementRef;
 
 	ngAfterViewInit() {
 		this.htmlContentElement.nativeElement.insertAdjacentHTML('beforeend', this.lines);
@@ -81,7 +81,7 @@ export class TextHRefDialogComponent implements AfterViewInit {
 	/**
 	 * HTML placeholder
 	 */
-	@ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
+	@ViewChild('htmlContent', { static: true }) htmlContentElement?: ElementRef;
 
 	ngAfterViewInit() {
 		this.httpClient.get(this.url, { responseType: 'text' }).subscribe(

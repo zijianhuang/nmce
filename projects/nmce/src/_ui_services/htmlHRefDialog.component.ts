@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, OnInit, Renderer2, SecurityContext, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
@@ -8,7 +8,7 @@ import { DialogSize } from './types';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 
 /**
  * Contain HTML content loaded from a url, used in HtmlHReflDialogService. If there's an error during loading, the error will be displayed n the dialog body.
@@ -20,10 +20,9 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule]
 })
-export class HtmlHRefDialogComponent implements AfterViewInit {
+export class HtmlHRefDialogComponent implements AfterViewInit, OnInit {
 	title: string;
-	safeHtml: SafeHtml = '';
-	@ViewChild('htmlContent') htmlContentRef?: ElementRef;
+	@ViewChild('htmlContent', {static: true}) htmlContentRef?: ElementRef;
 	/**
 	 * URL is passed by a service
 	 */
@@ -33,8 +32,6 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 	toConfirm?: boolean;
 	yes?: string;
 	no?: string;
-
-	//htmlContent: string;
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) protected data: { title: string, url: string, useBackButton: boolean, toConfirm?: boolean, yes?: string, no?: string },
@@ -51,15 +48,10 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 		this.no = data.no;
 	}
 
-	// /**
-	//  * HTML placeholder
-	//  */
-	// @ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
-
-	ngAfterViewInit() {
+	ngOnInit(): void {
 		this.httpClient.get(this.url, { responseType: 'text' }).subscribe({
 			next: response => {
-				this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(response);
+				this.htmlContentRef!.nativeElement.innerHTML = this.sanitizer.sanitize(SecurityContext.HTML, response);
 				this.ref.detectChanges();
 			},
 			error: (error: HttpErrorResponse | any) => {
@@ -87,11 +79,13 @@ export class HtmlHRefDialogComponent implements AfterViewInit {
 					errMsg = error.message ? error.message : error.toString();
 				}
 
-				this.safeHtml = errMsg;
+				this.htmlContentRef!.nativeElement.innerHTML = errMsg;
 				this.ref.detectChanges();
 			}
-		});
+		});		
+	}
 
+	ngAfterViewInit() {
 	}
 
 	confirm() {

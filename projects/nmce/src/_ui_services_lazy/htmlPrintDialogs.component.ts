@@ -1,6 +1,6 @@
 import { CommonModule, Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, Injectable, Renderer2, SecurityContext } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, Renderer2, SecurityContext, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { HtmlPrintFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
@@ -38,8 +38,8 @@ export class HtmlPrintDialogComponent extends HtmlDialogComponent {
 	}
 
 	print() {
-		if (this.safeHtml) {
-			const s = this.sanitizer.sanitize(SecurityContext.HTML, this.safeHtml);
+		if (this.htmlContentRef) {
+			const s = this.sanitizer.sanitize(SecurityContext.HTML, this.data.htmlContent);
 			HtmlPrintFunc.printWithCSS(s!, this.location.prepareExternalUrl(this.cssUrl));
 		} else {
 			console.error($localize`this.htmlContentElement does not exist.`);
@@ -76,8 +76,8 @@ export class HtmlHRefPrintDialogComponent extends HtmlHRefDialogComponent {
 	}
 
 	print() {
-		if (this.safeHtml) {
-			const s = this.sanitizer.sanitize(SecurityContext.HTML, this.safeHtml);
+		if (this.htmlContentRef!.nativeElement.innerHTML) {
+			const s = this.sanitizer.sanitize(SecurityContext.HTML, this.htmlContentRef!.nativeElement.innerHTML);
 			HtmlPrintFunc.print(s!);
 		} else {
 			console.error($localize`this.htmlContentElement does not exist.`);

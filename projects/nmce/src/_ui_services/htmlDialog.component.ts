@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, OnInit, Renderer2, SecurityContext, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
@@ -7,7 +7,7 @@ import { DialogSize } from './types';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 
 /**
  * Contain HTML content, used in HtmlDialogService.
@@ -20,10 +20,10 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule]
 })
-export class HtmlDialogComponent implements AfterViewInit {
+export class HtmlDialogComponent implements AfterViewInit, OnInit {
 	title: string;
-    safeHtml: SafeHtml='';
-    @ViewChild('htmlContent') htmlContentRef?: ElementRef;
+
+    @ViewChild('htmlContent', {static: true}) htmlContentRef?: ElementRef;
 	
 	useBackButton: boolean;
 	toConfirm?: boolean;
@@ -39,11 +39,14 @@ export class HtmlDialogComponent implements AfterViewInit {
 		protected ref: ChangeDetectorRef,
 	) {
 		this.title = data.title;
-        this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(data.htmlContent);
 		this.useBackButton = data.useBackButton;
 		this.toConfirm = data.toConfirm;
 		this.yes = data.yes;
 		this.no = data.no;
+	}
+
+	ngOnInit(): void {
+		this.htmlContentRef!.nativeElement.innerHTML = this.sanitizer.sanitize(SecurityContext.HTML, this.data.htmlContent);
 	}
 
     ngAfterViewInit(): void {

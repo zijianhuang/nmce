@@ -39,7 +39,7 @@ export class HtmlImgDialogComponent {
 		sessionStorage['HtmlImgDialogComponent.scaleToWidth'] = v ? 'true' : 'false';
 	}
 
-	@ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
+	@ViewChild('htmlContent', { static: true }) htmlContentElement: ElementRef; //used by derived class
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, imageUrl: string | SafeUrl, useBackButton: boolean, toConfirm?: boolean, yes?: string, no?: string },

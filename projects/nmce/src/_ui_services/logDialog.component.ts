@@ -49,7 +49,7 @@ export class LogDialogComponent implements AfterViewInit {
 		this._message = v;
 	}
 
-	@ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
+	@ViewChild('htmlContent', { static: true }) htmlContentElement?: ElementRef;
 
 	/**
 	 * @param data

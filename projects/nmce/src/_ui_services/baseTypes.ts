@@ -14,7 +14,7 @@ export class RootInjectorGuard { //thanks to https://indepth.dev/posts/1148/how-
 		console.debug(`Global [${type.name}] created.`); // name is correct only when build or serve with  --optimization=false
 		const parent = inject(type, { optional: true, skipSelf: true });
 		if (parent) {
-			throw Error($localize`[${type.name}]: trying to create multiple instances, but this service should be a singleton.`);
+			throw Error($localize`[${type.name}]: trying to create multiple instances, but this service should be a singleton. Please removed references in providers`);
 		}
 	}
 }
@@ -23,7 +23,7 @@ export class RootInjectorGuard { //thanks to https://indepth.dev/posts/1148/how-
  * Base type for event bus of an application event.
  * A component should inject a derived class in the constructor to receive or emit the event.
  * This class is basically a wrapper of Subject<T> of rxjs.
- * DP:
+ * DP: Derive from this if you have a single NgModule to provide among components referencing the NgModule which is imported during startup. Otherwise, derive from GlobalSubjectService to ensure singleton.
  */
  export abstract class AnySubjectService<T> {
 	private subject = new Subject<T>();
@@ -50,7 +50,7 @@ export class RootInjectorGuard { //thanks to https://indepth.dev/posts/1148/how-
 }
 
 /**
- * For singleton subject service.
+ * For singleton subject service. And a derive class should generally be provided in root.
  */
 export abstract class GlobalSubjectService<T> extends RootInjectorGuard {
 	private subject = new Subject<T>();
