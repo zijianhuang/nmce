@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { WaitMessage, WaitService } from '../_ui_services/wait.service';
@@ -18,7 +18,9 @@ export class WaitComponent implements OnInit, OnDestroy {
 	message: WaitMessage;
 	private bs: Subscription;
 
-	constructor(private waitService: WaitService) { }
+	constructor(private waitService: WaitService,
+		private cdr: ChangeDetectorRef,
+	) { }
 
 	loading = false;
 
@@ -30,6 +32,8 @@ export class WaitComponent implements OnInit, OnDestroy {
 				this.loading = this.message.loading;
 				console.debug('WaitComponent: ' + this.loading + ' ' + message.text);
 			}
+
+			this.cdr.detectChanges();
 		});
 	}
 

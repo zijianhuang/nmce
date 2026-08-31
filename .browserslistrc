@@ -6,10 +6,13 @@
 # You can see what browsers were selected by your queries by running:
 #   npx browserslist
 
-last 3 Chrome version
-last 3 Firefox version
-last 3 Edge major versions
-last 3 Safari major versions
-last 3 iOS major versions
+last 3 Chrome versions
+last 3 ChromeAndroid versions
+last 3 Firefox versions
+last 3 Edge versions
+last 3 Safari versions
+last 3 iOS versions
+last 3 Samsung versions
 Firefox ESR
-not IE 11 # Angular supports IE 11 only as an opt-in. To opt-in, remove the 'not' prefix on this line.
+not dead
+not IE 11

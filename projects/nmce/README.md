@@ -1,6 +1,6 @@
 # [NMCE package](https://www.npmjs.com/package/nmce)
 
-Please check [Angular Material Components Extensions](https://github.com/zijianhuang/nmce) for details.
+Please check [Angular Material Components Extensions](https://github.com/zijianhuang/nmce) for details, along with demo and showcases.
 
 ## Dialog styles for containing large content
 

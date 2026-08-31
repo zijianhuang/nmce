@@ -63,7 +63,7 @@ Hints:
 * Mixing these 2 component suites along with NMCE in the same app is surely feasible and economical.
 
 ## Based on [Angular](https://angular.dev/)
-* [primeng](https://primeng.org/)
+* [primeng](https://primeng.org/) or [Optimus UI](https://optimus.openng.org/)
 * [NG Bootstrap](https://ng-bootstrap.github.io/#/home)
 * [Nebular](https://akveo.github.io/nebular/)
 * [Angular implementation of the Carbon Design System for IBM](https://github.com/carbon-design-system/carbon-components-angular)

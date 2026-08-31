@@ -54,7 +54,8 @@ Hints:
 * Since December 2025, npmjs has changed the security models as described on https://github.blog/changelog/2025-12-09-npm-classic-tokens-revoked-session-based-auth-and-cli-token-management-now-available/.
 * For publishing packages from a dev machine, "granular access token with bypass 2FA" is used.
     1. Generate an access token in the account, which will expires in 90 days.
-    2. Update what in %users%myAccount/.npmrc with the token.
+    2. Update by running: `npm config set //registry.npmjs.org/:_authToken npm_sd8348347239472`
+
 
 ### Before publishing
 The package.json file of each library should declare dependencies. Because there are multiple libraries in a monorepo, which share a single root package.json, the fastest way to identify dependencies is to use `depcheck`. Run the following from time to time:
@@ -125,10 +126,3 @@ Just like NMCE, these component suites are relevant when you have already been u
 Hints:
 * Mixing these 2 component suites along with NMCE in the same app is surely feasible and economical.
 
-## Based on [Angular](https://angular.dev/)
-* [primeng](https://primeng.org/)
-* [NG Bootstrap](https://ng-bootstrap.github.io/#/home)
-* [Nebular](https://akveo.github.io/nebular/)
-* [Angular implementation of the Carbon Design System for IBM](https://github.com/carbon-design-system/carbon-components-angular)
-* [Ant Design of Angular](https://ng.ant.design/docs/introduce/en)
-* [Angular Aria](https://angular.dev/guide/aria)
