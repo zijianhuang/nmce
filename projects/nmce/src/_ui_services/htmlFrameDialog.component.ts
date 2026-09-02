@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { AfterViewInit, Component, ElementRef, Inject, Injectable, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
@@ -13,9 +13,9 @@ import { MatIconModule } from '@angular/material/icon';
  * Contain HTML content in iframe, used in HtmlFrameDialogService.
  */
 @Component({
-    selector: 'html-frame-dialog',
-    templateUrl: 'htmlFrameDialog.component.html',
-    standalone: true,
+	selector: 'html-frame-dialog',
+	templateUrl: 'htmlFrameDialog.component.html',
+	standalone: true,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule]
 })
 export class HtmlFrameDialogComponent implements AfterViewInit {
@@ -27,7 +27,7 @@ export class HtmlFrameDialogComponent implements AfterViewInit {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
 		public dialogRef: MatDialogRef<HtmlFrameDialogComponent>) {
 		this.title = data.title;
 		this.htmlContent = data.htmlContent;
@@ -54,13 +54,13 @@ export class HtmlFrameDialogComponent implements AfterViewInit {
  * Contain HTML content loaded from a url, used in HtmlHReflDialogService. If there's an error during loading, the error will be displayed inn the dialog body.
  */
 @Component({
-    selector: 'html-href-frame-dialog',
-    templateUrl: 'htmlFrameDialog.component.html',
-    styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
-    standalone: true,
+	selector: 'html-href-frame-dialog',
+	templateUrl: 'htmlFrameDialog.component.html',
+	styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
+	standalone: true,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule,]
 })
-export class HtmlHRefFrameDialogComponent implements AfterViewInit {
+export class HtmlHRefFrameDialogComponent implements OnInit {
 	title: string;
 
 	/**
@@ -78,9 +78,10 @@ export class HtmlHRefFrameDialogComponent implements AfterViewInit {
 	 */
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, url: string, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
 		public dialogRef: MatDialogRef<HtmlHRefFrameDialogComponent>, protected httpClient: HttpClient,
-		protected renderer: Renderer2) {
+		protected renderer: Renderer2,
+		protected cdr: ChangeDetectorRef) {
 		this.title = data.title;
 		this.url = data.url;
 		this.useBackButton = this.data.useBackButton;
@@ -91,46 +92,45 @@ export class HtmlHRefFrameDialogComponent implements AfterViewInit {
 	 */
 	@ViewChild('htmlContent', { static: true }) htmlContentElement?: ElementRef;
 
-	ngAfterViewInit() {
+	ngOnInit(): void {
 		this.httpClient.get(this.url, { responseType: 'text' }).subscribe(
-			response => {
-				if (this.htmlContentElement) {
-					this.htmlContentElement.nativeElement.srcdoc = response;
-					// setTimeout(() => {
-					// 	this.htmlContentElement?.nativeElement.contentDocument.head.insertAdjacentHTML('beforeend', '<base target="_blank" />');
-					// }, 300); // Hopefully 300ms is long enough for srcdoc done.
-				}
-			},
-			(error: HttpErrorResponse | any) => {
-				this.title = 'Cannot retrieve ' + this.title;
+			{
+				next: response => {
+					if (this.htmlContentElement) {
+						this.htmlContentElement.nativeElement.srcdoc = response;
+						this.cdr.markForCheck();
+					}
+				},
+				error: (error: HttpErrorResponse | any) => {
+					this.title = 'Cannot retrieve ' + this.title;
 
-				let errMsg: string;
-				if (error instanceof HttpErrorResponse) {
-					if (error.status === 0) {
-						if (error.url) {
-							const host = new URL(error.url).host;
-							errMsg = $localize`No response from backend ${host}. Connection is unavailable.`;
+					let errMsg: string;
+					if (error instanceof HttpErrorResponse) {
+						if (error.status === 0) {
+							if (error.url) {
+								const host = new URL(error.url).host;
+								errMsg = $localize`No response from backend ${host}. Connection is unavailable.`;
+							} else {
+								errMsg = $localize`No response from backend. Connection is unavailable.`;
+							}
 						} else {
-							errMsg = $localize`No response from backend. Connection is unavailable.`;
+							if (error.message) {
+								errMsg = `${error.status} - ${error.statusText}: ${error.message}`;
+							} else {
+								errMsg = `${error.status} - ${error.statusText}`;
+							}
 						}
+
+						errMsg += error.error ? (' ' + JSON.stringify(error.error)) : '';
 					} else {
-						if (error.message) {
-							errMsg = `${error.status} - ${error.statusText}: ${error.message}`;
-						} else {
-							errMsg = `${error.status} - ${error.statusText}`;
-						}
+						errMsg = error.message ? error.message : error.toString();
 					}
 
-					errMsg += error.error ? (' ' + JSON.stringify(error.error)) : '';
-				} else {
-					errMsg = error.message ? error.message : error.toString();
+					this.renderer.setProperty(this.htmlContentElement?.nativeElement, 'innerHTML', errMsg);
+					this.cdr.markForCheck();
 				}
-
-				this.renderer.setProperty(this.htmlContentElement?.nativeElement, 'innerHTML', errMsg);
 			});
-
 	}
-
 }
 
 /**

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input} from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, ChangeDetectorRef} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { WaitMessage, WaitProgressService } from '../_ui_services/wait.service';
@@ -19,10 +19,9 @@ import { WaitMessage, WaitProgressService } from '../_ui_services/wait.service';
 export class WaitProgressComponent implements OnInit, OnDestroy {
 	message: WaitMessage;
 	private bs: Subscription;
-
-	constructor(private waitService: WaitProgressService) { }
-
 	loading = false;
+
+	constructor(private waitService: WaitProgressService, private cdr: ChangeDetectorRef) { }
 
 	@Input()
 	value: number | undefined = 0;
@@ -45,6 +44,7 @@ export class WaitProgressComponent implements OnInit, OnDestroy {
 					this.mode = 'determinate';
 				}
 			}
+			this.cdr.markForCheck();
 		});
 	}
 

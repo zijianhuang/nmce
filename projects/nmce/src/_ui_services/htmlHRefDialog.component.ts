@@ -20,7 +20,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule]
 })
-export class HtmlHRefDialogComponent implements AfterViewInit, OnInit {
+export class HtmlHRefDialogComponent implements OnInit {
 	title: string;
 	@ViewChild('htmlContent', {static: true}) htmlContentRef?: ElementRef;
 	/**
@@ -83,9 +83,6 @@ export class HtmlHRefDialogComponent implements AfterViewInit, OnInit {
 				this.ref.detectChanges();
 			}
 		});		
-	}
-
-	ngAfterViewInit() {
 	}
 
 	confirm() {

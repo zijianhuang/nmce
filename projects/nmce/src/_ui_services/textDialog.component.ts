@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { AfterViewInit, Component, ElementRef, Inject, Injectable, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DialogSize, DialogSizeToSize } from '../_ui_services/types';
@@ -20,7 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 	standalone: true,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule]
 })
-export class TextDialogComponent implements AfterViewInit {
+export class TextDialogComponent implements OnInit, AfterViewInit {
 	title: string;
 
 	lines: string;
@@ -38,13 +38,12 @@ export class TextDialogComponent implements AfterViewInit {
 
 	@ViewChild('htmlContent', { static: true }) htmlContentElement: ElementRef;
 
-	ngAfterViewInit() {
+	ngOnInit() {
 		this.htmlContentElement.nativeElement.insertAdjacentHTML('beforeend', this.lines);
 	}
 
-	//close(): void {
-	//    this.dialogRef.close();
-	//}
+	ngAfterViewInit() {
+	}
 }
 
 /**
@@ -59,7 +58,7 @@ export class TextDialogComponent implements AfterViewInit {
 	standalone: true,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule,]
 })
-export class TextHRefDialogComponent implements AfterViewInit {
+export class TextHRefDialogComponent implements OnInit {
 	title: string;
 
 	/**
@@ -72,7 +71,7 @@ export class TextHRefDialogComponent implements AfterViewInit {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) data: { title: string, url: string, useBackButton: boolean },
 		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
-		public dialogRef: MatDialogRef<TextDialogComponent>, private httpClient: HttpClient) {
+		public dialogRef: MatDialogRef<TextDialogComponent>, private httpClient: HttpClient, private cdr: ChangeDetectorRef) {
 		this.title = data.title;
 		this.url = data.url;
 		this.useBackButton = data.useBackButton;
@@ -83,38 +82,44 @@ export class TextHRefDialogComponent implements AfterViewInit {
 	 */
 	@ViewChild('htmlContent', { static: true }) htmlContentElement?: ElementRef;
 
-	ngAfterViewInit() {
+	ngOnInit(): void {
 		this.httpClient.get(this.url, { responseType: 'text' }).subscribe(
-			response => {
-				this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', response);
-			},
-			(error: HttpErrorResponse | any) => {
-				this.title = 'Cannot retrieve ' + this.title;
+			{
+				next: response => {
+					this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', response);
+					this.cdr.markForCheck();
+				},
+				error:
+					(error: HttpErrorResponse | any) => {
+						this.title = 'Cannot retrieve ' + this.title;
 
-				let errMsg: string;
-				if (error instanceof HttpErrorResponse) {
-					if (error.status === 0) {
-						if (error.url) {
-							const host = new URL(error.url).host;
-							errMsg = $localize`No response from backend ${host}. Connection is unavailable.`;
+						let errMsg: string;
+						if (error instanceof HttpErrorResponse) {
+							if (error.status === 0) {
+								if (error.url) {
+									const host = new URL(error.url).host;
+									errMsg = $localize`No response from backend ${host}. Connection is unavailable.`;
+								} else {
+									errMsg = $localize`No response from backend. Connection is unavailable.`;
+								}
+							} else {
+								if (error.message) {
+									errMsg = `${error.status} - ${error.statusText}: ${error.message}`;
+								} else {
+									errMsg = `${error.status} - ${error.statusText}`;
+								}
+							}
+
+							errMsg += error.error ? (' ' + JSON.stringify(error.error)) : '';
 						} else {
-							errMsg = $localize`No response from backend. Connection is unavailable.`;
+							errMsg = error.message ? error.message : error.toString();
 						}
-					} else {
-						if (error.message) {
-							errMsg = `${error.status} - ${error.statusText}: ${error.message}`;
-						} else {
-							errMsg = `${error.status} - ${error.statusText}`;
-						}
+
+						this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', errMsg);
+						this.cdr.markForCheck();
 					}
-
-					errMsg += error.error ? (' ' + JSON.stringify(error.error)) : '';
-				} else {
-					errMsg = error.message ? error.message : error.toString();
-				}
-
-				this.htmlContentElement?.nativeElement.insertAdjacentHTML('beforeend', errMsg);
 			});
+
 	}
 }
 

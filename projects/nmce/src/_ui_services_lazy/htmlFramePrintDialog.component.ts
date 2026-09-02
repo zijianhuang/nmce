@@ -15,16 +15,16 @@ import { MatIconModule } from '@angular/material/icon';
  * Contain HTML content in iframe, used in HtmlFrameDialogService.
  */
 @Component({
-    selector: 'html-frame-print-dialog',
-    templateUrl: 'htmlFramePrintDialog.component.html',
-    styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
-     standalone: true,
+	selector: 'html-frame-print-dialog',
+	templateUrl: 'htmlFramePrintDialog.component.html',
+	styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
+	standalone: true,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule]
 })
 export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
 		public dialogRef: MatDialogRef<HtmlFrameDialogComponent>, private location: Location) {
 		super(data, actionsAlign, dialogRef);
 	}
@@ -41,10 +41,10 @@ export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
  * Contain HTML content loaded from a url, used in HtmlHReflDialogService. If there's an error during loading, the error will be displayed inn the dialog body.
  */
 @Component({
-    selector: 'html-href-frame-print-dialog',
-    templateUrl: 'htmlFramePrintDialog.component.html',
-    styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
-    standalone: true,
+	selector: 'html-href-frame-print-dialog',
+	templateUrl: 'htmlFramePrintDialog.component.html',
+	styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
+	standalone: true,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule]
 })
@@ -57,11 +57,12 @@ export class HtmlHRefFramePrintDialogComponent extends HtmlHRefFrameDialogCompon
 	 */
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, url: string, useBackButton: boolean },
-		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end', 
-		public dialogRef: MatDialogRef<HtmlHRefFrameDialogComponent>, 
+		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
+		public dialogRef: MatDialogRef<HtmlHRefFrameDialogComponent>,
 		protected httpClient: HttpClient, private location: Location,
-		protected renderer: Renderer2) {
-		super(data, actionsAlign, dialogRef, httpClient, renderer);
+		protected renderer: Renderer2,
+		protected cdr: ChangeDetectorRef) {
+		super(data, actionsAlign, dialogRef, httpClient, renderer, cdr);
 	}
 
 	print() {
