@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -14,6 +14,7 @@ import { AlertService, DataComponent, HtmlDialogService, HtmlFrameDialogService,
 @Component({
     templateUrl: 'htmlDialogs.component.html',
     standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [FormsModule, ReactiveFormsModule, MatFormFieldModule, MatSelectModule, MatIconModule, MatCheckboxModule, MatButtonModule]
 })
 export class HtmlDialogsComponent implements DataComponent {

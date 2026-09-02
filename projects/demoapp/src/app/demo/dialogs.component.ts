@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
 	AlertService, DataComponentPrintDialogService, LazyComponentDialogService, TextDialogService, TextHReflDialogService,
@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
     templateUrl: 'dialogs.component.html',
     standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [FormsModule, ReactiveFormsModule, MatFormFieldModule, MatButtonModule, MatSelectModule, MatCheckboxModule, MatIconModule]
 })
 export class DialogsComponent implements OnInit {

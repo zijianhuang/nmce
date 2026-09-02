@@ -1,4 +1,4 @@
-import { Component, Inject, Injectable, OnInit } from '@angular/core';
+import { Component, Inject, Injectable, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { AlertService, DIALOG_ACTIONS_ALIGN } from 'nmce';
 import { Observable } from 'rxjs';
@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 	templateUrl: './htmlDocEditorDialogBase.directive.html',
 	standalone: true,
     styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatIconModule, FormsModule, ReactiveFormsModule,
 		AngularEditorModule,
 	]

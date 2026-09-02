@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, OnInit, Renderer2, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 	selector: 'html-frame-dialog',
 	templateUrl: 'htmlFrameDialog.component.html',
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule]
 })
 export class HtmlFrameDialogComponent implements AfterViewInit {
@@ -58,6 +59,7 @@ export class HtmlFrameDialogComponent implements AfterViewInit {
 	templateUrl: 'htmlFrameDialog.component.html',
 	styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule,]
 })
 export class HtmlHRefFrameDialogComponent implements OnInit {

@@ -1,4 +1,4 @@
-import { Component, Inject, Injectable, OnInit } from '@angular/core';
+import { Component, Inject, Injectable, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { AlertService } from '../_ui_services/alert.service';
@@ -22,6 +22,7 @@ import { MatInputModule } from '@angular/material/input';
     styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css',
 		'../../styles/nmce-dialog.css'
 	],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatIconModule, TextFieldModule]
 })
 export class LocalTextEditorDialogComponent extends TextEditorDialogComponentBase implements OnInit {

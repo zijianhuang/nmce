@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { Location } from '@angular/common';
 
 /**
@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
  */
 @Component({
     templateUrl: 'wip.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: true,
 })
 export class WIPComponent implements OnInit {

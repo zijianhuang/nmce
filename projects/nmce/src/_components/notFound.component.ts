@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 
 /**
@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 @Component({
     //no need to have selector
     templateUrl: 'notFound.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: true
 })
 export class NotFoundComponent implements OnInit {

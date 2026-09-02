@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DialogSize, DialogSizeToSize } from '../_ui_services/types';
@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 		'../../styles/nmce-dialog.css'
 	],
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule]
 })
 export class TextDialogComponent implements OnInit, AfterViewInit {
@@ -56,6 +57,7 @@ export class TextDialogComponent implements OnInit, AfterViewInit {
 		'../../styles/nmce-dialog.css'
 	],
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule,]
 })
 export class TextHRefDialogComponent implements OnInit {

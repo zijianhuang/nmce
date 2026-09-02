@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 import { HtmlPrintFunc } from 'nmce-func';
 
 /**
@@ -11,6 +11,7 @@ import { HtmlPrintFunc } from 'nmce-func';
     template: `
 	 <button (click)="printDiv()" mat-raised-button mdTooltip="Print content" i18n>Print</button>
 	`,
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: true
 })
 export class PrintComponent implements OnInit {//inspired by https://www.linkedin.com/pulse/create-print-component-angular2-which-user-defined-html-rajesh-g

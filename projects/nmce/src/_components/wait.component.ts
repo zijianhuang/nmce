@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { WaitMessage, WaitService } from '../_ui_services/wait.service';
@@ -10,6 +10,7 @@ import { WaitMessage, WaitService } from '../_ui_services/wait.service';
     selector: 'wait, nmce-wait, nmceWait',
     templateUrl: 'wait.component.html',
     standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [
 		MatProgressBarModule
 	]

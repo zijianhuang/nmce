@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ActionSheetItemSubjectService, LocalAlertService, WaitService, WaitComponent, NmceComponentsModule } from 'nmce';
 import { MatSelect, MatSelectModule } from "@angular/material/select";
@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 @Component({
     templateUrl: 'components.component.html',
     standalone: true,
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [NmceComponentsModule, MatSelectModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, ReactiveFormsModule],
 })
 export class ComponentsComponent implements OnInit {

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Inject, InjectionToken, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, InjectionToken, Renderer2, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 import { AlertSubjectMessage } from './types';
@@ -37,6 +37,7 @@ export const LOG_DIALOG_OPTIONS = new InjectionToken<MessageDialogOptions>('Dial
     templateUrl: 'logDialog.component.html',
     styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
     standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, CommonModule, MatIconModule]
 })
 export class LogDialogComponent implements AfterViewInit {

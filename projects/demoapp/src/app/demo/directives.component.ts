@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { DemoInputDialogService } from './demoInput.dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,6 +12,7 @@ import { AutofocusDirective } from 'nmce-directives';
 @Component({
     templateUrl: 'directives.component.html',
     standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [MatFormFieldModule, MatButtonModule, MatInputModule, AutofocusDirective]
 })
 export class DirectivesComponent implements OnInit {

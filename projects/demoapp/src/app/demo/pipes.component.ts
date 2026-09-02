@@ -1,11 +1,12 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { DateTime } from 'luxon';
 import { BankerRoundPipe, LiteralDatePipe, PadPipe } from 'nmce-pipes';
 
 @Component({
     templateUrl: 'pipes.component.html',
     standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [LiteralDatePipe, BankerRoundPipe, PadPipe, CurrencyPipe]
 })
 export class PipesComponent implements OnInit {

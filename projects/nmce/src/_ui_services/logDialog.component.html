@@ -24,7 +24,7 @@
 	</div>
 }
 
-	@if (['text', 'html', 'json'].indexOf(message?.contentType!)>=0 && message?.text) {
+	@if (['text', 'html', 'json'].indexOf($safeNavigationMigration(message?.contentType)!)>=0 && message?.text) {
 
 		<html>
 

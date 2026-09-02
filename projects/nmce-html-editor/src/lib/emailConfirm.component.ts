@@ -1,4 +1,4 @@
-import { Component, Inject, Injectable, Input } from '@angular/core';
+import { Component, Inject, Injectable, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
@@ -32,6 +32,7 @@ export interface EmailMessage {
     templateUrl: 'emailConfirm.component.html',
     standalone: true,
     styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatIconModule, FormsModule, ReactiveFormsModule,
 		AngularEditorModule,
 	]

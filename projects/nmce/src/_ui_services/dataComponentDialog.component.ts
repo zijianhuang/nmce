@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Inject, Injectable, Input, OnDestroy, Type, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Inject, Injectable, Input, OnDestroy, Type, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DataComponent } from '../_types/DataComponent';
@@ -21,6 +21,7 @@ import { DataComponentDirective } from '../_types/dataComponent.directive';
 		'../../styles/nmce-dialog.css'
 	],
     standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule, DataComponentDirective]
 })
 export class DataComponentDialog implements AfterViewInit {

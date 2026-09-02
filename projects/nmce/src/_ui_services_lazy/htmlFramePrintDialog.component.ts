@@ -19,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 	templateUrl: 'htmlFramePrintDialog.component.html',
 	styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule]
 })
 export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {

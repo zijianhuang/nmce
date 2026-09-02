@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, RouterModule } from '@angular/router';
 import {MatTabsModule} from '@angular/material/tabs'
@@ -6,6 +6,7 @@ import {MatTabsModule} from '@angular/material/tabs'
     selector: 'demo-index',
     templateUrl: 'demo-index.component.html',
     standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [RouterModule, MatTabsModule]
 })
 export class DemoIndexComponent implements OnInit {

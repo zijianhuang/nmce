@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatListModule, MatSelectionListChange } from '@angular/material/list';
 import { Observable } from 'rxjs';
@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
     templateUrl: './itemListDialog.component.html',
     styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
     standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatListModule]
 })
 export class ItemListDialogComponent {

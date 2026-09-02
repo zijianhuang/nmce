@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, Inject, Injectable, OnDestroy } from '@angular/core';
+import { Component, Inject, Injectable, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { StringFunc } from 'nmce-func';
 import { Observable, Subscription } from 'rxjs';
@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
     templateUrl: 'timePicker.component.html',
     styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
     standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [FormsModule, ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatSelectModule]
 })
 export class TimePickerComponent {

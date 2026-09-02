@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Injectable, ViewChild, ElementRef, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LazyComponentDialogService, DataComponent } from 'nmce';
 import { diff } from 'jsondiffpatch';
@@ -7,6 +7,7 @@ import  {format} from 'jsondiffpatch/formatters/html';
 @Component({
     selector: 'json-diff-page',
     templateUrl: 'jsonDiffPage.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: true
 })
 export class JsonDiffComponent implements DataComponent, OnInit, AfterViewInit {

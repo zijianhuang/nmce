@@ -1,5 +1,5 @@
 
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressBar, MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectChange, MatSelectModule } from '@angular/material/select';
@@ -12,6 +12,7 @@ import { DateTime } from 'luxon';
 	selector: 'month-year-expiry, nmce-month-year-expiry',
 	templateUrl: 'monthYearExpiry.component.html',
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [
     FormsModule,
     ReactiveFormsModule,

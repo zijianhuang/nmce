@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -21,6 +21,7 @@ import { EmailConfirmService, LocalDocEditorDialogService } from 'nmce-html-edit
 @Component({
     templateUrl: 'inputDialogs.component.html',
     standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [FormsModule, MatIconModule, MatCheckboxModule, MatButtonModule],
 
 })

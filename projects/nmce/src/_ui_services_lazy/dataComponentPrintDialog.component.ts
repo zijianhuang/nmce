@@ -1,8 +1,9 @@
 import { Location } from '@angular/common';
 import {
-	Component,
-	ElementRef, Inject, Injectable,
-	Type, ViewChild
+  Component,
+  ElementRef, Inject, Injectable,
+  Type, ViewChild,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { AlertService } from '../_ui_services/alert.service';
@@ -26,6 +27,7 @@ import { DataComponentDirective } from '../_types/dataComponent.directive';
 		'../../styles/nmce-dialog.css'
 	],
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [MatButtonModule, MatDialogModule, MatIconModule, DataComponentDirective]
 })
 export class DataComponentPrintDialog extends DataComponentDialog {

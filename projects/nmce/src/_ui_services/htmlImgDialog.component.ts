@@ -1,4 +1,4 @@
-import { Component, ElementRef, Inject, Injectable, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, Injectable, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { SafeUrl } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
     templateUrl: 'htmlImgDialog.component.html',
     styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
     standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule, CommonModule]
 })
 export class HtmlImgDialogComponent {

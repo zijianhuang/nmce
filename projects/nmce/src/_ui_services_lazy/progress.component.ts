@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Inject, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Injectable } from '@angular/core';
 
@@ -15,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
     templateUrl: 'progress.component.html',
     standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [MatButtonModule, MatDialogModule, MatProgressBarModule]
 })
 export class ProgressComponent {

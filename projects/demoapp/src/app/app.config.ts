@@ -1,4 +1,4 @@
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -34,7 +34,7 @@ export const appConfig: ApplicationConfig = {
       }
     },
 
-    provideHttpClient(
+    provideHttpClient(withXhr(), 
       withInterceptorsFromDi()
     ),
 

@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 import { AlertSubjectMessage } from './types';
 import { CommonModule } from '@angular/common';
@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
     templateUrl: 'logSnack.component.html',
     styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
     standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [CommonModule]
 })
 export class LogSnackComponent {

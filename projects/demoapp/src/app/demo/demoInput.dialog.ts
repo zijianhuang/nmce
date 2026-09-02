@@ -1,4 +1,4 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -9,6 +9,7 @@ import { AutofocusDirective } from 'nmce-directives';
     selector: 'demo-dialog',
     templateUrl: 'demoInput.dialog.html',
     standalone: true,
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [MatFormFieldModule, MatInputModule, MatButtonModule, AutofocusDirective]
 })
   export class DemoInputComponent {

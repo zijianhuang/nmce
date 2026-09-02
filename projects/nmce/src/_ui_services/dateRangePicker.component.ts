@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, Inject, Injectable } from '@angular/core';
+import { Component, Inject, Injectable, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { DateFunc } from 'nmce-func';
 import { Observable } from 'rxjs';
@@ -21,6 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 	templateUrl: 'dateRangePicker.component.html',
 	styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatDatepickerModule, MatFormFieldModule, MatInputModule, FormsModule,]
 })
 export class DateRangePickerComponent {

@@ -1,5 +1,5 @@
 import { state, style, transition, trigger, useAnimation } from '@angular/animations';
-import { Component, OnDestroy, OnInit, VERSION } from '@angular/core';
+import { Component, OnDestroy, OnInit, VERSION, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { bounceInDown, flash } from 'ng-animate';
@@ -30,6 +30,7 @@ import { ThemeMenu } from './theme-menu.component';
 		])
 	],
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [MatIconModule, MatButtonModule, MatBadgeModule, RouterModule, 
 		MatTooltipModule, MatMenuModule, ThemeMenu, ThemeNmMenu]
 })

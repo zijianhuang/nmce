@@ -1,4 +1,4 @@
-import { Component, Inject, Injectable, Input } from '@angular/core';
+import { Component, Inject, Injectable, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
     templateUrl: 'passwordsInput.component.html',
     styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
     standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule]
 })
 export class PasswordsInputComponent {
