@@ -184,7 +184,7 @@ if (r) {
 	ThemeLoader.loadTheme(r.filePath);
 }
 
-platformBrowser().bootstrapModule(AppModule, { applicationProviders: [provideZoneChangeDetection()], })
+platformBrowser().bootstrapModule(AppModule, { applicationProviders: [provideZoneLessChangeDetection()], })
 	.catch(err => console.error(err));
 
 function findFirstTheme(dark: boolean): { filePath: string; theme: ThemeValue } | undefined {

@@ -17,12 +17,11 @@ import { WaitMessage, WaitService } from '../_ui_services/wait.service';
 export class WaitComponent implements OnInit, OnDestroy {
 	message: WaitMessage;
 	private bs: Subscription;
+	loading = false;
 
 	constructor(private waitService: WaitService,
 		private cdr: ChangeDetectorRef,
 	) { }
-
-	loading = false;
 
 	ngOnInit() {
 		console.debug('WaitComponent init.');
@@ -33,7 +32,7 @@ export class WaitComponent implements OnInit, OnDestroy {
 				console.debug('WaitComponent: ' + this.loading + ' ' + message.text);
 			}
 
-			this.cdr.detectChanges();
+			this.cdr.markForCheck();
 		});
 	}
 

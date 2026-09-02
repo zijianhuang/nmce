@@ -55,7 +55,7 @@ export class HtmlDialogComponent implements AfterViewInit, OnInit {
             anchors.forEach(a => this.renderer.setAttribute(a, 'target', '_blank'));
         }
 
-		this.ref.detectChanges();
+		this.ref.markForCheck();
     }
 
 	confirm() {

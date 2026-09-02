@@ -58,7 +58,7 @@ export class AlertComponent implements OnInit, OnDestroy {
 				}
 			}
 
-			this.ref.detectChanges();
+			this.ref.markForCheck();
 		});
 	}
 
