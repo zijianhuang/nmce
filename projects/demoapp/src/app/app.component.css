@@ -1,0 +1,15 @@
+@keyframes bounceInDown {
+	0%, 60%, 75%, 90%, 100% { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+	0%   { opacity: 0; transform: translate3d(0, -300px, 0); }
+	60%  { opacity: 1; transform: translate3d(0, 25px, 0); }
+	75%  { transform: translate3d(0, -10px, 0); }
+	90%  { transform: translate3d(0, 5px, 0); }
+	100% { transform: translate3d(0, 0, 0); }
+}
+.bounce-in-down { animation: bounceInDown 1s both; }
+
+@keyframes flash {
+	0%, 50%, 100% { opacity: 1; }
+	25%, 75%      { opacity: 0.25; }
+}
+.flash { animation: flash 0.8s; }

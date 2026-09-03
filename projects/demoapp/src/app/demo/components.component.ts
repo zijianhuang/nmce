@@ -82,24 +82,24 @@ export class ComponentsComponent implements OnInit {
 			message: 'Find out more ad dsfsdsadfsd sdfsdsdfsdffsdf sdfsdfsfdetails' + id,
 		});
 		
-		this.actionSheetItemSubjectService.emit({
-			actionType: 'test',
-			actionId: id,
-			message: 'kkk Find out more sdf sdfsadf sdafas asdfas sdafsddfsddetails no actionLabel' + id,
-		});
+		// this.actionSheetItemSubjectService.emit({
+		// 	actionType: 'test',
+		// 	actionId: id,
+		// 	message: 'kkk Find out more sdf sdfsadf sdafas asdfas sdafsddfsddetails no actionLabel' + id,
+		// });
 		
-		this.actionSheetItemSubjectService.emit({
-			actionType: 'test',
-			actionId: id,
-			actionLabel: '222 Hey do something s' + id,
-			message: '222 Find out more ad dsfsdsadfsd sdfsdsdfsdffsdf sdfsdfsfdetails' + id,
-		});
+		// this.actionSheetItemSubjectService.emit({
+		// 	actionType: 'test',
+		// 	actionId: id,
+		// 	actionLabel: '222 Hey do something s' + id,
+		// 	message: '222 Find out more ad dsfsdsadfsd sdfsdsdfsdffsdf sdfsdfsfdetails' + id,
+		// });
 		
-		this.actionSheetItemSubjectService.emit({
-			actionType: 'test',
-			actionId: id,
-			message: '2222 kkk Find out more sdf sdfsadf sdafas asdfas sdafsddfsddetails no actionLabel' + id,
-		});
+		// this.actionSheetItemSubjectService.emit({
+		// 	actionType: 'test',
+		// 	actionId: id,
+		// 	message: '2222 kkk Find out more sdf sdfsadf sdafas asdfas sdafsddfsddetails no actionLabel' + id,
+		// });
 		
 	}
 }

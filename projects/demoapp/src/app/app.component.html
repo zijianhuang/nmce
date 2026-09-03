@@ -28,12 +28,12 @@
 	<router-outlet></router-outlet>
 </div>
 
-@if (notificationsCount) {
+@if (notificationsCount()) {
 <div class="fixed-bottom">
 	<div class="fx-column-gap-half fx-align-end-end">
-		<button [@newNotificationComing]="notificationsState" type="button" mat-icon-button
+		<button animate.enter="bounce-in-down" [class.flash]="flashActive()" type="button" mat-icon-button
 			(click)="showNotifications()" matTooltip="Show notifications">
-			<mat-icon matBadge="{{notificationsCount}}" matBadgeColor="warn">notifications</mat-icon>
+			<mat-icon matBadge="{{notificationsCount()}}" matBadgeColor="warn">notifications</mat-icon>
 		</button>
 	</div>
 </div>

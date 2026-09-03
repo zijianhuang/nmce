@@ -1,5 +1,5 @@
 import { state, style, transition, trigger, useAnimation } from '@angular/animations';
-import { Component, OnDestroy, OnInit, VERSION, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnDestroy, OnInit, VERSION, ChangeDetectionStrategy, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { bounceInDown, flash } from 'ng-animate';
@@ -20,32 +20,24 @@ import { ThemeMenu } from './theme-menu.component';
 	selector: 'app-root',
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.css'],
-	animations: [
-		trigger('newNotificationComing', [
-			state('zero', style({})),
-			state('more', style({})),
-			state('one', style({})),
-			transition('zero => *', useAnimation(bounceInDown, { delay: 500 })),
-			transition('* => *', useAnimation(flash, { delay: 200 })),
-		])
-	],
 	standalone: true,
 	changeDetection: ChangeDetectionStrategy.Eager,
-	imports: [MatIconModule, MatButtonModule, MatBadgeModule, RouterModule, 
+	imports: [MatIconModule, MatButtonModule, MatBadgeModule, RouterModule,
 		MatTooltipModule, MatMenuModule, ThemeMenu, ThemeNmMenu]
 })
 export class AppComponent implements OnDestroy, OnInit {
 	title = 'demoapp';
 
-	notificationsState = 'zero';
-	private unsubscribe: Subject<void> = new Subject();
+	flashActive = signal(false);
 
-	get notificationsCount() {
-		if (this.notificationsService.items.length === 0) { //this count is associated to ngIf in html, so called frequently by NG runtime.
-			this.notificationsState = 'zero';
-		}
+	notificationsCount = signal(0);
 
-		return this.notificationsService.items.length;
+	private triggerFlash() {
+		this.flashActive.set(false); // reset in case it's mid-animation
+		queueMicrotask(() => {
+			this.flashActive.set(true);
+			setTimeout(() => this.flashActive.set(false), 800); // match keyframe duration
+		});
 	}
 
 	themes?: ThemeDef[];
@@ -73,7 +65,11 @@ export class AppComponent implements OnDestroy, OnInit {
 
 		this.alertService.initOnce();
 		this.actionSheetItemSubjectService.getMessage().subscribe(
-			d => this.showNotifications()
+			d => {
+				this.syncNotificationsCount();
+				this.triggerFlash();
+				this.showNotifications();
+			}
 		);
 	}
 
@@ -81,6 +77,9 @@ export class AppComponent implements OnDestroy, OnInit {
 
 	}
 
+	private syncNotificationsCount() {
+		this.notificationsCount.set(this.notificationsService.items.length);
+	}
 	/**
 	 * Only app.component should call notificationsService.open(). All other parts of the SPA should use event handling to call showNotifications().
 	 * This is also hooked to <button *ngIf="notificationsCount>0" [@newNotificationComing]="notificationsState" type="button" mat-raised-button (click)="showNotifications()"
@@ -101,14 +100,13 @@ export class AppComponent implements OnDestroy, OnInit {
 				}
 
 				this.notificationsService.remove(actionItem);
+				this.syncNotificationsCount(); // count changed → update the signal here, not in a getter
 			}
 		});
 
 	}
 
 	ngOnDestroy() {
-		this.unsubscribe.next();
-		this.unsubscribe.complete();
 	}
 
 	showAbout() {

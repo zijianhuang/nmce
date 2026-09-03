@@ -1,6 +1,5 @@
 import { Component, Inject, Injectable, ChangeDetectionStrategy } from '@angular/core';
 import { MatBottomSheet, MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { ActionSheetItemSubjectService, RootInjectorGuard } from './baseTypes';
 import { ActionSheetItem } from './types';
