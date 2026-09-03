@@ -79,27 +79,27 @@ export class ComponentsComponent implements OnInit {
 			actionType: 'test',
 			actionId: id,
 			actionLabel: 'Hey do something s' + id,
-			message: 'Find out more ad dsfsdsadfsd sdfsdsdfsdffsdf sdfsdfsfdetails' + id,
+			message: 'Find out more ad 11111111111' + id,
 		});
 		
-		// this.actionSheetItemSubjectService.emit({
-		// 	actionType: 'test',
-		// 	actionId: id,
-		// 	message: 'kkk Find out more sdf sdfsadf sdafas asdfas sdafsddfsddetails no actionLabel' + id,
-		// });
+		this.actionSheetItemSubjectService.emit({
+			actionType: 'test',
+			actionId: id,
+			message: 'kkk Find out more 22222222222222 no actionLabel' + id,
+		});
 		
-		// this.actionSheetItemSubjectService.emit({
-		// 	actionType: 'test',
-		// 	actionId: id,
-		// 	actionLabel: '222 Hey do something s' + id,
-		// 	message: '222 Find out more ad dsfsdsadfsd sdfsdsdfsdffsdf sdfsdfsfdetails' + id,
-		// });
+		this.actionSheetItemSubjectService.emit({
+			actionType: 'test',
+			actionId: id,
+			actionLabel: '3333 Hey do something s' + id,
+			message: '3333 Find out more ad ' + id,
+		});
 		
-		// this.actionSheetItemSubjectService.emit({
-		// 	actionType: 'test',
-		// 	actionId: id,
-		// 	message: '2222 kkk Find out more sdf sdfsadf sdafas asdfas sdafsddfsddetails no actionLabel' + id,
-		// });
+		this.actionSheetItemSubjectService.emit({
+			actionType: 'test',
+			actionId: id,
+			message: '44444 kkk Find out more sdf no actionLabel' + id,
+		});
 		
 	}
 }

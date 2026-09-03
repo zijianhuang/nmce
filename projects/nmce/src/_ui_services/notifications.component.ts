@@ -110,7 +110,7 @@ export class NotificationsService extends RootInjectorGuard {
 		)
 	}
 
-	private bottomSheetRef: MatBottomSheetRef<NotificationsComponent>;
+	private bottomSheetRef?: MatBottomSheetRef<NotificationsComponent>;
 
 	/**
 	 * 
@@ -118,11 +118,16 @@ export class NotificationsService extends RootInjectorGuard {
 	 * @returns clicked item
 	 */
 	open(title: string, disableClose = false): Observable<ActionSheetItem> {
-		this.bottomSheetRef = this.bottomSheet.open(NotificationsComponent, {
-			disableClose: disableClose,
-			data: {title: title},
-		});
-
+		if (!this.bottomSheetRef) {
+			this.bottomSheetRef = this.bottomSheet.open(NotificationsComponent, {
+				disableClose: disableClose,
+				data: { title: title },
+			});
+			this.bottomSheetRef.afterDismissed().subscribe(() => {
+				this.bottomSheetRef = undefined;
+			});
+			console.debug('bottomSheetRef opened.');
+		}
 		return this.bottomSheetRef.afterDismissed();
 	}
 
