@@ -10,6 +10,6 @@
     "url": "git+https://github.com/zijianhuang/nmce.git"
   },
   "dependencies": {
-    "nmce": "^2.1.0"
+    "nmce": "^2.2.6"
   }
 }

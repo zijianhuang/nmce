@@ -1,8 +1,7 @@
-import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection, importProvidersFrom, provideZonelessChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideBrowserGlobalErrorListeners, importProvidersFrom, provideZonelessChangeDetection } from '@angular/core';
 import {
   ActionSheetItemSubjectService, DIALOG_ACTIONS_ALIGN, LOG_DIALOG_OPTIONS, Nmce_UI_ServicesModule,
   NotificationsService
@@ -21,7 +20,6 @@ export const appConfig: ApplicationConfig = {
       BrowserModule,
       AppRoutingModule,
       RouterModule,
-      BrowserAnimationsModule,
       Nmce_UI_ServicesModule,
     ),
 
@@ -34,9 +32,7 @@ export const appConfig: ApplicationConfig = {
       }
     },
 
-    provideHttpClient(withXhr(), 
-      withInterceptorsFromDi()
-    ),
+    provideHttpClient(withInterceptorsFromDi()),
 
     {
       provide: 'print.cssUrl',
