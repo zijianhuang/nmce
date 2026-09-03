@@ -18,8 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
  * and the Register button may become disabled when the user is just registered.
  */
 @Component({
-    templateUrl: 'dialogs.component.html',
-    standalone: true,
+	templateUrl: 'dialogs.component.html',
+	standalone: true,
 	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [FormsModule, ReactiveFormsModule, MatFormFieldModule, MatButtonModule, MatSelectModule, MatCheckboxModule, MatIconModule]
 })
@@ -133,15 +133,19 @@ export class DialogsComponent implements OnInit {
 				break;
 			case 2: //text
 				this.http.get('http://localhost:5000/api/values/666').subscribe(
-					d => { },
-					error => this.alertService.error(error),
+					{
+						next: d => { },
+						error: error => this.alertService.error(error),
+					}
 				);
 
 				break;
 			case 3:
 				this.http.get('https://graph.facebook.com/facebook/picture?redirect=ccc').subscribe(
-					d => { },
-					error => this.alertService.error(error),
+					{
+						next: d => { },
+						error: error => this.alertService.error(error),
+					}
 				);
 
 				break;
@@ -217,29 +221,29 @@ DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ddddddddddddddddddddddddddddddddd
 			{ autofocus: true, fullScreen: this.sizeSelectedControl.value == 1 }).subscribe();
 	}
 
-	showProgressDialogIndeterminate(){
+	showProgressDialogIndeterminate() {
 		this.progressDialogService.open('Email sending', 'Please wait... Closing in 3 seconds', 'indeterminate').subscribe();
 		setTimeout(() => {
 			this.progressDialogService.closeIfOpened();
 		}, 3000);
 	}
 
-	showProgressDialog(){
+	showProgressDialog() {
 		this.progressDialogService.open('Uploading...', 'Ready to upload...', 'buffer', 100).subscribe();
 		setTimeout(() => {
-			this.progressDialogService.set({message: '10%', loaded: 10});
+			this.progressDialogService.set({ message: '10%', loaded: 10 });
 		}, 1000);
 
 		setTimeout(() => {
-			this.progressDialogService.set({message: '50%', loaded: 50});
+			this.progressDialogService.set({ message: '50%', loaded: 50 });
 		}, 2000);
 
 		setTimeout(() => {
-			this.progressDialogService.set({message: '70%', loaded: 70});
+			this.progressDialogService.set({ message: '70%', loaded: 70 });
 		}, 3000);
 
 		setTimeout(() => {
-			this.progressDialogService.set({message: '10%', loaded: 100});
+			this.progressDialogService.set({ message: '10%', loaded: 100 });
 		}, 4000);
 
 		setTimeout(() => {
@@ -247,25 +251,25 @@ DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ddddddddddddddddddddddddddddddddd
 		}, 4500);
 	}
 
-	showProgressDialogToBeCancelled(){
+	showProgressDialogToBeCancelled() {
 		this.progressDialogService.open('Uploading...', 'Ready to upload...', 'buffer', 100).subscribe();
-		this.progressDialogService.setCancelCallback(()=>{
+		this.progressDialogService.setCancelCallback(() => {
 			this.progressDialogService.closeIfOpened();
 		})
 		setTimeout(() => {
-			this.progressDialogService.set({message: '10%', loaded: 10});
+			this.progressDialogService.set({ message: '10%', loaded: 10 });
 		}, 1000);
 
 		setTimeout(() => {
-			this.progressDialogService.set({message: '50%', loaded: 50});
+			this.progressDialogService.set({ message: '50%', loaded: 50 });
 		}, 2000);
 
 		setTimeout(() => {
-			this.progressDialogService.set({message: '70%', loaded: 70});
+			this.progressDialogService.set({ message: '70%', loaded: 70 });
 		}, 3000);
 
 		setTimeout(() => {
-			this.progressDialogService.set({message: '10%', loaded: 100});
+			this.progressDialogService.set({ message: '10%', loaded: 100 });
 		}, 4000);
 
 		setTimeout(() => {
@@ -273,5 +277,5 @@ DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ddddddddddddddddddddddddddddddddd
 		}, 4500);
 	}
 
-	
+
 }

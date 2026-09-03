@@ -17,8 +17,15 @@
 <div class="fx-row-gap-1">
 	<button mat-mini-fab
 		(click)="toggleWait()"><mat-icon>{{waitServiceIsWaiting?'stop':'play_arrow'}}</mat-icon></button>
-	WaitService:
+	WaitService with WaitComponent:
 	<wait></wait>
+</div>
+
+<div class="fx-row-gap-1">
+	<button mat-mini-fab
+		(click)="setWaitProgress()"><mat-icon>{{waitProgressServiceIsWaiting?'stop':'play_arrow'}}</mat-icon></button>
+	WaitProgressService with WaitProgressComponent:
+	<waitProgress [value]="20" [bufferValue]="100"></waitProgress>
 </div>
 
 <div class="fx-column-gap-1">
