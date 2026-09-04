@@ -55,14 +55,17 @@ export class LogDialogComponent {
 
 				if (msg.contentType === 'html') {
 					if (msg.status || msg.status === 0) {
-						this.renderer.setProperty(nativeEl, 'srcdoc', msg.text);
+						// srcdoc = its own isolated document → <base> is correctly scoped here
+						this.renderer.setProperty(nativeEl, 'srcdoc', '<base target="_blank">' + msg.text);
 					} else {
+						// injected straight into the app's own document → no <base> scoping possible
 						this.renderer.setProperty(nativeEl, 'innerHTML', msg.text);
+						this.openLinksInNewTab(nativeEl);
 					}
 				} else if (msg.contentType === 'json' && msg.status! >= 0) {
-					this.renderer.setProperty(nativeEl, 'srcdoc', '<pre>' + msg.text + '</pre>');
+					this.renderer.setProperty(nativeEl, 'srcdoc', '<base target="_blank"><pre>' + msg.text + '</pre>');
 				} else if (msg.contentType === 'text') {
-					this.renderer.setProperty(nativeEl, 'srcdoc', '<pre>' + msg.text + '</pre>');
+					this.renderer.setProperty(nativeEl, 'srcdoc', '<base target="_blank"><pre>' + msg.text + '</pre>');
 				}
 			}
 		});
@@ -110,5 +113,12 @@ export class LogDialogComponent {
 
 	get messageType(): string {
 		return this.message()?.type ?? '';
+	}
+
+	private openLinksInNewTab(root: HTMLElement): void {
+		root.querySelectorAll('a[href]').forEach(a => {
+			this.renderer.setAttribute(a, 'target', '_blank');
+			this.renderer.setAttribute(a, 'rel', 'noopener noreferrer');
+		});
 	}
 }

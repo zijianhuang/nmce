@@ -23,25 +23,12 @@
 	}
 
 	@if (['text', 'html', 'json'].indexOf($safeNavigationMigration(message()?.contentType)!)>=0 && message()?.text) {
-
-	<html>
-
-	<head>
-		<base target="_blank" />
-		<!-- Ensure all href are opened in new tab, as described in https://stackoverflow.com/questions/17281486/use-target-blank-in-css -->
-	</head>
-
-	<body>
 		@if (message()?.status || message()?.status ===0) {
 		<iframe #htmlContent class="frame-dialog-content"></iframe>
 		}
 		@if (!message()?.status && message()?.status !==0) {
 		<div #htmlContent></div>
 		}
-	</body>
-
-	</html>
-
 	}
 </mat-dialog-content>
 <mat-dialog-actions [align]="actionsAlign">
