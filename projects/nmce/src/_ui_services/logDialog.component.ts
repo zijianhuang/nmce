@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Inject, InjectionToken, Renderer2, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, InjectionToken, Renderer2, ViewChild, ChangeDetectionStrategy, viewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 import { AlertSubjectMessage } from './types';
@@ -50,8 +50,9 @@ export class LogDialogComponent implements AfterViewInit {
 		this._message = v;
 	}
 
-	@ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
-
+	//@ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
+	htmlContentElement = viewChild<ElementRef<HTMLDivElement>>('htmlContent');
+	
 	/**
 	 * @param data
 	 * @param dialogRef
