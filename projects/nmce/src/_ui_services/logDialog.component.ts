@@ -50,7 +50,7 @@ export class LogDialogComponent implements AfterViewInit {
 		this._message = v;
 	}
 
-	@ViewChild('htmlContent', { static: true }) htmlContentElement?: ElementRef;
+	@ViewChild('htmlContent', { static: false }) htmlContentElement?: ElementRef;
 
 	/**
 	 * @param data
@@ -76,11 +76,16 @@ export class LogDialogComponent implements AfterViewInit {
 					} else {
 						this.renderer.setProperty(this.htmlContentElement.nativeElement, 'innerHTML', this.message.text);
 					}
+					console.debug('message text HTML: ' + this.message.text);
 				} else if (this.message.contentType === 'json' && this.message.status! >= 0) {
 					this.htmlContentElement.nativeElement.srcdoc = '<pre>' + this.message.text + '</pre>'; //good for iframe
+					console.debug('message text JSON: ' + this.message.text);
 				} else if (this.message.contentType === 'text') {
 					this.htmlContentElement.nativeElement.srcdoc = '<pre>' + this.message.text + '</pre>';
+					console.debug('message text TEXT: ' + this.message.text);
 				}
+			} else {
+				console.error('htmlContentElement is not yet available');
 			}
 		} else {
 			console.error('this.message is not yet available');

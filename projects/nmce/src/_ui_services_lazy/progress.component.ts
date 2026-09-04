@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Inject, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Injectable } from '@angular/core';
 
@@ -75,7 +75,7 @@ export class ProgressDialogService {
 		this._opened = v;
 	}
 
-	constructor(private dialog: MatDialog, private cdr: ChangeDetectorRef) { }
+	constructor(private dialog: MatDialog) { }
 
 	open(title: string, body: string, progressBarMode: ProgressBarMode, progressBarBufferValue?: number): Observable<boolean> {
 		this.modalRef = this.dialog.open(ProgressComponent, {
@@ -91,11 +91,9 @@ export class ProgressDialogService {
 		});
 
 		this.opened = true;
-		this.cdr.markForCheck();
 		const c = this.modalRef.afterClosed();
 		c.subscribe(() => {
 			this.opened = false;
-			this.cdr.markForCheck();
 		});
 		
 		return c;
