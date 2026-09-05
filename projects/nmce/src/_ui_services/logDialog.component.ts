@@ -1,6 +1,7 @@
 import {
 	Component, ElementRef, Inject, InjectionToken, Renderer2,
-	ChangeDetectionStrategy, viewChild, signal, afterRenderEffect
+	ChangeDetectionStrategy, viewChild, signal, afterRenderEffect,
+	Signal
 } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
@@ -9,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { rerenderHtmlContent } from '../_types/commonFunctions';
 
 export interface MessageDialogOptions {
 	useIcon?: boolean;
@@ -47,26 +49,7 @@ export class LogDialogComponent {
 		// either changes - no more relying on a single AfterViewInit pass.
 		afterRenderEffect({
 			write: () => {
-				const msg = this.message();
-				const el = this.htmlContentElement();
-				if (!msg || !el) return;
-
-				const nativeEl = el.nativeElement;
-
-				if (msg.contentType === 'html') {
-					if (msg.status || msg.status === 0) {
-						// srcdoc = its own isolated document → <base> is correctly scoped here
-						this.renderer.setProperty(nativeEl, 'srcdoc', '<base target="_blank">' + msg.text);
-					} else {
-						// injected straight into the app's own document → no <base> scoping possible
-						this.renderer.setProperty(nativeEl, 'innerHTML', msg.text);
-						this.openLinksInNewTab(nativeEl);
-					}
-				} else if (msg.contentType === 'json' && msg.status! >= 0) {
-					this.renderer.setProperty(nativeEl, 'srcdoc', '<base target="_blank"><pre>' + msg.text + '</pre>');
-				} else if (msg.contentType === 'text') {
-					this.renderer.setProperty(nativeEl, 'srcdoc', '<base target="_blank"><pre>' + msg.text + '</pre>');
-				}
+				rerenderHtmlContent(this.message(), this.htmlContentElement(), this.renderer);
 			}
 		});
 	}
@@ -113,12 +96,5 @@ export class LogDialogComponent {
 
 	get messageType(): string {
 		return this.message()?.type ?? '';
-	}
-
-	private openLinksInNewTab(root: HTMLElement): void {
-		root.querySelectorAll('a[href]').forEach(a => {
-			this.renderer.setAttribute(a, 'target', '_blank');
-			this.renderer.setAttribute(a, 'rel', 'noopener noreferrer');
-		});
 	}
 }

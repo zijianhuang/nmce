@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, OnInit, Renderer2, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, OnInit, 
+	Renderer2, ViewChild, ChangeDetectionStrategy, viewChild, afterRenderEffect, signal } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
@@ -8,6 +9,7 @@ import { DialogSize } from './types';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { rerenderHtmlContent, rerenderTextContent } from '../_types/commonFunctions';
 
 /**
  * Contain HTML content in iframe, used in HtmlFrameDialogService.
@@ -19,36 +21,32 @@ import { MatIconModule } from '@angular/material/icon';
 	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule]
 })
-export class HtmlFrameDialogComponent implements AfterViewInit {
+export class HtmlFrameDialogComponent {
 	title: string;
 
-	htmlContent: string;
+	readonly htmlContent= signal<string | undefined>(undefined);
 
 	useBackButton: boolean;
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean },
 		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
-		public dialogRef: MatDialogRef<HtmlFrameDialogComponent>) {
+		public dialogRef: MatDialogRef<HtmlFrameDialogComponent>,
+		protected renderer: Renderer2,) {
 		this.title = data.title;
-		this.htmlContent = data.htmlContent;
+		this.htmlContent.set( data.htmlContent);
 		this.useBackButton = data.useBackButton;
+		afterRenderEffect({
+			write: () => {
+				rerenderTextContent(this.htmlContent(), this.htmlContentElement(), this.renderer);
+			}
+		});
 	}
 
 	/**
 	 * iframe element to hold the HTML content
 	 */
-	@ViewChild('htmlContent', { static: true }) htmlContentElement?: ElementRef;
-
-	ngAfterViewInit() {
-		if (this.htmlContentElement) {
-			this.htmlContentElement.nativeElement.srcdoc = this.htmlContent; //this is an async operation, which will override head and body.
-
-			setTimeout(() => {
-				this.htmlContentElement?.nativeElement.contentDocument.head.insertAdjacentHTML('beforeend', '<base target="_blank" />');
-			}, 300); // Hopefully 300ms is long enough for srcdoc done.
-		}
-	}
+	readonly htmlContentElement = viewChild<ElementRef>('htmlContent');
 }
 
 /**

@@ -26,13 +26,16 @@ export class HtmlFramePrintDialogComponent extends HtmlFrameDialogComponent {
 	constructor(
 		@Inject(MAT_DIALOG_DATA) public data: { title: string, htmlContent: string, useBackButton: boolean },
 		@Inject(DIALOG_ACTIONS_ALIGN) public actionsAlign: 'start' | 'center' | 'end',
-		public dialogRef: MatDialogRef<HtmlFrameDialogComponent>, private location: Location) {
-		super(data, actionsAlign, dialogRef);
+		public dialogRef: MatDialogRef<HtmlFrameDialogComponent>, 
+		protected renderer: Renderer2,
+		private location: Location) {
+		super(data, actionsAlign, dialogRef, renderer);
 	}
 
 	print() {
-		if (this.htmlContentElement) {
-			HtmlPrintFunc.print(this.htmlContentElement.nativeElement.srcdoc);
+		const hce= this.htmlContentElement();
+		if (hce) {
+			HtmlPrintFunc.print(hce.nativeElement.srcdoc);
 		} else {
 			console.error('this.htmlContentElement does not exist.')
 		}
