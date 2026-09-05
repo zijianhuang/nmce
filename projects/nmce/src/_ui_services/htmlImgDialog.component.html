@@ -1,22 +1,20 @@
-<div mat-dialog-title class="block-items-gap-1 line-ellipsis">
+<h2 mat-dialog-title class="block-items-gap-1 line-ellipsis">
 	@if (useBackButton) {
-<button type="button" mat-mini-fab color="any" matDialogClose aria-label="Close">
+	<button type="button" mat-mini-fab color="any" matDialogClose aria-label="Close">
 		<mat-icon>arrow_back</mat-icon>
 	</button>
-}
+	}
 	<span>{{title}}</span>
-	<div><mat-checkbox [(ngModel)]="scaleToWidth" i18n-matTooltip  matTooltip="Original resolution or scale to fit width" i18n>Scale to fit width</mat-checkbox></div>
-</div>
+	<div>
+		<mat-checkbox [(ngModel)]="scaleToWidth" i18n-matTooltip matTooltip="Original resolution or scale to fit width"
+			i18n>Scale to fit width</mat-checkbox>
+	</div>
+</h2>
 <mat-dialog-content>
-	<html>
-	<head>
-		<base target="_blank" />
-		<!-- Ensure all href are opened in new tab, as described in https://stackoverflow.com/questions/17281486/use-target-blank-in-css -->
-	</head>
-	<body #htmlContent>
-		<img [ngClass]="{'max-width-auto-height': scaleToWidth, 'original-size': !scaleToWidth}" src="{{imageUrl}}" decoding="async" />
-	</body>
-</html>
+	<div #htmlContent>
+		<img [ngClass]="{'max-width-auto-height': scaleToWidth, 'original-size': !scaleToWidth}" src="{{imageUrl}}"
+			decoding="async" />
+	</div>
 </mat-dialog-content>
 @if (!useBackButton) {
 <mat-dialog-actions [align]="actionsAlign">

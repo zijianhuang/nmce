@@ -116,7 +116,7 @@ export class HtmlDialogsComponent implements DataComponent {
 		const imgUrl = this.useLargeImg ? 'https://upload.wikimedia.org/wikipedia/commons/7/75/Anselm_Feuerbach_-_Das_Gastmahl._Nach_Platon_%28zweite_Fassung%29_-_Google_Art_Project.jpg'
 			: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Platon.png';
 		this.htmlImgDialogService.open({
-			title: 'HTML Img Content of small or big images from a link or with long name',
+			title: 'HTML Img Content of small or big images',
 			imageUrl: imgUrl,
 			size: this.sizeSelectedControl.value,
 			useBackButton: this.useBackButton

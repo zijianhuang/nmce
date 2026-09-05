@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
     selector: 'html-img-dialog',
@@ -16,7 +17,7 @@ import { CommonModule } from '@angular/common';
     styleUrls: ['../../../components-styles/nmce-styles.css', '../../../components-styles/nmce-colors.css', '../../../components-styles/nmce-flex.css'],
     standalone: true,
 	changeDetection: ChangeDetectionStrategy.Eager,
-	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule, CommonModule]
+	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatCheckboxModule, MatIconModule, FormsModule, CommonModule]
 })
 export class HtmlImgDialogComponent {
 	title: string;
