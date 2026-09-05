@@ -21,7 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
 	changeDetection: ChangeDetectionStrategy.Eager,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule]
 })
-export class TextDialogComponent implements OnInit, AfterViewInit {
+export class TextDialogComponent implements OnInit {
 	title: string;
 
 	lines: string;
@@ -41,9 +41,6 @@ export class TextDialogComponent implements OnInit, AfterViewInit {
 
 	ngOnInit() {
 		this.htmlContentElement.nativeElement.insertAdjacentHTML('beforeend', this.lines);
-	}
-
-	ngAfterViewInit() {
 	}
 }
 
