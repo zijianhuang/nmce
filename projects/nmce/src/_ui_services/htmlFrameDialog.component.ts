@@ -1,6 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, OnInit, 
-	Renderer2, ViewChild, ChangeDetectionStrategy, viewChild, afterRenderEffect, signal } from '@angular/core';
+import {
+	AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, OnInit,
+	Renderer2, ViewChild, ChangeDetectionStrategy, viewChild, afterRenderEffect, signal
+} from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
@@ -24,7 +26,7 @@ import { rerenderHtmlContent, rerenderTextContent } from '../_types/commonFuncti
 export class HtmlFrameDialogComponent {
 	title: string;
 
-	readonly htmlContent= signal<string | undefined>(undefined);
+	readonly htmlContent = signal<string | undefined>(undefined);
 
 	useBackButton: boolean;
 
@@ -34,7 +36,7 @@ export class HtmlFrameDialogComponent {
 		public dialogRef: MatDialogRef<HtmlFrameDialogComponent>,
 		protected renderer: Renderer2,) {
 		this.title = data.title;
-		this.htmlContent.set( data.htmlContent);
+		this.htmlContent.set(data.htmlContent);
 		this.useBackButton = data.useBackButton;
 		afterRenderEffect({
 			write: () => {
@@ -71,6 +73,13 @@ export class HtmlHRefFrameDialogComponent implements OnInit {
 	useBackButton: boolean;
 
 	/**
+	 * HTML placeholder
+	 */
+	readonly htmlContent = signal<string | undefined>(undefined);
+
+	readonly htmlContentElement = viewChild<ElementRef>('htmlContent');
+
+	/**
 	 * Constructor
 	 * @param data If useBackButton=true, the dialog will be 98% width and height of the viewport.
 	 * @param dialogRef
@@ -85,21 +94,23 @@ export class HtmlHRefFrameDialogComponent implements OnInit {
 		this.title = data.title;
 		this.url = data.url;
 		this.useBackButton = this.data.useBackButton;
+		afterRenderEffect({
+			write: () => {
+				rerenderTextContent(this.htmlContent(), this.htmlContentElement(), this.renderer);
+			}
+		});
 	}
-
-	/**
-	 * HTML placeholder
-	 */
-	@ViewChild('htmlContent', { static: true }) htmlContentElement?: ElementRef;
 
 	ngOnInit(): void {
 		this.httpClient.get(this.url, { responseType: 'text' }).subscribe(
 			{
 				next: response => {
-					if (this.htmlContentElement) {
-						this.htmlContentElement.nativeElement.srcdoc = response;
-						this.cdr.markForCheck();
-					}
+					this.htmlContent.set(response);
+					this.cdr.markForCheck();
+					// if (this.htmlContentElement) {
+					// 	this.htmlContentElement.nativeElement.srcdoc = response;
+					// 	this.cdr.markForCheck();
+					// }
 				},
 				error: (error: HttpErrorResponse | any) => {
 					this.title = 'Cannot retrieve ' + this.title;
@@ -126,7 +137,8 @@ export class HtmlHRefFrameDialogComponent implements OnInit {
 						errMsg = error.message ? error.message : error.toString();
 					}
 
-					this.renderer.setProperty(this.htmlContentElement?.nativeElement, 'innerHTML', errMsg);
+					this.htmlContent.set(errMsg);
+					//this.renderer.setProperty(this.htmlContentElement?.nativeElement, 'innerHTML', errMsg);
 					this.cdr.markForCheck();
 				}
 			});

@@ -70,8 +70,9 @@ export class HtmlHRefFramePrintDialogComponent extends HtmlHRefFrameDialogCompon
 	}
 
 	print() {
-		if (this.htmlContentElement) {
-			HtmlPrintFunc.print(this.htmlContentElement.nativeElement.srcdoc);
+		const hce = this.htmlContentElement();
+		if (hce) {
+			HtmlPrintFunc.print(hce.nativeElement.srcdoc);
 		} else {
 			console.error('this.htmlContentElement does not exist.')
 		}
