@@ -23,7 +23,7 @@ export class HtmlDialogsComponent implements DataComponent {
 	useLargeImg = false;
 	sizeSelectedControl: FormControl = new FormControl(1);
 
-	data: any;
+	data: any; // for test only, not really used.
 
 	showLarge=false;
 
