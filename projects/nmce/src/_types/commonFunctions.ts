@@ -1,7 +1,7 @@
 import { ElementRef, Renderer2 } from "@angular/core";
 import { AlertSubjectMessage } from "../_ui_services/types";
 
-export function rerenderHtmlContent(msg: AlertSubjectMessage | undefined, el: ElementRef<any> | undefined, renderer: Renderer2): void {
+export function rerenderAlertMessage(msg: AlertSubjectMessage | undefined, el: ElementRef<any> | undefined, renderer: Renderer2): void {
 	function openLinksInNewTab(root: HTMLElement): void {
 		root.querySelectorAll('a[href]').forEach(a => {
 			renderer.setAttribute(a, 'target', '_blank');

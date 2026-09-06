@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { rerenderHtmlContent } from '../_types/commonFunctions';
+import { rerenderAlertMessage } from '../_types/commonFunctions';
 
 export interface MessageDialogOptions {
 	useIcon?: boolean;
@@ -49,7 +49,7 @@ export class LogDialogComponent {
 		// either changes - no more relying on a single AfterViewInit pass.
 		afterRenderEffect({
 			write: () => {
-				rerenderHtmlContent(this.message(), this.htmlContentElement(), this.renderer);
+				rerenderAlertMessage(this.message(), this.htmlContentElement(), this.renderer);
 			}
 		});
 	}

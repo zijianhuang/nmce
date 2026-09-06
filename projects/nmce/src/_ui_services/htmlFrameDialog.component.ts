@@ -11,7 +11,7 @@ import { DialogSize } from './types';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { rerenderHtmlContent, rerenderTextContent } from '../_types/commonFunctions';
+import { rerenderAlertMessage, rerenderTextContent } from '../_types/commonFunctions';
 
 /**
  * Contain HTML content in iframe, used in HtmlFrameDialogService.
@@ -27,6 +27,11 @@ export class HtmlFrameDialogComponent {
 	title: string;
 
 	readonly htmlContent = signal<string | undefined>(undefined);
+
+	/**
+	 * iframe element to hold the HTML content
+	 */
+	readonly htmlContentElement = viewChild<ElementRef>('htmlContent');
 
 	useBackButton: boolean;
 
@@ -44,11 +49,6 @@ export class HtmlFrameDialogComponent {
 			}
 		});
 	}
-
-	/**
-	 * iframe element to hold the HTML content
-	 */
-	readonly htmlContentElement = viewChild<ElementRef>('htmlContent');
 }
 
 /**
