@@ -41,8 +41,8 @@ export class HtmlFrameDialogComponent {
 		public dialogRef: MatDialogRef<HtmlFrameDialogComponent>,
 		protected renderer: Renderer2,) {
 		this.title = data.title;
-		this.htmlContent.set(data.htmlContent);
 		this.useBackButton = data.useBackButton;
+		this.htmlContent.set(data.htmlContent);
 		afterRenderEffect({
 			write: () => {
 				rerenderTextContent(this.htmlContent(), this.htmlContentElement(), this.renderer);

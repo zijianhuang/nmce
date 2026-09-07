@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, OnInit, Renderer2, SecurityContext, ViewChild } from '@angular/core';
+import { afterRenderEffect, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Inject, Injectable, OnInit, Renderer2, SecurityContext, viewChild, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
@@ -11,7 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 /**
  * Contain HTML content, used in HtmlDialogService.
- * The content is contained inside another html tag, and all href linkes will be opened in new browser tab.
+ * The content is contained inside another html tag, and all href links will be opened in new browser tab.
  */
 @Component({
 	selector: 'html-dialog',
@@ -20,11 +20,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, FormsModule]
 })
-export class HtmlDialogComponent implements AfterViewInit, OnInit {
+export class HtmlDialogComponent {
 	title: string;
 
-    @ViewChild('htmlContent', {static: true}) htmlContentRef?: ElementRef;
-	
+	htmlContentRef = viewChild.required<ElementRef>('htmlContent');
+
 	useBackButton: boolean;
 	toConfirm?: boolean;
 	yes?: string;
@@ -43,20 +43,18 @@ export class HtmlDialogComponent implements AfterViewInit, OnInit {
 		this.toConfirm = data.toConfirm;
 		this.yes = data.yes;
 		this.no = data.no;
+		afterRenderEffect({
+			write: () => {
+				this.htmlContentRef().nativeElement.innerHTML =
+					this.sanitizer.sanitize(SecurityContext.HTML, this.data.htmlContent);
+			},
+			read: () => {
+				const anchors: HTMLAnchorElement[] =
+					this.htmlContentRef().nativeElement.querySelectorAll('a');
+				anchors.forEach(a => this.renderer.setAttribute(a, 'target', '_blank'));
+			}
+		});
 	}
-
-	ngOnInit(): void {
-		this.htmlContentRef!.nativeElement.innerHTML = this.sanitizer.sanitize(SecurityContext.HTML, this.data.htmlContent);
-	}
-
-    ngAfterViewInit(): void {
-        if (this.htmlContentRef) {
-            const anchors: HTMLAnchorElement[] = this.htmlContentRef.nativeElement.querySelectorAll('a');
-            anchors.forEach(a => this.renderer.setAttribute(a, 'target', '_blank'));
-        }
-
-		this.ref.markForCheck();
-    }
 
 	confirm() {
 		this.dialogRef.close(true);

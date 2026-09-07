@@ -38,8 +38,9 @@ export class HtmlPrintDialogComponent extends HtmlDialogComponent {
 	}
 
 	print() {
-		if (this.htmlContentRef) {
-			const s = this.sanitizer.sanitize(SecurityContext.HTML, this.data.htmlContent);
+		const hcr = this.htmlContentRef();
+		if (hcr) {
+			const s = this.sanitizer.sanitize(SecurityContext.HTML, hcr.nativeElement.innerHTML);
 			HtmlPrintFunc.printWithCSS(s!, this.location.prepareExternalUrl(this.cssUrl));
 		} else {
 			console.error($localize`this.htmlContentElement does not exist.`);
