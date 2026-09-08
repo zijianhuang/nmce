@@ -8,7 +8,7 @@ import { DIALOG_ACTIONS_ALIGN } from './baseTypes';
 /**
  * Display text area for text to be saved in Azure Blob Storage.
  * Different fields will trigger different events which will be further handled.
- * This component is used by multiple functions via different routes, or by HTML tempalte so noteLabel and modelChanged will be used.
+ * This component is used by multiple functions via different routes, or by HTML template so noteLabel and modelChanged will be used.
  */
 @Directive()
 export abstract class TextEditorDialogComponentBase implements AfterViewInit {

@@ -1,10 +1,7 @@
-import { state, style, transition, trigger, useAnimation } from '@angular/animations';
 import { Component, OnDestroy, OnInit, VERSION, ChangeDetectionStrategy, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
-import { bounceInDown, flash } from 'ng-animate';
 import { ActionSheetItemSubjectService, AlertService, NotificationsService } from 'nmce';
-import { Subject } from 'rxjs';
 import { MatBadgeModule } from '@angular/material/badge';
 import { RouterModule } from '@angular/router';
 import packageJson from '../../../../package.json';

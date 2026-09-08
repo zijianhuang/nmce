@@ -30,10 +30,10 @@ function getLanguageDisplayObject(code) {
   };
 }
 
-// Generate locales.auto.ps1
-const csvText = locales.map((code) => `"${code}"`).join(', ');
-const ps1 = `$names = @(${csvText})\nreturn $names`;
-fs.writeFileSync('locales.auto.ps1', ps1);
+// // Generate locales.auto.ps1
+// const csvText = locales.map((code) => `"${code}"`).join(', ');
+// const ps1 = `$names = @(${csvText})\nreturn $names`;
+// fs.writeFileSync('locales.auto.ps1', ps1);
 
 // Generate locales.auto.html which will be used in the onboarding page
 const listItems = locales
