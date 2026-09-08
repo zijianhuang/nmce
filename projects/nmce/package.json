@@ -1,6 +1,6 @@
 {
   "name": "nmce",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "author": {
     "name": "Z"
   },
@@ -10,6 +10,6 @@
     "url": "git+https://github.com/zijianhuang/nmce.git"
   },
   "dependencies": {
-    "nmce-func": "^1.7.1"
+    "nmce-func": "^1.7.2"
   }
 }

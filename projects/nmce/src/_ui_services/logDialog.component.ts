@@ -58,13 +58,13 @@ export class LogDialogComponent {
 		const msg = this.message();
 		if (!msg) return undefined;
 		switch (msg.type) {
-			case 'success': return 'Success';
-			case 'info': return 'Info';
-			case 'warning': return 'Warning';
-			case 'error': return 'Error';
-			case 'notify': return 'Notification';
-			case 'response': return 'Response';
-			default: return 'Info';
+			case 'success': return $localize`Success`;
+			case 'info': return $localize`Info`;
+			case 'warning': return $localize`Warning`;
+			case 'error': return $localize`Error`;
+			case 'notify': return $localize`Notification`;
+			case 'response': return $localize`Response`;
+			default: return $localize`Info`;
 		}
 	}
 

@@ -71,13 +71,16 @@ Then update `package.json` and `ng-package.json` of each library accordingly.
 
 ## I18N
 
-The translations done within the libraries of this project are to verify if i18n is properly done, while the app projects utilizing the libraries will pickup translation units annotated in the lib codes. This is, the translation resource files (XLF) won't be utilized directly in the app projects, since `ng extract-i18n` can scan the i18n annotations in 3rd party libraries. 
-
+The translations done within the libraries of this project are to verify if i18n is properly done. 
 After updating i18n tagging in HTML and TS codes, run:
 
 `ng extract-i18n`
 
 This will create or update messages.xlf, and merge with existing translations, since this command had been replaced what mentioned in: https://stackoverflow.com/questions/71775495/update-merge-i18n-translation-files-in-angular, that is `ng add ng-extract-i18n-merge` from https://github.com/daniel-sc/ng-extract-i18n-merge .
+
+Hints:
+* When running `ng extract-i18n` for the consumer Angular app, the tool will pickup both the i18n annotations of the app TS code and the published JS code of the libraries imported, and the app developers are responsible to translate the XLIFF files generated.
+* Therefore when there are changes of i18n content in the libraries, you have to build the libraries first before running `ng extract-i18n`.
 
 Remarks:
 * Sometimes I have to run `ng add ng-extract-i18n-merge` first after defining new languages in angular.json, and then run `ng extract-i18n` to generate new xlf files.

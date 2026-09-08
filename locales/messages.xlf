@@ -6,7 +6,7 @@
         <source>Undo changes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce-html-editor/src/lib/htmlDocEditorDialogBase.directive.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">1</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/textEditorDialogBase.component.html</context>
@@ -17,7 +17,7 @@
         <source>Original resolution or scale to fit width</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/htmlImgDialog.component.html</context>
-          <context context-type="linenumber">8</context>
+          <context context-type="linenumber">9</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlImgPrintDialog.component.html</context>
@@ -35,18 +35,18 @@
         <source>Remove item</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/notifications.component.html</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">15</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/notifications.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7000649363168371045" datatype="html">
         <source>Save changes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce-html-editor/src/lib/htmlDocEditorDialogBase.directive.html</context>
-          <context context-type="linenumber">8</context>
+          <context context-type="linenumber">1</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/textEditorDialogBase.component.html</context>
@@ -64,7 +64,7 @@
         <source>Back</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce-html-editor/src/lib/htmlDocEditorDialogBase.directive.html</context>
-          <context context-type="linenumber">2</context>
+          <context context-type="linenumber">1</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_components/wip.component.html</context>
@@ -79,7 +79,7 @@
         <source>Yes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/confirm.component.ts</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">25</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/confirm.service.ts</context>
@@ -101,7 +101,7 @@
         <source>No</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/confirm.component.ts</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">26</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/confirm.service.ts</context>
@@ -119,13 +119,6 @@
           <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4390435099342067853" datatype="html">
-        <source>[<x id="PH" equiv-text="type.name"/>]: trying to create multiple instances, but this service should be a singleton.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/nmce/src/_ui_services/baseTypes.ts</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="5143548108329331679" datatype="html">
         <source>No response from backend <x id="PH" equiv-text="host"/>. Connection is unavailable.</source>
         <context-group purpose="location">
@@ -134,11 +127,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/htmlFrameDialog.component.ts</context>
-          <context context-type="linenumber">112</context>
+          <context context-type="linenumber">123</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/htmlHRefDialog.component.ts</context>
-          <context context-type="linenumber">68</context>
+          <context context-type="linenumber">65</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/localAlert.service.ts</context>
@@ -146,7 +139,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/textDialog.component.ts</context>
-          <context context-type="linenumber">95</context>
+          <context context-type="linenumber">100</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5190092630197064800" datatype="html">
@@ -164,22 +157,29 @@
         <source><x id="PH" equiv-text="this.noteLabel"/> saved to Local Storage</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce-html-editor/src/lib/localDocHtmlEditorDialog.component.ts</context>
-          <context context-type="linenumber">73</context>
+          <context context-type="linenumber">75</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/localTextEditorDialog.component.ts</context>
-          <context context-type="linenumber">64</context>
+          <context context-type="linenumber">68</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6483680626836794824" datatype="html">
         <source>Date Range</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/dateHourRangePicker.component.ts</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">30</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/dateRangePicker.component.ts</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6759205696902713848" datatype="html">
+        <source>Warning</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/logDialog.component.ts</context>
+          <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6789040151215296839" datatype="html">
@@ -197,11 +197,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/htmlFrameDialog.component.ts</context>
-          <context context-type="linenumber">114</context>
+          <context context-type="linenumber">125</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/htmlHRefDialog.component.ts</context>
-          <context context-type="linenumber">70</context>
+          <context context-type="linenumber">67</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/localAlert.service.ts</context>
@@ -209,7 +209,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/textDialog.component.ts</context>
-          <context context-type="linenumber">97</context>
+          <context context-type="linenumber">102</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6941659493626287408" datatype="html">
@@ -222,16 +222,16 @@
       <trans-unit id="7114071321253816795" datatype="html">
         <source>this.htmlContentElement does not exist.</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.ts</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlImgPrintDialog.component.ts</context>
+          <context context-type="linenumber">36</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.ts</context>
-          <context context-type="linenumber">77</context>
+          <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlPrintDialogs.component.ts</context>
+          <context context-type="linenumber">46</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.ts</context>
-          <context context-type="linenumber">102</context>
+          <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlPrintDialogs.component.ts</context>
+          <context context-type="linenumber">84</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7482395107104484666" datatype="html">
@@ -252,25 +252,25 @@
         <source>Something wrong</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/dataComponentPrintDialog.component.ts</context>
-          <context context-type="linenumber">70</context>
+          <context context-type="linenumber">74</context>
         </context-group>
       </trans-unit>
       <trans-unit id="786281080071228614" datatype="html">
         <source>Scale to fit width</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/htmlImgDialog.component.html</context>
-          <context context-type="linenumber">8</context>
+          <context context-type="linenumber">10</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlImgPrintDialog.component.html</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8497528947328199741" datatype="html">
         <source>Time</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/timePicker.component.ts</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8592282545368203219" datatype="html">
@@ -295,7 +295,7 @@
         <source>Copied to clipboard</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/dataComponentPrintDialog.component.ts</context>
-          <context context-type="linenumber">67</context>
+          <context context-type="linenumber">71</context>
         </context-group>
       </trans-unit>
       <trans-unit id="43679560859374265" datatype="html">
@@ -312,11 +312,18 @@
           <context context-type="linenumber">161</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="8044304973848447418" datatype="html">
+        <source>Notification</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/logDialog.component.ts</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="8066608938393600549" datatype="html">
         <source>Message</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce-html-editor/src/lib/emailConfirm.component.html</context>
-          <context context-type="linenumber">51</context>
+          <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
       <trans-unit id="9127604588498960753" datatype="html">
@@ -324,7 +331,7 @@
         <note priority="1" from="description">email subject</note>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce-html-editor/src/lib/emailConfirm.component.html</context>
-          <context context-type="linenumber">46</context>
+          <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1230154438678955604" datatype="html">
@@ -332,6 +339,13 @@
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/passwordsInput.component.html</context>
           <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1292495482518963817" datatype="html">
+        <source>[<x id="PH" equiv-text="type.name"/>]: trying to create multiple instances, but this service should be a singleton. Please removed references in providers</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/baseTypes.ts</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1431416938026210429" datatype="html">
@@ -345,7 +359,7 @@
         <source>Cancel</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce-html-editor/src/lib/emailConfirm.component.html</context>
-          <context context-type="linenumber">65</context>
+          <context context-type="linenumber">1</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/dateHourRangePicker.component.html</context>
@@ -381,6 +395,17 @@
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_components/notFound.component.html</context>
           <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="314315645942131479" datatype="html">
+        <source>Info</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/logDialog.component.ts</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/logDialog.component.ts</context>
+          <context context-type="linenumber">67</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3241357959735682038" datatype="html">
@@ -431,6 +456,13 @@
           <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="4648900870671159218" datatype="html">
+        <source>Success</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/logDialog.component.ts</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="4730804625942085752" datatype="html">
         <source>Minute</source>
         <context-group purpose="location">
@@ -450,7 +482,7 @@
         <source>Email</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce-html-editor/src/lib/emailConfirm.component.html</context>
-          <context context-type="linenumber">2</context>
+          <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5073308731342027963" datatype="html">
@@ -467,20 +499,40 @@
           <context context-type="linenumber">14</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/htmlDialog.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/htmlFrameDialog.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/htmlImgDialog.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/logDialog.component.html</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">35</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services/textDialog.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">26</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/dataComponentPrintDialog.component.html</context>
           <context context-type="linenumber">20</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlFramePrintDialog.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlImgPrintDialog.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce/src/_ui_services_lazy/htmlPrintDialog.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8700121026680200191" datatype="html">
@@ -521,11 +573,7 @@
         <source>BCC</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce-html-editor/src/lib/emailConfirm.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/nmce-html-editor/src/lib/emailConfirm.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1464072562214937907" datatype="html">
@@ -535,23 +583,26 @@
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="1519954996184640001" datatype="html">
+        <source>Error</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/logDialog.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="1640609344969975994" datatype="html">
         <source>To</source>
         <note priority="1" from="description">To for Email recipient</note>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce-html-editor/src/lib/emailConfirm.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2587240527868724590" datatype="html">
         <source>CC</source>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce-html-editor/src/lib/emailConfirm.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">projects/nmce-html-editor/src/lib/emailConfirm.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5403684285319082289" datatype="html">
@@ -566,7 +617,14 @@
         <note priority="1" from="description">Email send</note>
         <context-group purpose="location">
           <context context-type="sourcefile">projects/nmce-html-editor/src/lib/emailConfirm.component.html</context>
-          <context context-type="linenumber">68</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6552449600024516046" datatype="html">
+        <source>Response</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">projects/nmce/src/_ui_services/logDialog.component.ts</context>
+          <context context-type="linenumber">66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7379726829888309084" datatype="html">
